@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaCrop Digital Twin — BDCrops</title>
+    <meta name="description" content="AquaCrop process-based yield simulation for Bangladesh crops."><text y=%22.9em%22 font-size=%2290%22>🌾</text></svg>">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/page.css">
+    <!-- Favicon + PWA -->
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.svg">
+    <link rel="manifest" href="../site.webmanifest">
+    <meta name="theme-color" content="#22c55e">
+</head>
+<body data-page="aquacrop">
+
+<div id="site-header"></div>
+
+<section class="page-hero aquacrop-hero">
+    <div class="hero-container">
+        <div class="hero-content">
+            <span class="page-badge">🌾 Digital Twin</span>
+            <h1>AquaCrop Digital Twin<br>Yield &amp; Water Simulation</h1>
+            <p>FAO AquaCrop model adapted for Bangladesh varieties (BRRI dhan47, BR11, BINA dhan-24). Predicts yield, water use and stress scenarios — validated against satellite NDVI observations.</p>
+            <div class="hero-cta">
+                <a href="../index.html#pilot" class="btn-primary btn-large">Request Simulation</a>
+                <a href="#dashboard" class="btn-outline btn-large">See Dashboard</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="kpi-showcase" id="dashboard">
+    <div class="features-container">
+        <div class="section-header">
+            <h2 class="section-title">Live Example — Surkhali Union, Batiaghata, Khulna</h2>
+            <p class="section-subtitle">AEZ-13 Saline Coastal Zone · Boro Rice (BRRI dhan47) · Rainfed · 2026 season</p>
+        </div>
+        <div class="kpi-grid">
+            <div class="kpi-card"><h3>5.80 t/ha</h3><p>Simulated Yield</p></div>
+            <div class="kpi-card"><h3>+18.4%</h3><p>vs District Average</p></div>
+            <div class="kpi-card"><h3>653 mm</h3><p>Seasonal ET</p></div>
+            <div class="kpi-card"><h3>0.89 kg/m³</h3><p>Water Use Efficiency</p></div>
+            <div class="kpi-card kpi-highlight"><h3>77 / 100</h3><p>Field Health Score</p></div>
+            <div class="kpi-card kpi-highlight"><h3>95 / 100</h3><p>Model Confidence (A+)</p></div>
+        </div>
+        <div class="dashboard-showcase">
+            <img src="../images/aquacrop/dashboard.png" alt="AquaCrop 16-panel digital twin dashboard" loading="lazy">
+            <p class="caption">16-panel AquaCrop dashboard — crop growth · water balance · yield trajectory · risk indicators · scenario matrix · satellite-vs-simulation validation</p>
+        </div>
+    </div>
+</section>
+
+<section class="features-alt">
+    <div class="features-container">
+        <div class="section-header">
+            <h2 class="section-title">What makes it Bangladesh-ready</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card"><div class="feature-icon">🇧🇩</div><h3>Local Variety Library</h3><p>BRRI dhan47, BR11, BR22, BINA dhan-24, jute, potato — with equivalence scaling from base FAO crops.</p></div>
+            <div class="feature-card"><div class="feature-icon">🌊</div><h3>Coastal Salinity Aware</h3><p>Handles saline clay loam soils (AEZ-13), tidal water balance, and salt-tolerant variety selection.</p></div>
+            <div class="feature-card"><div class="feature-icon">🛰️</div><h3>Satellite Validated</h3><p>Model output cross-checked against real Sentinel-2 NDVI — RMSE + bias reported per season.</p></div>
+            <div class="feature-card"><div class="feature-icon">📊</div><h3>16-Scenario Matrix</h3><p>Best case · worst case · irrigation trials · flood/salinity/drought with yield-loss quantification.</p></div>
+            <div class="feature-card"><div class="feature-icon">🧠</div><h3>Multi-Source Confidence</h3><p>Weather (25%) + Satellite (25%) + Soil (20%) + Calibration (15%) + Convergence (15%) score.</p></div>
+            <div class="feature-card"><div class="feature-icon">🎯</div><h3>Audience Targeting</h3><p>Government · Farmer · Research · Insurance profiles — each with tailored health scoring weights.</p></div>
+        </div>
+    </div>
+</section>
+
+<section class="use-cases">
+    <div class="features-container">
+        <div class="section-header">
+            <h2 class="section-title">Real-World Decisions It Answers</h2>
+        </div>
+        <div class="use-case-grid">
+            <div class="use-case"><div class="use-case-icon">💧</div><h4>Should I irrigate now?</h4><p>+50 mm supplemental irrigation → yield delta forecast per scenario.</p></div>
+            <div class="use-case"><div class="use-case-icon">🌊</div><h4>What if a cyclone floods my field?</h4><p>7-day submergence scenario shows up to 84% yield loss — deploy combine harvesters NOW.</p></div>
+            <div class="use-case"><div class="use-case-icon">🧂</div><h4>Is my variety salt-tolerant enough?</h4><p>Soil salinity 6.0 dS/m + BRRI dhan47 tolerance → variety choice validated.</p></div>
+            <div class="use-case"><div class="use-case-icon">📅</div><h4>When to harvest?</h4><p>DAP + peak canopy cover + validated GDD → optimal harvest window.</p></div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-section aquacrop-cta">
+    <div class="cta-container">
+        <h2>🌾 Request an AquaCrop Simulation</h2>
+        <p>Full digital-twin simulation with 8-band satellite validation. Free for pilot deployments with BADC, BWDB, DAE and research institutions.</p>
+        <a href="../index.html#pilot" class="btn-primary btn-large">Request Simulation →</a>
+    </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="../js/include.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

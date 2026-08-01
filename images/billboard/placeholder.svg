@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
+  <rect width="600" height="400" fill="#f0f4f8"/>
+  <rect x="20" y="20" width="560" height="360" fill="none"
+        stroke="#94a3b8" stroke-width="2" stroke-dasharray="8 4"/>
+  <text x="300" y="180" font-family="-apple-system,Segoe UI,sans-serif"
+        font-size="48" text-anchor="middle" fill="#64748b">📊</text>
+  <text x="300" y="230" font-family="-apple-system,Segoe UI,sans-serif"
+        font-size="18" font-weight="600" text-anchor="middle" fill="#475569">
+    Sample Output Coming Soon
+  </text>
+  <text x="300" y="255" font-family="-apple-system,Segoe UI,sans-serif"
+        font-size="13" text-anchor="middle" fill="#94a3b8">
+    Satellite + AI Billboard Analytics
+  </text>
+</svg>
