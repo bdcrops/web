@@ -9,33 +9,18 @@
     <meta property="og:url" content="https://bdcrops.com">
     <meta property="og:title" content="BDCrops — AI + Satellite Intelligence">
     <meta property="og:description" content="Stop spraying 100% to treat 5%. Precision farming with free Sentinel-2 satellite data.">
-    <meta property="og:image" content="https://bdcrops.com/images/demo-dashboard.png">
-
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌾</text></svg>">
+    <meta property="og:image" content="https://bdcrops.com/images/demo-dashboard.png"><text y=%22.9em%22 font-size=%2290%22>🌾</text></svg>">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/page.css">
+    <!-- Favicon + PWA -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.svg">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#22c55e">
 </head>
-<body>
+<body data-page="services">
 
-<header class="header">
-    <div class="nav-container">
-        <a href="#" class="logo">
-            <div class="logo-icon">🌾</div>
-            BDCrops
-        </a>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="#features">Services</a></li>
-                <li><a href="#demos">Live Demos</a></li>
-                <li><a href="#how">How It Works</a></li>
-                <li><a href="#pilot">Free Pilot</a></li>
-            </ul>
-        </nav>
-        <div class="nav-cta">
-            <a href="https://wa.me/8801717676441" class="btn-outline" target="_blank" rel="noopener">WhatsApp</a>
-            <a href="#pilot" class="btn-primary">Request Pilot</a>
-        </div>
-    </div>
-</header>
+<div id="site-header"></div>
 
 <section class="hero">
     <div class="hero-container">
@@ -173,59 +158,30 @@
         <h2>🛰️ Request a Free Pilot</h2>
         <p>We're opening 5 free pilot projects for serious organizations. Tell us your location and goal — we'll deliver full satellite analysis at no cost.</p>
 
-        <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" class="pilot-form">
-            <div class="form-row">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="text" name="organization" placeholder="Organization" required>
-            </div>
-            <div class="form-row">
-                <input type="email" name="email" placeholder="Email" required>
-                <input type="text" name="whatsapp" placeholder="WhatsApp (+880)">
-            </div>
-            <input type="text" name="location" placeholder="Target location (district / coordinates / Maps link)" required>
-            <textarea name="goal" rows="4" placeholder="What do you want to analyze? (crop health, water, deforestation, etc.)" required></textarea>
-            <button type="submit" class="btn-primary btn-large">Send Pilot Request</button>
-        </form>
+        <form id="pilot-form" class="pilot-form" onsubmit="return submitPilot(event)">
+                    <input type="text"  name="_honeypot" style="position:absolute;left:-9999px;" tabindex="-1" autocomplete="off">
+                    <div class="form-row">
+                        <input type="text"  name="name"     placeholder="Your Name" autocomplete="name" required>
+                        <input type="text"  name="org"      placeholder="Organization" autocomplete="organization">
+                    </div>
+                    <div class="form-row">
+                        <input type="email" name="email"    placeholder="Email" autocomplete="email" required>
+                        <input type="tel"   name="whatsapp" placeholder="WhatsApp (+880)" autocomplete="tel">
+                    </div>
+                    <input type="text" name="location" placeholder="Target location (district / coordinates / Maps link)" required>
+                    <textarea name="goal" rows="4" placeholder="What do you want to analyze? (crop health, water, deforestation, etc.)"></textarea>
+                    <button type="submit" class="btn-primary btn-lg" id="pilot-submit">Send Pilot Request</button>
+                    <div id="pilot-status" class="pilot-status"></div>
+                </form>
         <p class="form-note">We respond within 24 hours via email & WhatsApp.</p>
     </div>
 </section>
 
-<footer class="footer">
-    <div class="footer-container">
-        <div class="footer-section">
-            <h4>BDCrops</h4>
-            <p>AI + Satellite intelligence for Bangladesh agriculture.</p>
-            <p style="margin-top:1rem;"><strong>Email:</strong> <a href="mailto:info@bdcrops.com">info@bdcrops.com</a></p>
-            <p><strong>WhatsApp:</strong> <a href="https://wa.me/8801717676441">+880 1717 676441</a></p>
-        </div>
-        <div class="footer-section">
-            <h4>Product</h4>
-            <a href="#features">Services</a>
-            <a href="#demos">Live Demos</a>
-            <a href="#how">How It Works</a>
-            <a href="#pilot">Free Pilot</a>
-        </div>
-        <div class="footer-section">
-            <h4>Use Cases</h4>
-            <a href="#">Rice Monitoring (Boro/Aman)</a>
-            <a href="#">Jute Crop Health</a>
-            <a href="#">Vegetable Yield</a>
-            <a href="#">Flood/Drought Mapping</a>
-        </div>
-        <div class="footer-section">
-            <h4>Connect</h4>
-            <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
-            <a href="mailto:info@bdcrops.com">Email</a>
-            <a href="https://wa.me/8801717676441" target="_blank" rel="noopener">WhatsApp</a>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <p>Powered by Sentinel-2 · Microsoft Planetary Computer · Open Source</p>
-        <p>&copy; <span id="year"></span> BDCrops — Built for Bangladesh 🇧🇩</p>
-    </div>
-</footer>
+<div id="site-footer"></div>
 
+<script src="js/include.js"></script>
 <script src="js/main.js"></script>
+    <script src="js/pilot-form.js" defer></script>
 </body>
 </html>
   
