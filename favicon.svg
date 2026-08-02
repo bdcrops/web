@@ -1,15 +1,25 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <defs>
-    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#4ade80"/>
       <stop offset="100%" stop-color="#15803d"/>
     </linearGradient>
+    <linearGradient id="circ" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#86efac"/>
+      <stop offset="100%" stop-color="#22c55e"/>
+    </linearGradient>
   </defs>
-  <rect width="64" height="64" rx="12" fill="url(#g)"/>
-  <g fill="none" stroke="#ffffff" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round">
-    <circle cx="32" cy="22" r="10"/>
-    <circle cx="22" cy="40" r="10"/>
-    <circle cx="42" cy="40" r="10"/>
+
+  <!-- Rounded green tile background -->
+  <rect width="64" height="64" rx="12" fill="url(#bg)"/>
+
+  <!-- Three SOLID FILLED overlapping circles with white outlines -->
+  <g stroke="#ffffff" stroke-width="2">
+    <circle cx="32" cy="22" r="11" fill="url(#circ)"/>
+    <circle cx="22" cy="40" r="11" fill="url(#circ)"/>
+    <circle cx="42" cy="40" r="11" fill="url(#circ)"/>
   </g>
-  <circle cx="32" cy="34" r="3.5" fill="#fbbf24" stroke="#ffffff" stroke-width="1"/>
+
+  <!-- Bright gold center dot -->
+  <circle cx="32" cy="34" r="4" fill="#fbbf24" stroke="#ffffff" stroke-width="1.5"/>
 </svg>

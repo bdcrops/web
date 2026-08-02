@@ -4,12 +4,16 @@
       <stop offset="0%" stop-color="#4ade80"/>
       <stop offset="100%" stop-color="#15803d"/>
     </linearGradient>
+    <linearGradient id="ac" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#86efac"/>
+      <stop offset="100%" stop-color="#22c55e"/>
+    </linearGradient>
   </defs>
   <rect width="180" height="180" rx="36" fill="url(#ag)"/>
-  <g fill="none" stroke="#ffffff" stroke-width="12" stroke-linejoin="round" stroke-linecap="round">
-    <circle cx="90" cy="62" r="28"/>
-    <circle cx="62" cy="112" r="28"/>
-    <circle cx="118" cy="112" r="28"/>
+  <g stroke="#ffffff" stroke-width="5">
+    <circle cx="90"  cy="62"  r="30" fill="url(#ac)"/>
+    <circle cx="62"  cy="112" r="30" fill="url(#ac)"/>
+    <circle cx="118" cy="112" r="30" fill="url(#ac)"/>
   </g>
-  <circle cx="90" cy="95" r="10" fill="#fbbf24" stroke="#ffffff" stroke-width="3"/>
+  <circle cx="90" cy="95" r="11" fill="#fbbf24" stroke="#ffffff" stroke-width="4"/>
 </svg>
