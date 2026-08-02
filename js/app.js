@@ -16,7 +16,7 @@ function resolvePage() {
 
 async function fetchHTML(url) {
     const res = await fetch(url);
-    if (!res.ok) throw new Error(`HTTP ${res.status}: ${url}`);
+    if (!res.ok) throw new Error('HTTP ' + res.status + ': ' + url);
     return res.text();
 }
 
@@ -28,7 +28,7 @@ async function injectMeta() {
         tmp.querySelectorAll('link, meta, title').forEach(el => document.head.appendChild(el.cloneNode(true)));
         tmp.querySelectorAll('script').forEach(old => {
             const s = document.createElement('script');
-            [...old.attributes].forEach(a => s.setAttribute(a.name, a.value));
+            for (const a of old.attributes) s.setAttribute(a.name, a.value);
             s.textContent = old.textContent;
             document.head.appendChild(s);
         });
@@ -36,16 +36,23 @@ async function injectMeta() {
 }
 
 function applyPageMeta(doc) {
-    const get = n => doc.querySelector(`meta[name="${n}"]`)?.content;
+    const get = n => { const el = doc.querySelector('meta[name="' + n + '"]'); return el ? el.content : null; };
     const title = get('page:title');
     const desc  = get('page:description');
     const canon = get('page:canonical');
     if (title) {
         document.title = title;
-        document.querySelector('meta[property="og:title"]')?.setAttribute('content', title);
+        const og = document.querySelector('meta[property="og:title"]');
+        if (og) og.setAttribute('content', title);
     }
-    if (desc) document.querySelector('meta[name="description"]')?.setAttribute('content', desc);
-    if (canon) document.querySelector('link[rel="canonical"]')?.setAttribute('href', canon);
+    if (desc) {
+        const d = document.querySelector('meta[name="description"]');
+        if (d) d.setAttribute('content', desc);
+    }
+    if (canon) {
+        const c = document.querySelector('link[rel="canonical"]');
+        if (c) c.setAttribute('href', canon);
+    }
 }
 
 async function loadComponent(url, slotId) {
@@ -53,20 +60,20 @@ async function loadComponent(url, slotId) {
         const html = await fetchHTML(url);
         const slot = document.getElementById(slotId);
         if (slot) slot.innerHTML = html;
-    } catch (e) { console.warn(`${url} failed:`, e); }
+    } catch (e) { console.warn(url + ' failed:', e); }
 }
 
 async function loadPage(pageUrl) {
     const slot = document.getElementById('slot-page');
     try {
         const html = await fetchHTML(pageUrl);
-        const doc = new DOMParser().parseFromString(`<div>${html}</div>`, 'text/html');
+        const doc = new DOMParser().parseFromString('<div>' + html + '</div>', 'text/html');
         const wrap = doc.body.querySelector('div');
         applyPageMeta(wrap);
         wrap.querySelectorAll('meta[name^="page:"]').forEach(el => el.remove());
         if (slot) slot.innerHTML = wrap.innerHTML;
     } catch (e) {
-        if (slot) slot.innerHTML = `<section style="padding:140px 24px;text-align:center;"><h2>Page not found</h2><a href="/">← Home</a></section>`;
+        if (slot) slot.innerHTML = '<section style="padding:140px 24px;text-align:center;"><h2>Page not found</h2><a href="/">Home</a></section>';
     }
 }
 
@@ -105,7 +112,7 @@ function initSlider() {
 
 function initScrollAnimations() {
     const els = document.querySelectorAll('.fade-in');
-    if (!('IntersectionObserver' in window)) return els.forEach(el => el.classList.add('visible'));
+    if (!('IntersectionObserver' in window)) { els.forEach(el => el.classList.add('visible')); return; }
     const obs = new IntersectionObserver(entries => {
         entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
@@ -131,22 +138,23 @@ function initForms() {
         const statusEl = form.querySelector('.pilot-status');
         const submitEl = form.querySelector('button[type="submit"]');
         if (!statusEl || !submitEl) return;
-        const set = (t, m) => { statusEl.className = `pilot-status ${t}`; statusEl.textContent = m; statusEl.style.display = 'block'; };
+        const set = (t, m) => { statusEl.className = 'pilot-status ' + t; statusEl.textContent = m; statusEl.style.display = 'block'; };
         form.addEventListener('submit', async e => {
             e.preventDefault();
-            if (form.querySelector('[name="_honeypot"]')?.value) return;
-            submitEl.disabled = true; submitEl.textContent = 'Sending…';
-            set('loading', '⏳ Sending…');
+            const hp = form.querySelector('[name="_honeypot"]');
+            if (hp && hp.value) return;
+            submitEl.disabled = true; submitEl.textContent = 'Sending...';
+            set('loading', 'Sending...');
             try {
                 const r = await fetch(FORM_ENDPOINT, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
-                if (!r.ok) throw 0;
-                set('success', '✅ Sent! Reply within 24 hours.');
+                if (!r.ok) throw new Error('failed');
+                set('success', 'Sent! Reply within 24 hours.');
                 form.reset();
-                submitEl.textContent = 'Sent ✓';
+                submitEl.textContent = 'Sent';
                 if (typeof gtag === 'function') gtag('event', 'form_submit', { form_id: form.id });
                 setTimeout(() => { submitEl.disabled = false; submitEl.textContent = 'Send'; }, 5000);
-            } catch {
-                set('error', '❌ Failed. Email matin@bdcrops.com');
+            } catch (err) {
+                set('error', 'Failed. Email matin@bdcrops.com');
                 submitEl.disabled = false; submitEl.textContent = 'Try Again';
             }
         });
