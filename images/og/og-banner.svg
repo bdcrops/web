@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#15803d"/>
+      <stop offset="50%" stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#166534"/>
+    </linearGradient>
+    <linearGradient id="tile" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4ade80"/>
+      <stop offset="100%" stop-color="#15803d"/>
+    </linearGradient>
+    <linearGradient id="circ" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#86efac"/>
+      <stop offset="100%" stop-color="#22c55e"/>
+    </linearGradient>
+    <pattern id="grid" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background gradient + grid overlay -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Decorative circles top-right (satellite feel) -->
+  <circle cx="1050" cy="100"  r="80" fill="rgba(255,255,255,0.05)"/>
+  <circle cx="1050" cy="100"  r="50" fill="rgba(255,255,255,0.08)"/>
+  <circle cx="1050" cy="100"  r="20" fill="rgba(255,255,255,0.15)"/>
+
+  <!-- Logo tile (trefoil) -->
+  <g transform="translate(80,150)">
+    <rect width="140" height="140" rx="28" fill="url(#tile)" stroke="rgba(255,255,255,0.3)" stroke-width="3"/>
+    <g transform="translate(70,70) scale(1.8)" stroke="#ffffff" stroke-width="2.5">
+      <circle cx="0" cy="-20" r="20" fill="url(#circ)"/>
+      <circle cx="-18" cy="14" r="20" fill="url(#circ)"/>
+      <circle cx="18" cy="14" r="20" fill="url(#circ)"/>
+      <circle cx="0" cy="4" r="7" fill="#fbbf24" stroke="#ffffff" stroke-width="1.5"/>
+    </g>
+  </g>
+
+  <!-- BDCrops wordmark -->
+  <text x="250" y="220" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="800" fill="#ffffff" letter-spacing="-2">BDCrops</text>
+  <text x="510" y="180" font-family="system-ui" font-size="26" font-weight="700" fill="#fbbf24">™</text>
+
+  <!-- Tagline -->
+  <text x="250" y="265" font-family="system-ui" font-size="26" font-weight="500" fill="rgba(255,255,255,0.9)">Satellite Intelligence for Agriculture</text>
+
+  <!-- Main headline -->
+  <text x="80" y="400" font-family="system-ui" font-size="52" font-weight="700" fill="#ffffff">AI + Satellite Data for</text>
+  <text x="80" y="465" font-family="system-ui" font-size="52" font-weight="700" fill="#fbbf24">Bangladesh Agriculture 🇧🇩</text>
+
+  <!-- Feature badges -->
+  <g transform="translate(80, 510)">
+    <rect x="0"   y="0" width="200" height="52" rx="26" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+    <text x="100" y="34" font-family="system-ui" font-size="20" font-weight="600" fill="#ffffff" text-anchor="middle">🛰️ Sentinel-2</text>
+
+    <rect x="220" y="0" width="200" height="52" rx="26" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+    <text x="320" y="34" font-family="system-ui" font-size="20" font-weight="600" fill="#ffffff" text-anchor="middle">🌱 Crop Health</text>
+
+    <rect x="440" y="0" width="200" height="52" rx="26" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+    <text x="540" y="34" font-family="system-ui" font-size="20" font-weight="600" fill="#ffffff" text-anchor="middle">💧 AquaCrop</text>
+
+    <rect x="660" y="0" width="200" height="52" rx="26" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+    <text x="760" y="34" font-family="system-ui" font-size="20" font-weight="600" fill="#ffffff" text-anchor="middle">🇧🇩 Bangladesh-First</text>
+  </g>
+
+  <!-- URL bottom-right -->
+  <text x="1120" y="590" font-family="system-ui" font-size="24" font-weight="600" fill="rgba(255,255,255,0.85)" text-anchor="end">bdcrops.com</text>
+</svg>
