@@ -159,21 +159,31 @@
         <p>We're opening 5 free pilot projects for serious organizations. Tell us your location and goal — we'll deliver full satellite analysis at no cost.</p>
 
         <form id="pilot-form" class="pilot-form" onsubmit="return submitPilot(event)">
-                    <input type="text"  name="_honeypot" style="position:absolute;left:-9999px;" tabindex="-1" autocomplete="off">
-                    <div class="form-row">
-                        <input type="text"  name="name"     placeholder="Your Name" autocomplete="name" required>
-                        <input type="text"  name="org"      placeholder="Organization" autocomplete="organization">
-                    </div>
-                    <div class="form-row">
-                        <input type="email" name="email"    placeholder="Email" autocomplete="email" required>
-                        <input type="tel"   name="whatsapp" placeholder="WhatsApp (+880)" autocomplete="tel">
-                    </div>
-                    <input type="text" name="location" placeholder="Target location (district / coordinates / Maps link)" required>
-                    <textarea name="goal" rows="4" placeholder="What do you want to analyze? (crop health, water, deforestation, etc.)"></textarea>
-                    <button type="submit" class="btn-primary btn-lg" id="pilot-submit">Send Pilot Request</button>
-                    <div id="pilot-status" class="pilot-status"></div>
-                </form>
-        <p class="form-note">We respond within 24 hours via email & WhatsApp.</p>
+    <input type="text" name="_honeypot" style="position:absolute;left:-9999px;opacity:0;" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+    <div class="form-row">
+        <input type="text" name="name" placeholder="Your Name *" autocomplete="name" required>
+        <input type="text" name="org" placeholder="Organization" autocomplete="organization">
+    </div>
+
+    <div class="form-row">
+        <input type="email" name="email" placeholder="Email *" autocomplete="email" required>
+        <input type="tel" name="whatsapp" placeholder="WhatsApp (+880...)" autocomplete="tel">
+    </div>
+
+    <input type="text" name="location" placeholder="Target location (district / coordinates / Google Maps link) *" required>
+
+    <textarea name="goal" rows="4" placeholder="What do you want to analyze? (crop health, water, deforestation, yield forecast, etc.) *" required></textarea>
+
+    <button type="submit" class="btn-primary btn-lg" id="pilot-submit">Send Pilot Request</button>
+
+    <div id="pilot-status" class="pilot-status" role="status" aria-live="polite"></div>
+
+    <p style="text-align:center;color:#64748b;font-size:0.9rem;margin-top:1rem;">
+        We respond within 24 hours via email & WhatsApp.
+    </p>
+</form>
+        
     </div>
 </section>
 
