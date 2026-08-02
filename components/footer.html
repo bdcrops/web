@@ -1,38 +1,81 @@
-<footer class="site-footer">
+<!-- ═══════════════════════════════════════════════════════════════
+     footer.html — BDCrops Production Footer (5-column layout)
+     ─────────────────────────────────────────────────────────────
+     Columns:
+       1. Brand + Operating Brands + Contact
+       2. Services
+       3. Use Cases
+       4. About
+       5. Connect (social)
+     ═══════════════════════════════════════════════════════════════ -->
+
+<footer class="footer">
     <div class="footer-container">
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <h3>🌾 BD<span>Crops</span></h3>
-                <p>AI + Satellite intelligence for Bangladesh agriculture.</p>
-                <div class="footer-social">
-                    <a href="https://www.linkedin.com/company/bdcrops" target="_blank" rel="noopener">in</a>
-                    <a href="https://www.facebook.com/bdcrops" target="_blank" rel="noopener">f</a>
-                    <a href="https://x.com/matinict" target="_blank" rel="noopener">X</a>
-                    <a href="https://www.youtube.com/@bdcrops" target="_blank" rel="noopener">YT</a>
-                    <a href="https://github.com/bdcrops" target="_blank" rel="noopener">GH</a>
-                </div>
+
+        <!-- ── COLUMN 1: BRAND ──────────────────────────────── -->
+        <div class="footer-section footer-brand-col">
+            <h4>BDCrops Technologies</h4>
+            <p>AI + Satellite intelligence for Bangladesh agriculture, climate resilience, and outdoor media analytics.</p>
+
+            <div class="footer-brands">
+                <div class="footer-brands-title">Operating Brands</div>
+                <div class="footer-brand-item">🌾 <strong>BDCrops</strong> — Satellite &amp; AgriAI</div>
+                <div class="footer-brand-item">🤖 <a href="https://www.youtube.com/@PlayOwnAi" target="_blank" rel="noopener"><strong>PlayOwnAI</strong></a> — AI Innovation Platform</div>
             </div>
-            <div class="footer-col">
-                <h4>Product</h4>
-                <a href="/services">Services</a>
-                <a href="/#demos">Demos</a>
-                <a href="/#pilot">Free Pilot</a>
-            </div>
-            <div class="footer-col">
-                <h4>Company</h4>
-                <a href="/about">About</a>
-                <a href="/contact">Contact</a>
-            </div>
-            <div class="footer-col">
-                <h4>Contact</h4>
-                <a href="mailto:matin@bdcrops.com">matin@bdcrops.com</a>
-                <a href="tel:+8801717676441">+880 1717-676441</a>
-                <a href="https://wa.me/8801717676441" target="_blank" rel="noopener">WhatsApp</a>
-                <span>Dhaka, Bangladesh</span>
+
+            <div class="footer-contact">
+                <div><strong>Email:</strong> <a href="mailto:matin@bdcrops.com">matin@bdcrops.com</a></div>
+                <div><strong>WhatsApp:</strong> <a href="https://wa.me/8801717676441" target="_blank" rel="noopener">+880 1717 676441</a></div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; <span id="footer-year"></span> BDCrops Technologies. Built by <a href="https://www.linkedin.com/in/matinict/" target="_blank" rel="noopener">Abdul Matin</a>.</p>
+
+        <!-- ── COLUMN 2: SERVICES ──────────────────────────────── -->
+        <div class="footer-section">
+            <h4>Services</h4>
+            <a href="/8band-report">8-Band Report</a>
+            <a href="/aquacrop">AquaCrop Digital Twin</a>
+            <a href="/billboard">Billboard Analytics</a>
+            <a href="/#demos">Live Demos</a>
+            <a href="/#pilot">Free Pilot</a>
         </div>
+
+        <!-- ── COLUMN 3: USE CASES ─────────────────────────────── -->
+        <div class="footer-section">
+            <h4>Use Cases</h4>
+            <a href="/use-case/rice">Rice Monitoring</a>
+            <a href="/use-case/jute">Jute Crop Health</a>
+            <a href="/use-case/vegetable">Vegetable Yield</a>
+            <a href="/use-case/flood">Flood/Drought Mapping</a>
+        </div>
+
+        <!-- ── COLUMN 4: ABOUT ─────────────────────────────────── -->
+        <div class="footer-section">
+            <h4>About</h4>
+            <a href="/about#story">Our Story</a>
+            <a href="/about#platform">GeoData Platform</a>
+            <a href="/about#partnerships">Partnerships</a>
+            <a href="/about#team">Leadership</a>
+            <a href="/about#partner">Partner With Us</a>
+        </div>
+
+        <!-- ── COLUMN 5: CONNECT ───────────────────────────────── -->
+        <div class="footer-section">
+            <h4>Connect</h4>
+            <a href="https://www.linkedin.com/company/bdcrops" target="_blank" rel="noopener">💼 LinkedIn</a>
+            <a href="https://www.facebook.com/bdcrops"         target="_blank" rel="noopener">📘 Facebook</a>
+            <a href="https://x.com/matinict"                   target="_blank" rel="noopener">✖ X (Twitter)</a>
+            <a href="https://www.youtube.com/@bdcrops"         target="_blank" rel="noopener">▶ YouTube — BDCrops</a>
+            <a href="https://www.youtube.com/@PlayOwnAi"       target="_blank" rel="noopener">▶ YouTube — PlayOwnAI</a>
+            <a href="https://github.com/bdcrops"               target="_blank" rel="noopener">💻 GitHub</a>
+            <a href="https://wa.me/8801717676441"              target="_blank" rel="noopener">💬 WhatsApp</a>
+        </div>
+
     </div>
+
+    <!-- ── BOTTOM BAR ─────────────────────────────────────────── -->
+    <div class="footer-bottom">
+        <p>Powered by Sentinel-2 · WorldView-3 · Microsoft Planetary Computer · Open Source</p>
+        <p>&copy; <span id="footer-year"></span> BDCrops Technologies — Built for Bangladesh 🇧🇩</p>
+    </div>
+
 </footer>
