@@ -137,10 +137,10 @@
             <div class="banner-slider">
                 <div class="slides">
                     <div class="slide active">
-                        <picture><source srcset="images/Banner/banner1.webp?v=20260802" type="image/webp"><img src="images/Banner/banner1.webp?v=202608022338" alt="BDCrops Banner 1" width="678" height="452" loading="eager" fetchpriority="high"></picture>
+                        <picture><source srcset="images/Banner/banner1.webp?v=20260802" type="image/webp"><img src="images/Banner/banner1.png?v=20260802" alt="BDCrops Banner 1" width="678" height="452" loading="eager" fetchpriority="high"></picture>
                     </div>
                     <div class="slide">
-                        <picture><source srcset="images/Banner/banner2.webp?v=20260802" type="image/webp"><img src="images/Banner/banner2.webp?v=202608022338" alt="BDCrops Banner 2" width="678" height="452" loading="lazy"></picture>
+                        <picture><source srcset="images/Banner/banner2.webp?v=20260802" type="image/webp"><img src="images/Banner/banner2.png?v=20260802" alt="BDCrops Banner 2" width="678" height="452" loading="lazy"></picture>
                     </div>
                 </div>
                 <div class="slider-dots">
