@@ -1,7 +1,1 @@
-# Force HTTPS (Cloudflare handles this via SSL/TLS mode, but explicit is safer)
-http://bdcrops.com/*   https://bdcrops.com/:splat   301!
-http://www.bdcrops.com/*  https://bdcrops.com/:splat  301!
-https://www.bdcrops.com/*  https://bdcrops.com/:splat  301!
-
-# Clean URLs (optional)
-/index.html  /  301
+/*    /index.html   200
