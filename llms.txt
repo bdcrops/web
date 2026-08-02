@@ -1,0 +1,16 @@
+# BDCrops
+
+> Satellite Intelligence for Bangladesh Agriculture — providing multispectral analysis, water detection, and crop monitoring services for farmers and agribusinesses.
+
+## Core Pages
+- [Home](https://bdcrops.com/): Main landing page with product overview
+- [Demos](https://bdcrops.com/#demos): Live demonstrations of satellite imagery products
+
+## Products
+- Multispectral Dashboard: Real-time crop health monitoring
+- Water Detection: Field-level water resource mapping
+- True Color Imagery: High-resolution satellite views
+- NDVI Analysis: Vegetation index monitoring
+
+## Contact
+- [Contact Form](https://bdcrops.com/#contact): Get in touch for pilot programs
