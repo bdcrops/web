@@ -277,16 +277,3 @@ button, .btn, a.btn-primary, a.btn-outline {
     min-height: 44px;
     min-width: 44px;
 }
-
-/* Accessibility: Touch targets */
-.banner-slider .dot {
-    width: 12px !important;
-    height: 12px !important;
-    padding: 12px !important;
-    box-sizing: content-box !important;
-    background-clip: content-box !important;
-}
-button, .btn, a.btn-primary, a.btn-outline {
-    min-height: 44px;
-    min-width: 44px;
-}
