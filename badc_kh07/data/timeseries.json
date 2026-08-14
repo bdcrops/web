@@ -1,0 +1,342 @@
+{
+  "years_observed": [
+    2020,
+    2023,
+    2025
+  ],
+  "years_forecast": [
+    2035,
+    2040
+  ],
+  "scenarios": [
+    "baseline",
+    "climate_pressure",
+    "adaptation"
+  ],
+  "series": {
+    "ndvi": {
+      "label": "NDVI (mean)",
+      "unit": "index",
+      "observed": [
+        {
+          "year": 2020,
+          "value": 0.2871
+        },
+        {
+          "year": 2023,
+          "value": 0.3209
+        },
+        {
+          "year": 2025,
+          "value": 0.3923
+        }
+      ],
+      "forecast": [
+        {
+          "year": 2035,
+          "ci_low": -0.4165,
+          "ci_high": 1.0,
+          "baseline": 0.5835,
+          "climate_pressure": 0.4084,
+          "adaptation": 0.7002
+        },
+        {
+          "year": 2040,
+          "ci_low": -0.3152,
+          "ci_high": 1.0,
+          "baseline": 0.6848,
+          "climate_pressure": 0.4794,
+          "adaptation": 0.8218
+        }
+      ]
+    },
+    "ndwi": {
+      "label": "NDWI (mean)",
+      "unit": "index",
+      "observed": [
+        {
+          "year": 2020,
+          "value": -0.2904
+        },
+        {
+          "year": 2023,
+          "value": -0.3347
+        },
+        {
+          "year": 2025,
+          "value": -0.3758
+        }
+      ],
+      "forecast": [
+        {
+          "year": 2035,
+          "ci_low": -0.8003,
+          "ci_high": -0.2835,
+          "baseline": -0.5419,
+          "climate_pressure": -0.3794,
+          "adaptation": -0.6503
+        },
+        {
+          "year": 2040,
+          "ci_low": -0.9805,
+          "ci_high": -0.2723,
+          "baseline": -0.6264,
+          "climate_pressure": -0.4385,
+          "adaptation": -0.7517
+        }
+      ]
+    },
+    "evi": {
+      "label": "EVI (mean)",
+      "unit": "index",
+      "observed": [
+        {
+          "year": 2020,
+          "value": 0.2149
+        },
+        {
+          "year": 2023,
+          "value": 0.2067
+        },
+        {
+          "year": 2025,
+          "value": 0.2828
+        }
+      ],
+      "forecast": [
+        {
+          "year": 2035,
+          "ci_low": -0.6136,
+          "ci_high": 1.0,
+          "baseline": 0.3864,
+          "climate_pressure": 0.2705,
+          "adaptation": 0.4636
+        },
+        {
+          "year": 2040,
+          "ci_low": -0.5522,
+          "ci_high": 1.0,
+          "baseline": 0.4478,
+          "climate_pressure": 0.3135,
+          "adaptation": 0.5374
+        }
+      ]
+    },
+    "savi": {
+      "label": "SAVI (mean)",
+      "unit": "index",
+      "observed": [
+        {
+          "year": 2020,
+          "value": 0.192
+        },
+        {
+          "year": 2023,
+          "value": 0.1941
+        },
+        {
+          "year": 2025,
+          "value": 0.2507
+        }
+      ],
+      "forecast": [
+        {
+          "year": 2035,
+          "ci_low": -0.6539,
+          "ci_high": 1.0,
+          "baseline": 0.3461,
+          "climate_pressure": 0.2423,
+          "adaptation": 0.4153
+        },
+        {
+          "year": 2040,
+          "ci_low": -0.5996,
+          "ci_high": 1.0,
+          "baseline": 0.4004,
+          "climate_pressure": 0.2803,
+          "adaptation": 0.4804
+        }
+      ]
+    },
+    "flood_risk_pct": {
+      "label": "Flood Risk",
+      "unit": "%",
+      "observed": [
+        {
+          "year": 2020,
+          "value": 11.98
+        },
+        {
+          "year": 2023,
+          "value": 7.85
+        },
+        {
+          "year": 2025,
+          "value": 9.57
+        }
+      ],
+      "forecast": [
+        {
+          "year": 2035,
+          "ci_low": 0.0,
+          "ci_high": 52.9842,
+          "baseline": 2.9842,
+          "climate_pressure": 2.0889,
+          "adaptation": 3.5811
+        },
+        {
+          "year": 2040,
+          "ci_low": 0.0,
+          "ci_high": 50.2211,
+          "baseline": 0.2211,
+          "climate_pressure": 0.1547,
+          "adaptation": 0.2653
+        }
+      ]
+    },
+    "cropland_pct": {
+      "label": "Cropland Area",
+      "unit": "%",
+      "observed": [
+        {
+          "year": 2020,
+          "value": 73.45
+        },
+        {
+          "year": 2023,
+          "value": 79.74
+        },
+        {
+          "year": 2025,
+          "value": 79.17
+        }
+      ],
+      "forecast": [
+        {
+          "year": 2035,
+          "ci_low": 42.4903,
+          "ci_high": 100.0,
+          "baseline": 92.4903,
+          "climate_pressure": 64.7432,
+          "adaptation": 100.0
+        },
+        {
+          "year": 2040,
+          "ci_low": 48.5863,
+          "ci_high": 100.0,
+          "baseline": 98.5863,
+          "climate_pressure": 69.0104,
+          "adaptation": 100.0
+        }
+      ]
+    },
+    "soc_mean": {
+      "label": "Soil Organic Carbon",
+      "unit": "g/kg",
+      "observed": [
+        {
+          "year": 2020,
+          "value": 26.256
+        },
+        {
+          "year": 2023,
+          "value": 27.673
+        },
+        {
+          "year": 2025,
+          "value": 25.84
+        }
+      ],
+      "forecast": [
+        {
+          "year": 2035,
+          "ci_low": 0.0,
+          "ci_high": 76.1044,
+          "baseline": 26.1044,
+          "climate_pressure": 18.2731,
+          "adaptation": 31.3253
+        },
+        {
+          "year": 2040,
+          "ci_low": 0.0,
+          "ci_high": 75.9077,
+          "baseline": 25.9077,
+          "climate_pressure": 18.1354,
+          "adaptation": 31.0893
+        }
+      ]
+    },
+    "residue_mean": {
+      "label": "Crop Residue",
+      "unit": "fraction",
+      "observed": [
+        {
+          "year": 2020,
+          "value": 0.3474
+        },
+        {
+          "year": 2023,
+          "value": 0.4379
+        },
+        {
+          "year": 2025,
+          "value": 0.4554
+        }
+      ],
+      "forecast": [
+        {
+          "year": 2035,
+          "ci_low": 0.1883,
+          "ci_high": 1.0,
+          "baseline": 0.6883,
+          "climate_pressure": 0.4818,
+          "adaptation": 0.826
+        },
+        {
+          "year": 2040,
+          "ci_low": 0.2997,
+          "ci_high": 1.0,
+          "baseline": 0.7997,
+          "climate_pressure": 0.5598,
+          "adaptation": 0.9596
+        }
+      ]
+    },
+    "congestion_pct": {
+      "label": "Drainage Congestion",
+      "unit": "%",
+      "observed": [
+        {
+          "year": 2020,
+          "value": 12.97
+        },
+        {
+          "year": 2023,
+          "value": 8.38
+        },
+        {
+          "year": 2025,
+          "value": 10.13
+        }
+      ],
+      "forecast": [
+        {
+          "year": 2035,
+          "ci_low": 0.0,
+          "ci_high": 52.5513,
+          "baseline": 2.5513,
+          "climate_pressure": 1.7859,
+          "adaptation": 3.0616
+        },
+        {
+          "year": 2040,
+          "ci_low": 0.0,
+          "ci_high": 50.0,
+          "baseline": 0.0,
+          "climate_pressure": 0.0,
+          "adaptation": 0.0
+        }
+      ]
+    }
+  }
+}

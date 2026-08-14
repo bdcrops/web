@@ -1,0 +1,8 @@
+zone,class_id,class_name,pixel_count,persistence_mean,congestion_mean,high_risk_pixels,congestion_pct,twi_included
+ALL,,all_valid,872135,0.1042,0.1042,113112,12.97,False
+LULC,1,"{'name': 'Water', 'color': '#1f77b4'}",29692,0.6534,0.6534,28811,97.03,False
+LULC,2,"{'name': 'Vegetation', 'color': '#2ca02c'}",130200,0.0,0.0,0,0.0,False
+LULC,3,"{'name': 'Agriculture', 'color': '#ffeb3b'}",298610,0.0003,0.0003,0,0.0,False
+LULC,4,"{'name': 'BareSoil', 'color': '#8c564b'}",137098,0.4801,0.4801,80989,59.07,False
+LULC,5,"{'name': 'BuiltUp', 'color': '#d62728'}",64774,0.0727,0.0727,3290,5.08,False
+LULC,6,"{'name': 'Fallow', 'color': '#9467bd'}",211761,0.0039,0.0039,22,0.01,False

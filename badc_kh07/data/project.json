@@ -1,0 +1,75 @@
+{
+  "name": "SurkhaliUnionMultiyear",
+  "topic": "Surkhali Union Multi-Year",
+  "brand": "BDCrops AgroVisionTM",
+  "report_title": "BADC Surkhali Union - Multi-Year Baseline & Forecast",
+  "accent_color": "#2A9D8F",
+  "program_name": "BADC Multi-Year Cropland Baseline & Forecast",
+  "aoi_meta": {
+    "id": "AOI_KH07",
+    "name": "Surkhali Union Coastal Cropland",
+    "union": "Surkhali",
+    "upazila": "Batiaghata",
+    "district": "Khulna",
+    "division": "Khulna",
+    "country": "Bangladesh",
+    "centroid": [
+      89.4645,
+      22.6765
+    ],
+    "source": "SurkhaliU.kml",
+    "epsg": 4326,
+    "ecozone": "Coastal Saline Zone",
+    "ecoregion": "Ganges Tidal Floodplain",
+    "soil_zone": "Saline Tidal Floodplain (AEZ-13)",
+    "polder_ref": "BWDB Polder 30",
+    "area_skm": 89
+  },
+  "years_observed": [
+    2020,
+    2023,
+    2025
+  ],
+  "years_forecast": [
+    2035,
+    2040
+  ],
+  "scenarios": [
+    "baseline",
+    "climate_pressure",
+    "adaptation"
+  ],
+  "generated": "2026-08-14T11:38:16.722103+00:00",
+  "places": [
+    {
+      "name": "Magurkhali",
+      "lon": 89.3887137,
+      "lat": 22.7020884,
+      "kind": "village"
+    },
+    {
+      "name": "Sarappur",
+      "lon": 89.4287108,
+      "lat": 22.6971791,
+      "kind": "village"
+    },
+    {
+      "name": "Surkhali",
+      "lon": 89.4582365,
+      "lat": 22.6699372,
+      "kind": "village"
+    },
+    {
+      "name": "দেলুটি",
+      "lon": 89.4154129,
+      "lat": 22.6165926,
+      "kind": "village"
+    },
+    {
+      "name": "পানখালী",
+      "lon": 89.5179615,
+      "lat": 22.6342382,
+      "kind": "village"
+    }
+  ]
+}

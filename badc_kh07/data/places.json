@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Magurkhali",
+    "lon": 89.3887137,
+    "lat": 22.7020884,
+    "kind": "village"
+  },
+  {
+    "name": "Sarappur",
+    "lon": 89.4287108,
+    "lat": 22.6971791,
+    "kind": "village"
+  },
+  {
+    "name": "Surkhali",
+    "lon": 89.4582365,
+    "lat": 22.6699372,
+    "kind": "village"
+  },
+  {
+    "name": "দেলুটি",
+    "lon": 89.4154129,
+    "lat": 22.6165926,
+    "kind": "village"
+  },
+  {
+    "name": "পানখালী",
+    "lon": 89.5179615,
+    "lat": 22.6342382,
+    "kind": "village"
+  }
+]

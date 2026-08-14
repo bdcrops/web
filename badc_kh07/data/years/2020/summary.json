@@ -1,0 +1,227 @@
+{
+  "year": 2020,
+  "aoi_name": "Surkhali Union Coastal Cropland",
+  "bounds": [
+    89.40695,
+    22.6366,
+    89.5152,
+    22.7072
+  ],
+  "area_km2": 89,
+  "kpis": {
+    "provider": "sentinelhub",
+    "sensor": null,
+    "resolution_m": 10.0,
+    "projection": null,
+    "acq_date": null,
+    "cloud_pct": 0,
+    "bands": [],
+    "footprint": null,
+    "ndvi": 0.287,
+    "ndwi": -0.29,
+    "evi": 0.215,
+    "savi": 0.192,
+    "ndvi_mean": 0.287,
+    "ndwi_mean": -0.29,
+    "evi_mean": 0.215,
+    "savi_mean": 0.192,
+    "flood_risk_pct": 12.0,
+    "permanent_water": 3.4,
+    "total_water_pct": 15.4,
+    "cropland_pct": 73.5,
+    "lulc_classes": {
+      "Water": {
+        "pixels": 29692,
+        "percent": 3.4
+      },
+      "Vegetation": {
+        "pixels": 130200,
+        "percent": 14.93
+      },
+      "Agriculture": {
+        "pixels": 298610,
+        "percent": 34.24
+      },
+      "BareSoil": {
+        "pixels": 137098,
+        "percent": 15.72
+      },
+      "BuiltUp": {
+        "pixels": 64774,
+        "percent": 7.43
+      },
+      "Fallow": {
+        "pixels": 211761,
+        "percent": 24.28
+      }
+    },
+    "lulc_count": 6,
+    "ndvi_gain_pct": 21.1,
+    "ndvi_loss_pct": 19.3,
+    "ndvi_stable_pct": 59.6,
+    "change_mode": "single_date_synthetic",
+    "soc_mean": 26.3,
+    "soc_std": 7.0,
+    "residue_mean": 0.347,
+    "residue_high_pct": 57.1,
+    "residue_index": "NDTI",
+    "congestion_pct": 13.0,
+    "persistence_mean": 0.104,
+    "twi_included": false,
+    "qa_status": "PASS",
+    "qa_passed": true,
+    "qa_violations": [],
+    "aquacrop_crop": null,
+    "aquacrop_yield": null,
+    "aquacrop_status": null,
+    "bounds": [
+      89.40695,
+      22.6366,
+      89.5152,
+      22.7072
+    ],
+    "area_km2": 89,
+    "aoi_name": "Surkhali Union Coastal Cropland",
+    "year": 2020
+  },
+  "maps": [
+    {
+      "key": ".pdf_change_map",
+      "label": ".Pdf Change Map",
+      "filename": ".pdf_change_map.png"
+    },
+    {
+      "key": ".pdf_dashboard",
+      "label": ".Pdf Dashboard",
+      "filename": ".pdf_dashboard.png"
+    },
+    {
+      "key": ".pdf_drainage_map",
+      "label": ".Pdf Drainage Map",
+      "filename": ".pdf_drainage_map.png"
+    },
+    {
+      "key": ".pdf_false_color",
+      "label": ".Pdf False Color",
+      "filename": ".pdf_false_color.png"
+    },
+    {
+      "key": ".pdf_lulc_map",
+      "label": ".Pdf Lulc Map",
+      "filename": ".pdf_lulc_map.png"
+    },
+    {
+      "key": ".pdf_qa_overlay",
+      "label": ".Pdf Qa Overlay",
+      "filename": ".pdf_qa_overlay.png"
+    },
+    {
+      "key": ".pdf_residue_map",
+      "label": ".Pdf Residue Map",
+      "filename": ".pdf_residue_map.png"
+    },
+    {
+      "key": ".pdf_soc_map",
+      "label": ".Pdf Soc Map",
+      "filename": ".pdf_soc_map.png"
+    },
+    {
+      "key": ".pdf_true_color",
+      "label": ".Pdf True Color",
+      "filename": ".pdf_true_color.png"
+    },
+    {
+      "key": ".pdf_water_detection",
+      "label": ".Pdf Water Detection",
+      "filename": ".pdf_water_detection.png"
+    },
+    {
+      "key": ".pdf_waterlogging_map",
+      "label": ".Pdf Waterlogging Map",
+      "filename": ".pdf_waterlogging_map.png"
+    },
+    {
+      "key": "change_map",
+      "label": "Change Detection",
+      "filename": "change_map.png"
+    },
+    {
+      "key": "dashboard",
+      "label": "Dashboard",
+      "filename": "dashboard.png"
+    },
+    {
+      "key": "drainage_map",
+      "label": "Drainage",
+      "filename": "drainage_map.png"
+    },
+    {
+      "key": "false_color",
+      "label": "False Color",
+      "filename": "false_color.png"
+    },
+    {
+      "key": "lulc_map",
+      "label": "LULC",
+      "filename": "lulc_map.png"
+    },
+    {
+      "key": "qa_overlay",
+      "label": "QA Overlay",
+      "filename": "qa_overlay.png"
+    },
+    {
+      "key": "residue_map",
+      "label": "Crop Residue",
+      "filename": "residue_map.png"
+    },
+    {
+      "key": "soc_map",
+      "label": "Soil Carbon",
+      "filename": "soc_map.png"
+    },
+    {
+      "key": "true_color",
+      "label": "True Color",
+      "filename": "true_color.png"
+    },
+    {
+      "key": "water_detection",
+      "label": "Water Detection",
+      "filename": "water_detection.png"
+    },
+    {
+      "key": "waterlogging_map",
+      "label": "Waterlogging",
+      "filename": "waterlogging_map.png"
+    }
+  ],
+  "reports": [
+    {
+      "label": "Full Report (PDF)",
+      "filename": "2020_geo_report_20260814.pdf",
+      "size_kb": 23791
+    },
+    {
+      "label": "Full Report (DOCX)",
+      "filename": "2020_geo_report_20260814.docx",
+      "size_kb": 16332
+    },
+    {
+      "label": "Findings (DOCX)",
+      "filename": "findings.docx",
+      "size_kb": 37
+    }
+  ],
+  "downloads": [
+    {
+      "label": "Drainage CSV",
+      "filename": "raw/2020/drainage_summary.csv"
+    },
+    {
+      "label": "Full JSON",
+      "filename": "raw/2020/analytics.json"
+    }
+  ],
+  "findings_md": "# GeoData Findings — Surkhali Union Multi-Year_2020\n\n_Generated by Unit-GeoData_\n\n---\n\n## 1. Acquisition Summary\n\n- **Status:**             `success` ✅\n- **Provider:**           `sentinelhub`\n- **Satellite:**          —\n- **Scene ID:**           `—`\n- **Acquisition window:** —\n- **Cloud cover:**        —\n- **Resolution:**         10.0 m\n- **Bit depth (delivered):** —-bit\n- **Projection:**         — / —\n- **Bands acquired:**     6/6  ['B02', 'B03', 'B04', 'B08', 'B11', 'B12']\n\n## 2. Quality Assurance\n\n| Check | Result |\n|-------|--------|\n| `bands_ok` | ✅ |\n| `bit_depth_ok` | ✅ |\n| `cloud_ok` | ❌ |\n| `files_ok` | ✅ |\n| `ortho_ok` | ✅ |\n| `projection_ok` | ✅ |\n| `resolution_ok` | ✅ |\n| `resolution_preferred_ok` | ✅ |\n| **PASS** | ✅ |\n\n**Warnings (1):**\n- ⚠️ cloud_cover_pct not reported by provider\n\n## 4. Spectral Indices (Stage 3)\n\n- **Status:**     `success` ✅\n- **Provider:**   sentinelhub\n- **Computed:**   8 indices\n- **Skipped:**    1 (provider missing required bands)\n\n### 4a. Generic Indices\n\n| Index | Min | Max | Mean | Range | Note |\n|-------|-----|-----|------|-------|------|\n| `NDVI` | -0.816 | 0.897 | 0.287 | ✅ | Vegetation health |\n| `NDWI` | -0.821 | 0.864 | -0.290 | ✅ | Surface water / vegetation moisture |\n| `NDBI` | -0.750 | 0.711 | -0.062 | ✅ | Built-up area (needs SWIR) |\n| `EVI` | -0.160 | 1.000 | 0.215 | ✅ | Enhanced vegetation index (atmosphere-corrected) |\n| `SAVI` | -0.201 | 0.688 | 0.192 | ✅ | Soil-adjusted vegetation (sparse cover) |\n| `NBR` | -0.670 | 0.808 | 0.193 | ✅ | Normalized burn ratio |\n| `MNDWI` | -0.670 | 0.817 | -0.242 | ✅ | Modified NDWI (water discrimination) |\n| `NBR2` | -0.171 | 0.391 | 0.139 | ✅ |  |\n\n### 4b. WV-3-specific Indices\n\n*(not computed — provider is `sentinelhub`. NDRE/CRI/NMDI/NBAI require WorldView-3 8-band imagery.)*\n\n## 5. Compliance Matrix\n\n| Requirement | Spec | Actual | Status | Ref |\n|-------------|------|--------|--------|-----|\n| Resolution  | ≤ 0.5 m | 10.0 m | ❌ | §4.1 |\n| Cloud cover | ≤ 5.0% | — | ⚠️ | §4.2 |\n| Projection  | UTM / WGS84 | — | ✅ | §4.3 |\n| Bit depth (final) | 16-bit | None-bit | ✅ | §4.4 |\n| Bands present | 0 () | 6 | ✅ | §4.5 |\n| Orthorectified | required | yes | ✅ | §4.3 |\n| **Overall** | passed_qa | PASS | ✅ | — |\n\n## 6.  §5 Deliverables — Gap Analysis\n\n| Section | Deliverable | Tool | Status | Tender Ref | Next Steps |\n|---------|-------------|------|--------|-----------|------------|\n| §5.1 | Soil Organic Carbon | `soil_carbon` | ⏭ disabled in profile | §5.1 | Enable in `geodata_tools` to surface gap |\n| §5.1 | Crop Residue Cover | `crop_residue` | ⏭ disabled in profile | §5.1 | Enable in `geodata_tools` to surface gap |\n| §5.2 | Drainage Congestion | `drainage` | ⏭ disabled in profile | §5.2 | Enable in `geodata_tools` to surface gap |\n\n## 7. Generated Visualizations\n\n**PNG outputs (11):**\n- `png/change_map.png`\n- `png/dashboard.png`\n- `png/drainage_map.png`\n- `png/false_color.png`\n- `png/lulc_map.png`\n- `png/qa_overlay.png`\n- `png/residue_map.png`\n- `png/soc_map.png`\n- `png/true_color.png`\n- `png/water_detection.png`\n- `png/waterlogging_map.png`\n\n---\n\n_Report generated by CF2 Unit-GeoData · 2026-08-14T06:15:35_\n_Full machine-readable trace: `geodata_run_result.json` (14,382 bytes)_\n"
+}
