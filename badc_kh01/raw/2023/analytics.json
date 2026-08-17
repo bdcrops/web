@@ -1,0 +1,387 @@
+{
+  "topic": "Batiaghata Union Multi-Year_2023",
+  "collect": {
+    "status": "success",
+    "provider": "sentinelhub",
+    "variant": "cdse",
+    "bands_acquired": [
+      "B02",
+      "B03",
+      "B04",
+      "B08",
+      "B11",
+      "B12"
+    ],
+    "resolution_m": 10.0,
+    "files": [
+      "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/raw/B02.tif",
+      "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/raw/B03.tif",
+      "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/raw/B04.tif",
+      "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/raw/B08.tif",
+      "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/raw/B11.tif",
+      "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/raw/B12.tif"
+    ],
+    "mosaic_tif": null,
+    "_mosaic_deleted": true,
+    "requested_provider": "sentinelhub"
+  },
+  "qa": {
+    "status": "success",
+    "qa_status": "PASS",
+    "qa_status_label": "PASS",
+    "qa_status_icon": "\ud83d\udfe2",
+    "qa_status_color": "#16a34a",
+    "passed_qa": true,
+    "preview_tier": false,
+    "preview_tier_note": "",
+    "policy_mode": "strict",
+    "timestamp": "2026-08-17T17:06:04.538439Z",
+    "provider": "sentinelhub",
+    "requested_provider": "sentinelhub",
+    "provider_actual": "sentinelhub",
+    "provider_requested": "sentinelhub",
+    "checks": {
+      "resolution_ok": true,
+      "resolution_preferred_ok": true,
+      "cloud_ok": false,
+      "bands_ok": true,
+      "projection_ok": true,
+      "bit_depth_ok": true,
+      "ortho_ok": true,
+      "files_ok": true
+    },
+    "violations": [],
+    "warnings": [
+      "cloud_cover_pct not reported by provider"
+    ],
+    "notes": [],
+    "rasters_checked": 6,
+    "per_file": [
+      {
+        "file": "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/raw/B02.tif",
+        "ok": true,
+        "issues": []
+      },
+      {
+        "file": "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/raw/B03.tif",
+        "ok": true,
+        "issues": []
+      },
+      {
+        "file": "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/raw/B04.tif",
+        "ok": true,
+        "issues": []
+      },
+      {
+        "file": "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/raw/B08.tif",
+        "ok": true,
+        "issues": []
+      },
+      {
+        "file": "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/raw/B11.tif",
+        "ok": true,
+        "issues": []
+      },
+      {
+        "file": "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/raw/B12.tif",
+        "ok": true,
+        "issues": []
+      }
+    ],
+    "summary": "\ud83d\udfe2 PASS \u2014 all tender checks met (1 warning(s))",
+    "output_dir": "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata",
+    "collect_metadata": {
+      "cloud_cover_pct": null,
+      "resolution_m": 10.0,
+      "bit_depth": 0,
+      "bands_acquired": [
+        "B02",
+        "B03",
+        "B04",
+        "B08",
+        "B11",
+        "B12"
+      ],
+      "scene_id": null
+    },
+    "resolution_ok": true,
+    "resolution_preferred_ok": true,
+    "cloud_ok": false,
+    "bands_ok": true,
+    "projection_ok": true,
+    "bit_depth_ok": true,
+    "ortho_ok": true,
+    "files_ok": true,
+    "files": [
+      "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/qa_report.json"
+    ]
+  },
+  "spectral": {
+    "status": "success",
+    "provider": "sentinelhub",
+    "band_map": {
+      "Blue": "B02",
+      "Green": "B03",
+      "Red": "B04",
+      "RedEdge": "B05",
+      "NIR": "B08",
+      "SWIR1": "B11",
+      "SWIR2": "B12"
+    },
+    "indices": [
+      "NDVI",
+      "NDWI",
+      "NDBI",
+      "EVI",
+      "SAVI",
+      "NBR",
+      "MNDWI",
+      "NBR2"
+    ],
+    "skipped": [
+      {
+        "NDRE": "missing roles ['RedEdge']"
+      }
+    ],
+    "files": [
+      "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/indices/ndvi.tif",
+      "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/indices/ndwi.tif",
+      "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/indices/ndbi.tif",
+      "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/indices/evi.tif",
+      "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/indices/savi.tif",
+      "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/indices/nbr.tif",
+      "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/indices/mndwi.tif",
+      "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/indices/nbr2.tif"
+    ],
+    "output_dir": "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/indices"
+  },
+  "waterlogging": {
+    "status": "success",
+    "permanent_water_pct": 0.33,
+    "flood_risk_pct": 5.34,
+    "total_water_pct": 5.67,
+    "enhanced_water_pct": 7.95,
+    "mndwi_used": true,
+    "outputs": [
+      "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/water/water_mask.tif",
+      "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/water/flood_risk.tif",
+      "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/water/water_enhanced.tif"
+    ],
+    "output_dir": "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/water"
+  },
+  "lulc_classify": {
+    "status": "success",
+    "classes": [
+      "Water",
+      "Vegetation",
+      "Agriculture",
+      "BareSoil",
+      "BuiltUp",
+      "Fallow"
+    ],
+    "class_count": 6,
+    "stats": {
+      "Water": {
+        "pixels": 3782,
+        "percent": 0.33
+      },
+      "Vegetation": {
+        "pixels": 253965,
+        "percent": 22.24
+      },
+      "Agriculture": {
+        "pixels": 505550,
+        "percent": 44.27
+      },
+      "BareSoil": {
+        "pixels": 124773,
+        "percent": 10.93
+      },
+      "BuiltUp": {
+        "pixels": 42967,
+        "percent": 3.76
+      },
+      "Fallow": {
+        "pixels": 210901,
+        "percent": 18.47
+      }
+    },
+    "outputs": [
+      "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/lulc/lulc_map.tif",
+      "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/lulc/lulc_legend.json"
+    ],
+    "output_dir": "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/lulc",
+    "reason": null
+  },
+  "change_detect": {
+    "status": "success",
+    "tool": "change_detector",
+    "output_dir": "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/change",
+    "outputs": [
+      "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/change/ndvi_change.tif",
+      "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/change/change_classes.tif",
+      "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/change/change_summary.csv"
+    ],
+    "vegetation_gain_pct": 36.28,
+    "vegetation_loss_pct": 10.77,
+    "stable_pct": 52.95,
+    "mean_delta": 0.091865,
+    "mode": "single_date_synthetic",
+    "inputs_seen": {
+      "current_ndvi": "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/indices/ndvi.tif",
+      "baseline_ndvi": "synthetic",
+      "gain_thresh": 0.2,
+      "loss_thresh": 0.2,
+      "target_shape": [
+        1113,
+        1026
+      ],
+      "grids_matched": null,
+      "mode": "single_date_synthetic",
+      "synthetic_baseline": 0.3
+    }
+  },
+  "soil_carbon": {
+    "status": "success",
+    "tool": "soil_carbon",
+    "tender_ref": "Section 5.1",
+    "reason": null,
+    "output_dir": "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/soc",
+    "files": [
+      "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/soc/soc_map.tif",
+      "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/soc/soc_uncertainty.tif",
+      "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/soc/soc_summary.csv"
+    ],
+    "soc_mean_g_per_kg": 28.281,
+    "soc_std_g_per_kg": 4.762,
+    "bare_soil_pixels": 318652,
+    "regression_a": 25.0,
+    "regression_b": -18.0,
+    "calibration_mode": "regional",
+    "r2": null,
+    "rmse": null,
+    "mae": null,
+    "inputs_seen": {
+      "red_band": "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/raw/B04.tif",
+      "nir_band": "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/raw/B08.tif",
+      "indices_dir": "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/indices",
+      "lulc_dir": "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/lulc",
+      "lulc_present": true,
+      "ndvi_thresh": 0.25,
+      "bare_cls": 1,
+      "n_bootstrap": 100,
+      "calibration": "absent"
+    }
+  },
+  "crop_residue": {
+    "status": "success",
+    "tool": "crop_residue",
+    "tender_ref": "Section 5.1",
+    "reason": null,
+    "output_dir": "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/residue",
+    "files": [
+      "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/residue/residue_map.tif",
+      "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/residue/residue_mask.tif",
+      "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/residue/residue_summary.csv"
+    ],
+    "mean_residue_cover": 0.4907,
+    "high_cover_pct": 81.83,
+    "index_used": "NDTI",
+    "inputs_seen": {
+      "provider": "sentinelhub",
+      "input_dir": "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/raw",
+      "indices_dir": "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/indices",
+      "lulc_dir": "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/lulc",
+      "swir_available": true,
+      "lulc_present": true,
+      "feasibility": "feasible \u2014 SWIR bands present (B11/B12 or B06/B07)",
+      "cover_slope": 0.4,
+      "high_cover_thr": 0.3
+    }
+  },
+  "drainage": {
+    "status": "success",
+    "tool": "drainage",
+    "tender_ref": "Section 5.2",
+    "reason": null,
+    "output_dir": "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/drainage",
+    "files": [
+      "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/drainage/ndwi_persistence.tif",
+      "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/drainage/congestion_map.tif",
+      "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/drainage/congestion_mask.tif",
+      "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/drainage/drainage_summary.csv"
+    ],
+    "congestion_pct": 5.24,
+    "high_risk_pixels": 59890,
+    "persistence_mean": 0.0545,
+    "twi_source": "deferred",
+    "twi_included": false,
+    "inputs_seen": {
+      "indices_dir": "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/indices",
+      "water_dir": "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/water",
+      "lulc_dir": "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/geodata/lulc",
+      "dem_path": null,
+      "signal_layers": [
+        "ndwi",
+        "mndwi",
+        "water_mask",
+        "flood_risk"
+      ],
+      "ndwi_wet_thresh": 0.0,
+      "persistence_high": 0.6,
+      "congestion_thresh": 0.5,
+      "twi_weight": 0.4,
+      "pers_weight": 0.6
+    },
+    "twi_next_steps": [
+      "1. Supply dem_path in drainage_config",
+      "2. Implement TAG: IMPL-TWI (slope + flow accumulation \u2192 TWI)",
+      "3. Congestion score will automatically blend    0.6\u00d7persistence + 0.4\u00d7TWI"
+    ]
+  },
+  "visuals": {
+    "status": "success",
+    "generated": [
+      "\u2705 true_color.png",
+      "\u2705 false_color.png",
+      "\u2705 dashboard.png",
+      "\u2705 water_detection.png",
+      "\u2705 waterlogging_map.png",
+      "\u2705 lulc_map.png",
+      "\u2705 qa_overlay.png",
+      "\u2705 drainage_map.png",
+      "\u2705 soc_map.png",
+      "\u2705 change_map.png",
+      "\u2705 residue_map.png"
+    ],
+    "failures": [],
+    "png": [
+      "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/png/true_color.png",
+      "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/png/false_color.png",
+      "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/png/dashboard.png",
+      "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/png/water_detection.png",
+      "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/png/waterlogging_map.png",
+      "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/png/lulc_map.png",
+      "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/png/qa_overlay.png",
+      "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/png/drainage_map.png",
+      "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/png/soc_map.png",
+      "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/png/change_map.png",
+      "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/png/residue_map.png"
+    ],
+    "videos": [],
+    "png_dir": "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/png",
+    "video_dir": "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/videos"
+  },
+  "findings_md": "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/findings.md",
+  "findings_docx": "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/findings.docx",
+  "pdf_report": {
+    "status": "ok",
+    "path": "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/2023_geo_report_20260817.pdf",
+    "name": "2023_geo_report_20260817.pdf",
+    "size_kb": 19747
+  },
+  "docx_report": {
+    "status": "ok",
+    "path": "/var/POAi/CrewAiFlow/cf2/.runtime/output/BatiaghataUnionMultiyear/years/2023/2023_geo_report_20260817.docx"
+  }
+}

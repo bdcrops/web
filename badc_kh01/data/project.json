@@ -1,0 +1,46 @@
+{
+  "name": "BatiaghataUnionMultiyear",
+  "topic": "Batiaghata Union Multi-Year",
+  "brand": "BDCrops AgroVisionTM",
+  "report_title": "BADC Batiaghata Union - Multi-Year Baseline & Forecast",
+  "accent_color": "#2A9D8F",
+  "program_name": "BADC Multi-Year Cropland Baseline & Forecast",
+  "aoi_meta": {
+    "id": "AOI_KH01",
+    "name": "Batiaghata Union Coastal Cropland",
+    "union": "Batiaghata",
+    "upazila": "Batiaghata",
+    "district": "Khulna",
+    "division": "Khulna",
+    "country": "Bangladesh",
+    "centroid": [
+      89.492147,
+      22.730075
+    ],
+    "source": "AOI_Khulna_L2.kmz",
+    "epsg": 4326,
+    "ecozone": "Coastal Saline Zone",
+    "ecoregion": "Ganges Tidal Floodplain",
+    "soil_zone": "Saline Tidal Floodplain (AEZ-13)",
+    "polder_ref": "BWDB Polder 30 (indicative)",
+    "area_skm": 114
+  },
+  "years_observed": [
+    2020,
+    2023,
+    2025,
+    2026
+  ],
+  "years_forecast": [
+    2030,
+    2035,
+    2040
+  ],
+  "scenarios": [
+    "baseline",
+    "climate_pressure",
+    "adaptation"
+  ],
+  "generated": "2026-08-17T17:09:05.936520+00:00",
+  "places": []
+}
