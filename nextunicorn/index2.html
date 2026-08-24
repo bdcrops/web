@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>BDCrops AgroVision™ — Investor Pitch Deck</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --teal:#12a090;--teal-d:#0c7a6d;--teal-g:rgba(18,160,144,.14);
+  --ink:#0e1f1c;--ink2:#2a3d39;--muted:#5e726e;
+  --gold:#e8a825;--gold-l:#fdf3d9;
+  --mint:#e8f7f5;--paper:#f7faf9;--line:#dde9e6;
+  --red:#e05d44;--blue:#4a7fe5;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;overflow:hidden;background:#0a1a17}
+body{font-family:'Inter',sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+
+/* TOPBAR */
+.tb{
+  position:fixed;top:0;left:0;right:0;height:50px;z-index:200;
+  background:rgba(10,26,21,.97);backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(255,255,255,.07);
+  display:flex;align-items:center;justify-content:space-between;padding:0 20px;
+}
+.tb-brand{display:flex;align-items:center;gap:8px}
+.tb-logo{width:26px;height:26px;border-radius:7px;background:var(--teal);display:grid;place-items:center;font-weight:900;font-size:10px;color:#fff}
+.tb-name{font-size:11px;font-weight:700;color:#deecea;letter-spacing:.01em}
+.tb-sub{font-size:8px;color:#5a8480;letter-spacing:.12em;text-transform:uppercase;margin-left:3px}
+.tb-links{display:flex;gap:6px}
+.tl{font-size:8px;font-weight:800;text-decoration:none;padding:5px 9px;border-radius:6px;letter-spacing:.04em;text-transform:uppercase}
+.tl-g{background:rgba(255,255,255,.07);color:#9abab6;border:1px solid rgba(255,255,255,.09)}
+.tl-t{background:var(--teal);color:#fff}
+
+/* PROGRESS */
+.pbar{position:fixed;top:50px;left:0;right:0;height:2px;z-index:199;background:rgba(255,255,255,.05)}
+.pfill{height:100%;background:var(--teal);transition:width .25s ease;width:8.33%}
+
+/* SLIDES */
+.slide{
+  position:fixed;inset:0;top:50px;
+  display:none;overflow-y:auto;overflow-x:hidden;
+  background:var(--paper);padding:32px 44px 90px;
+}
+.slide.on{display:block}
+.s-dark{background:#0a1a17}
+.s-cover{background:linear-gradient(150deg,#081812 0%,#0e2e28 60%,#0b2420 100%);display:flex!important;align-items:center}
+
+/* NAV */
+.nav{
+  position:fixed;bottom:16px;left:50%;transform:translateX(-50%);
+  display:flex;align-items:center;gap:8px;z-index:200;
+  background:rgba(10,26,21,.95);backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,.09);border-radius:999px;
+  padding:7px 12px;box-shadow:0 12px 40px rgba(0,0,0,.4);
+}
+.arr{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.07);border:none;color:#9ab8b4;font-size:15px;cursor:pointer;display:grid;place-items:center}
+.arr:hover{background:var(--teal);color:#fff}
+.dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.18);cursor:pointer;border:none;transition:all .2s}
+.dot.on{background:var(--teal);width:16px;border-radius:3px}
+.ctr{font-size:8px;font-weight:800;color:#5a8480;letter-spacing:.08em;padding:0 4px}
+
+/* TYPE */
+.eyebrow{font-size:9px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);margin-bottom:10px}
+.eyebrow-gold{color:var(--gold)}
+h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(40px,5.5vw,80px);line-height:.9;letter-spacing:-.04em;font-weight:700}
+h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(20px,2.3vw,36px);line-height:1.05;letter-spacing:-.03em;font-weight:700;margin-bottom:18px}
+h3{font-size:13px;font-weight:700;letter-spacing:-.01em;margin-bottom:5px}
+p{font-size:12.5px;line-height:1.65;color:var(--muted)}
+.tag{display:inline-flex;align-items:center;gap:4px;font-size:8px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;padding:4px 9px;border-radius:999px}
+.tag-t{background:var(--teal-g);color:var(--teal)}
+.tag-g{background:rgba(232,168,37,.12);color:var(--gold)}
+.tag-r{background:rgba(224,93,68,.1);color:var(--red)}
+
+/* LAYOUT */
+.inner{max-width:1280px;margin:0 auto}
+.col2{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;align-items:start}
+.col2r{display:grid;grid-template-columns:.9fr 1.1fr;gap:22px;align-items:start}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
+
+/* CARDS */
+.card{background:#fff;border:1px solid var(--line);border-radius:15px;padding:18px;box-shadow:0 6px 24px rgba(14,31,28,.06)}
+.card-dark{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.07);color:#b8d0cc}
+.card-teal{background:linear-gradient(135deg,rgba(18,160,144,.1),rgba(18,160,144,.04));border-color:rgba(18,160,144,.22)}
+.card-gold{background:var(--gold-l);border:1px solid rgba(232,168,37,.28);border-radius:12px;padding:14px}
+
+/* SLIDE HEADER */
+.sh{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:22px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.sn{font-size:10px;font-weight:900;color:var(--teal);letter-spacing:.08em;min-width:30px}
+.st{flex:1}
+.st h2{margin-bottom:0}
+.sa{display:flex;gap:6px;flex-shrink:0}
+.btn{font-size:8px;font-weight:800;text-decoration:none;padding:6px 10px;border-radius:7px;letter-spacing:.04em;text-transform:uppercase}
+.btn-t{background:var(--teal);color:#fff}
+.btn-o{background:#fff;color:var(--teal);border:1px solid var(--line)}
+
+.s-dark .sh{border-bottom-color:rgba(255,255,255,.07)}
+.s-dark h2{color:#e0edeb}
+.s-dark h3{color:#c0d8d4}
+.s-dark p{color:#7a9a96}
+.s-dark .sn{color:var(--teal)}
+
+/* STATS */
+.stats{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.stat{flex:1;min-width:105px;background:#fff;border:1px solid var(--line);border-radius:13px;padding:15px 13px;box-shadow:0 4px 14px rgba(14,31,28,.05)}
+.stn{font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;letter-spacing:-.04em;color:var(--teal)}
+.stl{font-size:8.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-top:2px}
+.sts{font-size:9px;color:var(--muted);margin-top:3px}
+.stat-dark{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.07)}
+.stat-dark .stn{color:var(--teal)}
+.stat-dark .stl,.stat-dark .sts{color:#5a8480}
+
+/* BULLETS */
+ul.cl{list-style:none;display:flex;flex-direction:column;gap:7px}
+ul.cl li{display:flex;gap:8px;align-items:flex-start;font-size:12px;line-height:1.55;color:var(--ink2)}
+ul.cl li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--teal);margin-top:4px;flex-shrink:0}
+.s-dark ul.cl li{color:#a8c8c4}
+
+/* PHASE */
+.phases{display:flex;flex-direction:column;gap:7px}
+.phase{display:grid;grid-template-columns:90px 1fr;gap:12px;align-items:start;background:#fff;border:1px solid var(--line);border-radius:11px;padding:13px}
+.pl{font-size:9px;font-weight:800;color:var(--teal);letter-spacing:.07em;text-transform:uppercase}
+.pt{font-size:12px;font-weight:700;margin-bottom:3px;color:var(--ink)}
+.pd{font-size:11px;color:var(--muted);line-height:1.45}
+
+/* TABLE */
+.mtbl{width:100%;border-collapse:collapse;font-size:11px}
+.mtbl th{text-align:left;padding:7px 11px;font-size:8px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);border-bottom:2px solid var(--line)}
+.mtbl td{padding:9px 11px;border-bottom:1px solid var(--line);line-height:1.4;vertical-align:top}
+.mtbl tr:last-child td{border-bottom:none}
+.s-dark .mtbl th{color:#3a6a64;border-bottom-color:rgba(255,255,255,.08)}
+.s-dark .mtbl td{border-bottom-color:rgba(255,255,255,.05);color:#9abab6}
+
+/* BUDGET BARS */
+.brows{display:flex;flex-direction:column;gap:9px}
+.brow{display:flex;align-items:center;gap:9px}
+.blbl{font-size:11px;font-weight:600;width:200px;flex-shrink:0;color:var(--ink2)}
+.bwrap{flex:1;background:#ecf4f2;border-radius:999px;height:9px;overflow:hidden}
+.bbar{height:100%;border-radius:999px;background:var(--teal)}
+.bpct{font-size:10px;font-weight:800;color:var(--teal);width:34px;text-align:right;flex-shrink:0}
+
+/* TIMELINE */
+.tl{display:flex;gap:0;position:relative;margin-top:8px}
+.tl::before{content:"";position:absolute;top:18px;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--teal),rgba(18,160,144,.2));z-index:0}
+.tli{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;padding-top:8px}
+.tld{width:13px;height:13px;border-radius:50%;border:2px solid var(--teal);background:#fff;z-index:1;margin-bottom:7px;flex-shrink:0}
+.tlp{font-size:8px;font-weight:800;color:var(--teal);letter-spacing:.06em;margin-bottom:3px}
+.tln{font-size:11px;font-weight:700;color:var(--ink);margin-bottom:3px}
+.tls{font-size:9px;color:var(--muted);line-height:1.4;max-width:130px}
+.s-dark .tld{background:#0e2821}
+.s-dark .tln{color:#d0e8e4}
+
+/* DISCLAIMER */
+.disc{background:var(--gold-l);border:1px solid rgba(232,168,37,.38);border-radius:9px;padding:9px 13px;font-size:9px;color:#7a5c10;line-height:1.55;margin-top:11px}
+
+/* SVG CHARTS */
+.chart-wrap{background:#fff;border:1px solid var(--line);border-radius:13px;padding:16px;box-shadow:0 4px 16px rgba(14,31,28,.05)}
+.chart-dark{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.07)}
+.chart-title{font-size:10px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px}
+
+/* COVER */
+.cover-grid{width:min(1300px,100%);display:grid;grid-template-columns:1fr 1fr;gap:5vw;align-items:center;padding:0 5vw}
+.c-left{max-width:660px}
+.c-h1{color:#fff}
+.c-h1 span{color:var(--teal)}
+.c-sub{font-size:15px;line-height:1.6;color:#8abab5;max-width:540px;margin:14px 0 24px}
+.c-pills{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:24px}
+.cpill{font-size:7.5px;font-weight:800;letter-spacing:.1em;padding:5px 11px;border-radius:999px;border:1px solid rgba(255,255,255,.1);color:#8ab0aa;text-transform:uppercase}
+.c-ask{display:flex;align-items:baseline;gap:10px;margin-bottom:24px}
+.c-ask-lbl{font-size:9px;font-weight:800;letter-spacing:.16em;color:#5a8480;text-transform:uppercase}
+.c-ask-n{font-family:'Space Grotesk',sans-serif;font-size:42px;font-weight:700;color:var(--teal);letter-spacing:-.04em}
+.c-ask-d{font-size:10.5px;color:#6a9490;font-weight:600}
+.c-founder{display:flex;align-items:center;gap:11px;border-top:1px solid rgba(255,255,255,.08);padding-top:16px;margin-top:4px}
+.c-fn{font-size:11.5px;font-weight:700;color:#d8e8e5}
+.c-ft{font-size:8.5px;color:#5a8480}
+.c-fl{display:flex;gap:8px;margin-top:3px}
+.c-fl a{font-size:8px;color:var(--teal);text-decoration:none;font-weight:700}
+
+/* COVER VISUAL - pure CSS/SVG dashboard mockup */
+.dash-mock{background:#0d2a25;border-radius:18px;padding:10px;box-shadow:0 40px 80px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.05);transform:rotate(.7deg)}
+.dash-bar{height:24px;display:flex;align-items:center;gap:4px;padding:0 8px 4px}
+.dash-dot{width:6px;height:6px;border-radius:50%}
+.dash-lbl{margin-left:auto;font-size:7px;font-weight:900;letter-spacing:.15em;color:#3a6a64;text-transform:uppercase}
+.dash-screen{border-radius:12px;background:#102e29;overflow:hidden;padding:14px}
+.live-badge{display:inline-flex;align-items:center;gap:4px;background:rgba(18,160,144,.15);color:#4efce8;font-size:7px;font-weight:900;letter-spacing:.1em;padding:4px 8px;border-radius:999px;border:1px solid rgba(78,252,232,.2);margin-bottom:10px}
+.live-d{width:5px;height:5px;border-radius:50%;background:#4efce8;animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
+.dcard{background:rgba(255,255,255,.05);border-radius:8px;padding:10px;border:1px solid rgba(255,255,255,.06)}
+.dcard-n{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:var(--teal);letter-spacing:-.03em}
+.dcard-l{font-size:7.5px;color:#4a7a74;font-weight:700;text-transform:uppercase;letter-spacing:.07em}
+.mini-bar-row{display:flex;flex-direction:column;gap:4px;margin-top:8px}
+.mbar-item{display:flex;align-items:center;gap:6px}
+.mbar-l{font-size:7px;color:#5a8a84;width:40px;flex-shrink:0}
+.mbar-w{flex:1;background:rgba(255,255,255,.06);border-radius:99px;height:5px;overflow:hidden}
+.mbar-f{height:100%;border-radius:99px;background:var(--teal);opacity:.8}
+.mini-chart{margin-top:10px}
+.pipe-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0 2px;gap:4px}
+.ps{display:flex;flex-direction:column;align-items:center;gap:2px;text-align:center}
+.ps-icon{font-size:14px}
+.ps-lbl{font-size:6.5px;font-weight:800;color:#4a7a74;letter-spacing:.06em;text-transform:uppercase}
+.pa{color:#2a5a54;font-size:10px}
+
+/* CTA WRAP */
+.cta-wrap{background:linear-gradient(150deg,#0a201c 0%,#0f2e28 100%);border-radius:18px;padding:44px 36px;text-align:center;border:1px solid rgba(18,160,144,.18)}
+.cta-n{font-family:'Space Grotesk',sans-serif;font-size:clamp(46px,6vw,82px);font-weight:700;color:var(--teal);letter-spacing:-.05em}
+.cta-s{font-size:17px;font-weight:600;color:#a0c8c2;margin-bottom:22px}
+.cta-links{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+.cbtn{padding:10px 16px;border-radius:9px;font-size:9px;font-weight:800;text-decoration:none;letter-spacing:.06em;text-transform:uppercase}
+
+@media(max-width:900px){
+  .cover-grid{grid-template-columns:1fr;padding:0 28px}
+  .dash-mock{display:none}
+  .col2,.col2r{grid-template-columns:1fr}
+  .slide{padding:24px 18px 90px}
+  .g4{grid-template-columns:1fr 1fr}
+  .tb-links .tl:nth-child(n+3){display:none}
+}
+@media(max-width:560px){
+  .g3{grid-template-columns:1fr 1fr}
+  .slide{padding:18px 12px 90px}
+  .tl{flex-direction:column;gap:12px}
+  .tl::before{display:none}
+  .tb-links .tl:nth-child(n+2){display:none}
+}
+@media(prefers-reduced-motion:reduce){.live-d{animation:none}}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="tb">
+  <div class="tb-brand">
+    <div class="tb-logo">B</div>
+    <div>
+      <span class="tb-name">BDCrops AgroVision™</span>
+      <span class="tb-sub">Pitch Deck · 2026</span>
+    </div>
+  </div>
+  <div class="tb-links">
+    <a class="tl tl-t" href="https://bdcrops.com/DoF/" target="_blank" rel="noopener">🐟 DoF Live</a>
+    <a class="tl tl-g" href="https://bdcrops.com/badc_kh01" target="_blank" rel="noopener">KH01</a>
+    <a class="tl tl-g" href="https://bdcrops.com/badc_kh07" target="_blank" rel="noopener">KH07</a>
+    <a class="tl tl-g" href="https://bdcrops.com/nextunicorn/" target="_blank" rel="noopener">Our Page</a>
+  </div>
+</div>
+<div class="pbar"><div class="pfill" id="pf"></div></div>
+<div class="nav">
+  <button class="arr" onclick="prev()">‹</button>
+  <div id="dots"></div>
+  <span class="ctr" id="ctr">01/12</span>
+  <button class="arr" onclick="next()">›</button>
+</div>
+
+
+<!-- ═══ SLIDE 01 · COVER ═══ -->
+<div class="slide on s-cover">
+  <div class="cover-grid">
+    <div class="c-left">
+      <div class="eyebrow">BDCrops Technologies · Dhaka, Bangladesh · 2026</div>
+      <h1 class="c-h1">BDCrops<br><span>AgroVision™</span></h1>
+      <p class="c-sub">8-band satellite intelligence + AI crop digital twin + AquaData fisheries. We convert satellite pixels into government-grade agricultural decisions.</p>
+      <div class="c-pills">
+        <span class="cpill">AI + GeoSatellite</span>
+        <span class="cpill">AquaCrop Digital Twin</span>
+        <span class="cpill">3 Live Demos</span>
+        <span class="cpill">B2G · B2B · SaaS</span>
+        <span class="cpill">BD → South Asia → Global</span>
+      </div>
+      <div class="c-ask">
+        <span class="c-ask-lbl">Seeking</span>
+        <span class="c-ask-n">US$500K</span>
+        <span class="c-ask-d">Strategic Investment</span>
+      </div>
+      <div class="c-founder">
+        <div style="width:36px;height:36px;border-radius:50%;background:var(--teal);display:grid;place-items:center;font-weight:900;color:#fff;font-size:13px;flex-shrink:0">M</div>
+        <div>
+          <div class="c-fn">Abdul Matin — Founder & CEO</div>
+          <div class="c-ft">BDCrops Technologies · Dhaka, Bangladesh</div>
+          <div class="c-fl">
+            <a href="https://bdcrops.com" target="_blank">bdcrops.com</a>
+            <a href="mailto:matin@bdcrops.com">matin@bdcrops.com</a>
+            <a href="tel:+8801717676441">+880 1717 676441</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- CSS-only dashboard mockup — no external images -->
+    <div>
+      <div class="dash-mock">
+        <div class="dash-bar">
+          <div class="dash-dot" style="background:#e05d44"></div>
+          <div class="dash-dot" style="background:#f4c95d"></div>
+          <div class="dash-dot" style="background:#3dd68c"></div>
+          <span class="dash-lbl">AgroVision Platform</span>
+        </div>
+        <div class="dash-screen">
+          <div class="live-badge"><span class="live-d"></span>LIVE · KH01 · 114 km²</div>
+          <div class="dash-grid">
+            <div class="dcard"><div class="dcard-n">114</div><div class="dcard-l">km² AOI</div></div>
+            <div class="dcard"><div class="dcard-n">5.80</div><div class="dcard-l">t/ha yield</div></div>
+            <div class="dcard"><div class="dcard-n">77</div><div class="dcard-l">Field health %</div></div>
+            <div class="dcard"><div class="dcard-n">2020→26</div><div class="dcard-l">Multi-year</div></div>
+          </div>
+          <div class="mini-bar-row">
+            <div class="mbar-item"><span class="mbar-l">NDVI</span><div class="mbar-w"><div class="mbar-f" style="width:82%"></div></div><span style="font-size:7px;color:#4a7a74">0.82</span></div>
+            <div class="mbar-item"><span class="mbar-l">Water</span><div class="mbar-w"><div class="mbar-f" style="width:18%;background:#4a7fe5"></div></div><span style="font-size:7px;color:#4a7a74">18%</span></div>
+            <div class="mbar-item"><span class="mbar-l">Crop</span><div class="mbar-w"><div class="mbar-f" style="width:71%"></div></div><span style="font-size:7px;color:#4a7a74">71%</span></div>
+            <div class="mbar-item"><span class="mbar-l">Soil</span><div class="mbar-w"><div class="mbar-f" style="width:11%;background:#e8a825"></div></div><span style="font-size:7px;color:#4a7a74">11%</span></div>
+          </div>
+          <!-- mini SVG growth chart -->
+          <div class="mini-chart">
+            <svg viewBox="0 0 260 60" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+              <defs><linearGradient id="gc" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#12a090" stop-opacity=".3"/><stop offset="100%" stop-color="#12a090" stop-opacity="0"/></linearGradient></defs>
+              <path d="M0,55 C20,52 40,48 60,40 C80,32 100,22 130,18 C160,14 190,15 220,12 C240,10 255,9 260,8 L260,60 L0,60 Z" fill="url(#gc)"/>
+              <path d="M0,55 C20,52 40,48 60,40 C80,32 100,22 130,18 C160,14 190,15 220,12 C240,10 255,9 260,8" fill="none" stroke="#12a090" stroke-width="2" stroke-linecap="round"/>
+              <text x="4" y="8" fill="#4a7a74" font-size="7" font-weight="800">NDVI Trend 2020→2026</text>
+            </svg>
+          </div>
+          <div class="pipe-row">
+            <div class="ps"><span class="ps-icon">🛰</span><span class="ps-lbl">Satellite</span></div>
+            <span class="pa">→</span>
+            <div class="ps"><span class="ps-icon">🤖</span><span class="ps-lbl">AI</span></div>
+            <span class="pa">→</span>
+            <div class="ps"><span class="ps-icon">🌱</span><span class="ps-lbl">Twin</span></div>
+            <span class="pa">→</span>
+            <div class="ps"><span class="ps-icon">⚡</span><span class="ps-lbl">Decision</span></div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:8px;text-align:right;font-size:7.5px;color:#3a6a64;font-weight:700"><span class="live-d" style="display:inline-block;margin-right:4px;width:5px;height:5px;border-radius:50%;background:#4efce8"></span>Live working technology — no simulated data</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══ SLIDE 02 · PROBLEM ═══ -->
+<div class="slide">
+ <div class="inner">
+  <div class="sh">
+   <span class="sn">01</span>
+   <div class="st"><div class="eyebrow">The Problem</div><h2>Agriculture Managed Reactively — By The Time You Know, It's Too Late</h2></div>
+  </div>
+  <div class="col2">
+   <div>
+    <div class="stats">
+     <div class="stat"><div class="stn">$40B+</div><div class="stl">Annual Crop Losses</div><div class="sts">South Asia — from delayed or absent intelligence</div></div>
+     <div class="stat"><div class="stn">168M</div><div class="stl">Ha Monitored Manually</div><div class="sts">Field visits, periodic surveys, fragmented data</div></div>
+    </div>
+    <ul class="cl" style="margin-bottom:14px">
+     <li>Government knows <em>where</em> farms are — but not what is changing inside them</li>
+     <li>Field visits take weeks. By arrival, the crop stress has spread.</li>
+     <li>No continuous layer: no prediction, no early warning, no scenario planning</li>
+     <li>Farmers, agencies, and agri-finance providers all fly blind until damage is done</li>
+     <li>Climate change is making this worse every season</li>
+    </ul>
+    <div class="card card-teal">
+     <h3 style="color:var(--teal-d)">The missing layer</h3>
+     <p>Continuous satellite intelligence → AI crop modeling → scenario simulation → decision output. Connecting observation to action <strong>before</strong> loss occurs. This is what BDCrops builds.</p>
+    </div>
+   </div>
+   <div>
+    <!-- SVG Problem diagram -->
+    <div class="chart-wrap">
+     <div class="chart-title">Traditional vs BDCrops Intelligence Gap</div>
+     <svg viewBox="0 0 340 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+      <!-- Traditional timeline -->
+      <text x="10" y="20" fill="#5e726e" font-size="9" font-weight="800">TRADITIONAL APPROACH</text>
+      <rect x="10" y="28" width="50" height="22" rx="5" fill="#f0f5f4" stroke="#dde9e6" stroke-width="1"/>
+      <text x="35" y="43" fill="#5e726e" font-size="8" text-anchor="middle">Event</text>
+      <line x1="60" y1="39" x2="90" y2="39" stroke="#dde9e6" stroke-width="1.5" stroke-dasharray="4,2"/>
+      <rect x="90" y="28" width="70" height="22" rx="5" fill="#fdf3d9" stroke="rgba(232,168,37,.3)" stroke-width="1"/>
+      <text x="125" y="43" fill="#b08010" font-size="8" text-anchor="middle">Visit (weeks)</text>
+      <line x1="160" y1="39" x2="190" y2="39" stroke="#dde9e6" stroke-width="1.5" stroke-dasharray="4,2"/>
+      <rect x="190" y="28" width="80" height="22" rx="5" fill="rgba(224,93,68,.1)" stroke="rgba(224,93,68,.25)" stroke-width="1"/>
+      <text x="230" y="43" fill="#c04030" font-size="8" text-anchor="middle">Loss Already Done</text>
+      <!-- Arrow -->
+      <text x="170" y="65" fill="#e05d44" font-size="8" text-anchor="middle" font-weight="700">❌ Detection too late</text>
+      <!-- BDCrops timeline -->
+      <text x="10" y="90" fill="#12a090" font-size="9" font-weight="800">BDCROPS APPROACH</text>
+      <rect x="10" y="98" width="50" height="22" rx="5" fill="rgba(18,160,144,.12)" stroke="rgba(18,160,144,.3)" stroke-width="1"/>
+      <text x="35" y="113" fill="#0c7a6d" font-size="8" text-anchor="middle">Event</text>
+      <line x1="60" y1="109" x2="90" y2="109" stroke="rgba(18,160,144,.4)" stroke-width="1.5"/>
+      <rect x="90" y="98" width="60" height="22" rx="5" fill="rgba(18,160,144,.12)" stroke="rgba(18,160,144,.3)" stroke-width="1"/>
+      <text x="120" y="113" fill="#0c7a6d" font-size="8" text-anchor="middle">Satellite (hrs)</text>
+      <line x1="150" y1="109" x2="180" y2="109" stroke="rgba(18,160,144,.4)" stroke-width="1.5"/>
+      <rect x="180" y="98" width="55" height="22" rx="5" fill="rgba(18,160,144,.12)" stroke="rgba(18,160,144,.3)" stroke-width="1"/>
+      <text x="207" y="113" fill="#0c7a6d" font-size="8" text-anchor="middle">AI Alert</text>
+      <line x1="235" y1="109" x2="265" y2="109" stroke="rgba(18,160,144,.4)" stroke-width="1.5"/>
+      <rect x="265" y="98" width="60" height="22" rx="5" fill="rgba(18,160,144,.2)" stroke="var(--teal)" stroke-width="1.5"/>
+      <text x="295" y="113" fill="#0c7a6d" font-size="8" text-anchor="middle">Act Now</text>
+      <text x="175" y="138" fill="#12a090" font-size="8" text-anchor="middle" font-weight="700">✅ Act before the loss</text>
+      <!-- Value gap bars -->
+      <text x="10" y="162" fill="#5e726e" font-size="9" font-weight="800">DETECTION SPEED</text>
+      <rect x="10" y="170" width="280" height="10" rx="5" fill="#f0f5f4"/>
+      <rect x="10" y="170" width="280" height="10" rx="5" fill="rgba(18,160,144,.7)"/>
+      <text x="295" y="179" fill="#12a090" font-size="8" font-weight="800">Hours</text>
+      <rect x="10" y="185" width="100" height="10" rx="5" fill="rgba(224,93,68,.25)"/>
+      <text x="115" y="194" fill="#e05d44" font-size="8">Weeks (traditional)</text>
+     </svg>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+
+
+<!-- ═══ SLIDE 03 · SOLUTION ═══ -->
+<div class="slide">
+ <div class="inner">
+  <div class="sh">
+   <span class="sn">02</span>
+   <div class="st"><div class="eyebrow">Our Solution</div><h2>One Platform. Three Intelligence Products. One Decision Output.</h2></div>
+  </div>
+  <div class="col2">
+   <div>
+    <div class="phases">
+     <div class="phase" style="border-left:3px solid var(--teal)">
+      <div><div class="pl">GeoData</div><div class="tag tag-t" style="margin-top:4px;font-size:7px">Live · KH01 + KH07</div></div>
+      <div><div class="pt">8-Band Satellite Intelligence</div><div class="pd">VNIR multispectral imagery → 20+ products: NDVI, NDWI, LULC, waterlogging, drainage, SOC, change detection. One image acquisition → multiple intelligence layers.</div></div>
+     </div>
+     <div class="phase" style="border-left:3px solid #4a7fe5">
+      <div><div class="pl" style="color:#4a7fe5">AquaCrop</div><div class="tag" style="background:rgba(74,127,229,.1);color:#4a7fe5;margin-top:4px;font-size:7px;padding:4px 9px;border-radius:999px;font-weight:800">Prototype</div></div>
+      <div><div class="pt">Crop Digital Twin</div><div class="pd">Satellite obs → crop growth + water balance + yield simulation. AquaCrop model outputs: biomass, ET, yield, flood/drought/heat scenarios. BRRI dhan47 prototype live.</div></div>
+     </div>
+     <div class="phase" style="border-left:3px solid var(--gold)">
+      <div><div class="pl" style="color:var(--gold)">AquaData</div><div class="tag tag-g" style="margin-top:4px;font-size:7px">Live · DoF Demo</div></div>
+      <div><div class="pt">Fisheries Intelligence</div><div class="pd">Same architecture extended to water. 4 species × 4 seasons × 16 scenarios. Water quality, growth forecasting, species suitability, risk alerts. DoF Rupsha River demo live.</div></div>
+     </div>
+    </div>
+    <div style="margin-top:12px;padding:11px 13px;background:var(--mint);border-radius:9px;font-size:11px;color:var(--ink2);font-weight:600">
+     🛰 Satellite → 🤖 Spectral AI → 🌱 AquaCrop Twin → 📊 Scenarios → ⚡ Decision
+    </div>
+   </div>
+   <div>
+    <!-- SVG Technology Stack -->
+    <div class="chart-wrap">
+     <div class="chart-title">Technology Stack — Unique Combination</div>
+     <svg viewBox="0 0 300 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+      <!-- Stack layers -->
+      <rect x="10" y="10" width="280" height="36" rx="8" fill="rgba(18,160,144,.12)" stroke="rgba(18,160,144,.3)" stroke-width="1.5"/>
+      <text x="150" y="25" fill="#0c7a6d" font-size="10" font-weight="800" text-anchor="middle">DECISION LAYER</text>
+      <text x="150" y="38" fill="#5a9a94" font-size="8" text-anchor="middle">Dashboard · API · Reports · Alerts</text>
+      <path d="M150,46 L150,56" stroke="#dde9e6" stroke-width="2" stroke-dasharray="3,2"/>
+      <rect x="10" y="56" width="280" height="36" rx="8" fill="rgba(74,127,229,.1)" stroke="rgba(74,127,229,.25)" stroke-width="1.5"/>
+      <text x="150" y="71" fill="#3a6ab8" font-size="10" font-weight="800" text-anchor="middle">SCENARIO ENGINE</text>
+      <text x="150" y="84" fill="#5a7ab8" font-size="8" text-anchor="middle">AquaCrop Digital Twin · Flood · Drought · Yield</text>
+      <path d="M150,92 L150,102" stroke="#dde9e6" stroke-width="2" stroke-dasharray="3,2"/>
+      <rect x="10" y="102" width="280" height="36" rx="8" fill="rgba(232,168,37,.1)" stroke="rgba(232,168,37,.25)" stroke-width="1.5"/>
+      <text x="150" y="117" fill="#a07010" font-size="10" font-weight="800" text-anchor="middle">AI ANALYTICS</text>
+      <text x="150" y="130" fill="#a07a30" font-size="8" text-anchor="middle">NDVI · NDRE · LULC · Change · Water · SOC</text>
+      <path d="M150,138 L150,148" stroke="#dde9e6" stroke-width="2" stroke-dasharray="3,2"/>
+      <rect x="10" y="148" width="280" height="36" rx="8" fill="rgba(18,160,144,.06)" stroke="var(--line)" stroke-width="1"/>
+      <text x="150" y="163" fill="#2a6a64" font-size="10" font-weight="800" text-anchor="middle">8-BAND SATELLITE DATA</text>
+      <text x="150" y="176" fill="#5a8a84" font-size="8" text-anchor="middle">21AT + Sentinel-2 · &lt;1.5m resolution</text>
+      <!-- Unique badge -->
+      <rect x="60" y="192" width="180" height="22" rx="6" fill="var(--teal)" />
+      <text x="150" y="207" fill="#fff" font-size="9" font-weight="900" text-anchor="middle">UNIQUE: AquaCrop + GeoAI Combined</text>
+     </svg>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+
+
+<!-- ═══ SLIDE 04 · DEMO KH01 ═══ -->
+<div class="slide">
+ <div class="inner">
+  <div class="sh">
+   <span class="sn">03</span>
+   <div class="st"><div class="eyebrow">Live Demo 1 of 3 — Government Agriculture</div><h2>BADC KH01 — 114 km² Coastal Cropland Intelligence</h2></div>
+   <div class="sa"><a class="btn btn-t" href="https://bdcrops.com/badc_kh01" target="_blank" rel="noopener">🌾 Open Live</a></div>
+  </div>
+  <div class="col2">
+   <div>
+    <div class="stats">
+     <div class="stat"><div class="stn">114</div><div class="stl">km² AOI</div><div class="sts">Batiaghata Union · Khulna</div></div>
+     <div class="stat"><div class="stn">2020→26</div><div class="stl">Multi-Year</div><div class="sts">Baseline → Observed → Forecast</div></div>
+    </div>
+    <ul class="cl" style="margin-bottom:14px">
+     <li>LULC composition + year-by-year change comparison</li>
+     <li>Waterlogging, drainage, water detection, soil organic carbon, QA layers</li>
+     <li>Trend analysis: 3-scenario forecast (optimistic / base / pessimistic) with 95% CI</li>
+     <li>Agricultural KPIs + decision support dashboard</li>
+     <li>Data: 21AT + Sentinel-2 · BWDB Polder 30 · Confidential BADC 2026</li>
+    </ul>
+    <div class="card-gold">
+     <h3 style="color:#7a5c10">Investor takeaway</h3>
+     <p style="color:#7a5c10">One 114 km² AOI → reusable, multi-year, multi-layer intelligence product. Same workflow scales to every district in Bangladesh. Each repeat contract builds data moat.</p>
+    </div>
+   </div>
+   <div>
+    <!-- SVG KH01 Dashboard mockup -->
+    <div class="chart-wrap">
+     <div class="chart-title">KH01 Intelligence Dashboard — 2020 → 2023 → 2025 Trend</div>
+     <svg viewBox="0 0 340 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+      <defs>
+       <linearGradient id="ndvi_g" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#12a090" stop-opacity=".25"/><stop offset="100%" stop-color="#12a090" stop-opacity="0"/></linearGradient>
+       <linearGradient id="water_g" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4a7fe5" stop-opacity=".25"/><stop offset="100%" stop-color="#4a7fe5" stop-opacity="0"/></linearGradient>
+      </defs>
+      <!-- Y axis labels -->
+      <text x="8" y="30" fill="#9ab8b4" font-size="8">100%</text>
+      <text x="8" y="70" fill="#9ab8b4" font-size="8">75%</text>
+      <text x="8" y="110" fill="#9ab8b4" font-size="8">50%</text>
+      <text x="8" y="150" fill="#9ab8b4" font-size="8">25%</text>
+      <!-- Grid lines -->
+      <line x1="42" y1="28" x2="330" y2="28" stroke="#f0f5f4" stroke-width="1"/>
+      <line x1="42" y1="68" x2="330" y2="68" stroke="#f0f5f4" stroke-width="1"/>
+      <line x1="42" y1="108" x2="330" y2="108" stroke="#f0f5f4" stroke-width="1"/>
+      <line x1="42" y1="148" x2="330" y2="148" stroke="#f0f5f4" stroke-width="1"/>
+      <!-- NDVI area + line -->
+      <path d="M42,110 C80,100 120,88 160,72 C200,56 240,50 280,42 C300,38 320,35 330,33 L330,158 L42,158 Z" fill="url(#ndvi_g)"/>
+      <path d="M42,110 C80,100 120,88 160,72 C200,56 240,50 280,42 C300,38 320,35 330,33" fill="none" stroke="#12a090" stroke-width="2.5" stroke-linecap="round"/>
+      <!-- Water area -->
+      <path d="M42,148 C80,145 120,140 160,136 C200,132 240,128 280,125 C300,124 320,122 330,121 L330,158 L42,158 Z" fill="url(#water_g)"/>
+      <path d="M42,148 C80,145 120,140 160,136 C200,132 240,128 280,125 C300,124 320,122 330,121" fill="none" stroke="#4a7fe5" stroke-width="2" stroke-linecap="round" stroke-dasharray="5,3"/>
+      <!-- X axis labels -->
+      <text x="42" y="172" fill="#9ab8b4" font-size="8" text-anchor="middle">2020</text>
+      <text x="130" y="172" fill="#9ab8b4" font-size="8" text-anchor="middle">2021</text>
+      <text x="200" y="172" fill="#9ab8b4" font-size="8" text-anchor="middle">2022</text>
+      <text x="260" y="172" fill="#9ab8b4" font-size="8" text-anchor="middle">2023</text>
+      <text x="320" y="172" fill="#9ab8b4" font-size="8" text-anchor="middle">2025F</text>
+      <!-- Forecast zone -->
+      <rect x="280" y="25" width="50" height="140" fill="rgba(18,160,144,.05)" stroke="rgba(18,160,144,.15)" stroke-width="1" stroke-dasharray="3,2" rx="4"/>
+      <text x="305" y="20" fill="var(--teal)" font-size="7.5" font-weight="800" text-anchor="middle">FORECAST</text>
+      <!-- Legend -->
+      <line x1="42" y1="188" x2="60" y2="188" stroke="#12a090" stroke-width="2"/>
+      <text x="64" y="191" fill="#5e726e" font-size="8">NDVI Crop Health</text>
+      <line x1="150" y1="188" x2="168" y2="188" stroke="#4a7fe5" stroke-width="2" stroke-dasharray="4,2"/>
+      <text x="172" y="191" fill="#5e726e" font-size="8">Water Extent %</text>
+     </svg>
+    </div>
+    <!-- LULC breakdown -->
+    <div class="chart-wrap" style="margin-top:10px">
+     <div class="chart-title">LULC Composition — KH01 2023</div>
+     <svg viewBox="0 0 340 60" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+      <rect x="10" y="14" width="195" height="18" rx="4" fill="#12a090"/>
+      <rect x="205" y="14" width="52" height="18" rx="4" fill="#4a7fe5"/>
+      <rect x="257" y="14" width="34" height="18" rx="4" fill="#e8a825"/>
+      <rect x="291" y="14" width="39" height="18" rx="4" fill="#8ab8b4"/>
+      <text x="107" y="27" fill="#fff" font-size="9" font-weight="800" text-anchor="middle">Agriculture 59%</text>
+      <text x="231" y="27" fill="#fff" font-size="8" font-weight="700" text-anchor="middle">Water 15%</text>
+      <text x="274" y="27" fill="#fff" font-size="8" font-weight="700" text-anchor="middle">Soil 10%</text>
+      <text x="311" y="27" fill="#fff" font-size="8" font-weight="700" text-anchor="middle">Other</text>
+      <text x="10" y="52" fill="#9ab8b4" font-size="7.5">114 km² — Batiaghata Union · Khulna · BWDB Polder 30</text>
+     </svg>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+
+
+<!-- ═══ SLIDE 05 · DEMO DoF ═══ -->
+<div class="slide">
+ <div class="inner">
+  <div class="sh">
+   <span class="sn">04</span>
+   <div class="st"><div class="eyebrow">Live Demo 2 — New Vertical: Fisheries Intelligence</div><h2>DoF AquaData — Rupsha River Smart — 4×4×16 Scenarios</h2></div>
+   <div class="sa"><a class="btn btn-t" href="https://bdcrops.com/DoF/" target="_blank" rel="noopener">🐟 Open Live</a></div>
+  </div>
+  <div class="col2">
+   <div>
+    <div class="stats">
+     <div class="stat"><div class="stn">16</div><div class="stl">Scenarios</div><div class="sts">4 species × 4 seasons</div></div>
+     <div class="stat"><div class="stn">90-day</div><div class="stl">Forecast Horizon</div><div class="sts">Species growth + biomass</div></div>
+    </div>
+    <ul class="cl" style="margin-bottom:12px">
+     <li>Species: Catla · Rohu · Mrigal · Hilsa (nationally significant)</li>
+     <li>Catla Monsoon: 79.2% growth probability → 448g at 90 days</li>
+     <li>Rohu critical constraint: salinity 5.88 ppt exceeds 3.0 ppt tolerance → alert</li>
+     <li>Water parameters: Temperature, DO, Salinity, pH, Turbidity, Ammonia, Conductivity</li>
+     <li>Government target: MoFL → DoF → Hilsa zones, jatka monitoring, ECA</li>
+     <li>Same platform architecture as AgroVision — horizontal scaling proven</li>
+    </ul>
+    <div class="disc">
+     <strong>⚠ Model status:</strong> Screening-stage demonstration. Water profiles synthetic/derived; species parameters generic FAO/FishBase. Site-specific calibration needed. Investment converts screening → calibrated operational product.
+    </div>
+   </div>
+   <div>
+    <!-- DoF dashboard mockup SVG -->
+    <div class="chart-wrap">
+     <div class="chart-title">Species Growth Forecast — Catla · Rupsha Monsoon</div>
+     <svg viewBox="0 0 340 190" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+      <defs>
+       <linearGradient id="fg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#12a090" stop-opacity=".2"/><stop offset="100%" stop-color="#12a090" stop-opacity="0"/></linearGradient>
+       <linearGradient id="fg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e8a825" stop-opacity=".15"/><stop offset="100%" stop-color="#e8a825" stop-opacity="0"/></linearGradient>
+      </defs>
+      <!-- Grid -->
+      <line x1="46" y1="20" x2="330" y2="20" stroke="#f0f5f4" stroke-width="1"/>
+      <line x1="46" y1="52" x2="330" y2="52" stroke="#f0f5f4" stroke-width="1"/>
+      <line x1="46" y1="84" x2="330" y2="84" stroke="#f0f5f4" stroke-width="1"/>
+      <line x1="46" y1="116" x2="330" y2="116" stroke="#f0f5f4" stroke-width="1"/>
+      <line x1="46" y1="148" x2="330" y2="148" stroke="#f0f5f4" stroke-width="1"/>
+      <text x="30" y="24" fill="#9ab8b4" font-size="8" text-anchor="end">500g</text>
+      <text x="30" y="56" fill="#9ab8b4" font-size="8" text-anchor="end">400g</text>
+      <text x="30" y="88" fill="#9ab8b4" font-size="8" text-anchor="end">300g</text>
+      <text x="30" y="120" fill="#9ab8b4" font-size="8" text-anchor="end">200g</text>
+      <text x="30" y="152" fill="#9ab8b4" font-size="8" text-anchor="end">100g</text>
+      <!-- Catla growth curve -->
+      <path d="M46,148 C90,144 130,136 170,120 C210,104 250,72 290,44 C310,30 325,24 330,22 L330,155 L46,155 Z" fill="url(#fg)"/>
+      <path d="M46,148 C90,144 130,136 170,120 C210,104 250,72 290,44 C310,30 325,24 330,22" fill="none" stroke="#12a090" stroke-width="2.5" stroke-linecap="round"/>
+      <!-- Rohu growth curve -->
+      <path d="M46,152 C90,148 130,142 170,130 C210,118 250,96 290,78 C310,68 325,62 330,60" fill="none" stroke="#e8a825" stroke-width="2" stroke-linecap="round" stroke-dasharray="6,3"/>
+      <!-- Target point -->
+      <circle cx="330" cy="22" r="5" fill="#12a090"/>
+      <text x="340" y="26" fill="#12a090" font-size="8" font-weight="800">448g</text>
+      <!-- Risk zone for Rohu -->
+      <rect x="260" y="18" width="70" height="50" fill="rgba(224,93,68,.06)" stroke="rgba(224,93,68,.2)" stroke-width="1" rx="3"/>
+      <text x="295" y="13" fill="#e05d44" font-size="7" font-weight="800" text-anchor="middle">⚠ Salinity Risk</text>
+      <!-- X labels -->
+      <text x="46" y="168" fill="#9ab8b4" font-size="8" text-anchor="middle">Day 0</text>
+      <text x="140" y="168" fill="#9ab8b4" font-size="8" text-anchor="middle">Day 30</text>
+      <text x="234" y="168" fill="#9ab8b4" font-size="8" text-anchor="middle">Day 60</text>
+      <text x="330" y="168" fill="#9ab8b4" font-size="8" text-anchor="middle">Day 90</text>
+      <!-- Legend -->
+      <line x1="46" y1="182" x2="62" y2="182" stroke="#12a090" stroke-width="2.5"/>
+      <circle cx="54" cy="182" r="3" fill="#12a090"/>
+      <text x="66" y="185" fill="#5e726e" font-size="8">Catla Monsoon 79.2% prob.</text>
+      <line x1="180" y1="182" x2="196" y2="182" stroke="#e8a825" stroke-width="2" stroke-dasharray="4,2"/>
+      <text x="200" y="185" fill="#5e726e" font-size="8">Rohu (salinity constraint)</text>
+     </svg>
+    </div>
+    <!-- Species matrix -->
+    <div class="chart-wrap" style="margin-top:10px">
+     <div class="chart-title">Suitability Matrix — All Species × All Seasons</div>
+     <svg viewBox="0 0 340 80" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+      <!-- Headers -->
+      <text x="80" y="14" fill="#9ab8b4" font-size="8" font-weight="700">Pre-M</text>
+      <text x="140" y="14" fill="#9ab8b4" font-size="8" font-weight="700">Monsoon</text>
+      <text x="205" y="14" fill="#9ab8b4" font-size="8" font-weight="700">Post-M</text>
+      <text x="265" y="14" fill="#9ab8b4" font-size="8" font-weight="700">Winter</text>
+      <!-- Species + cells -->
+      <text x="6" y="31" fill="#5e726e" font-size="8" font-weight="700">Catla</text>
+      <rect x="70" y="20" width="50" height="16" rx="3" fill="rgba(18,160,144,.3)"/><text x="95" y="31" fill="#0c7a6d" font-size="8" text-anchor="middle">73%</text>
+      <rect x="130" y="20" width="50" height="16" rx="3" fill="rgba(18,160,144,.6)"/><text x="155" y="31" fill="#fff" font-size="8" text-anchor="middle">79%</text>
+      <rect x="195" y="20" width="50" height="16" rx="3" fill="rgba(18,160,144,.4)"/><text x="220" y="31" fill="#0c7a6d" font-size="8" text-anchor="middle">75%</text>
+      <rect x="255" y="20" width="50" height="16" rx="3" fill="rgba(18,160,144,.2)"/><text x="280" y="31" fill="#0c7a6d" font-size="8" text-anchor="middle">58%</text>
+      <text x="6" y="52" fill="#5e726e" font-size="8" font-weight="700">Rohu</text>
+      <rect x="70" y="41" width="50" height="16" rx="3" fill="rgba(18,160,144,.25)"/><text x="95" y="52" fill="#0c7a6d" font-size="8" text-anchor="middle">65%</text>
+      <rect x="130" y="41" width="50" height="16" rx="3" fill="rgba(224,93,68,.2)"/><text x="155" y="52" fill="#c04030" font-size="8" text-anchor="middle">⚠ Risk</text>
+      <rect x="195" y="41" width="50" height="16" rx="3" fill="rgba(18,160,144,.3)"/><text x="220" y="52" fill="#0c7a6d" font-size="8" text-anchor="middle">70%</text>
+      <rect x="255" y="41" width="50" height="16" rx="3" fill="rgba(18,160,144,.3)"/><text x="280" y="52" fill="#0c7a6d" font-size="8" text-anchor="middle">68%</text>
+      <text x="6" y="73" fill="#5e726e" font-size="8" font-weight="700">Hilsa</text>
+      <rect x="70" y="62" width="50" height="16" rx="3" fill="rgba(74,127,229,.2)"/><text x="95" y="73" fill="#4a6fb0" font-size="8" text-anchor="middle">45%</text>
+      <rect x="130" y="62" width="50" height="16" rx="3" fill="rgba(74,127,229,.5)"/><text x="155" y="73" fill="#fff" font-size="8" text-anchor="middle">82%</text>
+      <rect x="195" y="62" width="50" height="16" rx="3" fill="rgba(74,127,229,.3)"/><text x="220" y="73" fill="#4a6fb0" font-size="8" text-anchor="middle">61%</text>
+      <rect x="255" y="62" width="50" height="16" rx="3" fill="rgba(74,127,229,.15)"/><text x="280" y="73" fill="#4a6fb0" font-size="8" text-anchor="middle">38%</text>
+     </svg>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+
+
+<!-- ═══ SLIDE 06 · TRACTION ═══ -->
+<div class="slide">
+ <div class="inner">
+  <div class="sh">
+   <span class="sn">05</span>
+   <div class="st"><div class="eyebrow">Commercial Status — Honest Assessment</div><h2>What We Have Built. What's Missing. What Investment Changes.</h2></div>
+  </div>
+  <div class="col2">
+   <div>
+    <div class="card card-teal" style="margin-bottom:12px">
+     <h3 style="color:var(--teal-d);margin-bottom:8px">✅ What exists right now</h3>
+     <ul class="cl">
+      <li>3 live working demonstrations (KH01, KH07, DoF) — open in browser</li>
+      <li>GeoData infrastructure processing 21AT + Sentinel-2</li>
+      <li>AquaCrop prototype — BRRI dhan47, Khulna coastal</li>
+      <li>Satellite-processing workflows fully built and validated</li>
+      <li>Government-oriented prototype dashboards ready for BADC review</li>
+     </ul>
+    </div>
+    <div class="card" style="margin-bottom:12px;border-color:rgba(224,93,68,.2);background:rgba(224,93,68,.03)">
+     <h3 style="color:var(--red);margin-bottom:8px">⚠ Current status — no hiding it</h3>
+     <ul class="cl">
+      <li>Funding raised: <strong>$0 external</strong> — fully bootstrapped by founder</li>
+      <li>Revenue: <strong>pre-commercial</strong> — no signed contracts yet</li>
+      <li>Team: founder + associates — seeking co-founder / technical hire</li>
+      <li>AquaCrop: prototype (1 sat obs, 0 ground obs, confidence 33/100)</li>
+      <li>DoF model: screening stage, synthetic water data, needs site calibration</li>
+     </ul>
+    </div>
+    <div class="card-gold">
+     <h3 style="color:#7a5c10">Investment is the bridge</h3>
+     <p style="color:#7a5c10">Technology is built. Investment buys field validation, calibration, and the commercialization sprint that converts 3 working prototypes into signed contracts generating recurring revenue.</p>
+    </div>
+   </div>
+   <div>
+    <table class="mtbl">
+     <thead><tr><th>Criterion</th><th>Status</th></tr></thead>
+     <tbody>
+      <tr><td>Technology-driven</td><td><span class="tag tag-t">✅ AI + Satellite + Twin</span></td></tr>
+      <tr><td>Market-ready product</td><td><span class="tag tag-g">🟡 Working prototype</span></td></tr>
+      <tr><td>Early traction / pilots</td><td><span class="tag tag-t">✅ 3 live govt demos</span></td></tr>
+      <tr><td>Customer base</td><td><span class="tag tag-g">🟡 BADC / DoF pipeline</span></td></tr>
+      <tr><td>Strategic plan</td><td><span class="tag tag-t">✅ Project→SaaS→API</span></td></tr>
+      <tr><td>Registered company</td><td><span class="tag tag-t">✅ BDCrops Technologies</span></td></tr>
+      <tr><td>Full-time team ≥2</td><td><span class="tag tag-r">🔴 Founder + part-time</span></td></tr>
+      <tr><td>Revenue (past 12mo)</td><td><span class="tag tag-r">🔴 Pre-revenue</span></td></tr>
+      <tr><td>Global ambition</td><td><span class="tag tag-t">✅ BD→S.Asia→Global</span></td></tr>
+     </tbody>
+    </table>
+    <div class="disc" style="margin-top:10px">
+     Weaknesses are team size and commercial traction. Both are directly addressed by the $500K investment plan.
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+
+
+<!-- ═══ SLIDE 07 · MARKET ═══ -->
+<div class="slide">
+ <div class="inner">
+  <div class="sh">
+   <span class="sn">06</span>
+   <div class="st"><div class="eyebrow">Market & Customers</div><h2>Multiple Paying Segments — One Intelligence Stack</h2></div>
+  </div>
+  <div class="g3" style="margin-bottom:16px">
+   <div class="card" style="border-top:3px solid var(--teal)">
+    <h3>🏛 Government (B2G)</h3>
+    <p style="margin-top:6px">BADC · DAE · DoF · MoFL · Water Resources · Environment. Direct project contracts → framework agreements → annual monitoring.</p>
+    <div style="margin-top:8px"><span class="tag tag-t">KH01 · KH07 · DoF demos ready</span></div>
+    <div style="margin-top:6px;font-size:11px;color:var(--muted)">Contract size: US$20K–$100K+ per AOI engagement</div>
+   </div>
+   <div class="card" style="border-top:3px solid var(--gold)">
+    <h3>🌍 Development & NGOs</h3>
+    <p style="margin-top:6px">FAO · World Bank · ADB · CGIAR · Climate programmes · INGO field operations. Project-based + programme evaluation contracts.</p>
+    <div style="margin-top:8px"><span class="tag tag-g">High value · longer sales cycle</span></div>
+    <div style="margin-top:6px;font-size:11px;color:var(--muted)">Contract size: US$50K–$500K programme budgets</div>
+   </div>
+   <div class="card" style="border-top:3px solid var(--blue)">
+    <h3>🏢 Enterprise (B2B)</h3>
+    <p style="margin-top:6px">Agribusiness · seed & input companies · aquaculture & shrimp farms · hatcheries · agri-finance · climate insurers.</p>
+    <div style="margin-top:8px"><span class="tag" style="background:rgba(74,127,229,.1);color:#4a7fe5">SaaS subscriptions + API</span></div>
+    <div style="margin-top:6px;font-size:11px;color:var(--muted)">Unit: $4–$12/farm/quarter at scale</div>
+   </div>
+  </div>
+  <div class="col2r">
+   <div>
+    <!-- Revenue ladder SVG -->
+    <div class="chart-wrap">
+     <div class="chart-title">Revenue Ladder — Project to Platform</div>
+     <svg viewBox="0 0 280 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+      <rect x="10" y="140" width="260" height="28" rx="6" fill="rgba(18,160,144,.12)" stroke="rgba(18,160,144,.25)" stroke-width="1"/>
+      <text x="140" y="153" fill="#0c7a6d" font-size="9" font-weight="700" text-anchor="middle">Phase A: Govt/Dev Projects</text>
+      <text x="140" y="163" fill="#5a8a84" font-size="8" text-anchor="middle">US$20K–$100K per AOI · KH01/KH07/DoF pilots</text>
+      <rect x="30" y="105" width="220" height="26" rx="6" fill="rgba(18,160,144,.18)" stroke="rgba(18,160,144,.3)" stroke-width="1"/>
+      <text x="140" y="118" fill="#0c7a6d" font-size="9" font-weight="700" text-anchor="middle">Phase B: Annual Monitoring Contracts</text>
+      <text x="140" y="128" fill="#5a8a84" font-size="8" text-anchor="middle">Recurring · same AOI updated each year</text>
+      <rect x="50" y="72" width="180" height="24" rx="6" fill="rgba(18,160,144,.25)" stroke="rgba(18,160,144,.4)" stroke-width="1"/>
+      <text x="140" y="85" fill="#0c7a6d" font-size="9" font-weight="700" text-anchor="middle">Phase C: Enterprise SaaS</text>
+      <text x="140" y="95" fill="#5a8a84" font-size="8" text-anchor="middle">Dashboard subscriptions · multi-user</text>
+      <rect x="70" y="42" width="140" height="22" rx="6" fill="rgba(18,160,144,.35)" stroke="rgba(18,160,144,.5)" stroke-width="1"/>
+      <text x="140" y="55" fill="#0c7a6d" font-size="9" font-weight="700" text-anchor="middle">Phase D: API + Digital Twin</text>
+      <text x="140" y="65" fill="#5a8a84" font-size="8" text-anchor="middle">Usage-based intelligence</text>
+      <rect x="90" y="14" width="100" height="20" rx="6" fill="var(--teal)"/>
+      <text x="140" y="27" fill="#fff" font-size="9" font-weight="900" text-anchor="middle">$1M+ ARR Target</text>
+      <text x="140" y="174" fill="#9ab8b4" font-size="7.5" text-anchor="middle">65K farms × $4/qtr = $1.04M ARR (illustrative)</text>
+     </svg>
+    </div>
+   </div>
+   <div>
+    <!-- Market size SVG -->
+    <div class="chart-wrap">
+     <div class="chart-title">Addressable Market — Bangladesh & South Asia</div>
+     <svg viewBox="0 0 280 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+      <!-- Concentric circles TAM/SAM/SOM -->
+      <circle cx="140" cy="95" r="80" fill="rgba(18,160,144,.06)" stroke="rgba(18,160,144,.15)" stroke-width="1.5"/>
+      <circle cx="140" cy="95" r="55" fill="rgba(18,160,144,.1)" stroke="rgba(18,160,144,.25)" stroke-width="1.5"/>
+      <circle cx="140" cy="95" r="30" fill="rgba(18,160,144,.2)" stroke="var(--teal)" stroke-width="2"/>
+      <text x="140" y="90" fill="#0c7a6d" font-size="9" font-weight="900" text-anchor="middle">SOM</text>
+      <text x="140" y="102" fill="#0c7a6d" font-size="8" text-anchor="middle">$30M</text>
+      <text x="205" y="68" fill="#5e726e" font-size="8" font-weight="700">SAM</text>
+      <text x="205" y="78" fill="#9ab8b4" font-size="7.5">$200M</text>
+      <text x="220" y="44" fill="#5e726e" font-size="8" font-weight="700">TAM</text>
+      <text x="220" y="54" fill="#9ab8b4" font-size="7.5">$2B+</text>
+      <text x="140" y="15" fill="#5e726e" font-size="8" font-weight="800" text-anchor="middle">South Asia AgriTech + AquaTech</text>
+      <text x="140" y="170" fill="#9ab8b4" font-size="7.5" text-anchor="middle">TAM: S.Asia AgriTech · SAM: BD+BD neighbours · SOM: 5yr achievable</text>
+     </svg>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+
+
+<!-- ═══ SLIDE 08 · MOAT ═══ -->
+<div class="slide s-dark">
+ <div class="inner">
+  <div class="sh">
+   <span class="sn">07</span>
+   <div class="st"><div class="eyebrow">Competitive Moat</div><h2>We Sell Intelligence. Competitors Sell Pixels.</h2></div>
+  </div>
+  <div class="col2">
+   <div>
+    <p style="margin-bottom:16px">Raw satellite imagery is a commodity anyone can buy. The moat is built above it: local calibration history, field observation datasets, and decision-layer integration that compound with every deployment.</p>
+    <ul class="cl" style="margin-bottom:16px">
+     <li>KH01 multi-year 2020→2026 + KH07 are the start of an unreplicable local calibration dataset</li>
+     <li>Every new AOI adds to training data — models improve, switching cost rises</li>
+     <li>AquaCrop + GeoAI combination not available from any standard GIS vendor</li>
+     <li>DoF fisheries module opens a second vertical with no direct competitor in Bangladesh</li>
+     <li>Government relationships + BADC proposal pipeline: 12–24 month head start</li>
+    </ul>
+    <div class="card card-dark" style="border-color:rgba(18,160,144,.2);padding:14px">
+     <h3 style="color:var(--teal);margin-bottom:6px">Platform flywheel</h3>
+     <p>More deployments → more calibration data → better AI accuracy → higher willingness to pay → more deployments. Each contract reinforces the next one.</p>
+    </div>
+   </div>
+   <div>
+    <div class="chart-wrap chart-dark">
+     <div class="chart-title">Capability Comparison</div>
+     <table class="mtbl" style="color:#9abab6">
+      <thead>
+       <tr>
+        <th>Capability</th>
+        <th style="text-align:center">BDCrops</th>
+        <th style="text-align:center">GIS Vendor</th>
+        <th style="text-align:center">Raw Satellite</th>
+       </tr>
+      </thead>
+      <tbody>
+       <tr><td>8-band spectral analytics</td><td style="text-align:center;color:#12a090">✅</td><td style="text-align:center;color:#e8a825">🟡</td><td style="text-align:center;color:#e05d44">❌</td></tr>
+       <tr><td>AquaCrop crop digital twin</td><td style="text-align:center;color:#12a090">✅</td><td style="text-align:center;color:#e05d44">❌</td><td style="text-align:center;color:#e05d44">❌</td></tr>
+       <tr><td>Fisheries intelligence</td><td style="text-align:center;color:#12a090">✅</td><td style="text-align:center;color:#e05d44">❌</td><td style="text-align:center;color:#e05d44">❌</td></tr>
+       <tr><td>Multi-year trend + forecast</td><td style="text-align:center;color:#12a090">✅</td><td style="text-align:center;color:#e8a825">🟡</td><td style="text-align:center;color:#e05d44">❌</td></tr>
+       <tr><td>Government-ready dashboard</td><td style="text-align:center;color:#12a090">✅</td><td style="text-align:center;color:#e8a825">🟡</td><td style="text-align:center;color:#e05d44">❌</td></tr>
+       <tr><td>Local BD calibration history</td><td style="text-align:center;color:#12a090">✅</td><td style="text-align:center;color:#e05d44">❌</td><td style="text-align:center;color:#e05d44">❌</td></tr>
+       <tr><td>Scenario engine (flood/drought)</td><td style="text-align:center;color:#12a090">✅</td><td style="text-align:center;color:#e05d44">❌</td><td style="text-align:center;color:#e05d44">❌</td></tr>
+      </tbody>
+     </table>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+
+
+<!-- ═══ SLIDE 09 · $500K ═══ -->
+<div class="slide">
+ <div class="inner">
+  <div class="sh">
+   <span class="sn">08</span>
+   <div class="st"><div class="eyebrow">Investment Plan</div><h2>What US$500K Unlocks — Month by Month</h2></div>
+  </div>
+  <div class="col2">
+   <div>
+    <div class="brows" style="margin-bottom:20px">
+     <div class="brow"><span class="blbl">Product Engineering</span><div class="bwrap"><div class="bbar" style="width:30%"></div></div><span class="bpct">30%</span></div>
+     <div class="brow"><span class="blbl">Field Validation (BADC · DoF)</span><div class="bwrap"><div class="bbar" style="width:20%"></div></div><span class="bpct">20%</span></div>
+     <div class="brow"><span class="blbl">Satellite & Cloud Infra</span><div class="bwrap"><div class="bbar" style="width:20%"></div></div><span class="bpct">20%</span></div>
+     <div class="brow"><span class="blbl">Commercialization</span><div class="bwrap"><div class="bbar" style="width:15%"></div></div><span class="bpct">15%</span></div>
+     <div class="brow"><span class="blbl">International Expansion Prep</span><div class="bwrap"><div class="bbar" style="width:10%"></div></div><span class="bpct">10%</span></div>
+     <div class="brow"><span class="blbl">Operations & Governance</span><div class="bwrap"><div class="bbar" style="width:5%"></div></div><span class="bpct">5%</span></div>
+    </div>
+    <div class="card-gold">
+     <strong style="color:#7a5c10;font-size:12px">12-month primary objective</strong>
+     <p style="color:#7a5c10;margin-top:4px">Convert validated pilots (KH01, KH07, DoF) into signed recurring contracts. First commercial revenue within 12 months of investment close.</p>
+    </div>
+    <div class="card card-teal" style="margin-top:10px">
+     <h3 style="color:var(--teal-d)">What investment converts</h3>
+     <ul class="cl" style="font-size:11px">
+      <li>L1 Preliminary → L2 Multi-date satellite series</li>
+      <li>L2 → L3 Field-calibrated · credible · commercially sellable</li>
+      <li>L3 → L4 Multi-season operational → recurring revenue</li>
+     </ul>
+    </div>
+   </div>
+   <div>
+    <!-- Timeline SVG -->
+    <div class="chart-wrap" style="margin-bottom:10px">
+     <div class="chart-title">36-Month Milestone Roadmap</div>
+     <svg viewBox="0 0 300 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+      <!-- Vertical timeline -->
+      <line x1="40" y1="20" x2="40" y2="200" stroke="rgba(18,160,144,.3)" stroke-width="2"/>
+      <!-- Phase 1 -->
+      <circle cx="40" cy="30" r="8" fill="var(--teal)"/>
+      <text x="40" y="34" fill="#fff" font-size="8" text-anchor="middle" font-weight="900">1</text>
+      <text x="56" y="26" fill="var(--teal)" font-size="9" font-weight="800">0–6 months · VALIDATE</text>
+      <text x="56" y="37" fill="#5e726e" font-size="8">5–10 AOIs · AquaCrop calibration · DoF site water data</text>
+      <text x="56" y="47" fill="#5e726e" font-size="8">Hire: 1 data scientist + 1 field agronomist</text>
+      <!-- Phase 2 -->
+      <circle cx="40" cy="80" r="8" fill="rgba(18,160,144,.7)"/>
+      <text x="40" y="84" fill="#fff" font-size="8" text-anchor="middle" font-weight="900">2</text>
+      <text x="56" y="76" fill="var(--teal)" font-size="9" font-weight="800">6–12 months · PRODUCTIZE</text>
+      <text x="56" y="87" fill="#5e726e" font-size="8">GeoData SaaS · AquaCrop dashboard · DoF v2 · API</text>
+      <text x="56" y="97" fill="#5e726e" font-size="8">First contract proposals to BADC / DoF</text>
+      <!-- Phase 3 -->
+      <circle cx="40" cy="130" r="8" fill="rgba(18,160,144,.5)"/>
+      <text x="40" y="134" fill="#fff" font-size="8" text-anchor="middle" font-weight="900">3</text>
+      <text x="56" y="126" fill="var(--teal)" font-size="9" font-weight="800">12–24 months · COMMERCIALIZE</text>
+      <text x="56" y="137" fill="#5e726e" font-size="8">Govt contracts signed · recurring monitoring · ARR</text>
+      <text x="56" y="147" fill="#5e726e" font-size="8">Agribusiness pilots · Hilsa conservation AquaData</text>
+      <!-- Phase 4 -->
+      <circle cx="40" cy="180" r="8" fill="rgba(18,160,144,.3)"/>
+      <text x="40" y="184" fill="#fff" font-size="8" text-anchor="middle" font-weight="900">4</text>
+      <text x="56" y="176" fill="var(--teal)" font-size="9" font-weight="800">24–36 months · SCALE</text>
+      <text x="56" y="187" fill="#5e726e" font-size="8">Multi-district · multi-crop · South Asia expansion</text>
+      <text x="56" y="197" fill="#5e726e" font-size="8">Series A readiness · $1M+ ARR target</text>
+      <!-- Revenue marker -->
+      <rect x="200" y="100" width="90" height="30" rx="6" fill="rgba(18,160,144,.12)" stroke="rgba(18,160,144,.3)" stroke-width="1"/>
+      <text x="245" y="114" fill="var(--teal)" font-size="8" font-weight="900" text-anchor="middle">First Revenue</text>
+      <text x="245" y="124" fill="#5a8a84" font-size="7.5" text-anchor="middle">Target: Month 12</text>
+      <line x1="200" y1="115" x2="130" y2="115" stroke="rgba(18,160,144,.3)" stroke-width="1" stroke-dasharray="3,2"/>
+      <circle cx="130" cy="115" r="3" fill="var(--teal)"/>
+     </svg>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+
+
+<!-- ═══ SLIDE 10 · FINANCIALS ═══ -->
+<div class="slide">
+ <div class="inner">
+  <div class="sh">
+   <span class="sn">09</span>
+   <div class="st"><div class="eyebrow">Financial Projections — Illustrative</div><h2>Revenue Scenarios — Conservative · Base · Optimistic</h2></div>
+  </div>
+  <div class="col2">
+   <div>
+    <div class="card-gold" style="margin-bottom:14px">
+     <strong style="color:#7a5c10;font-size:11px">Important note on these projections</strong>
+     <p style="color:#7a5c10;margin-top:4px;font-size:11px">These are illustrative scenarios, not guarantees. BDCrops is pre-revenue. Numbers are based on comparable GeoAI contract sizes in South Asia and our pipeline conversations. Actual results depend on commercial execution.</p>
+    </div>
+    <table class="mtbl">
+     <thead><tr><th>Year</th><th>Conservative</th><th>Base</th><th>Optimistic</th></tr></thead>
+     <tbody>
+      <tr><td><strong>2026</strong> (Validate)</td><td>$0</td><td>$0</td><td>$10K</td></tr>
+      <tr><td><strong>2027</strong> (First contracts)</td><td>$30K</td><td>$80K</td><td>$150K</td></tr>
+      <tr><td><strong>2028</strong> (SaaS launch)</td><td>$120K</td><td>$280K</td><td>$500K</td></tr>
+      <tr><td><strong>2029</strong> (Scale)</td><td>$300K</td><td>$700K</td><td>$1.2M</td></tr>
+     </tbody>
+    </table>
+    <div class="phases" style="margin-top:12px">
+     <div class="phase">
+      <div class="pl">Pricing</div>
+      <div>
+       <div class="pt">Unit Economics</div>
+       <div class="pd">Govt AOI project: US$20K–$100K · Annual monitoring: $15K–$50K/yr · Enterprise SaaS: $4–$12/farm/qtr · API: usage-based</div>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div>
+    <!-- Revenue projection SVG chart -->
+    <div class="chart-wrap">
+     <div class="chart-title">ARR Projection — 3 Scenarios (USD)</div>
+     <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+      <defs>
+       <linearGradient id="opt_g" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#12a090" stop-opacity=".25"/><stop offset="100%" stop-color="#12a090" stop-opacity="0"/></linearGradient>
+       <linearGradient id="base_g" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4a7fe5" stop-opacity=".18"/><stop offset="100%" stop-color="#4a7fe5" stop-opacity="0"/></linearGradient>
+      </defs>
+      <!-- Grid -->
+      <line x1="50" y1="20" x2="310" y2="20" stroke="#f0f5f4" stroke-width="1"/>
+      <line x1="50" y1="60" x2="310" y2="60" stroke="#f0f5f4" stroke-width="1"/>
+      <line x1="50" y1="100" x2="310" y2="100" stroke="#f0f5f4" stroke-width="1"/>
+      <line x1="50" y1="140" x2="310" y2="140" stroke="#f0f5f4" stroke-width="1"/>
+      <text x="44" y="24" fill="#9ab8b4" font-size="7.5" text-anchor="end">$1.2M</text>
+      <text x="44" y="64" fill="#9ab8b4" font-size="7.5" text-anchor="end">$800K</text>
+      <text x="44" y="104" fill="#9ab8b4" font-size="7.5" text-anchor="end">$400K</text>
+      <text x="44" y="144" fill="#9ab8b4" font-size="7.5" text-anchor="end">$0</text>
+      <!-- X labels -->
+      <text x="80" y="165" fill="#9ab8b4" font-size="8" text-anchor="middle">2026</text>
+      <text x="160" y="165" fill="#9ab8b4" font-size="8" text-anchor="middle">2027</text>
+      <text x="240" y="165" fill="#9ab8b4" font-size="8" text-anchor="middle">2028</text>
+      <text x="310" y="165" fill="#9ab8b4" font-size="8" text-anchor="middle">2029</text>
+      <!-- Optimistic -->
+      <path d="M80,143 L160,132 L240,73 L310,23 L310,143 L80,143 Z" fill="url(#opt_g)"/>
+      <polyline points="80,143 160,132 240,73 310,23" fill="none" stroke="#12a090" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- Base -->
+      <path d="M80,143 L160,137 L240,109 L310,57 L310,143 L80,143 Z" fill="url(#base_g)"/>
+      <polyline points="80,143 160,137 240,109 310,57" fill="none" stroke="#4a7fe5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="5,3"/>
+      <!-- Conservative -->
+      <polyline points="80,143 160,140 240,127 310,103" fill="none" stroke="#e8a825" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3,3"/>
+      <!-- Legend -->
+      <line x1="50" y1="182" x2="64" y2="182" stroke="#12a090" stroke-width="2.5"/>
+      <text x="67" y="185" fill="#5e726e" font-size="8">Optimistic</text>
+      <line x1="130" y1="182" x2="144" y2="182" stroke="#4a7fe5" stroke-width="2" stroke-dasharray="4,2"/>
+      <text x="147" y="185" fill="#5e726e" font-size="8">Base</text>
+      <line x1="195" y1="182" x2="209" y2="182" stroke="#e8a825" stroke-width="1.5" stroke-dasharray="3,2"/>
+      <text x="212" y="185" fill="#5e726e" font-size="8">Conservative</text>
+     </svg>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+
+
+<!-- ═══ SLIDE 11 · TEAM & TRUST ═══ -->
+<div class="slide s-dark">
+ <div class="inner">
+  <div class="sh">
+   <span class="sn">10</span>
+   <div class="st"><div class="eyebrow">Team & Trust</div><h2>We Will Not Sell False Certainty — Here Is the Honest Picture</h2></div>
+  </div>
+  <div class="col2">
+   <div>
+    <!-- Founder card -->
+    <div class="card card-dark" style="border-color:rgba(18,160,144,.25);margin-bottom:14px;padding:20px">
+     <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+      <div style="width:48px;height:48px;border-radius:50%;background:var(--teal);display:grid;place-items:center;font-weight:900;color:#fff;font-size:16px;flex-shrink:0">M</div>
+      <div>
+       <div style="font-size:14px;font-weight:800;color:#deecea">Abdul Matin</div>
+       <div style="font-size:10px;color:#5a8480">Founder & CEO · BDCrops Technologies</div>
+      </div>
+     </div>
+     <ul class="cl" style="font-size:11px">
+      <li>GeoAI + satellite remote sensing practitioner</li>
+      <li>Built GeoData infrastructure, AquaCrop integration, DoF platform solo</li>
+      <li>Deep knowledge of Bangladesh government agriculture systems (BADC, DAE, DoF)</li>
+      <li>Founder-funded — full personal commitment to this mission</li>
+     </ul>
+     <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+      <a href="https://bdcrops.com" target="_blank" style="font-size:8px;color:var(--teal);text-decoration:none;font-weight:700">bdcrops.com</a>
+      <a href="mailto:matin@bdcrops.com" style="font-size:8px;color:var(--teal);text-decoration:none;font-weight:700">matin@bdcrops.com</a>
+      <a href="tel:+8801717676441" style="font-size:8px;color:var(--teal);text-decoration:none;font-weight:700">+880 1717 676441</a>
+     </div>
+    </div>
+    <div class="card card-dark" style="border-color:rgba(232,168,37,.2)">
+     <h3 style="color:var(--gold);margin-bottom:8px">Investment helps build the team</h3>
+     <ul class="cl" style="font-size:11px">
+      <li>Hire: 1 full-time data scientist / AI engineer</li>
+      <li>Hire: 1 full-time field agronomist (BADC / DoF validation)</li>
+      <li>Seeking: technical co-founder with agri or data background</li>
+     </ul>
+    </div>
+   </div>
+   <div>
+    <div class="card card-dark" style="border-color:rgba(18,160,144,.2);margin-bottom:12px">
+     <h3 style="color:var(--teal);margin-bottom:10px">Model confidence — unvarnished</h3>
+     <div class="g2">
+      <div style="background:rgba(255,255,255,.04);border-radius:8px;padding:10px;border:1px solid rgba(255,255,255,.06)">
+       <div style="font-size:9px;font-weight:800;color:#f4c95d;margin-bottom:5px">AquaCrop Status</div>
+       <ul class="cl" style="font-size:10px">
+        <li>1 satellite observation</li>
+        <li>0 ground obs</li>
+        <li>Confidence: 33/100</li>
+        <li>Prototype ≠ certified</li>
+       </ul>
+      </div>
+      <div style="background:rgba(255,255,255,.04);border-radius:8px;padding:10px;border:1px solid rgba(255,255,255,.06)">
+       <div style="font-size:9px;font-weight:800;color:#f4c95d;margin-bottom:5px">DoF Status</div>
+       <ul class="cl" style="font-size:10px">
+        <li>Screening-stage</li>
+        <li>Synthetic water data</li>
+        <li>Generic FAO params</li>
+        <li>Needs site calib.</li>
+       </ul>
+      </div>
+     </div>
+    </div>
+    <div class="card card-dark" style="border-color:rgba(18,160,144,.2)">
+     <h3 style="color:var(--teal);margin-bottom:8px">Why invest despite early stage</h3>
+     <ul class="cl" style="font-size:11px">
+      <li>Technology infrastructure already built — not a concept pitch</li>
+      <li>3 live working demos — you can open them right now</li>
+      <li>Bangladesh agricultural market is underserved — first-mover advantage</li>
+      <li>Founder is fully committed — bootstrapped to this point</li>
+      <li>Clear path: validation → commercial → recurring → scale</li>
+     </ul>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+
+
+<!-- ═══ SLIDE 12 · FINAL ASK ═══ -->
+<div class="slide s-dark">
+ <div class="inner" style="max-width:880px">
+  <div class="cta-wrap">
+   <div class="eyebrow" style="margin-bottom:8px">Strategic Investment Opportunity</div>
+   <div class="cta-n">US$500K</div>
+   <div class="cta-s">Working Technology → Field Validation → Recurring Revenue → Global Scale</div>
+
+   <div class="g3" style="margin:20px 0;text-align:left">
+    <div class="card card-dark" style="border-color:rgba(18,160,144,.2)">
+     <h3 style="color:var(--teal);font-size:11px;margin-bottom:5px">Technology ✅</h3>
+     <p style="font-size:11px">AI + 8-Band GeoSat + AquaCrop Digital Twin + AquaData — 3 live demos, open right now</p>
+    </div>
+    <div class="card card-dark" style="border-color:rgba(18,160,144,.2)">
+     <h3 style="color:var(--teal);font-size:11px;margin-bottom:5px">Market ✅</h3>
+     <p style="font-size:11px">B2G (BADC · DoF) + B2B (agribusiness · aquaculture) + NGOs. BD → South Asia → Global</p>
+    </div>
+    <div class="card card-dark" style="border-color:rgba(18,160,144,.2)">
+     <h3 style="color:var(--teal);font-size:11px;margin-bottom:5px">Thesis ✅</h3>
+     <p style="font-size:11px">See the field. Simulate the future. Act before the loss. One stack — many markets.</p>
+    </div>
+   </div>
+
+   <!-- Mini SVG progress bar of investment urgency -->
+   <div style="margin-bottom:18px">
+    <svg viewBox="0 0 480 40" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:480px;height:auto">
+     <rect x="0" y="14" width="480" height="10" rx="5" fill="rgba(255,255,255,.06)"/>
+     <rect x="0" y="14" width="170" height="10" rx="5" fill="var(--teal)"/>
+     <text x="0" y="34" fill="#5a8480" font-size="8" font-weight="700">Technology Built ✅</text>
+     <text x="175" y="34" fill="#5a8480" font-size="8" font-weight="700">Validation Needed ←</text>
+     <text x="340" y="34" fill="#3a5a56" font-size="8" font-weight="700">Revenue → Scale</text>
+     <text x="240" y="10" fill="var(--teal)" font-size="8" font-weight="900" text-anchor="middle">$500K unlocks this →</text>
+    </svg>
+   </div>
+
+   <p style="color:#5a8480;font-size:11.5px;margin-bottom:18px">
+    Abdul Matin · Founder & CEO · BDCrops Technologies · Dhaka, Bangladesh<br>
+    matin@bdcrops.com · +880 1717 676441 · bdcrops.com · linkedin.com/in/matinr
+   </p>
+
+   <div class="cta-links">
+    <a class="cbtn" href="https://bdcrops.com/DoF/" target="_blank" rel="noopener" style="background:var(--teal);color:#fff">🐟 DoF Live Demo</a>
+    <a class="cbtn" href="https://bdcrops.com/badc_kh01" target="_blank" rel="noopener" style="background:rgba(255,255,255,.07);color:#b0ccc8;border:1px solid rgba(255,255,255,.1)">🌾 KH01 Live</a>
+    <a class="cbtn" href="https://bdcrops.com/badc_kh07" target="_blank" rel="noopener" style="background:rgba(255,255,255,.07);color:#b0ccc8;border:1px solid rgba(255,255,255,.1)">🌾 KH07 Live</a>
+    <a class="cbtn" href="https://bdcrops.com/nextunicorn/" target="_blank" rel="noopener" style="background:var(--gold);color:var(--ink)">📄 Full Pitch Page</a>
+   </div>
+  </div>
+ </div>
+</div>
+
+
+<script>
+const slides=document.querySelectorAll('.slide');
+const dotsEl=document.getElementById('dots');
+const ctrEl=document.getElementById('ctr');
+const pfEl=document.getElementById('pf');
+let cur=0;
+const total=slides.length;
+for(let i=0;i<total;i++){
+ const b=document.createElement('button');
+ b.className='dot'+(i===0?' on':'');
+ b.setAttribute('aria-label','Slide '+(i+1));
+ b.onclick=()=>go(i);
+ dotsEl.appendChild(b);
+}
+function go(n){
+ slides[cur].classList.remove('on');
+ document.querySelectorAll('.dot')[cur].classList.remove('on');
+ cur=Math.max(0,Math.min(n,total-1));
+ slides[cur].classList.add('on');
+ slides[cur].scrollTop=0;
+ document.querySelectorAll('.dot')[cur].classList.add('on');
+ ctrEl.textContent=String(cur+1).padStart(2,'0')+'/'+String(total).padStart(2,'0');
+ pfEl.style.width=(((cur+1)/total)*100)+'%';
+}
+function next(){go(cur+1)}
+function prev(){go(cur-1)}
+document.addEventListener('keydown',e=>{
+ if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();next()}
+ if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();prev()}
+ if(e.key==='Home')go(0);
+ if(e.key==='End')go(total-1);
+});
+let sx=0;
+document.addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});
+document.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx;if(dx<-50)next();else if(dx>50)prev();},{passive:true});
+</script>
+</body>
+</html>
