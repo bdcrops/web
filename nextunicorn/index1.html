@@ -1,0 +1,620 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>BDCrops AgroVision™ — Investor Deck | US$500K Strategic Investment</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box} body{font-family:Inter,Helvetica,sans-serif;background:#FBFCFA;color:#13302B;overflow:hidden}
+.slide{width:100vw;height:100vh;display:none;flex-direction:column;justify-content:center;align-items:center;padding:52px 28px 40px 28px} .slide.active{display:flex}
+.container{max-width:1340px;width:100%;display:grid;grid-template-columns:1.1fr 0.9fr;gap:20px;align-items:center} .container-full{max-width:1340px;width:100%}
+h1{font-size:28px;color:#1D9790;font-weight:800;line-height:1.1} h2{font-size:18px;color:#1D9790;font-weight:800;margin-bottom:10px;line-height:1.2}
+.card{background:white;border-radius:14px;padding:14px;box-shadow:0 6px 20px rgba(0,0,0,0.06);border:1px solid #F0F2F0;font-size:11px;line-height:1.5}
+.card-dark{background:#13302B;color:white;border:none} .img-card{background:white;border-radius:10px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,0.07);border:1px solid #F0F0F0}
+.img-card img{width:100%;display:block} .cap{padding:5px 8px;font-size:8px;font-weight:600;color:#6B7280;background:#F9FAFB;border-top:1px solid #F0F0F0}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:8px} .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px} .grid-4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:6px}
+.nav{position:fixed;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:3px;background:white;padding:6px 10px;border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,0.15);z-index:100;max-width:90vw;overflow:auto} .dot{width:5px;height:5px;border-radius:50%;background:#D1D5DB;cursor:pointer;flex-shrink:0} .dot.active{background:#1D9790;width:14px}
+.arrows{position:fixed;top:50%;width:100%;display:flex;justify-content:space-between;padding:0 10px;pointer-events:none;z-index:100} .arrow{pointer-events:auto;width:36px;height:36px;border-radius:50%;background:white;border:1px solid #E5E7EB;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.1)}
+.topbar{position:fixed;top:0;left:0;right:0;height:44px;background:white;border-bottom:1px solid #F0F0F0;display:flex;align-items:center;justify-content:space-between;padding:0 10px;z-index:101}
+.btn{background:#1D9790;color:white;padding:5px 10px;border-radius:999px;font-size:8.5px;font-weight:700;text-decoration:none} .btn-outline{background:white;color:#1D9790;border:1px solid #1D9790}
+
+/* ===== BDCrops Investor Deck — visual refresh ===== */
+:root{
+  --ink:#12322d; --muted:#64736f; --teal:#15998f; --teal-2:#0e776f;
+  --mint:#e9f7f4; --paper:#fbfcfa; --line:#dfe9e6; --gold:#f4c95d;
+}
+html{background:var(--paper)}
+body{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:radial-gradient(circle at 15% 10%,#effaf7 0,transparent 32%),var(--paper);
+  color:var(--ink); letter-spacing:-.01em;
+}
+.slide{
+  min-height:100vh;height:100vh;overflow-y:auto;overflow-x:hidden;
+  padding:72px 42px 58px;
+  scroll-behavior:smooth;
+}
+.slide:not(.cover-slide){background:linear-gradient(180deg,#fff 0%,#fbfcfa 100%)}
+.container,.container-full{max-width:1380px;width:min(1380px,100%);position:relative;z-index:1}
+h1{font-size:clamp(30px,3.2vw,52px)!important;letter-spacing:-.04em}
+h2{font-size:clamp(18px,1.7vw,28px)!important;letter-spacing:-.025em}
+.card{
+  border:1px solid var(--line);border-radius:18px;padding:18px;
+  box-shadow:0 14px 36px rgba(18,50,45,.06);
+}
+.img-card{border:1px solid var(--line);border-radius:16px;box-shadow:0 14px 34px rgba(18,50,45,.08)}
+.topbar{
+  height:54px;padding:0 18px;background:rgba(255,255,255,.92);
+  backdrop-filter:blur(14px);border-bottom:1px solid rgba(18,50,45,.09);
+}
+.brand{display:flex;align-items:center;gap:8px;white-space:nowrap;font-size:11px;color:var(--ink)}
+.brand-mark{width:25px;height:25px;border-radius:8px;background:var(--teal);color:#fff;display:grid;place-items:center;font-weight:900}
+.brand-type{font-size:7px;letter-spacing:.13em;color:#82918d;font-weight:800}
+.section-nav{display:flex;gap:16px;color:#73827e;font-size:8px;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
+.live-links{display:flex;gap:5px}
+.btn{background:var(--teal);color:#fff;padding:7px 11px;border-radius:8px;font-size:8px;font-weight:800;text-decoration:none}
+.btn-outline{background:#fff!important;color:var(--teal)!important;border:1px solid #b8dcd7!important}
+.btn-dark{background:var(--ink)!important;color:#fff!important}
+.counter{
+  position:fixed;top:68px;right:18px;z-index:102;display:flex;align-items:center;gap:9px;
+  background:rgba(255,255,255,.94);padding:7px 10px;border:1px solid var(--line);
+  border-radius:999px;box-shadow:0 6px 20px rgba(18,50,45,.08);font-size:8px;font-weight:900;
+}
+.progress{width:52px;height:3px;border-radius:99px;background:#e5ecea;overflow:hidden}
+.progress i{display:block;width:4%;height:100%;background:var(--teal);border-radius:99px;transition:width .25s ease}
+.nav{
+  bottom:15px;background:rgba(255,255,255,.94);border:1px solid var(--line);
+  box-shadow:0 12px 30px rgba(18,50,45,.13);padding:7px 10px;gap:4px;
+}
+.dot{width:5px;height:5px;background:#c9d4d1}
+.dot.active{background:var(--teal);width:17px}
+.arrows{padding:0 16px}
+.arrow{width:42px;height:42px;border:1px solid var(--line);color:var(--ink);font-size:22px}
+.arrow:hover{background:var(--mint);border-color:#b9ddd8}
+.cap{font-size:8px!important}
+.cover-slide{
+  padding:78px 7vw 48px!important;
+  background:
+    radial-gradient(circle at 75% 40%,rgba(21,153,143,.14),transparent 28%),
+    radial-gradient(circle at 10% 90%,rgba(244,201,93,.10),transparent 25%),
+    linear-gradient(135deg,#f8fcfb 0%,#e9f7f4 100%)!important;
+}
+.cover-grid{width:min(1450px,100%);display:grid;grid-template-columns:1fr 1fr;gap:6vw;align-items:center}
+.cover-copy{max-width:720px}
+.eyebrow{font-size:9px;letter-spacing:.18em;font-weight:900;color:var(--teal-2);margin-bottom:16px}
+.cover-copy h1{font-size:clamp(52px,7vw,98px)!important;line-height:.88!important;margin:0 0 17px;font-weight:950!important}
+.cover-copy h1 span{color:var(--teal)}
+.cover-kicker{font-size:clamp(13px,1.35vw,19px);font-weight:950;letter-spacing:.07em;color:var(--ink);margin-bottom:10px}
+.cover-sub{font-size:15px;line-height:1.55;color:#53635f;max-width:620px}
+.cover-thesis{display:flex;gap:26px;margin:28px 0 18px}
+.cover-thesis div{display:flex;flex-direction:column;gap:2px;border-left:2px solid var(--teal);padding-left:10px}
+.cover-thesis b{font-size:12px;letter-spacing:.09em;color:var(--ink)}
+.cover-thesis span{font-size:11px;color:#778581}
+.cover-flow{font-size:11px;font-weight:800;color:var(--teal-2);margin-bottom:17px}
+.proof-row{display:flex;gap:7px;flex-wrap:wrap}
+.proof-row span{font-size:8px;font-weight:900;padding:6px 9px;border:1px solid #c7e3df;border-radius:999px;background:rgba(255,255,255,.7)}
+.ask{margin-top:25px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.ask-label{font-size:8px;letter-spacing:.16em;font-weight:900;color:#73827e}
+.ask strong{font-size:30px;letter-spacing:-.04em;color:var(--teal)}
+.ask span:last-child{font-size:10px;color:#667570;font-weight:700}
+.founder{display:flex;align-items:center;justify-content:space-between;max-width:620px;margin-top:22px;padding-top:15px;border-top:1px solid rgba(18,50,45,.12)}
+.founder div{display:flex;flex-direction:column;gap:2px}
+.founder strong{font-size:11px}.founder span,.founder a{font-size:9px;color:#71807c}.founder a{text-decoration:none;color:var(--teal-2);font-weight:800}
+.cover-visual{width:100%}
+.visual-window{background:#102e2a;border-radius:25px;padding:10px;box-shadow:0 30px 70px rgba(18,50,45,.22);transform:rotate(.5deg)}
+.window-bar{height:28px;display:flex;align-items:center;gap:5px;padding:0 8px;color:#8aa29d}
+.window-bar span{width:7px;height:7px;border-radius:50%;background:#56716b}
+.window-bar em{margin-left:auto;font-size:7px;font-style:normal;letter-spacing:.12em;font-weight:900}
+.satellite-frame{position:relative;overflow:hidden;border-radius:17px;background:#183f39;aspect-ratio:16/10}
+.satellite-frame img{width:100%;height:100%;object-fit:cover;display:block;opacity:.9}
+.satellite-frame:after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,42,37,.12),rgba(21,153,143,.14));pointer-events:none}
+.scanline{position:absolute;left:0;right:0;top:38%;height:1px;background:rgba(255,255,255,.7);box-shadow:0 0 16px rgba(255,255,255,.7)}
+.aoi-tag{position:absolute;left:14px;bottom:12px;background:rgba(11,42,37,.85);color:#fff;padding:7px 9px;border-radius:7px;font-size:8px;font-weight:900;letter-spacing:.06em}
+.pipeline{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;align-items:center;gap:7px;padding:13px 5px 4px;color:#fff}
+.pipeline div{display:flex;flex-direction:column;gap:2px}
+.pipeline small{color:#6ed4ca;font-size:7px;font-weight:900}
+.pipeline b{font-size:7px;letter-spacing:.05em}
+.pipeline span{font-size:7px;color:#9ab0ac}
+.pipeline i{font-style:normal;color:#5ccbc0;font-size:15px}
+.cover-note{font-size:8px;color:#72827e;margin-top:14px;text-align:right;font-weight:800}
+.live-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#20b7a8;margin-right:5px;box-shadow:0 0 0 4px rgba(32,183,168,.12)}
+/* Make existing slides breathe without changing their source content. */
+.slide > .container-full > div,
+.slide > .container{max-width:1380px}
+.slide .grid-2,.slide .grid-3,.slide .grid-4{gap:12px}
+.slide .card p{line-height:1.6}
+@media(max-width:1000px){
+  .section-nav{display:none}.cover-grid{grid-template-columns:1fr;gap:30px}.cover-visual{max-width:760px}.cover-slide{padding:74px 28px 60px!important}
+  .cover-copy h1{font-size:62px!important}.cover-thesis{gap:15px}.pipeline{grid-template-columns:1fr auto 1fr}
+  .pipeline div:nth-of-type(n+3),.pipeline i:nth-of-type(n+2){display:none}
+}
+@media(max-width:650px){
+  .topbar{padding:0 10px}.brand-type,.live-links a:nth-child(n+2){display:none}.brand{font-size:9px}
+  .slide{padding:68px 16px 60px}.counter{top:62px;right:10px}.arrows{display:none}
+  .cover-slide{padding:72px 18px 60px!important}.cover-copy h1{font-size:49px!important}
+  .cover-kicker{font-size:11px}.cover-sub{font-size:12px}.cover-thesis{gap:10px;flex-wrap:wrap}
+  .ask strong{font-size:25px}.founder{align-items:flex-start;gap:10px}.pipeline{display:none}
+}
+@media print{
+  body{overflow:visible}.topbar,.counter,.nav,.arrows{display:none!important}
+  .slide{display:flex!important;height:auto;min-height:100vh;page-break-after:always;overflow:visible}
+}
+</style></head><body>
+<div class="topbar">
+  <div class="brand"><span class="brand-mark">B</span><strong>BDCrops AgroVision™</strong><span class="brand-type">INVESTOR DECK</span></div>
+  <div class="section-nav">
+    <span>Thesis</span><span>Technology</span><span>Proof</span><span>Markets</span><span>Revenue</span><span>Investment</span>
+  </div>
+  <div class="live-links">
+    <a class="btn" href="https://bdcrops.com/DoF/" target="_blank" rel="noopener">DoF Live</a>
+    <a class="btn btn-outline" href="https://bdcrops.com/badc_kh01" target="_blank" rel="noopener">KH01 Live</a>
+    <a class="btn btn-outline" href="https://bdcrops.com/badc_kh07" target="_blank" rel="noopener">KH07 Live</a>
+    <a class="btn btn-dark" href="BDCrops-Professional-Deck.pdf" target="_blank" rel="noopener">PDF</a>
+  </div>
+</div>
+<div class="counter"><span id="num">01 / 24</span><div class="progress"><i id="progress"></i></div></div>
+<div class="arrows"><div class="arrow" onclick="prev()">‹</div><div class="arrow" onclick="next()">›</div></div>
+<div class="nav" id="nav"></div>
+
+<div class="slide active cover-slide">
+  <div class="cover-grid">
+    <div class="cover-copy">
+      <div class="eyebrow">BDCropS TECHNOLOGIES · BANGLADESH</div>
+      <h1>BDCrops<br><span>AgroVision™</span></h1>
+      <div class="cover-kicker">THE INTELLIGENCE LAYER FOR AGRICULTURE</div>
+      <p class="cover-sub">8-band satellite intelligence + AI + crop digital twin + AquaData.</p>
+
+      <div class="cover-thesis">
+        <div><b>SEE</b><span>the field</span></div>
+        <div><b>SIMULATE</b><span>the future</span></div>
+        <div><b>ACT</b><span>before the loss</span></div>
+      </div>
+
+      <p class="cover-flow">Satellite observations → intelligence → prediction → decision</p>
+
+      <div class="proof-row">
+        <span>BADC GeoData</span>
+        <span>AquaCrop</span>
+        <span>DoF AquaData</span>
+      </div>
+
+      <div class="ask">
+        <span class="ask-label">SEEKING</span>
+        <strong>US$500K</strong>
+        <span>Strategic Investment</span>
+      </div>
+
+      <div class="founder">
+        <div>
+          <strong>Abdul Matin</strong>
+          <span>Founder & CEO · BDCrops Technologies</span>
+        </div>
+        <a href="https://bdcrops.com" target="_blank" rel="noopener">bdcrops.com</a>
+      </div>
+    </div>
+
+    <div class="cover-visual">
+      <div class="visual-window">
+        <div class="window-bar"><span></span><span></span><span></span><em>LIVE INTELLIGENCE</em></div>
+        <div class="satellite-frame">
+          <img src="https://bdcrops.com/badc_kh01/maps/2023/dashboard.png" alt="BDCrops agricultural intelligence dashboard">
+          <div class="scanline"></div>
+          <div class="aoi-tag">AOI · KH01 · 114 km²</div>
+        </div>
+        <div class="pipeline">
+          <div><small>01</small><b>SATELLITE</b><span>8-band imagery</span></div>
+          <i>→</i>
+          <div><small>02</small><b>AI</b><span>spectral analytics</span></div>
+          <i>→</i>
+          <div><small>03</small><b>DIGITAL TWIN</b><span>scenario modeling</span></div>
+          <i>→</i>
+          <div><small>04</small><b>DECISION</b><span>actionable intelligence</span></div>
+        </div>
+      </div>
+      <div class="cover-note"><span class="live-dot"></span> Working technology · live demonstrations · validation in progress</div>
+    </div>
+  </div>
+</div>
+<div class="slide" style="padding-top:60px;background:white">
+<div class="container">
+<div>
+<h2 style="">01 — Vision — From Pixels to Real-World Decisions</h2>
+<div class="card"><div style='margin-bottom:6px'>• Every satellite image contains enormous information — but customers don't buy pixels, they buy answers</div><br><div style='margin-bottom:6px'>• Which crop is under stress? Where waterlogging increasing? Which field harvest first?</div><br><div style='margin-bottom:6px'>• Where flood damage critical? Which areas changing? What yield? Where govt intervention?</div><br><div style='margin-bottom:6px'>• BDCrops converts satellite data into those decisions</div><br><div style='margin-bottom:6px'>• 8-Band Data → Spectral Intelligence → AI Analytics → AquaCrop Digital Twin → Scenario Engine → Actionable Decision</div></div>
+</div>
+<div>
+<div class="img-card"><img src="https://bdcrops.com/images/demo-dashboard.png"><div class="cap">01 — Vision — From Pixels to Real-World Decisions — Live Satellite Maps</div></div>
+<div class="grid-3" style="margin-top:8px"><div class="img-card"><img src="https://bdcrops.com/images/demo-dashboard.png"><div class="cap">Demo Dashboard — Pixels → Decisions</div></div><div class="img-card"><img src="https://bdcrops.com/images/8band/true-color.png"><div class="cap">True Color Live</div></div><div class="img-card"><img src="https://bdcrops.com/images/8band/false-color.png"><div class="cap">False Color</div></div></div>
+</div>
+</div>
+</div>
+
+
+<div class="slide" style="padding-top:60px;background:white">
+<div class="container">
+<div>
+<h2 style="">02 — Market Problem — Agriculture Still Managed Too Reactively</h2>
+<div class="card"><div style='margin-bottom:6px'>• Government knows where farms are, but not what is changing inside them</div><br><div style='margin-bottom:6px'>• Traditional monitoring: field visits, periodic surveys, manual reporting, fragmented datasets</div><br><div style='margin-bottom:6px'>• Delayed detection, static maps</div><br><div style='margin-bottom:6px'>• Missing layer: Continuous spatial intelligence + prediction + action</div><br><div style='margin-bottom:6px'>• BDCrops is building that layer</div></div>
+</div>
+<div>
+<div class="img-card"><img src="https://bdcrops.com/images/8band/waterlogging.png"><div class="cap">02 — Market Problem — Agriculture Still Managed Too Reactively — Live Satellite Maps</div></div>
+<div class="grid-2" style="margin-top:8px"><div class="img-card"><img src="https://bdcrops.com/images/8band/waterlogging.png"><div class="cap">Waterlogging — Reactive Detection</div></div><div class="img-card"><img src="https://bdcrops.com/images/8band/drainage.png"><div class="cap">Drainage — Missing Layer</div></div></div>
+</div>
+</div>
+</div>
+
+
+<div class="slide" style="padding-top:60px;background:white">
+<div class="container">
+<div>
+<h2 style="">03 — Core Product — BDCrops AgroVision™</h2>
+<div class="card"><div style='margin-bottom:6px'>• Satellite Intelligence + AquaCrop Digital Twin</div><br><div style='margin-bottom:6px'>• OBSERVE — Satellite imagery</div><br><div style='margin-bottom:6px'>• ANALYZE — 8-band spectral intelligence</div><br><div style='margin-bottom:6px'>• MODEL — Crop growth + water balance</div><br><div style='margin-bottom:6px'>• SIMULATE — Flood / drought / irrigation / heat / harvest scenarios</div><br><div style='margin-bottom:6px'>• PRIORITIZE — Which fields need attention first?</div><br><div style='margin-bottom:6px'>• REPORT — Dashboard + API + automated reports</div></div>
+</div>
+<div>
+<div class="img-card"><img src="https://bdcrops.com/images/8band/dashboard.png"><div class="cap">03 — Core Product — BDCrops AgroVision™ — Live Satellite Maps</div></div>
+<div class="grid-2" style="margin-top:8px"><div class="img-card"><img src="https://bdcrops.com/images/8band/dashboard.png"><div class="cap">AgroVision Dashboard</div></div><div class="img-card"><img src="https://bdcrops.com/images/demo-ndvi.png"><div class="cap">NDVI Analytics</div></div></div>
+</div>
+</div>
+</div>
+
+
+<div class="slide" style="padding-top:60px;background:white">
+<div class="container">
+<div>
+<h2 style="">04 — 8-Band Advantage — One Image. Multiple Intelligence Products</h2>
+<div class="card"><div style='margin-bottom:6px'>• BADC spec: eight VNIR bands — Coastal Blue, Blue, Green, Yellow, Red, Red Edge, NIR1, NIR2</div><br><div style='margin-bottom:6px'>• Multispectral <1.50m, 1.24m ideal — Live: bdcrops.com/images/8band/</div><br><div style='margin-bottom:6px'>• We don't sell image once — One acquisition → multiple products</div><br><div style='margin-bottom:6px'>• Vegetation, Soil, Water, Drainage, LULC, Change, Environment, Built-up + NIR/SWIR indices</div></div>
+</div>
+<div>
+<div class="img-card"><img src="https://bdcrops.com/images/8band/true-color.png"><div class="cap">04 — 8-Band Advantage — One Image. Multiple Intelligence Products — Live Satellite Maps</div></div>
+<div class="grid-4" style="margin-top:8px"><div class="img-card"><img src="https://bdcrops.com/images/8band/true-color.png"><div class="cap">True Color</div></div><div class="img-card"><img src="https://bdcrops.com/images/8band/false-color.png"><div class="cap">False Color</div></div><div class="img-card"><img src="https://bdcrops.com/images/8band/lulc-map.png"><div class="cap">LULC Map</div></div><div class="img-card"><img src="https://bdcrops.com/images/8band/soil-carbon.png"><div class="cap">Soil Carbon</div></div></div>
+</div>
+</div>
+</div>
+
+
+<div class="slide" style="padding-top:60px;background:white">
+<div class="container">
+<div>
+<h2 style="">05 — 8-Band Data → Applications — One Dataset → Multiple Revenue</h2>
+<div class="card"><div style='margin-bottom:6px'>• Vegetation → NDVI / crop health → Agriculture</div><br><div style='margin-bottom:6px'>• Red Edge → Crop stress → Agribusiness | Soil → Soil composition → Agriculture</div><br><div style='margin-bottom:6px'>• Water → Waterlogging / inundation → Government | Drainage → Congestion → Irrigation</div><br><div style='margin-bottom:6px'>• LULC → Classification → Government | Change → Multi-temporal → Govt / climate</div><br><div style='margin-bottom:6px'>• CF2 Engine: NDVI, NDWI, NDBI, EVI, SAVI, NBR, MNDWI, NDRE, NBR2</div></div>
+</div>
+<div>
+<div class="img-card"><img src="https://bdcrops.com/images/8band/crop-residue.png"><div class="cap">05 — 8-Band Data → Applications — One Dataset → Multiple Revenue — Live Satellite Maps</div></div>
+<div class="grid-4" style="margin-top:8px"><div class="img-card"><img src="https://bdcrops.com/images/8band/crop-residue.png"><div class="cap">Residue</div></div><div class="img-card"><img src="https://bdcrops.com/images/8band/water-detection.png"><div class="cap">Water Detection</div></div><div class="img-card"><img src="https://bdcrops.com/images/8band/change-detection.png"><div class="cap">Change Detection</div></div><div class="img-card"><img src="https://bdcrops.com/images/8band/qa-overlay.png"><div class="cap">QA Overlay</div></div></div>
+</div>
+</div>
+</div>
+
+
+<div class="slide" style="padding-top:60px;background:white">
+<div class="container">
+<div>
+<h2 style="">06 — Revenue Engine — We Monetize Intelligence, Not Imagery</h2>
+<div class="card"><div style='margin-bottom:6px'>• Layer 1 — Satellite Data: Procurement / supply</div><br><div style='margin-bottom:6px'>• Layer 2 — Analytics: NDVI / NDRE / waterlogging / LULC / change</div><br><div style='margin-bottom:6px'>• Layer 3 — Monitoring: Recurring monthly / seasonal / annual</div><br><div style='margin-bottom:6px'>• Layer 4 — Decision Intelligence: 'What should we do?'</div><br><div style='margin-bottom:6px'>• Layer 5 — Digital Twin: 'What happens next?'</div><br><div style='margin-bottom:6px'>• Layer 6 — API / SaaS: Customer integrates intelligence directly</div></div>
+</div>
+<div>
+<div class="img-card"><img src="https://bdcrops.com/images/8band/dashboard.png"><div class="cap">06 — Revenue Engine — We Monetize Intelligence, Not Imagery — Live Satellite Maps</div></div>
+<div class="grid-2" style="margin-top:8px"><div class="img-card"><img src="https://bdcrops.com/images/8band/dashboard.png"><div class="cap">Intelligence Layers</div></div><div class="img-card"><img src="https://bdcrops.com/images/demo-dashboard.png"><div class="cap">Revenue Engine Dashboard</div></div></div>
+</div>
+</div>
+</div>
+
+
+<div class="slide" style="padding-top:60px;background:white">
+<div class="container">
+<div>
+<h2 style="">07 — AquaCrop Digital Twin — The Differentiator</h2>
+<div class="card"><div style='margin-bottom:6px'>• NDVI tells you WHAT Changed. AquaCrop tells WHAT IT COULD MEAN</div><br><div style='margin-bottom:6px'>• Satellite → field condition</div><br><div style='margin-bottom:6px'>• Weather + Soil + Crop Calendar → context</div><br><div style='margin-bottom:6px'>• AquaCrop → growth / biomass / ET / water balance / yield</div><br><div style='margin-bottom:6px'>• Scenario Engine → flood / drought / heat / irrigation / harvest</div><br><div style='margin-bottom:6px'>• Action Layer → priority / alert / dashboard / API</div></div>
+</div>
+<div>
+<div class="img-card"><img src="https://bdcrops.com/images/aquacrop/dashboard.png"><div class="cap">07 — AquaCrop Digital Twin — The Differentiator — Live Satellite Maps</div></div>
+<div class="grid-2" style="margin-top:8px"><div class="img-card"><img src="https://bdcrops.com/images/aquacrop/dashboard.png"><div class="cap">AquaCrop Dashboard — WHAT IT COULD MEAN</div></div><div class="img-card"><img src="https://bdcrops.com/DoF/maps/RupshaRiverSmart/growth_curve.png"><div class="cap">Growth Curve — Crop Modeling</div></div></div>
+</div>
+</div>
+</div>
+
+
+<div class="slide" style="padding-top:60px;background:white">
+<div class="container">
+<div>
+<h2 style="">08 — AquaCrop Proof — Khulna Coastal — Surkhali Union — BRRI dhan47</h2>
+<div class="card"><div style='margin-bottom:6px'>• BRRI dhan47 — Working Prototype — Live: /images/aquacrop/dashboard.png</div><br><div style='margin-bottom:6px'>• Prototype outputs (not certified forecast — preliminary):</div><br><div style='margin-bottom:6px'>• 5.80 t/ha Simulated yield | 77/100 Field-health | 0.2% Water-stress</div><br><div style='margin-bottom:6px'>• Flood scenarios: -24% 2-day, -60% 5-day, -84% 7-day modeled loss</div><br><div style='margin-bottom:6px'>• Investor message: Built workflow satellite+crop+environment → scenario decisions</div></div>
+</div>
+<div>
+<div class="img-card"><img src="https://bdcrops.com/images/aquacrop/dashboard.png"><div class="cap">08 — AquaCrop Proof — Khulna Coastal — Surkhali Union — BRRI dhan47 — Live Satellite Maps</div></div>
+<div class="grid-3" style="margin-top:8px"><div class="img-card"><img src="https://bdcrops.com/images/aquacrop/dashboard.png"><div class="cap">Working Prototype Dashboard</div></div><div class="img-card"><img src="https://bdcrops.com/badc_kh07/maps/2023/dashboard.png"><div class="cap">BADC KH07 Dashboard</div></div><div class="img-card"><img src="https://bdcrops.com/badc_kh01/maps/2023/dashboard.png"><div class="cap">BADC KH01 Dashboard</div></div></div>
+</div>
+</div>
+</div>
+
+
+<div class="slide" style="padding-top:60px;background:linear-gradient(135deg,#E8F5F4 0%,#FBFCFA 100%);border:2px solid #1D9790">
+<div class="container-full">
+<h2>09 — NEW — DoF Aquatic Intelligence — From Crop to Fisheries Intelligence — LIVE DEMO bdcrops.com/DoF/ — Ref Images: dashboard.png + growth_curve.png</h2>
+<div style="display:grid;grid-template-columns:1.05fr 0.95fr;gap:14px;margin-top:8px">
+<div class="card" style="font-size:10px"><div style="margin-bottom:6px"><a href="https://bdcrops.com/DoF/" target="_blank" style="background:#1D9790;color:white;padding:5px 10px;border-radius:999px;text-decoration:none;font-weight:700">🐟 Live DoF Demo — bdcrops.com/DoF/</a></div>• LIVE DEMO: bdcrops.com/DoF/ — Rupsha River Smart — 4 Species × 4 Seasons × 16 Scenarios — Catla · Rohu · Mrigal · Hilsa<br>• Ref: dashboard.png + growth_curve.png — Fish Growth: 90-day forecasting, Species×season, Growth/biomass<br>• Water Intelligence: Temperature, DO, Salinity, pH, Turbidity, Conductivity, Ammonia<br>• Decision: Best stocking season, Species suitability, Water-quality risk, Constraints<br>• Example: Catla Monsoon 79.2% → 448g | Critical Rohu salinity 5.88 ppt > 3.0 ppt tolerance<br>• Govt: MoFL → DoF → River/Fisheries → Hilsa zones, jatka monitoring, ECA<br>• Disclaimer: Screening-stage model demonstration. Water profiles synthetic/derived, species parameters generic FAO/FishBase; site-specific calibration required<div style="margin-top:6px;background:#FFF3CD;border:1px solid #FFE69C;padding:6px;border-radius:6px;font-size:8px"><strong>Disclaimer:</strong> Screening-stage model demonstration. Water profiles synthetic/derived, species parameters generic FAO/FishBase; site-specific calibration required.</div></div>
+<div>
+<div class="img-card"><img src="https://bdcrops.com/DoF/maps/RupshaRiverSmart/dashboard.png"><div class="cap">Ref Img 1: /DoF/maps/RupshaRiverSmart/dashboard.png — 4×4×16 Scenarios — You requested</div></div>
+<div style="margin-top:8px" class="img-card"><img src="https://bdcrops.com/DoF/maps/RupshaRiverSmart/growth_curve.png"><div class="cap">Ref Img 2: /growth_curve.png — 90-day forecasting — 79.2% → 448g — You requested</div></div>
+<div style="margin-top:6px" class="grid-2"><div class="img-card"><img src="https://bdcrops.com/images/8band/water-detection.png"><div class="cap">Water Intelligence</div></div><div class="img-card"><img src="https://bdcrops.com/images/8band/waterlogging.png"><div class="cap">Water Quality Risk</div></div></div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="slide" style="padding-top:60px;background:linear-gradient(135deg,#FBFCFA 0%,#FFF9E6 100%);border:2px solid #FFD60A">
+<div class="container-full">
+<h2>10 — NEW — BADC KH01 — Batiaghata Union — 114 km² Coastal Cropland Intelligence — LIVE bdcrops.com/badc_kh01 — Printable Pro Images from badc_kh01/ — 114km² Reusable Intelligence Product</h2>
+<div style="display:grid;grid-template-columns:1fr 1.3fr;gap:12px;margin-top:6px">
+<div class="card" style="font-size:9.5px"><strong>Open Live: bdcrops.com/badc_kh01 — Batiaghata Union · Khulna — AOI_KH01 — 114 km² — Working demonstration / govt-oriented prototype — Confidential BADC 2026</strong><br><br>• LIVE DEMO: bdcrops.com/badc_kh01 — Batiaghata Union · Khulna — AOI_KH01 — 114 km² — Ganges Tidal Floodplain — BWDB Polder 30<br>• Working demonstration / govt-oriented prototype — Confidential BADC 2026<br>• What delivers: MULTI-YEAR BASELINE 2020→2023→2025→2026<br>• LAND-USE INTELLIGENCE: LULC composition + year-by-year comparison<br>• AGRICULTURAL KPIs + FORECASTING: Trend-based projections + DECISION SUPPORT<br>• Data: 21AT + Sentinel-2 — Satellite → GeoAI → Multi-year intelligence → Forecast → Decision<br>• Investor takeaway: One 114 km² AOI becomes reusable intelligence product<br><br><a href="https://bdcrops.com/badc_kh01" target="_blank" class="btn">🌾 Open Live KH01 Demo — 114 km²</a></div>
+<div>
+<div class="img-card"><img src="https://bdcrops.com/badc_kh01/maps/2023/dashboard.png"><div class="cap">KH01 Dashboard 2023 — Printable Pro Img — badc_kh01/maps/2023/dashboard.png — 114km² intelligence product</div></div>
+<div style="margin-top:6px" class="grid-4">
+<div class="img-card"><img src="https://bdcrops.com/badc_kh01/maps/2023/true_color.png"><div class="cap">True Color 2023</div></div>
+<div class="img-card"><img src="https://bdcrops.com/badc_kh01/maps/2023/lulc_map.png"><div class="cap">LULC Map</div></div>
+<div class="img-card"><img src="https://bdcrops.com/badc_kh01/maps/2023/change_map.png"><div class="cap">Change Map</div></div>
+<div class="img-card"><img src="https://bdcrops.com/badc_kh01/maps/2023/soc_map.png"><div class="cap">SOC Map</div></div>
+<div class="img-card"><img src="https://bdcrops.com/badc_kh01/maps/2023/water_detection.png"><div class="cap">Water Detection</div></div>
+<div class="img-card"><img src="https://bdcrops.com/badc_kh01/maps/2023/waterlogging_map.png"><div class="cap">Waterlogging</div></div>
+<div class="img-card"><img src="https://bdcrops.com/badc_kh01/maps/2023/drainage_map.png"><div class="cap">Drainage</div></div>
+<div class="img-card"><img src="https://bdcrops.com/badc_kh01/maps/2023/qa_overlay.png"><div class="cap">QA Overlay</div></div>
+</div>
+<div style="margin-top:6px" class="grid-3">
+<div class="img-card"><img src="https://bdcrops.com/badc_kh01/maps/2020/dashboard.png"><div class="cap">2020 Baseline — Multi-year proof</div></div>
+<div class="img-card"><img src="https://bdcrops.com/badc_kh01/maps/2023/dashboard.png"><div class="cap">2023 Observed</div></div>
+<div class="img-card"><img src="https://bdcrops.com/badc_kh01/maps/2025/dashboard.png"><div class="cap">2025 Forecast — Trend-based</div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="slide" style="padding-top:60px;background:linear-gradient(135deg,#FBFCFA 0%,#E6F0FF 100%);border:2px solid #3B82F6">
+<div class="container-full">
+<h2>11 — NEW — BADC KH07 — Surkhali Union — Multi-Year Intelligence + Forecasting — LIVE bdcrops.com/badc_kh07 — Printable Pro Images from badc_kh07/ — Repeatable Monitoring Service</h2>
+<div style="display:grid;grid-template-columns:1fr 1.3fr;gap:12px;margin-top:6px">
+<div class="card" style="font-size:9.5px"><strong>Open Live: bdcrops.com/badc_kh07 — Surkhali Union · Khulna — AOI KH07 — Working BADC-oriented GeoAI demonstration — Confidential BADC 2026</strong><br><br>• LIVE DEMO: bdcrops.com/badc_kh07 — Surkhali Union · Khulna — AOI KH07 — 21AT + Sentinel-2<br>• Workflow: OBSERVE Satellite indicators → COMPARE Multi-year visual<br>• UNDERSTAND Trend analysis → FORECAST Three scenarios → QUANTIFY UNCERTAINTY 95% CI<br>• REPORT Maps + findings + datasets + forecast model<br>• Why matters: Traditional GIS 'Here is today's map' — BDCrops 'Historical pattern, what changing, scenarios, uncertainty'<br>• Product: Multi-Year Grid, LULC Maps, Trend Analysis, Forecast Scenarios, Executive Findings<br><br><a href="https://bdcrops.com/badc_kh07" target="_blank" class="btn">🌾 Open Live KH07 Demo</a></div>
+<div>
+<div class="img-card"><img src="https://bdcrops.com/badc_kh07/maps/2023/dashboard.png"><div class="cap">KH07 Dashboard 2023 — Printable Pro Img — badc_kh07/maps/2023/dashboard.png — Repeatable monitoring + forecasting</div></div>
+<div style="margin-top:6px" class="grid-4">
+<div class="img-card"><img src="https://bdcrops.com/badc_kh07/maps/2023/true_color.png"><div class="cap">True Color 2023</div></div>
+<div class="img-card"><img src="https://bdcrops.com/badc_kh07/maps/2023/false_color.png"><div class="cap">False Color</div></div>
+<div class="img-card"><img src="https://bdcrops.com/badc_kh07/maps/2023/lulc_map.png"><div class="cap">LULC Map</div></div>
+<div class="img-card"><img src="https://bdcrops.com/badc_kh07/maps/2023/change_map.png"><div class="cap">Change Map</div></div>
+<div class="img-card"><img src="https://bdcrops.com/badc_kh07/maps/2023/water_detection.png"><div class="cap">Water Detection</div></div>
+<div class="img-card"><img src="https://bdcrops.com/badc_kh07/maps/2023/waterlogging_map.png"><div class="cap">Waterlogging</div></div>
+<div class="img-card"><img src="https://bdcrops.com/badc_kh07/maps/2023/drainage_map.png"><div class="cap">Drainage</div></div>
+<div class="img-card"><img src="https://bdcrops.com/badc_kh07/maps/2023/soc_map.png"><div class="cap">SOC Map</div></div>
+</div>
+<div style="margin-top:6px" class="grid-3">
+<div class="img-card"><img src="https://bdcrops.com/badc_kh07/maps/2020/dashboard.png"><div class="cap">2020 Baseline</div></div>
+<div class="img-card"><img src="https://bdcrops.com/badc_kh07/maps/2023/dashboard.png"><div class="cap">2023 Observed — Solid lines</div></div>
+<div class="img-card"><img src="https://bdcrops.com/badc_kh07/maps/2025/dashboard.png"><div class="cap">2025 Forecast — Dashed + 95% CI</div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="slide" style="padding-top:60px;background:white">
+<div class="container">
+<div>
+<h2 style="">12 — AquaData Commercial Opportunity — Same Architecture → Water</h2>
+<div class="card"><div style='margin-bottom:6px'>• Once Land+crops+water → AquaData — Second major market</div><br><div style='margin-bottom:6px'>• Water: quality, extent, turbidity, temperature, salinity</div><br><div style='margin-bottom:6px'>• Fish: species, growth, biomass, habitat, risk, suitability</div><br><div style='margin-bottom:6px'>• Commercial: Aquaculture, Shrimp, Fish farms, River monitoring, Coastal, Govt fisheries</div><br><div style='margin-bottom:6px'>• Transition: 8-band → Agriculture (KH01/KH07) → AquaCrop → Water&Fisheries (DoF live) → Govt decision intelligence</div></div>
+</div>
+<div>
+<div class="img-card"><img src="https://bdcrops.com/images/8band/water-detection.png"><div class="cap">12 — AquaData Commercial Opportunity — Same Architecture → Water — Live Satellite Maps</div></div>
+<div class="grid-3" style="margin-top:8px"><div class="img-card"><img src="https://bdcrops.com/images/8band/water-detection.png"><div class="cap">Water Intelligence</div></div><div class="img-card"><img src="https://bdcrops.com/images/8band/waterlogging.png"><div class="cap">AquaData Opportunity</div></div><div class="img-card"><img src="https://bdcrops.com/DoF/maps/RupshaRiverSmart/dashboard.png"><div class="cap">DoF Dashboard — 2nd Market</div></div></div>
+</div>
+</div>
+</div>
+
+
+<div class="slide" style="padding-top:60px;background:white">
+<div class="container">
+<div>
+<h2 style="">13 — Platform Flywheel — GeoData + AquaCrop + AquaData Reinforce Each Other</h2>
+<div class="card"><div style='margin-bottom:6px'>• GeoData Observe Earth (KH01 114km² + KH07 Surkhali live)</div><br><div style='margin-bottom:6px'>• AquaCrop Understand crop response</div><br><div style='margin-bottom:6px'>• AquaData Understand water ecosystem (DoF Rupsha live)</div><br><div style='margin-bottom:6px'>• Historical Data Learn patterns → AI Predict/rank → Decision Support Recommend action</div><br><div style='margin-bottom:6px'>• More deployments → More data → Better models — Beginning of data + calibration moat</div><br><div style='margin-bottom:6px'>• Three live demos tell strong story: KH01 Large-area → multi-year → LULC → trends → forecast → KH07 Repeatable workflow → DoF New vertical → AquaCrop Prediction → Platform Observe→Analyze→Predict→Simulate→Decide</div></div>
+</div>
+<div>
+<div class="img-card"><img src="https://bdcrops.com/badc_kh01/maps/2023/dashboard.png"><div class="cap">13 — Platform Flywheel — GeoData + AquaCrop + AquaData Reinforce Each Other — Live Satellite Maps</div></div>
+<div class="grid-3" style="margin-top:8px"><div class="img-card"><img src="https://bdcrops.com/badc_kh01/maps/2023/dashboard.png"><div class="cap">KH01 Flywheel</div></div><div class="img-card"><img src="https://bdcrops.com/badc_kh07/maps/2023/dashboard.png"><div class="cap">KH07 Flywheel</div></div><div class="img-card"><img src="https://bdcrops.com/DoF/maps/RupshaRiverSmart/dashboard.png"><div class="cap">DoF Flywheel</div></div></div>
+</div>
+</div>
+</div>
+
+
+<div class="slide" style="padding-top:60px;background:white">
+<div class="container">
+<div>
+<h2 style="">14 — Data / Calibration Moat — Every Deployment More Valuable</h2>
+<div class="card"><div style='margin-bottom:6px'>• Single image is commodity — But history + AOI + calendars + field obs + yield + water + calibration + decision outcomes harder to reproduce</div><br><div style='margin-bottom:6px'>• BADC proposal: local calibration + multi-season history + field obs as defensible layer</div><br><div style='margin-bottom:6px'>• KH01 multi-year 2020→2025 + KH07 multi-year + DoF 4×4×16 become moat</div><br><div style='margin-bottom:6px'>• Moat is intelligence built around satellite, not satellite itself</div></div>
+</div>
+<div>
+<div class="img-card"><img src="https://bdcrops.com/badc_kh01/maps/2020/dashboard.png"><div class="cap">14 — Data / Calibration Moat — Every Deployment More Valuable — Live Satellite Maps</div></div>
+<div class="grid-3" style="margin-top:8px"><div class="img-card"><img src="https://bdcrops.com/badc_kh01/maps/2020/dashboard.png"><div class="cap">2020 Baseline Moat</div></div><div class="img-card"><img src="https://bdcrops.com/badc_kh01/maps/2023/dashboard.png"><div class="cap">2023 Observed Moat</div></div><div class="img-card"><img src="https://bdcrops.com/badc_kh01/maps/2025/dashboard.png"><div class="cap">2025 Forecast Moat</div></div></div>
+</div>
+</div>
+</div>
+
+
+<div class="slide" style="padding-top:60px;background:white">
+<div class="container">
+<div>
+<h2 style="">15 — Who Pays — Multiple Customer Segments</h2>
+<div class="card"><div style='margin-bottom:6px'>• GOVERNMENT: BADC, DAE, Fisheries, Water resources, Environment — Live: badc_kh01, badc_kh07, DoF/</div><br><div style='margin-bottom:6px'>• DEVELOPMENT: FAO, World Bank, ADB, Climate programmes, NGOs</div><br><div style='margin-bottom:6px'>• AGRIBUSINESS: Input, Seed, Food, Agricultural enterprises</div><br><div style='margin-bottom:6px'>• AQUACULTURE: Fish farms, Shrimp, Hatcheries — DoF concrete demo</div><br><div style='margin-bottom:6px'>• FINANCIAL: Insurance, Agri finance, Climate finance | RESEARCH: Universities, Research, Policy</div></div>
+</div>
+<div>
+<div class="img-card"><img src="https://bdcrops.com/images/8band/true-color.png"><div class="cap">15 — Who Pays — Multiple Customer Segments — Live Satellite Maps</div></div>
+<div class="grid-3" style="margin-top:8px"><div class="img-card"><img src="https://bdcrops.com/images/8band/true-color.png"><div class="cap">Government Customer</div></div><div class="img-card"><img src="https://bdcrops.com/images/8band/lulc-map.png"><div class="cap">Agribusiness</div></div><div class="img-card"><img src="https://bdcrops.com/images/8band/water-detection.png"><div class="cap">Aquaculture</div></div></div>
+</div>
+</div>
+</div>
+
+
+<div class="slide" style="padding-top:60px;background:white">
+<div class="container">
+<div>
+<h2 style="">16 — Revenue Model — Project → Recurring → Platform</h2>
+<div class="card"><div style='margin-bottom:6px'>• Phase A Govt/Dev Projects US$20K–$100K+ (KH01/KH07/DoF pilots)</div><br><div style='margin-bottom:6px'>• Phase B Annual Monitoring — recurring contracts</div><br><div style='margin-bottom:6px'>• Phase C Enterprise SaaS — dashboard subscriptions</div><br><div style='margin-bottom:6px'>• Phase D API — usage-based intelligence</div><br><div style='margin-bottom:6px'>• Phase E Digital Twin — premium predictive</div><br><div style='margin-bottom:6px'>• Example target: 65,000 farms × $4 = $260K ARR/quarter = $1.04M ARR — simple unit-economics</div></div>
+</div>
+<div>
+<div class="img-card"><img src="https://bdcrops.com/images/8band/dashboard.png"><div class="cap">16 — Revenue Model — Project → Recurring → Platform — Live Satellite Maps</div></div>
+<div class="grid-2" style="margin-top:8px"><div class="img-card"><img src="https://bdcrops.com/images/8band/dashboard.png"><div class="cap">Revenue Model</div></div><div class="img-card"><img src="https://bdcrops.com/images/demo-dashboard.png"><div class="cap">SaaS Dashboard</div></div></div>
+</div>
+</div>
+</div>
+
+
+<div class="slide" style="padding-top:60px;background:white">
+<div class="container">
+<div>
+<h2 style="">17 — Revenue Scenarios — Illustrative Commercial Roadmap</h2>
+<div class="card"><div style='margin-bottom:6px'>• 2026 Technology+pilots GeoData (KH01/KH07) AquaCrop AquaData incl DoF demo</div><br><div style='margin-bottom:6px'>• 2027 First recurring contracts Govt (BADC+DoF) NGO Agribusiness Aquaculture</div><br><div style='margin-bottom:6px'>• 2028 Platform expansion SaaS API Multi-district</div><br><div style='margin-bottom:6px'>• 2029 National+international Multi-crop Multi-country Multi-domain</div><br><div style='margin-bottom:6px'>• Projects → Subscriptions → API → Digital Twins → Data Intelligence Platform</div></div>
+</div>
+<div>
+<div class="img-card"><img src="https://bdcrops.com/badc_kh01/maps/2023/dashboard.png"><div class="cap">17 — Revenue Scenarios — Illustrative Commercial Roadmap — Live Satellite Maps</div></div>
+<div class="grid-3" style="margin-top:8px"><div class="img-card"><img src="https://bdcrops.com/badc_kh01/maps/2023/dashboard.png"><div class="cap">2026 Pilots</div></div><div class="img-card"><img src="https://bdcrops.com/badc_kh07/maps/2023/dashboard.png"><div class="cap">2027 Contracts</div></div><div class="img-card"><img src="https://bdcrops.com/DoF/maps/RupshaRiverSmart/dashboard.png"><div class="cap">2028 Platform</div></div></div>
+</div>
+</div>
+</div>
+
+
+<div class="slide" style="padding-top:60px;background:#13302B;color:white;border-top:6px solid #1D9790">
+<div class="container">
+<div>
+<h2 style="color:white">18 — Why Now — Technology Crossed First Barrier</h2>
+<div class="card card-dark"><div style='margin-bottom:6px'>• Satellite data exists. AI capability exists. Crop simulation exists.</div><br><div style='margin-bottom:6px'>• Government demand exists. Climate risk increasing.</div><br><div style='margin-bottom:6px'>• Missing piece: commercialization + validation + scale</div><br><div style='margin-bottom:6px'>• BADC proposal: pipeline executable, next repeated observations, ground truth, local calibration</div><br><div style='margin-bottom:6px'>• This is the investment window — Three live demos prove breadth without losing main focus on 8-band + AquaCrop</div></div>
+</div>
+<div>
+<div class="img-card"><img src="https://bdcrops.com/images/demo-dashboard.png"><div class="cap">18 — Why Now — Technology Crossed First Barrier — Live Satellite Maps</div></div>
+
+</div>
+</div>
+</div>
+
+
+<div class="slide" style="padding-top:60px;background:white">
+<div class="container">
+<div>
+<h2 style="">19 — What $500K Unlocks</h2>
+<div class="card"><div style='margin-bottom:6px'>• 30% Product Engineering: GeoData (KH01/KH07 multi-year), AquaCrop, AquaData incl DoF, AI, API</div><br><div style='margin-bottom:6px'>• 20% Satellite / Cloud Infra: Processing, Storage, Data acquisition (21AT + Sentinel-2)</div><br><div style='margin-bottom:6px'>• 20% Validation: BADC/BRRI/DoF Field obs, Crop calibration, Water validation (DoF site-specific)</div><br><div style='margin-bottom:6px'>• 15% Commercialization: Govt, Enterprise, NGO, Aquaculture (DoF pilots, Hilsa zones, KH01/KH07 district)</div><br><div style='margin-bottom:6px'>• 10% International Expansion + 5% Operations/Governance</div></div>
+</div>
+<div>
+<div class="img-card"><img src="https://bdcrops.com/images/aquacrop/dashboard.png"><div class="cap">19 — What $500K Unlocks — Live Satellite Maps</div></div>
+<div class="grid-3" style="margin-top:8px"><div class="img-card"><img src="https://bdcrops.com/images/aquacrop/dashboard.png"><div class="cap">Product Engineering</div></div><div class="img-card"><img src="https://bdcrops.com/badc_kh01/maps/2023/true_color.png"><div class="cap">Satellite Infra</div></div><div class="img-card"><img src="https://bdcrops.com/DoF/maps/RupshaRiverSmart/dashboard.png"><div class="cap">Validation</div></div></div>
+</div>
+</div>
+</div>
+
+
+<div class="slide" style="padding-top:60px;background:white">
+<div class="container">
+<div>
+<h2 style="">20 — Investment Milestones — 18-36 Month</h2>
+<div class="card"><div style='margin-bottom:6px'>• 0-6 months Validate: 5-10 AOIs incl KH01 114km² + KH07 Surkhali, Repeated satellite 2020→2026, Field truth, AquaCrop calibration, DoF water synthetic→real</div><br><div style='margin-bottom:6px'>• 6-12 months Productize: GeoData SaaS (KH01/KH07 dashboards), AquaCrop dashboard, AquaData MVP DoF Rupsha v2, API</div><br><div style='margin-bottom:6px'>• 12-24 months Commercialize: Government contracts BADC KH01/KH07 + DoF, Enterprise subscriptions, Recurring monitoring, AquaData pilots Hilsa conservation</div><br><div style='margin-bottom:6px'>• 24-36 months SCALE: Multi-district, Multi-crop, Multi-agency, South Asia</div></div>
+</div>
+<div>
+<div class="img-card"><img src="https://bdcrops.com/badc_kh01/maps/2020/dashboard.png"><div class="cap">20 — Investment Milestones — 18-36 Month — Live Satellite Maps</div></div>
+<div class="grid-3" style="margin-top:8px"><div class="img-card"><img src="https://bdcrops.com/badc_kh01/maps/2020/dashboard.png"><div class="cap">0-6m Validate</div></div><div class="img-card"><img src="https://bdcrops.com/badc_kh01/maps/2023/dashboard.png"><div class="cap">6-12m Productize</div></div><div class="img-card"><img src="https://bdcrops.com/badc_kh01/maps/2025/dashboard.png"><div class="cap">12-24m Commercialize</div></div></div>
+</div>
+</div>
+</div>
+
+
+<div class="slide" style="padding-top:60px;background:white">
+<div class="container">
+<div>
+<h2 style="">21 — Investor Upside — One Stack Many Markets</h2>
+<div class="card"><div style='margin-bottom:6px'>• Agriculture GeoData+AquaCrop (KH01 114km² + KH07 Surkhali live)</div><br><div style='margin-bottom:6px'>• Water GeoData+AquaData DoF concrete demo (dashboard.png + growth_curve.png)</div><br><div style='margin-bottom:6px'>• Climate Risk+MRV | Insurance Crop/environmental intelligence</div><br><div style='margin-bottom:6px'>• Government Decision-support BADC + DoF — Live: badc_kh01, badc_kh07, DoF/</div><br><div style='margin-bottom:6px'>• Research Longitudinal intelligence | Enterprise API/SaaS — One stack, many markets</div></div>
+</div>
+<div>
+<div class="img-card"><img src="https://bdcrops.com/badc_kh01/maps/2023/lulc_map.png"><div class="cap">21 — Investor Upside — One Stack Many Markets — Live Satellite Maps</div></div>
+<div class="grid-3" style="margin-top:8px"><div class="img-card"><img src="https://bdcrops.com/badc_kh01/maps/2023/lulc_map.png"><div class="cap">Agriculture Upside</div></div><div class="img-card"><img src="https://bdcrops.com/images/8band/water-detection.png"><div class="cap">Water Upside</div></div><div class="img-card"><img src="https://bdcrops.com/DoF/maps/RupshaRiverSmart/dashboard.png"><div class="cap">Govt Upside</div></div></div>
+</div>
+</div>
+</div>
+
+
+<div class="slide" style="padding-top:60px;background:#13302B;color:white;border-top:6px solid #1D9790">
+<div class="container">
+<div>
+<h2 style="color:white">22 — Trust — We Will Not Sell False Certainty</h2>
+<div class="card card-dark"><div style='margin-bottom:6px'>• AquaCrop: 1 satellite obs, 0 ground obs, RMSE 0.309, confidence 33/100 — Prototype ≠ certified</div><br><div style='margin-bottom:6px'>• DoF: Screening-stage — water synthetic/derived, species generic FAO/FishBase — site-specific calibration required</div><br><div style='margin-bottom:6px'>• BADC KH01/KH07: Working demonstration / govt-oriented prototype — Confidential BADC 2026 — Unless actual contract, call demonstration/prototype</div><br><div style='margin-bottom:6px'>• Investment moves Level1 Preliminary → Level2 Multi-date → Level3 Field-calibrated → Level4 Multi-season operational — More credible</div></div>
+</div>
+<div>
+<div class="img-card"><img src="https://bdcrops.com/images/demo-dashboard.png"><div class="cap">22 — Trust — We Will Not Sell False Certainty — Live Satellite Maps</div></div>
+
+</div>
+</div>
+</div>
+
+
+<div class="slide" style="padding-top:60px;background:linear-gradient(135deg,#1D9790 0%,#147A74 100%);color:white">
+<div class="container-full" style="text-align:center">
+<h1 style="color:white;font-size:26px">FINAL ASK — INVEST IN TRANSITION — 3 Working Government-Oriented Demonstrations — 24 Slides Full Deck</h1>
+<div style="margin-top:10px;font-size:12px;font-weight:700">Working Technology → Validated Intelligence → Recurring Revenue → Scalable Platform</div>
+<div style="margin-top:8px;font-size:14px;font-weight:800">SEE THE FIELD. SIMULATE THE FUTURE. ACT BEFORE THE LOSS.</div>
+<div style="margin-top:8px;font-size:10px">AI + 8-Band + AquaCrop + AquaData + DoF Live + BADC KH01 114km² + KH07 Surkhali — 3 Live Demos Tell Strong Story<br>
+BADC KH01 Large-area 114km² → multi-year baseline → LULC → trends → forecast → BADC KH07 Repeatable workflow Satellite → historical → scenarios → reporting → DoF New vertical Water→fish→growth→biomass→risk→scenarios → AquaCrop Prediction Crop→water balance→yield→flood/drought/heat → Platform Observe→Analyze→Predict→Simulate→Decide</div>
+<div style="margin-top:12px"><img src="data:image/jpeg;base64,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" style="width:70px;height:70px;border-radius:50%;border:3px solid white;object-fit:cover"></div>
+<div style="margin-top:8px;font-size:10px;font-weight:700">Abdul Matin — Founder & CEO — Dhaka, Bangladesh — linkedin.com/in/matinr<br>
+bdcrops.com | matin@bdcrops.com | +8801717676441 | bdcrops.com/nextunicorn/ | NextUnicorn.Fund<br>
+Live: bdcrops.com/badc_kh01 | bdcrops.com/badc_kh07 | bdcrops.com/DoF/</div>
+<div style="margin-top:12px;display:flex;gap:5px;justify-content:center;flex-wrap:wrap">
+<a href="BDCrops-Professional-Deck.pdf" target="_blank" style="background:white;color:#1D9790;padding:7px 14px;border-radius:999px;text-decoration:none;font-weight:700;font-size:9px">📄 PDF 24 Slides</a>
+<a href="https://bdcrops.com/DoF/" target="_blank" style="background:#FFD60A;color:#13302B;padding:7px 14px;border-radius:999px;text-decoration:none;font-weight:700;font-size:9px">🐟 DoF Live</a>
+<a href="https://bdcrops.com/badc_kh01" target="_blank" style="background:white;color:#1D9790;padding:7px 14px;border-radius:999px;text-decoration:none;font-weight:700;font-size:9px">🌾 KH01 114km² Live</a>
+<a href="https://bdcrops.com/badc_kh07" target="_blank" style="background:white;color:#1D9790;padding:7px 14px;border-radius:999px;text-decoration:none;font-weight:700;font-size:9px">🌾 KH07 Live</a>
+</div>
+<div style="margin-top:10px;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;max-width:1000px;margin-left:auto;margin-right:auto">
+<div class="img-card"><img src="https://bdcrops.com/DoF/maps/RupshaRiverSmart/dashboard.png"><div class="cap" style="color:#13302B">DoF Dashboard — Ref 1 you requested</div></div>
+<div class="img-card"><img src="https://bdcrops.com/DoF/maps/RupshaRiverSmart/growth_curve.png"><div class="cap" style="color:#13302B">DoF Growth Curve — Ref 2 you requested</div></div>
+<div class="img-card"><img src="https://bdcrops.com/badc_kh01/maps/2023/dashboard.png"><div class="cap" style="color:#13302B">KH01 114km² — Printable Pro — badc_kh01/maps/2023/dashboard.png</div></div>
+<div class="img-card"><img src="https://bdcrops.com/badc_kh07/maps/2023/dashboard.png"><div class="cap" style="color:#13302B">KH07 Surkhali — Printable Pro — badc_kh07/maps/2023/dashboard.png</div></div>
+</div>
+</div>
+</div>
+
+
+<script>
+let cur = 0;
+const slides = document.querySelectorAll('.slide');
+const num = document.getElementById('num');
+const progress = document.getElementById('progress');
+
+function upd(){
+  slides.forEach((s,i)=>s.classList.toggle('active',i===cur));
+  const total = slides.length;
+  num.textContent = String(cur+1).padStart(2,'0') + ' / ' + String(total).padStart(2,'0');
+  progress.style.width = (((cur+1)/total)*100) + '%';
+  document.querySelectorAll('.dot').forEach((d,i)=>{
+    d.classList.toggle('active',i===cur);
+    d.setAttribute('aria-current',i===cur?'true':'false');
+  });
+  window.scrollTo({top:0,behavior:'instant'});
+}
+function next(){if(cur<slides.length-1){cur++;upd()}}
+function prev(){if(cur>0){cur--;upd()}}
+document.addEventListener('keydown',e=>{
+  if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();next()}
+  if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();prev()}
+  if(e.key==='Home'){cur=0;upd()}
+  if(e.key==='End'){cur=slides.length-1;upd()}
+});
+const nav=document.getElementById('nav');
+for(let i=0;i<slides.length;i++){
+  const d=document.createElement('button');
+  d.className='dot'+(i===0?' active':'');
+  d.type='button';
+  d.setAttribute('aria-label','Go to slide '+(i+1));
+  d.setAttribute('aria-current',i===0?'true':'false');
+  d.onclick=()=>{cur=i;upd()};
+  nav.appendChild(d);
+}
+let sx=0;
+document.addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});
+document.addEventListener('touchend',e=>{
+  const dx=e.changedTouches[0].clientX-sx;
+  if(dx<-50)next(); if(dx>50)prev();
+},{passive:true});
+upd();
+</script></body></html>
