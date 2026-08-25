@@ -1,0 +1,173 @@
+{
+  "id": "RupshaRiverSmart",
+  "workspace": "/var/POAi/CrewAiFlow/cf2/.runtime/output/RupshaRiverSmart",
+  "maps": [
+    {
+      "name": "dashboard",
+      "file": "dashboard.png"
+    },
+    {
+      "name": "growth_curve",
+      "file": "growth_curve.png"
+    }
+  ],
+  "reports": [
+    {
+      "name": "findings",
+      "file": "findings.pdf",
+      "type": "pdf"
+    }
+  ],
+  "videos": {
+    "intro": [],
+    "pitch": []
+  },
+  "csvs": [],
+  "aqua_kpis": {
+    "species": "Rohu",
+    "water_risk": "FATAL",
+    "synthetic_count": 0,
+    "water_temp_c": 28.2,
+    "water_do_mg": 5.2,
+    "water_salinity_psu": 8.2,
+    "water_ph": 7.6,
+    "water_turbidity_ntu": 45.0,
+    "water_cond_us_cm": 2800.0,
+    "water_ammonia_mg_l": 0.04,
+    "initial_weight_g": 250.0,
+    "final_weight_g": 418.570313552571,
+    "growth_pct": 67.42812542102841,
+    "forecast_days": 90,
+    "env_factor": 0.19,
+    "temp_mult": 0.95,
+    "do_mult": 0.72,
+    "salinity_mult": 0.28,
+    "ph_mult": 0.98,
+    "matrix_scenarios": [
+      {
+        "key": "rohu",
+        "name": "Rohu",
+        "scientific_name": "Labeo rohita",
+        "seasons": {
+          "pre_monsoon": {
+            "final_weight_g": 269.3,
+            "growth_pct": 7.7,
+            "risk_level": "fatal",
+            "env_factor": 0.19
+          },
+          "monsoon": {
+            "final_weight_g": 375.7,
+            "growth_pct": 50.3,
+            "risk_level": "critical",
+            "env_factor": 0.19
+          },
+          "post_monsoon": {
+            "final_weight_g": 275.1,
+            "growth_pct": 10.1,
+            "risk_level": "critical",
+            "env_factor": 0.19
+          },
+          "winter": {
+            "final_weight_g": 317.8,
+            "growth_pct": 27.1,
+            "risk_level": "marginal",
+            "env_factor": 0.19
+          }
+        }
+      },
+      {
+        "key": "catla",
+        "name": "Catla",
+        "scientific_name": "Catla catla",
+        "seasons": {
+          "pre_monsoon": {
+            "final_weight_g": 278.7,
+            "growth_pct": 11.5,
+            "risk_level": "fatal",
+            "env_factor": 0.19
+          },
+          "monsoon": {
+            "final_weight_g": 448.0,
+            "growth_pct": 79.2,
+            "risk_level": "critical",
+            "env_factor": 0.19
+          },
+          "post_monsoon": {
+            "final_weight_g": 287.6,
+            "growth_pct": 15.0,
+            "risk_level": "fatal",
+            "env_factor": 0.19
+          },
+          "winter": {
+            "final_weight_g": 276.2,
+            "growth_pct": 10.5,
+            "risk_level": "critical",
+            "env_factor": 0.19
+          }
+        }
+      },
+      {
+        "key": "mrigal",
+        "name": "Mrigal",
+        "scientific_name": "Cirrhinus cirrhosus",
+        "seasons": {
+          "pre_monsoon": {
+            "final_weight_g": 265.9,
+            "growth_pct": 6.4,
+            "risk_level": "fatal",
+            "env_factor": 0.19
+          },
+          "monsoon": {
+            "final_weight_g": 355.6,
+            "growth_pct": 42.2,
+            "risk_level": "critical",
+            "env_factor": 0.19
+          },
+          "post_monsoon": {
+            "final_weight_g": 272.1,
+            "growth_pct": 8.8,
+            "risk_level": "critical",
+            "env_factor": 0.19
+          },
+          "winter": {
+            "final_weight_g": 309.1,
+            "growth_pct": 23.6,
+            "risk_level": "marginal",
+            "env_factor": 0.19
+          }
+        }
+      },
+      {
+        "key": "hilsa",
+        "name": "Hilsa",
+        "scientific_name": "Tenualosa ilisha",
+        "seasons": {
+          "pre_monsoon": {
+            "final_weight_g": 270.9,
+            "growth_pct": 8.4,
+            "risk_level": "marginal",
+            "env_factor": 0.19
+          },
+          "monsoon": {
+            "final_weight_g": 283.7,
+            "growth_pct": 13.5,
+            "risk_level": "critical",
+            "env_factor": 0.19
+          },
+          "post_monsoon": {
+            "final_weight_g": 307.5,
+            "growth_pct": 23.0,
+            "risk_level": "acceptable",
+            "env_factor": 0.19
+          },
+          "winter": {
+            "final_weight_g": 312.6,
+            "growth_pct": 25.0,
+            "risk_level": "acceptable",
+            "env_factor": 0.19
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,6 +1,6 @@
 # Rupsha River Smart Fish Intelligence Multi-Species
 
-_Generated: 2026-08-19T05:10:33.823437Z_
+_Generated: 2026-08-25T01:07:04.667385Z_
 
 ## Species
 
@@ -15,39 +15,37 @@ _Generated: 2026-08-19T05:10:33.823437Z_
 
 ## Water Quality
 
-**Overall risk: `CRITICAL`**
-
-⚠ 7/7 parameters used synthetic defaults (no field observations).
+**Overall risk: `FATAL`**
 
 | Parameter | Observed | Risk | Note |
 |---|---|---|---|
-| temperature | 27.00 *(synthetic)* | `optimal` | 27.0°C is near optimum (28.0°C) |
-| dissolved_oxygen | 6.38 *(synthetic)* | `acceptable` | DO 6.38 mg/L is adequate |
-| salinity | 5.88 *(synthetic)* | `critical` | Salinity 5.88 ppt severely exceeds tolerance (3.0) |
-| ph | 7.57 *(synthetic)* | `optimal` | pH 7.57 is near optimum (7.5) |
-| turbidity | 92.50 *(synthetic)* | `marginal` | Turbidity 92.5 NTU is elevated |
-| conductivity | 3075.00 *(synthetic)* | `acceptable` | Conductivity 3075.0 µS/cm indicates brackish water |
-| ammonia | 0.04 *(synthetic)* | `acceptable` | Ammonia 0.04 mg/L is safe |
+| temperature | 28.20 | `optimal` | 28.2°C is near optimum (28.0°C) |
+| dissolved_oxygen | 5.20 | `acceptable` | DO 5.2 mg/L is adequate |
+| salinity | 8.20 | `fatal` | Salinity 8.2 ppt is fatal for Rohu (max: 3.0) |
+| ph | 7.60 | `optimal` | pH 7.6 is near optimum (7.5) |
+| turbidity | 45.00 | `acceptable` | Turbidity 45.0 NTU is acceptable |
+| conductivity | 2800.00 | `acceptable` | Conductivity 2800.0 µS/cm indicates brackish water |
+| ammonia | 0.04 | `acceptable` | Ammonia 0.04 mg/L is safe |
 
 ### Critical Flags
-- 🚨 Salinity 5.88 ppt severely exceeds tolerance (3.0)
+- 🚨 Salinity 8.2 ppt is fatal for Rohu (max: 3.0)
 
 ## Growth Forecast
 
 - **Model:** VBGF_daily_scaled (screening_estimate)
 - **Forecast period:** 90 days
 - **Initial weight:** 250.00 g
-- **Final weight:** 278.89 g
-- **Total gain:** 28.89 g (11.6%)
-- **Mean daily gain:** 0.321 g/day
-- **Environmental factor:** 0.192 (1.0 = optimal)
+- **Final weight:** 418.57 g
+- **Total gain:** 168.57 g (67.4%)
+- **Mean daily gain:** 1.873 g/day
+- **Environmental factor:** 1.000 (1.0 = optimal)
 
 | Factor | Value |
 |---|---|
-| temperature | 0.932 |
-| dissolved_oxygen | 0.888 |
-| salinity | 0.232 |
-| combined | 0.192 |
+| temperature | 1.0 |
+| dissolved_oxygen | 1.0 |
+| salinity | 1.0 |
+| combined | 1.0 |
 
 ## Biomass Projection
 
