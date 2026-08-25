@@ -1,6 +1,6 @@
 # Rupsha River Smart Fish Intelligence Multi-Species
 
-_Generated: 2026-08-25T01:07:04.667385Z_
+_Generated: 2026-08-25T11:50:13.294848Z_
 
 ## Species
 
@@ -19,7 +19,7 @@ _Generated: 2026-08-25T01:07:04.667385Z_
 
 | Parameter | Observed | Risk | Note |
 |---|---|---|---|
-| temperature | 28.20 | `optimal` | 28.2°C is near optimum (28.0°C) |
+| temperature | 30.60 | `acceptable` | 30.6°C is within acceptable range |
 | dissolved_oxygen | 5.20 | `acceptable` | DO 5.2 mg/L is adequate |
 | salinity | 8.20 | `fatal` | Salinity 8.2 ppt is fatal for Rohu (max: 3.0) |
 | ph | 7.60 | `optimal` | pH 7.6 is near optimum (7.5) |

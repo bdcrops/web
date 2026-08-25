@@ -1,8 +1,8 @@
 {
   "project": "RupshaRiverSmart",
-  "generated_at": "2026-08-25T01:07:06.539180+00:00",
-  "unit_title": "AquaData Intelligence",
-  "theme_color": "#0369a1",
+  "generated_at": "2026-08-25T11:50:16.140255+00:00",
+  "unit_title": "AquaDoF Fisheries Intelligence",
+  "theme_color": "#065f46",
   "aois": [
     {
       "id": "RupshaRiverSmart"
