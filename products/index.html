@@ -1,1096 +1,639 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>BDCrops AI Product Suite | Enterprise Autonomous AI Engines</title>
+  <meta name="description" content="Explore the BDCrops Autonomous AI Platform: DubbingAI, LeadIntent AI, GeoSpatial AI, PatientData AI, PodcastAI, and specialized enterprise intelligence engines.">
+  <meta name="keywords" content="BDCrops AI, DubbingAI, LeadIntent AI, GeoSpatial AI, PatientData AI, Enterprise AI Suite, Autonomous AI Workflows">
+  <meta name="theme-color" content="#22c55e">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://bdcrops.com/products/index.html">
 
-    <!-- Primary Meta Tags -->
-    <title>AI Products — BDCrops Technologies | DubbingAI, GeoAI, Lead Intelligence & Automation</title>
-    <meta name="title" content="AI Products — BDCrops Technologies | DubbingAI, GeoAI, Lead Intelligence & Automation">
-    <meta name="description" content="Explore BDCrops Technologies AI products for video localization, digital learning, geospatial intelligence, lead discovery, enterprise research, publishing, media and data automation.">
-    <meta name="keywords" content="BDCrops AI products, DubbingAI, AI dubbing, GeoAI, lead intelligence AI, enterprise AI, digital learning AI, Bangladesh AI company, PlayOwnAI">
-    <meta name="author" content="BDCrops Technologies">
-    <meta name="robots" content="index, follow, max-image-preview:large">
-    <link rel="canonical" href="https://bdcrops.com/products/">
+  <!-- Open Graph -->
+  <meta property="og:title" content="BDCrops AI Product Suite — Enterprise Autonomous AI Engines">
+  <meta property="og:description" content="Discover BDCrops specialized AI engines for video localization, lead intelligence, spatial data, healthcare records, and automated publishing.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bdcrops.com/products/index.html">
+  <meta property="og:image" content="https://bdcrops.com/assets/img/bdcrops-products-og.png">
+  <meta property="og:site_name" content="BDCrops AI">
 
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://bdcrops.com/products/">
-    <meta property="og:title" content="AI Products — BDCrops Technologies">
-    <meta property="og:description" content="Specialized AI products for media localization, digital learning, geospatial intelligence, research and enterprise automation.">
-    <meta property="og:image" content="https://bdcrops.com/images/og/og-banner.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="BDCrops Technologies AI Product Suite">
-    <meta property="og:site_name" content="BDCrops">
-    <meta property="og:locale" content="en_US">
+  <!-- Preload + Site CSS -->
+  <link rel="preload" as="style" href="css/style.css?v=202608022355">
+  <link rel="stylesheet" href="css/style.css?v=20260802">
+  <link rel="stylesheet" href="css/page.css?v=20260802">
 
-    <!-- Twitter / X -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="AI Products — BDCrops Technologies">
-    <meta name="twitter:description" content="Explore BDCrops AI products for media, learning, geospatial intelligence and enterprise automation.">
-    <meta name="twitter:image" content="https://bdcrops.com/images/og/og-banner.png">
-    <meta name="twitter:site" content="@matinict">
+  <!-- Bootstrap 5 Grid & Utilities -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-    <!-- Product Collection Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "CollectionPage",
-      "name": "BDCrops AI Products",
-      "url": "https://bdcrops.com/products/",
-      "description": "AI products from BDCrops Technologies for video localization, digital learning, geospatial intelligence and enterprise automation.",
-      "publisher": {
-        "@type": "Organization",
-        "name": "BDCrops Technologies",
-        "url": "https://bdcrops.com",
-        "logo": "https://bdcrops.com/favicon.svg"
-      },
-      "mainEntity": {
-        "@type": "ItemList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "DubbingAI",
-            "url": "https://bdcrops.com/products/dubbing-ai.html"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "GeoIntelligence AI"
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "LeadIntent AI"
-          },
-          {
-            "@type": "ListItem",
-            "position": 4,
-            "name": "ClassroomAI"
-          }
-        ]
-      }
+  <!-- Favicon Package -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=202608022328">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=20260802">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=20260802">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20260802">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <style>
+    :root {
+      --bdc-bg: #070b14;
+      --bdc-card: rgba(15, 23, 42, 0.78);
+      --bdc-card-hover: rgba(20, 30, 55, 0.9);
+      --bdc-border: rgba(34, 197, 94, 0.22);
+      --bdc-border-hover: rgba(0, 229, 255, 0.5);
+      --bdc-cyan: #00e5ff;
+      --bdc-green: #22c55e;
+      --bdc-purple: #a855f7;
+      --bdc-amber: #f59e0b;
+      --bdc-text: #f8fafc;
+      --bdc-muted: #94a3b8;
+      --bdc-glow: 0 0 30px rgba(0, 229, 255, 0.15);
     }
-    </script>
 
-    <!-- Site CSS -->
-    <link rel="preload" as="style" href="../css/style.css?v=202608022355">
-    <link rel="stylesheet" href="../css/style.css?v=20260802">
-    <link rel="stylesheet" href="../css/page.css?v=20260802">
+    body.products-hub {
+      background-color: var(--bdc-bg);
+      color: var(--bdc-text);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      overflow-x: hidden;
+    }
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=202608022328">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=20260802">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=20260802">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20260802">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#22c55e">
+    /* Hero Header */
+    .hub-hero {
+      padding: 5.5rem 0 3rem;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(34, 197, 94, 0.12), transparent 40%),
+        radial-gradient(circle at 90% 10%, rgba(0, 229, 255, 0.12), transparent 45%),
+        radial-gradient(circle at 50% 90%, rgba(168, 85, 247, 0.08), transparent 50%);
+      text-align: center;
+    }
 
-    <!-- Product Page Styles -->
-    <style>
-        .product-intro {
-            max-width: 850px;
-            margin: 0 auto 3rem;
-            text-align: center;
-            color: #555;
-            font-size: 1.05rem;
-            line-height: 1.8;
-        }
+    .hub-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1px solid rgba(34, 197, 94, 0.4);
+      background: rgba(34, 197, 94, 0.12);
+      color: #86efac;
+      border-radius: 999px;
+      padding: 0.4rem 1rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+    }
 
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 1.5rem;
-        }
+    .hub-title {
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+    }
 
-        .product-card {
-            background: #fff;
-            border: 1px solid #e5e7eb;
-            border-radius: 18px;
-            padding: 1.6rem;
-            display: flex;
-            flex-direction: column;
-            min-height: 100%;
-            box-shadow: 0 8px 30px rgba(15, 23, 42, .05);
-            transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
-        }
+    .hub-title span {
+      background: linear-gradient(135deg, #22c55e 0%, #00e5ff 50%, #a855f7 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
 
-        .product-card:hover {
-            transform: translateY(-4px);
-            border-color: #86efac;
-            box-shadow: 0 16px 40px rgba(15, 23, 42, .10);
-        }
+    .hub-lead {
+      color: var(--bdc-muted);
+      font-size: 1.15rem;
+      max-width: 48rem;
+      margin: 0 auto 2.5rem;
+    }
 
-        .product-card.flagship {
-            border: 2px solid #22c55e;
-            background: linear-gradient(145deg, #ffffff, #f0fdf4);
-        }
+    /* Flashcard Design */
+    .flashcard {
+      background: var(--bdc-card);
+      border: 1px solid var(--bdc-border);
+      border-radius: 18px;
+      padding: 1.85rem;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      backdrop-filter: blur(14px);
+    }
 
-        .product-card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 1rem;
-            margin-bottom: 1.1rem;
-        }
+    .flashcard:hover {
+      background: var(--bdc-card-hover);
+      border-color: var(--bdc-border-hover);
+      transform: translateY(-6px);
+      box-shadow: var(--bdc-glow);
+    }
 
-        .product-icon {
-            width: 54px;
-            height: 54px;
-            border-radius: 14px;
-            display: grid;
-            place-items: center;
-            background: #f0fdf4;
-            border: 1px solid #bbf7d0;
-            font-size: 1.65rem;
-        }
+    /* Flashcard Header Badges */
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.2rem;
+    }
 
-        .product-status {
-            display: inline-block;
-            border-radius: 999px;
-            padding: .32rem .7rem;
-            font-size: .7rem;
-            line-height: 1;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: .04em;
-            white-space: nowrap;
-        }
+    .status-tag {
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 0.25rem 0.65rem;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
 
-        .status-available {
-            color: #166534;
-            background: #dcfce7;
-            border: 1px solid #86efac;
-        }
+    .tag-live {
+      background: linear-gradient(135deg, rgba(34, 197, 94, 0.25), rgba(0, 229, 255, 0.25));
+      color: #00e5ff;
+      border: 1px solid rgba(0, 229, 255, 0.4);
+    }
 
-        .status-development {
-            color: #92400e;
-            background: #fef3c7;
-            border: 1px solid #fde68a;
-        }
+    .tag-preview {
+      background: rgba(168, 85, 247, 0.15);
+      color: #c084fc;
+      border: 1px solid rgba(168, 85, 247, 0.3);
+    }
 
-        .status-preview {
-            color: #5b21b6;
-            background: #ede9fe;
-            border: 1px solid #c4b5fd;
-        }
+    .tag-beta {
+      background: rgba(245, 158, 11, 0.15);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
 
-        .status-research {
-            color: #1e40af;
-            background: #dbeafe;
-            border: 1px solid #93c5fd;
-        }
+    .card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: grid;
+      place-items: center;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
 
-        .product-card h3 {
-            margin: 0 0 .7rem;
-            color: #111827;
-            font-size: 1.3rem;
-        }
+    .card-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.6rem;
+    }
 
-        .product-by {
-            color: #16a34a;
-            font-size: .78rem;
-            font-weight: 700;
-            margin-bottom: .6rem;
-            text-transform: uppercase;
-            letter-spacing: .04em;
-        }
+    .card-desc {
+      color: var(--bdc-muted);
+      font-size: 0.95rem;
+      line-height: 1.55;
+      margin-bottom: 1.5rem;
+    }
 
-        .product-card p {
-            color: #555;
-            line-height: 1.65;
-            margin-bottom: 1.1rem;
-        }
+    /* Feature Pills */
+    .pill-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-bottom: 1.8rem;
+    }
 
-        .product-features {
-            display: flex;
-            flex-wrap: wrap;
-            gap: .45rem;
-            margin: auto 0 1.4rem;
-        }
+    .pill {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #cbd5e1;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 0.25rem 0.65rem;
+      border-radius: 20px;
+    }
 
-        .product-feature {
-            display: inline-block;
-            padding: .3rem .65rem;
-            border-radius: 999px;
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            color: #475569;
-            font-size: .75rem;
-            font-weight: 600;
-        }
+    /* Buttons */
+    .btn-card {
+      width: 100%;
+      padding: 0.75rem 1.25rem;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      transition: all 0.25s ease;
+    }
 
-        .product-actions {
-            display: flex;
-            gap: .65rem;
-            flex-wrap: wrap;
-        }
+    .btn-card-primary {
+      background: linear-gradient(135deg, #22c55e, #06b6d4);
+      color: #041016 !important;
+      border: none;
+    }
 
-        .product-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: .7rem 1rem;
-            border-radius: 9px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: .9rem;
-            background: #16a34a;
-            color: #fff;
-        }
+    .btn-card-primary:hover {
+      filter: brightness(1.1);
+      box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+    }
 
-        .product-link:hover {
-            background: #15803d;
-            color: #fff;
-        }
+    .btn-card-secondary {
+      background: rgba(255, 255, 255, 0.06);
+      color: #f1f5f9 !important;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
 
-        .product-link.secondary {
-            background: #fff;
-            color: #166534;
-            border: 1px solid #86efac;
-        }
+    .btn-card-secondary:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: var(--bdc-cyan);
+    }
 
-        .product-link.disabled {
-            background: #f1f5f9;
-            border: 1px solid #e2e8f0;
-            color: #64748b;
-            cursor: default;
-        }
+    .hub-section { padding: 3.5rem 0; }
 
-        .portfolio-strip {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-            max-width: 950px;
-            margin: 2.5rem auto 0;
-        }
+    /* Footer CTA Banner */
+    .hub-cta-banner {
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.9) 0%, rgba(7, 11, 20, 0.95) 100%);
+      border: 1px solid var(--bdc-border);
+      border-radius: 20px;
+      padding: 3.5rem 2rem;
+      text-align: center;
+      margin-bottom: 4rem;
+    }
 
-        .portfolio-stat {
-            text-align: center;
-            background: #fff;
-            border: 1px solid #e5e7eb;
-            border-radius: 14px;
-            padding: 1.2rem .7rem;
-        }
-
-        .portfolio-stat strong {
-            display: block;
-            color: #16a34a;
-            font-size: 1.5rem;
-            margin-bottom: .2rem;
-        }
-
-        .portfolio-stat span {
-            color: #64748b;
-            font-size: .82rem;
-        }
-
-        .product-category {
-            margin-top: 4rem;
-        }
-
-        .product-category:first-child {
-            margin-top: 0;
-        }
-
-        .category-heading {
-            margin-bottom: 1.5rem;
-        }
-
-        .category-heading h2 {
-            color: #111827;
-            margin-bottom: .3rem;
-        }
-
-        .category-heading p {
-            color: #64748b;
-        }
-
-        .availability-note {
-            max-width: 850px;
-            margin: 3rem auto 0;
-            padding: 1.25rem 1.5rem;
-            background: #f8fafc;
-            border-left: 4px solid #22c55e;
-            border-radius: 10px;
-            color: #475569;
-            line-height: 1.65;
-        }
-
-        @media (max-width: 980px) {
-            .product-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-        }
-
-        @media (max-width: 640px) {
-            .product-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .portfolio-strip {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .product-card {
-                padding: 1.25rem;
-            }
-        }
-    </style>
-
-    <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q3EJLRP1KF"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-Q3EJLRP1KF', {
-            'anonymize_ip': true,
-            'cookie_flags': 'SameSite=None;Secure'
-        });
-    </script>
+    @media (max-width: 576px) {
+      .hub-hero { padding-top: 3.5rem; }
+      .flashcard { padding: 1.35rem; }
+    }
+  </style>
 </head>
 
-<body data-page="products">
-
-<div id="site-header"></div>
-
-<!-- ═══════════════════════════════════════════════════════
-     HERO
-════════════════════════════════════════════════════════ -->
-<section class="page-hero">
-    <div class="hero-container">
-        <div class="hero-content">
-            <span class="page-badge">🤖 BDCrops Technologies · AI Product Portfolio</span>
-
-            <h1>
-                Specialized AI Products for<br>
-                Media, Data &amp; Decision Intelligence
-            </h1>
-
-            <p>
-                BDCrops develops focused AI products that turn complex media,
-                geospatial information and business data into useful outcomes.
-                Our portfolio combines commercial products with technologies
-                currently moving through development and enterprise validation.
-            </p>
-        </div>
-    </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════════
-     PRODUCT PORTFOLIO
-════════════════════════════════════════════════════════ -->
-<section class="sections-showcase" id="products">
-    <div class="features-container">
-
-        <div class="section-header">
-            <h2 class="section-title">BDCrops AI Product Portfolio</h2>
-            <p class="section-subtitle">
-                Purpose-built AI experiences built on BDCrops and PlayOwnAI research.
-            </p>
-        </div>
-
-        <div class="product-intro">
-            <p>
-                Instead of one general-purpose AI application, we develop specialized
-                products around clearly defined business problems. Products are released
-                individually as they reach commercial readiness.
-            </p>
-        </div>
-
-        <!-- MEDIA & LEARNING -->
-        <div class="product-category">
-            <div class="category-heading">
-                <h2>🎬 Media &amp; Learning Intelligence</h2>
-                <p>AI products for localization, education, audio and digital content.</p>
-            </div>
-
-            <div class="product-grid">
-
-                <!-- DUBBING AI -->
-                <article class="product-card flagship">
-                    <div>
-                        <div class="product-card-header">
-                            <div class="product-icon">🎙️</div>
-                            <span class="product-status status-available">Available</span>
-                        </div>
-
-                        <div class="product-by">Flagship Product · BDCrops</div>
-                        <h3>DubbingAI</h3>
-
-                        <p>
-                            AI-powered video localization and digital lesson creation
-                            for technical education, training and multilingual media.
-                            Convert a source video into synchronized localized narration
-                            and modern learning-ready video formats.
-                        </p>
-
-                        <div class="product-features">
-                            <span class="product-feature">AI Dubbing</span>
-                            <span class="product-feature">Voice Localization</span>
-                            <span class="product-feature">Digital Lessons</span>
-                            <span class="product-feature">Technical Content</span>
-                            <span class="product-feature">Multi-format Video</span>
-                        </div>
-                    </div>
-
-                    <div class="product-actions">
-                        <a href="{{ROOT}}products/dubbing-ai.html" class="product-link">
-                            Explore DubbingAI →
-                        </a>
-                    </div>
-                </article>
-
-                <!-- CLASSROOM AI -->
-                <article class="product-card">
-                    <div>
-                        <div class="product-card-header">
-                            <div class="product-icon">🎓</div>
-                            <span class="product-status status-development">Development</span>
-                        </div>
-
-                        <div class="product-by">Learning Intelligence</div>
-                        <h3>ClassroomAI</h3>
-
-                        <p>
-                            AI-assisted learning-content platform designed to transform
-                            source material into structured lessons, explanations and
-                            interactive educational experiences.
-                        </p>
-
-                        <div class="product-features">
-                            <span class="product-feature">Digital Learning</span>
-                            <span class="product-feature">Lesson Creation</span>
-                            <span class="product-feature">Multilingual</span>
-                            <span class="product-feature">Education AI</span>
-                        </div>
-                    </div>
-
-                    <div class="product-actions">
-                        <span class="product-link disabled">In Development</span>
-                    </div>
-                </article>
-
-                <!-- PODCAST AI -->
-                <article class="product-card">
-                    <div>
-                        <div class="product-card-header">
-                            <div class="product-icon">🎧</div>
-                            <span class="product-status status-development">Development</span>
-                        </div>
-
-                        <div class="product-by">Conversational Media</div>
-                        <h3>PodcastAI</h3>
-
-                        <p>
-                            AI-assisted podcast production for transforming knowledge,
-                            reports and long-form content into structured conversational
-                            audio experiences.
-                        </p>
-
-                        <div class="product-features">
-                            <span class="product-feature">AI Audio</span>
-                            <span class="product-feature">Podcast Creation</span>
-                            <span class="product-feature">Conversational Content</span>
-                        </div>
-                    </div>
-
-                    <div class="product-actions">
-                        <span class="product-link disabled">In Development</span>
-                    </div>
-                </article>
-
-                <!-- ANIMATION AI -->
-                <article class="product-card">
-                    <div>
-                        <div class="product-card-header">
-                            <div class="product-icon">🎞️</div>
-                            <span class="product-status status-preview">Preview</span>
-                        </div>
-
-                        <div class="product-by">Generative Media</div>
-                        <h3>MotionAI</h3>
-
-                        <p>
-                            Intelligent visual storytelling tools for transforming
-                            structured information into animated educational,
-                            presentation and digital-media experiences.
-                        </p>
-
-                        <div class="product-features">
-                            <span class="product-feature">Visual Storytelling</span>
-                            <span class="product-feature">Animation</span>
-                            <span class="product-feature">Digital Media</span>
-                        </div>
-                    </div>
-
-                    <div class="product-actions">
-                        <span class="product-link disabled">Technology Preview</span>
-                    </div>
-                </article>
-
-                <!-- ADVERTISING -->
-                <article class="product-card">
-                    <div>
-                        <div class="product-card-header">
-                            <div class="product-icon">📣</div>
-                            <span class="product-status status-development">Development</span>
-                        </div>
-
-                        <div class="product-by">Marketing Intelligence</div>
-                        <h3>AdCreative AI</h3>
-
-                        <p>
-                            AI-assisted content adaptation for creating campaign-ready
-                            promotional media from existing business and product assets.
-                        </p>
-
-                        <div class="product-features">
-                            <span class="product-feature">Creative AI</span>
-                            <span class="product-feature">Campaign Content</span>
-                            <span class="product-feature">Media Adaptation</span>
-                        </div>
-                    </div>
-
-                    <div class="product-actions">
-                        <span class="product-link disabled">In Development</span>
-                    </div>
-                </article>
-
-                <!-- PUBLISHER -->
-                <article class="product-card">
-                    <div>
-                        <div class="product-card-header">
-                            <div class="product-icon">📡</div>
-                            <span class="product-status status-development">Development</span>
-                        </div>
-
-                        <div class="product-by">Content Operations</div>
-                        <h3>PublisherAI</h3>
-
-                        <p>
-                            Multi-channel content preparation and publishing intelligence
-                            for adapting media to different audiences, destinations and
-                            digital formats.
-                        </p>
-
-                        <div class="product-features">
-                            <span class="product-feature">Publishing</span>
-                            <span class="product-feature">Content Operations</span>
-                            <span class="product-feature">Multi-channel</span>
-                        </div>
-                    </div>
-
-                    <div class="product-actions">
-                        <span class="product-link disabled">In Development</span>
-                    </div>
-                </article>
-
-            </div>
-        </div>
-
-        <!-- BUSINESS INTELLIGENCE -->
-        <div class="product-category">
-            <div class="category-heading">
-                <h2>💼 Business &amp; Decision Intelligence</h2>
-                <p>AI products for discovery, research, comparison and opportunity intelligence.</p>
-            </div>
-
-            <div class="product-grid">
-
-                <!-- LEAD INTENT -->
-                <article class="product-card">
-                    <div>
-                        <div class="product-card-header">
-                            <div class="product-icon">🎯</div>
-                            <span class="product-status status-preview">Preview</span>
-                        </div>
-
-                        <div class="product-by">B2B Intelligence</div>
-                        <h3>LeadIntent AI</h3>
-
-                        <p>
-                            Business prospect and opportunity intelligence designed to
-                            help teams discover, organize and prioritize potentially
-                            relevant organizations and market signals.
-                        </p>
-
-                        <div class="product-features">
-                            <span class="product-feature">Lead Intelligence</span>
-                            <span class="product-feature">B2B Research</span>
-                            <span class="product-feature">Opportunity Signals</span>
-                        </div>
-                    </div>
-
-                    <div class="product-actions">
-                        <span class="product-link disabled">Technology Preview</span>
-                    </div>
-                </article>
-
-                <!-- SCOUT -->
-                <article class="product-card">
-                    <div>
-                        <div class="product-card-header">
-                            <div class="product-icon">🔎</div>
-                            <span class="product-status status-development">Development</span>
-                        </div>
-
-                        <div class="product-by">Research Intelligence</div>
-                        <h3>ScoutAI</h3>
-
-                        <p>
-                            AI-assisted market and competitive research for gathering,
-                            organizing and summarizing information relevant to strategic
-                            business decisions.
-                        </p>
-
-                        <div class="product-features">
-                            <span class="product-feature">Market Research</span>
-                            <span class="product-feature">Competitive Intelligence</span>
-                            <span class="product-feature">Monitoring</span>
-                        </div>
-                    </div>
-
-                    <div class="product-actions">
-                        <span class="product-link disabled">In Development</span>
-                    </div>
-                </article>
-
-                <!-- TENDER -->
-                <article class="product-card">
-                    <div>
-                        <div class="product-card-header">
-                            <div class="product-icon">📑</div>
-                            <span class="product-status status-preview">Preview</span>
-                        </div>
-
-                        <div class="product-by">Procurement Intelligence</div>
-                        <h3>TenderIntelligence AI</h3>
-
-                        <p>
-                            Decision-support technology for organizing procurement and
-                            tender information, highlighting requirements and helping
-                            teams evaluate potential opportunities.
-                        </p>
-
-                        <div class="product-features">
-                            <span class="product-feature">Tender Intelligence</span>
-                            <span class="product-feature">Requirement Analysis</span>
-                            <span class="product-feature">Procurement</span>
-                        </div>
-                    </div>
-
-                    <div class="product-actions">
-                        <span class="product-link disabled">Technology Preview</span>
-                    </div>
-                </article>
-
-                <!-- COMPARISON -->
-                <article class="product-card">
-                    <div>
-                        <div class="product-card-header">
-                            <div class="product-icon">⚖️</div>
-                            <span class="product-status status-development">Development</span>
-                        </div>
-
-                        <div class="product-by">Decision Support</div>
-                        <h3>CompareAI</h3>
-
-                        <p>
-                            Structured comparison intelligence for evaluating products,
-                            options, technologies or proposals across multiple criteria.
-                        </p>
-
-                        <div class="product-features">
-                            <span class="product-feature">Comparison</span>
-                            <span class="product-feature">Decision Support</span>
-                            <span class="product-feature">Evaluation</span>
-                        </div>
-                    </div>
-
-                    <div class="product-actions">
-                        <span class="product-link disabled">In Development</span>
-                    </div>
-                </article>
-
-                <!-- DEBATE -->
-                <article class="product-card">
-                    <div>
-                        <div class="product-card-header">
-                            <div class="product-icon">🗣️</div>
-                            <span class="product-status status-research">R&amp;D</span>
-                        </div>
-
-                        <div class="product-by">Policy &amp; Research</div>
-                        <h3>PerspectiveAI</h3>
-
-                        <p>
-                            Structured multi-perspective analysis for research,
-                            policy exploration and complex decision discussions.
-                        </p>
-
-                        <div class="product-features">
-                            <span class="product-feature">Policy Research</span>
-                            <span class="product-feature">Multiple Perspectives</span>
-                            <span class="product-feature">Analysis</span>
-                        </div>
-                    </div>
-
-                    <div class="product-actions">
-                        <span class="product-link disabled">Research &amp; Development</span>
-                    </div>
-                </article>
-
-                <!-- DEFINITION -->
-                <article class="product-card">
-                    <div>
-                        <div class="product-card-header">
-                            <div class="product-icon">📚</div>
-                            <span class="product-status status-research">R&amp;D</span>
-                        </div>
-
-                        <div class="product-by">Knowledge Intelligence</div>
-                        <h3>KnowledgeBrief AI</h3>
-
-                        <p>
-                            AI-assisted concept explanation and structured knowledge
-                            briefs designed for education, research and enterprise
-                            knowledge systems.
-                        </p>
-
-                        <div class="product-features">
-                            <span class="product-feature">Knowledge Briefs</span>
-                            <span class="product-feature">Definitions</span>
-                            <span class="product-feature">Research</span>
-                        </div>
-                    </div>
-
-                    <div class="product-actions">
-                        <span class="product-link disabled">Research &amp; Development</span>
-                    </div>
-                </article>
-
-            </div>
-        </div>
-
-        <!-- DATA INTELLIGENCE -->
-        <div class="product-category">
-            <div class="category-heading">
-                <h2>🌍 Data &amp; Domain Intelligence</h2>
-                <p>Specialized AI technologies for geospatial, environmental and domain-specific information.</p>
-            </div>
-
-            <div class="product-grid">
-
-                <!-- GEODATA -->
-                <article class="product-card">
-                    <div>
-                        <div class="product-card-header">
-                            <div class="product-icon">🛰️</div>
-                            <span class="product-status status-preview">Platform</span>
-                        </div>
-
-                        <div class="product-by">Earth Intelligence</div>
-                        <h3>GeoIntelligence AI</h3>
-
-                        <p>
-                            Satellite and spatial intelligence for agriculture,
-                            environmental monitoring, climate risk and location-based
-                            decision support.
-                        </p>
-
-                        <div class="product-features">
-                            <span class="product-feature">Satellite Intelligence</span>
-                            <span class="product-feature">GeoAI</span>
-                            <span class="product-feature">Climate</span>
-                            <span class="product-feature">Agriculture</span>
-                        </div>
-                    </div>
-
-                    <div class="product-actions">
-                        <a href="{{ROOT}}pages/about.html#platform" class="product-link secondary">
-                            Explore GeoData
-                        </a>
-                    </div>
-                </article>
-
-                <!-- AQUA -->
-                <article class="product-card">
-                    <div>
-                        <div class="product-card-header">
-                            <div class="product-icon">💧</div>
-                            <span class="product-status status-research">R&amp;D</span>
-                        </div>
-
-                        <div class="product-by">Environmental Intelligence</div>
-                        <h3>AquaIntelligence AI</h3>
-
-                        <p>
-                            Environmental and water-data intelligence research focused
-                            on understanding water conditions, resource signals and
-                            related agricultural risk.
-                        </p>
-
-                        <div class="product-features">
-                            <span class="product-feature">Water Intelligence</span>
-                            <span class="product-feature">Environment</span>
-                            <span class="product-feature">Agriculture</span>
-                        </div>
-                    </div>
-
-                    <div class="product-actions">
-                        <span class="product-link disabled">Research &amp; Development</span>
-                    </div>
-                </article>
-
-                <!-- PATIENT DATA -->
-                <article class="product-card">
-                    <div>
-                        <div class="product-card-header">
-                            <div class="product-icon">🏥</div>
-                            <span class="product-status status-research">Research</span>
-                        </div>
-
-                        <div class="product-by">Structured Data Research</div>
-                        <h3>HealthData AI</h3>
-
-                        <p>
-                            Research-stage technology exploring structured information
-                            extraction and summarization for complex health-related
-                            documents and datasets.
-                        </p>
-
-                        <div class="product-features">
-                            <span class="product-feature">Document Intelligence</span>
-                            <span class="product-feature">Structured Data</span>
-                            <span class="product-feature">Research</span>
-                        </div>
-                    </div>
-
-                    <div class="product-actions">
-                        <span class="product-link disabled">Research Only</span>
-                    </div>
-                </article>
-
-                <!-- GENERAL DATA -->
-                <article class="product-card">
-                    <div>
-                        <div class="product-card-header">
-                            <div class="product-icon">🧩</div>
-                            <span class="product-status status-development">Development</span>
-                        </div>
-
-                        <div class="product-by">Enterprise Data</div>
-                        <h3>DataStruct AI</h3>
-
-                        <p>
-                            AI-assisted transformation of unstructured information
-                            into organized, reusable datasets for downstream business
-                            systems and analytics.
-                        </p>
-
-                        <div class="product-features">
-                            <span class="product-feature">Data Extraction</span>
-                            <span class="product-feature">Structuring</span>
-                            <span class="product-feature">Enterprise Data</span>
-                        </div>
-                    </div>
-
-                    <div class="product-actions">
-                        <span class="product-link disabled">In Development</span>
-                    </div>
-                </article>
-
-            </div>
-        </div>
-
-        <!-- PRODUCT DELIVERY -->
-        <div class="product-category">
-            <div class="category-heading">
-                <h2>📦 Automation &amp; Delivery</h2>
-                <p>AI products for packaging, content operations and downstream delivery.</p>
-            </div>
-
-            <div class="product-grid">
-
-                <!-- PACKAGING -->
-                <article class="product-card">
-                    <div>
-                        <div class="product-card-header">
-                            <div class="product-icon">📦</div>
-                            <span class="product-status status-development">Development</span>
-                        </div>
-
-                        <div class="product-by">Digital Operations</div>
-                        <h3>PackageAI</h3>
-
-                        <p>
-                            Intelligent packaging of generated media, data and business
-                            assets into destination-ready deliverables.
-                        </p>
-
-                        <div class="product-features">
-                            <span class="product-feature">Asset Packaging</span>
-                            <span class="product-feature">Automation</span>
-                            <span class="product-feature">Delivery</span>
-                        </div>
-                    </div>
-
-                    <div class="product-actions">
-                        <span class="product-link disabled">In Development</span>
-                    </div>
-                </article>
-
-            </div>
-        </div>
-
-        <div class="availability-note">
-            <strong>Product availability:</strong>
-            DubbingAI is the primary externally presented AI media product in this
-            portfolio. Other technologies shown here are in development, preview,
-            validation or research stages. Availability and capabilities may change
-            as products progress toward commercial release.
-        </div>
-
-    </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════════
-     WHY BDCROPS
-════════════════════════════════════════════════════════ -->
-<section class="features-alt" id="approach">
-    <div class="features-container">
-
-        <div class="section-header">
-            <h2 class="section-title">One Technology Foundation. Specialized Products.</h2>
-            <p class="section-subtitle">
-                Focused products built around real business outcomes.
-            </p>
-        </div>
-
-        <div class="features-grid">
-
-            <div class="feature-card">
-                <div class="feature-icon">🎯</div>
-                <h3>Problem-Specific AI</h3>
-                <p>
-                    Each product targets a defined business workflow instead of
-                    presenting customers with another general-purpose AI interface.
-                </p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">🧠</div>
-                <h3>Multi-Modal Intelligence</h3>
-                <p>
-                    Our research spans language, audio, video, documents,
-                    geospatial data and structured business information.
-                </p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">🏢</div>
-                <h3>Enterprise Direction</h3>
-                <p>
-                    Products are designed with organizations, repeatable workflows
-                    and integration into existing business operations in mind.
-                </p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">🌏</div>
-                <h3>Built from Bangladesh</h3>
-                <p>
-                    BDCrops develops technology from Bangladesh with ambitions to
-                    serve South Asian and international markets.
-                </p>
-            </div>
-
-        </div>
-
-    </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════════
-     PLAYOWNAI
-════════════════════════════════════════════════════════ -->
-<section class="sections-showcase" id="playownai">
-    <div class="features-container">
-
-        <div class="section-header">
-            <h2 class="section-title">Powered by BDCrops + PlayOwnAI Innovation</h2>
-            <p class="section-subtitle">
-                Turning applied AI research into focused commercial products.
-            </p>
-        </div>
-
-        <div style="max-width:850px;margin:0 auto;text-align:center;color:#555;line-height:1.8;">
-            <p>
-                PlayOwnAI is BDCrops Technologies' AI innovation initiative for
-                experimenting with autonomous workflows, multimodal intelligence
-                and specialized AI applications. Technologies that demonstrate
-                strong business value can graduate into standalone BDCrops products.
-            </p>
-
-            <p style="margin-top:1.25rem;">
-                <a href="https://www.youtube.com/@PlayOwnAi"
-                   target="_blank"
-                   rel="noopener"
-                   class="product-link secondary">
-                    ▶ Explore PlayOwnAI
-                </a>
-            </p>
-        </div>
-
-    </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════════
-     CTA
-════════════════════════════════════════════════════════ -->
-<section class="cta-section" id="contact">
-    <div class="cta-container">
-
-        <h2>Build, Pilot or Partner with BDCrops</h2>
-
-        <p>
-            Interested in DubbingAI, geospatial intelligence, an upcoming AI product,
-            enterprise collaboration, or investment in BDCrops Technologies?
-            Talk directly with our team.
+<body class="products-hub">
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hub-hero">
+      <div class="container">
+        <div class="hub-badge">BDCrops Autonomous AI Ecosystem</div>
+        <h1 class="hub-title">
+          Enterprise AI Engines for <br>
+          <span>Media, Data & Decision Intelligence</span>
+        </h1>
+        <p class="hub-lead">
+          Explore our suite of specialized AI product engines designed for video localization,B2C & B2B lead intelligence, spatial data processing, healthcare records, and automated publishing.
         </p>
+      </div>
+    </section>
 
-        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem;">
+    <!-- PRODUCT CATALOG (SPECIALIZED FLASHCARDS GRID) -->
+    <section class="hub-section pt-0">
+      <div class="container">
+        <div class="row g-4">
 
-            <a href="{{ROOT}}products/dubbing-ai.html"
-               class="btn-primary btn-large">
-                🎙️ Explore DubbingAI
-            </a>
+          <!-- 1. FLAGSHIP: DubbingAI -->
+          <div class="col-md-6 col-lg-4">
+            <div class="flashcard" style="border-color: rgba(0, 229, 255, 0.4);">
+              <div>
+                <div class="card-top">
+                  <span class="status-tag tag-live">★ Live Flagship</span>
+                  <span class="text-muted small">v4.2 PROD</span>
+                </div>
+                <div class="card-icon" style="color: var(--bdc-cyan);">🎙️</div>
+                <h2 class="card-title">DubbingAI</h2>
+                <p class="card-desc">
+                  Autonomous AI video dubbing and synthetic digital lesson reconstruction. Translates and re-voices technical tutorials into 30+ languages with 1:1 timing fit.
+                </p>
+                <div class="pill-group">
+                  <span class="pill">Voice Cloning</span>
+                  <span class="pill">Visual OCR</span>
+                  <span class="pill">3D Glass Lesson HUD</span>
+                  <span class="pill">Multi-Stem Exports</span>
+                </div>
+              </div>
+              <div>
+                <a href="/products/dubbing-ai.html" class="btn-card btn-card-primary">
+                  <span>Launch DubbingAI</span>
+                  <span>→</span>
+                </a>
+              </div>
+            </div>
+          </div>
 
-            <a href="mailto:matin@bdcrops.com?subject=BDCrops%20AI%20Product%20Inquiry"
-               class="btn-outline btn-large">
-                ✉ Contact BDCrops
-            </a>
+          <!-- 2. LeadIntent AI -->
+          <div class="col-md-6 col-lg-4">
+            <div class="flashcard">
+              <div>
+                <div class="card-top">
+                  <span class="status-tag tag-beta">Private Beta</span>
+                  <span class="text-muted small">v2.1</span>
+                </div>
+                <div class="card-icon" style="color: var(--bdc-green);">🎯</div>
+                <h2 class="card-title">LeadIntent AI</h2>
+                <p class="card-desc">
+                  Autonomous B2C & B2B prospect discovery and intent signal intelligence engine. Crawls company ecosystems to qualify high-value leads and buying signals automatically.
+                </p>
+                <div class="pill-group">
+                  <span class="pill">Intent Mining</span>
+                  <span class="pill">Company Enrichment</span>
+                  <span class="pill">B2C Signals</span>
+                  <span class="pill">B2B Signals</span>
+                </div>
+              </div>
+              <div>
+                <a href="mailto:sales@bdcrops.com?subject=LeadIntent%20AI%20Access" class="btn-card btn-card-secondary">
+                  <span>Request Early Access</span>
+                </a>
+              </div>
+            </div>
+          </div>
 
-            <a href="https://wa.me/8801717676441"
-               class="btn-outline btn-large"
-               target="_blank"
-               rel="noopener">
-                💬 WhatsApp
-            </a>
+          <!-- 3. GeoSpatial AI -->
+          <div class="col-md-6 col-lg-4">
+            <div class="flashcard">
+              <div>
+                <div class="card-top">
+                  <span class="status-tag tag-preview">Enterprise Preview</span>
+                  <span class="text-muted small">v2.4</span>
+                </div>
+                <div class="card-icon" style="color: #3b82f6;">🌐</div>
+                <h2 class="card-title">GeoSpatial AI</h2>
+                <p class="card-desc">
+                  Spatial data analytics and geographic intelligence processor for territory mapping, environmental tracking, and automated satellite/GIS data modeling.
+                </p>
+                <div class="pill-group">
+                  <span class="pill">GIS Analytics</span>
+                  <span class="pill">Territory Mapping</span>
+                  <span class="pill">Spatial Data</span>
+                </div>
+              </div>
+              <div>
+                <a href="mailto:sales@bdcrops.com?subject=GeoSpatial%20AI%20Inquiry" class="btn-card btn-card-secondary">
+                  <span>Enterprise Inquiry</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. PatientData AI -->
+          <div class="col-md-6 col-lg-4">
+            <div class="flashcard">
+              <div>
+                <div class="card-top">
+                  <span class="status-tag tag-preview">Enterprise Preview</span>
+                  <span class="text-muted small">v1.9</span>
+                </div>
+                <div class="card-icon" style="color: #ec4899;">🏥</div>
+                <h2 class="card-title">PatientData AI</h2>
+                <p class="card-desc">
+                  Clinical document intelligence and medical record structuring engine. Safely extracts unstructured health records into standardized clinical insights.
+                </p>
+                <div class="pill-group">
+                  <span class="pill">Health NLP</span>
+                  <span class="pill">EHR Structuring</span>
+                  <span class="pill">Clinical Insights</span>
+                </div>
+              </div>
+              <div>
+                <a href="mailto:sales@bdcrops.com?subject=PatientData%20AI%20Inquiry" class="btn-card btn-card-secondary">
+                  <span>Enterprise Inquiry</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. PodcastAI -->
+          <div class="col-md-6 col-lg-4">
+            <div class="flashcard">
+              <div>
+                <div class="card-top">
+                  <span class="status-tag tag-beta">Private Beta</span>
+                  <span class="text-muted small">v3.0</span>
+                </div>
+                <div class="card-icon" style="color: var(--bdc-purple);">🎧</div>
+                <h2 class="card-title">PodcastAI</h2>
+                <p class="card-desc">
+                  Autonomous audio podcast and conversational show generator. Converts long-form articles, reports, and knowledge bases into dual-host spoken podcasts.
+                </p>
+                <div class="pill-group">
+                  <span class="pill">Dual-Host Synthesis</span>
+                  <span class="pill">Show Notes</span>
+                  <span class="pill">Audio Masters</span>
+                </div>
+              </div>
+              <div>
+                <a href="mailto:sales@bdcrops.com?subject=PodcastAI%20Access" class="btn-card btn-card-secondary">
+                  <span>Request Early Access</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. ClassroomAI -->
+          <div class="col-md-6 col-lg-4">
+            <div class="flashcard">
+              <div>
+                <div class="card-top">
+                  <span class="status-tag tag-beta">Private Beta</span>
+                  <span class="text-muted small">v3.5</span>
+                </div>
+                <div class="card-icon" style="color: var(--bdc-amber);">🎓</div>
+                <h2 class="card-title">ClassroomAI</h2>
+                <p class="card-desc">
+                  Interactive HTML5 course player and milestone timeline engine. Pairs video transcripts, executable code blocks, and slide milestones into interactive learning apps.
+                </p>
+                <div class="pill-group">
+                  <span class="pill">Interactive Timeline</span>
+                  <span class="pill">Code Execution</span>
+                  <span class="pill">LMS Player</span>
+                </div>
+              </div>
+              <div>
+                <a href="mailto:sales@bdcrops.com?subject=ClassroomAI%20Access" class="btn-card btn-card-secondary">
+                  <span>Request Early Access</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7. TenderData AI -->
+          <div class="col-md-6 col-lg-4">
+            <div class="flashcard">
+              <div>
+                <div class="card-top">
+                  <span class="status-tag tag-preview">Enterprise Preview</span>
+                  <span class="text-muted small">v1.8</span>
+                </div>
+                <div class="card-icon" style="color: #6366f1;">📋</div>
+                <h2 class="card-title">TenderData AI</h2>
+                <p class="card-desc">
+                  Automated RFP, tender, and government procurement document analyzer. Evaluates technical requirements, compliance risks, and bidding specifications.
+                </p>
+                <div class="pill-group">
+                  <span class="pill">RFP Parser</span>
+                  <span class="pill">Compliance Risk</span>
+                  <span class="pill">Bid Scoring</span>
+                </div>
+              </div>
+              <div>
+                <a href="mailto:sales@bdcrops.com?subject=TenderData%20AI%20Inquiry" class="btn-card btn-card-secondary">
+                  <span>Enterprise Inquiry</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 8. ScoutAI -->
+          <div class="col-md-6 col-lg-4">
+            <div class="flashcard">
+              <div>
+                <div class="card-top">
+                  <span class="status-tag tag-beta">Private Beta</span>
+                  <span class="text-muted small">v2.5</span>
+                </div>
+                <div class="card-icon" style="color: var(--bdc-cyan);">🔍</div>
+                <h2 class="card-title">ScoutAI</h2>
+                <p class="card-desc">
+                  Autonomous web intelligence agent. Crawls unstructured domain data, monitors market competitors, and extracts structured intelligence feeds automatically.
+                </p>
+                <div class="pill-group">
+                  <span class="pill">Web Crawler</span>
+                  <span class="pill">Competitor Signals</span>
+                  <span class="pill">Data Extraction</span>
+                </div>
+              </div>
+              <div>
+                <a href="mailto:sales@bdcrops.com?subject=ScoutAI%20Access" class="btn-card btn-card-secondary">
+                  <span>Request Early Access</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 9. PublisherAI -->
+          <div class="col-md-6 col-lg-4">
+            <div class="flashcard">
+              <div>
+                <div class="card-top">
+                  <span class="status-tag tag-beta">Private Beta</span>
+                  <span class="text-muted small">v2.2</span>
+                </div>
+                <div class="card-icon" style="color: #10b981;">📡</div>
+                <h2 class="card-title">PublisherAI</h2>
+                <p class="card-desc">
+                  Omnichannel media packaging and publishing orchestrator. Automatically reformats video, audio, and written assets for social, web, and newsletter distribution.
+                </p>
+                <div class="pill-group">
+                  <span class="pill">Omnichannel Delivery</span>
+                  <span class="pill">Media Re-format</span>
+                  <span class="pill">Auto-Publish</span>
+                </div>
+              </div>
+              <div>
+                <a href="mailto:sales@bdcrops.com?subject=PublisherAI%20Access" class="btn-card btn-card-secondary">
+                  <span>Request Early Access</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 10. AquaData AI -->
+          <div class="col-md-6 col-lg-4">
+            <div class="flashcard">
+              <div>
+                <div class="card-top">
+                  <span class="status-tag tag-preview">Enterprise Preview</span>
+                  <span class="text-muted small">v1.5</span>
+                </div>
+                <div class="card-icon" style="color: #06b6d4;">💧</div>
+                <h2 class="card-title">AquaData AI</h2>
+                <p class="card-desc">
+                  Hydrological and environmental sensor data intelligence processor. Analyzes water quality, aquatic ecosystem sensors, and agricultural resource data.
+                </p>
+                <div class="pill-group">
+                  <span class="pill">Sensor Telemetry</span>
+                  <span class="pill">Water Analytics</span>
+                  <span class="pill">Resource Modeling</span>
+                </div>
+              </div>
+              <div>
+                <a href="mailto:sales@bdcrops.com?subject=AquaData%20AI%20Inquiry" class="btn-card btn-card-secondary">
+                  <span>Enterprise Inquiry</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 11. AdStudio AI -->
+          <div class="col-md-6 col-lg-4">
+            <div class="flashcard">
+              <div>
+                <div class="card-top">
+                  <span class="status-tag tag-beta">Private Beta</span>
+                  <span class="text-muted small">v2.0</span>
+                </div>
+                <div class="card-icon" style="color: #f43f5e;">⚡</div>
+                <h2 class="card-title">AdStudio AI</h2>
+                <p class="card-desc">
+                  Synthetic ad video generator and social campaign engine. Re-purposes long-form videos into high-converting short video ads and promotional clips.
+                </p>
+                <div class="pill-group">
+                  <span class="pill">Short Ads</span>
+                  <span class="pill">Social Campaign</span>
+                  <span class="pill">Auto-Cropping</span>
+                </div>
+              </div>
+              <div>
+                <a href="mailto:sales@bdcrops.com?subject=AdStudio%20AI%20Access" class="btn-card btn-card-secondary">
+                  <span>Request Early Access</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 12. AnimFlow AI -->
+          <div class="col-md-6 col-lg-4">
+            <div class="flashcard">
+              <div>
+                <div class="card-top">
+                  <span class="status-tag tag-beta">Private Beta</span>
+                  <span class="text-muted small">v1.7</span>
+                </div>
+                <div class="card-icon" style="color: #8b5cf6;">🎥</div>
+                <h2 class="card-title">AnimFlow AI</h2>
+                <p class="card-desc">
+                  Kinetic code animation and mathematical visual engine. Renders programmatic text motion, code highlights, and vector data animations dynamically.
+                </p>
+                <div class="pill-group">
+                  <span class="pill">Code Motion</span>
+                  <span class="pill">Kinetic Typography</span>
+                  <span class="pill">Vector Render</span>
+                </div>
+              </div>
+              <div>
+                <a href="mailto:sales@bdcrops.com?subject=AnimFlow%20AI%20Access" class="btn-card btn-card-secondary">
+                  <span>Request Early Access</span>
+                </a>
+              </div>
+            </div>
+          </div>
 
         </div>
+      </div>
+    </section>
 
-    </div>
-</section>
+    <!-- CALL TO ACTION BANNER -->
+    <section class="hub-section pt-0">
+      <div class="container">
+        <div class="hub-cta-banner">
+          <h2 class="h3 fw-bold mb-2">Build or Partner with BDCrops AI</h2>
+          <p class="mx-auto mb-4" style="max-width:38rem; color:var(--bdc-muted)">
+            Need a custom AI engine deployed for your platform, or looking to evaluate enterprise licensing and investment opportunities?
+          </p>
+          <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
+            <a href="mailto:sales@bdcrops.com?subject=BDCrops%20Enterprise%20Licensing" class="btn-card btn-card-primary" style="width: auto; padding: 0.85rem 1.8rem;">
+              <span>Schedule Enterprise Demo</span>
+            </a>
+            <a href="mailto:investor@bdcrops.com?subject=BDCrops%20Investor%20Inquiry" class="btn-card btn-card-secondary" style="width: auto; padding: 0.85rem 1.8rem;">
+              <span>Contact Investor Relations</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-<div id="site-footer"></div>
-
-<script src="../js/include.js"></script>
-<script src="../js/main.js"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
 </body>
 </html>
