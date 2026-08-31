@@ -1,75 +1,333 @@
 (async function () {
-    const inPages = window.location.pathname.includes('/pages/');
-    const root    = inPages ? '../' : './';
+    'use strict';
+
+    const path = window.location.pathname;
+
+    /*
+     * Site root:
+     *
+     * /index.html
+     *      -> ./
+     *
+     * /pages/about.html
+     * /products/index.html
+     * /products/dubbing-ai.html
+     *      -> ../
+     */
+    const isChildPage =
+        path.includes('/pages/') ||
+        path.includes('/products/');
+
+    const root = isChildPage ? '../' : './';
+
 
     async function fetchHtml(url) {
-        const res = await fetch(url);
-        if (!res.ok) throw new Error(`${res.status} ${url}`);
-        return (await res.text()).replaceAll('{{ROOT}}', root);
-    }
-    async function inject(id, url) {
-        const el = document.getElementById(id);
-        if (!el) return;
-        try { el.innerHTML = await fetchHtml(url); }
-        catch (e) { console.error('include failed:', e); }
-    }
-
-    // Load header + footer
-    await Promise.all([
-        inject('site-header', root + 'partials/header.html'),
-        inject('site-footer', root + 'partials/footer.html'),
-    ]);
-    // Inject menu inside header's <nav id="site-menu">
-    await inject('site-menu', root + 'partials/menu.html');
-
-    // Highlight active nav
-    const active = document.body.dataset.page || '';
-    if (active) {
-        const link = document.querySelector(`#nav-list [data-page="${active}"]`);
-        if (link) link.classList.add('active');
-    }
-    // Hamburger toggle
-    const btn  = document.getElementById('menu-toggle');
-    const menu = document.getElementById('nav-list');
-    if (btn && menu) {
-        btn.addEventListener('click', () => {
-            const open = menu.classList.toggle('open');
-            btn.classList.toggle('is-open', open);
-            btn.setAttribute('aria-expanded', open);
+        const response = await fetch(url, {
+            cache: 'no-store'
         });
-        menu.addEventListener('click', (e) => {
-            if (e.target.tagName === 'A') {
-                menu.classList.remove('open');
-                btn.classList.remove('is-open');
-                btn.setAttribute('aria-expanded', false);
-            }
-        });
-    }
-    // Dropdown toggle (mobile: click to expand · desktop: CSS hover handles it)
-    document.querySelectorAll('#nav-list .dd-trigger').forEach(trigger => {
-        trigger.addEventListener('click', (e) => {
-            // Only intercept on mobile (< 900px) OR when the link href is "#"
-            if (window.innerWidth <= 900 || trigger.getAttribute('href') === '#') {
-                e.preventDefault();
-                const li = trigger.closest('.has-dropdown');
-                // Close other open dropdowns
-                document.querySelectorAll('#nav-list .has-dropdown.dd-open').forEach(el => {
-                    if (el !== li) el.classList.remove('dd-open');
-                });
-                li.classList.toggle('dd-open');
-            }
-        });
-    });
 
-    // Click outside → close all dropdowns (desktop only)
-    document.addEventListener('click', (e) => {
-        if (!e.target.closest('#nav-list')) {
-            document.querySelectorAll('#nav-list .has-dropdown.dd-open')
-                    .forEach(el => el.classList.remove('dd-open'));
+        if (!response.ok) {
+            throw new Error(
+                response.status + ' ' + url
+            );
         }
-    });
 
-    // Year in footer
-    const yr = document.getElementById('year');
-    if (yr) yr.textContent = new Date().getFullYear();
+        const html = await response.text();
+
+        return html.replaceAll(
+            '{{ROOT}}',
+            root
+        );
+    }
+
+
+    async function inject(id, url) {
+        const element =
+            document.getElementById(id);
+
+        if (!element) {
+            return;
+        }
+
+        try {
+            element.innerHTML =
+                await fetchHtml(url);
+        }
+        catch (error) {
+            console.error(
+                'Include failed:',
+                error
+            );
+        }
+    }
+
+
+    /*
+     * Load header/footer.
+     */
+    await Promise.all([
+        inject(
+            'site-header',
+            root + 'partials/header.html'
+        ),
+
+        inject(
+            'site-footer',
+            root + 'partials/footer.html'
+        )
+    ]);
+
+
+    /*
+     * Header now exists.
+     * Inject menu into:
+     *
+     * <nav id="site-menu"></nav>
+     */
+    await inject(
+        'site-menu',
+        root + 'partials/menu.html'
+    );
+
+
+    /*
+     * Active menu.
+     *
+     * Example:
+     * <body data-page="products">
+     */
+    const active =
+        document.body.dataset.page || '';
+
+    if (active) {
+        const activeLink =
+            document.querySelector(
+                '#nav-list [data-page="' +
+                active +
+                '"]'
+            );
+
+        if (activeLink) {
+            activeLink.classList.add(
+                'active'
+            );
+
+            const parent =
+                activeLink.closest(
+                    '.has-dropdown'
+                );
+
+            if (parent) {
+                parent.classList.add(
+                    'active-parent'
+                );
+            }
+        }
+    }
+
+
+    /*
+     * Mobile hamburger.
+     */
+    const button =
+        document.getElementById(
+            'menu-toggle'
+        );
+
+    const menu =
+        document.getElementById(
+            'nav-list'
+        );
+
+    if (button && menu) {
+
+        button.addEventListener(
+            'click',
+            function () {
+
+                const open =
+                    menu.classList.toggle(
+                        'open'
+                    );
+
+                button.classList.toggle(
+                    'is-open',
+                    open
+                );
+
+                button.setAttribute(
+                    'aria-expanded',
+                    open ? 'true' : 'false'
+                );
+            }
+        );
+
+
+        /*
+         * Close hamburger after
+         * clicking normal link.
+         */
+        menu.addEventListener(
+            'click',
+            function (event) {
+
+                const link =
+                    event.target.closest('a');
+
+                if (!link) {
+                    return;
+                }
+
+                /*
+                 * Dropdown trigger gets
+                 * handled separately.
+                 */
+                if (
+                    link.classList.contains(
+                        'dd-trigger'
+                    )
+                ) {
+                    return;
+                }
+
+                menu.classList.remove(
+                    'open'
+                );
+
+                button.classList.remove(
+                    'is-open'
+                );
+
+                button.setAttribute(
+                    'aria-expanded',
+                    'false'
+                );
+            }
+        );
+    }
+
+
+    /*
+     * Dropdown menus.
+     */
+    document
+        .querySelectorAll(
+            '#nav-list .dd-trigger'
+        )
+        .forEach(function (trigger) {
+
+            trigger.addEventListener(
+                'click',
+                function (event) {
+
+                    const mobile =
+                        window.innerWidth <= 900;
+
+                    const href =
+                        trigger.getAttribute(
+                            'href'
+                        );
+
+                    /*
+                     * Mobile:
+                     * open dropdown.
+                     *
+                     * Desktop:
+                     * href="#" opens dropdown.
+                     *
+                     * Products has a real URL,
+                     * so desktop click goes
+                     * directly to Products.
+                     */
+                    if (
+                        mobile ||
+                        href === '#'
+                    ) {
+                        event.preventDefault();
+
+                        const item =
+                            trigger.closest(
+                                '.has-dropdown'
+                            );
+
+                        if (!item) {
+                            return;
+                        }
+
+                        /*
+                         * Close other dropdowns.
+                         */
+                        document
+                            .querySelectorAll(
+                                '#nav-list ' +
+                                '.has-dropdown.dd-open'
+                            )
+                            .forEach(
+                                function (other) {
+
+                                    if (
+                                        other !== item
+                                    ) {
+                                        other
+                                            .classList
+                                            .remove(
+                                                'dd-open'
+                                            );
+                                    }
+                                }
+                            );
+
+                        item.classList.toggle(
+                            'dd-open'
+                        );
+                    }
+                }
+            );
+        });
+
+
+    /*
+     * Click outside closes dropdown.
+     */
+    document.addEventListener(
+        'click',
+        function (event) {
+
+            if (
+                event.target.closest(
+                    '#nav-list'
+                )
+            ) {
+                return;
+            }
+
+            document
+                .querySelectorAll(
+                    '#nav-list ' +
+                    '.has-dropdown.dd-open'
+                )
+                .forEach(
+                    function (item) {
+                        item.classList.remove(
+                            'dd-open'
+                        );
+                    }
+                );
+        }
+    );
+
+
+    /*
+     * Footer year.
+     */
+    const year =
+        document.getElementById(
+            'year'
+        );
+
+    if (year) {
+        year.textContent =
+            new Date().getFullYear();
+    }
+
 })();
