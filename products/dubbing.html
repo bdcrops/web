@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>DubbingAI by BDCrops | Autonomous AI Dubbing & Digital Lesson Engine</title>
+  <meta name="description" content="DubbingAI by BDCrops — autonomous AI video dubbing, voice localization, and digital lesson reconstruction for EdTech, creators, and enterprise training.">
+  <meta name="theme-color" content="#22c55e">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://bdcrops.com/product/dubbing-ai.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="DubbingAI by BDCrops">
+  <meta property="og:description" content="Autonomous AI dubbing and digital lesson reconstruction. Faster localization. Lower cost. Enterprise-ready.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bdcrops.com/product/dubbing-ai.html">
+
+  <!-- Preload + Site CSS -->
+  <link rel="preload" as="style" href="css/style.css?v=202608022355">
+  <link rel="stylesheet" href="css/style.css?v=20260802">
+  <link rel="stylesheet" href="css/page.css?v=20260802">
+
+  <!-- Bootstrap 5 (mobile grid/utilities) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=202608022328">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=20260802">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=20260802">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20260802">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <style>
+    :root {
+      --dab-cyan: #00e5ff;
+      --dab-green: #22c55e;
+      --dab-card: rgba(15, 23, 42, 0.72);
+      --dab-border: rgba(34, 197, 94, 0.25);
+      --dab-text: #e2e8f0;
+      --dab-muted: #94a3b8;
+    }
+
+    body.dubbingai-page {
+      background: #070b14;
+      color: var(--dab-text);
+    }
+
+    .dab-hero {
+      padding: 4.5rem 0 2.5rem;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(34,197,94,.12), transparent 40%),
+        radial-gradient(circle at 90% 30%, rgba(0,229,255,.08), transparent 35%);
+    }
+
+    .dab-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      border: 1px solid rgba(34,197,94,.35);
+      background: rgba(34,197,94,.1);
+      color: #86efac;
+      border-radius: 999px;
+      padding: .35rem .8rem;
+      font-size: .8rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .dab-title {
+      font-weight: 800;
+      letter-spacing: -.02em;
+      line-height: 1.15;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      margin-bottom: 1rem;
+    }
+
+    .dab-title span {
+      background: linear-gradient(90deg, #22c55e, #00e5ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .dab-lead {
+      color: var(--dab-muted);
+      font-size: 1.05rem;
+      max-width: 42rem;
+    }
+
+    .dab-card {
+      background: var(--dab-card);
+      border: 1px solid var(--dab-border);
+      border-radius: 14px;
+      padding: 1.25rem;
+      height: 100%;
+      transition: transform .2s ease, border-color .2s ease;
+    }
+
+    .dab-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(0,229,255,.4);
+    }
+
+    .dab-metric {
+      text-align: center;
+      padding: 1rem .5rem;
+    }
+
+    .dab-metric .v {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--dab-cyan);
+      line-height: 1.1;
+    }
+
+    .dab-metric .l {
+      color: var(--dab-muted);
+      font-size: .82rem;
+      margin-top: .25rem;
+    }
+
+    .dab-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      background: rgba(34,197,94,.12);
+      border: 1px solid rgba(34,197,94,.25);
+      margin-bottom: .85rem;
+      font-size: 1.15rem;
+    }
+
+    .dab-price {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #fff;
+      margin: .6rem 0 .2rem;
+    }
+
+    .dab-cta {
+      background: linear-gradient(135deg, #22c55e, #06b6d4);
+      color: #041016 !important;
+      font-weight: 700;
+      border: 0;
+      border-radius: 10px;
+      padding: .75rem 1.2rem;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .dab-cta:hover { filter: brightness(1.05); color: #041016 !important; }
+
+    .dab-ghost {
+      border: 1px solid rgba(255,255,255,.18);
+      color: #e2e8f0 !important;
+      background: rgba(255,255,255,.04);
+      border-radius: 10px;
+      padding: .75rem 1.2rem;
+      text-decoration: none;
+      display: inline-block;
+      font-weight: 600;
+    }
+
+    .dab-section { padding: 2.75rem 0; }
+
+    .dab-kicker {
+      color: #86efac;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: .5rem;
+    }
+
+    .dab-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .dab-list li {
+      position: relative;
+      padding-left: 1.4rem;
+      margin-bottom: .7rem;
+      color: #cbd5e1;
+      font-size: .95rem;
+    }
+
+    .dab-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #22c55e;
+      font-weight: 700;
+    }
+
+    .dab-panel {
+      border: 1px dashed rgba(0,229,255,.3);
+      background: rgba(0,229,255,.05);
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: .75rem;
+    }
+
+    .dab-panel strong { color: #fff; display: block; margin-bottom: .25rem; }
+    .dab-panel span { color: var(--dab-muted); font-size: .9rem; }
+
+    .dab-footer-note {
+      color: var(--dab-muted);
+      font-size: .85rem;
+      text-align: center;
+      padding: 2rem 0 3rem;
+    }
+
+    @media (max-width: 576px) {
+      .dab-hero { padding-top: 3.25rem; }
+      .dab-actions .btn, .dab-actions a { width: 100%; text-align: center; }
+    }
+  </style>
+</head>
+
+<body class="dubbingai-page">
+
+  <main>
+    <!-- HERO -->
+    <section class="dab-hero">
+      <div class="container">
+        <div class="dab-badge">BDCrops Product · AI Media Platform</div>
+        <h1 class="dab-title">DubbingAI <span>by BDCrops</span></h1>
+        <p class="dab-lead mb-4">
+          Autonomous AI video dubbing and digital lesson reconstruction.
+          Localize technical training content faster, cut production cost, and ship
+          multi-format learning videos at scale.
+        </p>
+
+        <div class="d-flex flex-column flex-sm-row gap-2 dab-actions mb-4">
+          <a class="dab-cta" href="mailto:investor@bdcrops.com?subject=DubbingAI%20Investor%20Briefing">Request Investor Briefing</a>
+          <a class="dab-ghost" href="#pricing">View Revenue Model</a>
+        </div>
+
+        <div class="row g-2 g-md-3">
+          <div class="col-6 col-md-3">
+            <div class="dab-card dab-metric">
+              <div class="v">85%</div>
+              <div class="l">Lower localization cost</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="dab-card dab-metric">
+              <div class="v">25×</div>
+              <div class="l">Faster delivery cycles</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="dab-card dab-metric">
+              <div class="v">1:1</div>
+              <div class="l">Audio-video timing fit</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="dab-card dab-metric">
+              <div class="v">3</div>
+              <div class="l">Monetization tracks</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM / VALUE -->
+    <section class="dab-section">
+      <div class="container">
+        <div class="row g-3 g-lg-4 align-items-stretch">
+          <div class="col-lg-6">
+            <div class="dab-card h-100">
+              <div class="dab-kicker">Market Problem</div>
+              <h2 class="h4 fw-bold mb-3">Manual dubbing does not scale</h2>
+              <p style="color:var(--dab-muted)">
+                Global EdTech and enterprise training teams lose months and budget
+                re-recording, translating, and re-editing courses. Traditional studios
+                are slow, expensive, and hard to brand consistently across languages.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="dab-card h-100">
+              <div class="dab-kicker">Product Answer</div>
+              <h2 class="h4 fw-bold mb-3">One source video → multi-market output</h2>
+              <p style="color:var(--dab-muted)">
+                DubbingAI converts a single training video into localized narration and
+                polished digital lesson formats ready for web, mobile, and learning platforms —
+                with commercial controls for teams and enterprises.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="dab-section pt-0" id="features">
+      <div class="container">
+        <div class="text-center mb-4">
+          <div class="dab-kicker">Product Capabilities</div>
+          <h2 class="h3 fw-bold">What customers buy</h2>
+          <p class="mx-auto" style="max-width:36rem;color:var(--dab-muted)">
+            Clear outcomes for creators, course platforms, and corporate L&D buyers.
+          </p>
+        </div>
+
+        <div class="row g-3">
+          <div class="col-md-6 col-lg-4">
+            <div class="dab-card">
+              <div class="dab-icon">🎙️</div>
+              <h3 class="h6 fw-bold">Neural Voice Localization</h3>
+              <p class="mb-0 small" style="color:var(--dab-muted)">
+                Natural multi-language narration with brand-consistent voice quality for courses and product explainers.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="dab-card">
+              <div class="dab-icon">🎬</div>
+              <h3 class="h6 fw-bold">Digital Lesson Rebuild</h3>
+              <p class="mb-0 small" style="color:var(--dab-muted)">
+                Upgrade plain screen recordings into modern lesson visuals that feel premium on every device.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="dab-card">
+              <div class="dab-icon">⏱️</div>
+              <h3 class="h6 fw-bold">Timing-Perfect Sync</h3>
+              <p class="mb-0 small" style="color:var(--dab-muted)">
+                Keeps speech and on-screen teaching moments aligned so learners stay engaged.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="dab-card">
+              <div class="dab-icon">📦</div>
+              <h3 class="h6 fw-bold">Multi-Format Exports</h3>
+              <p class="mb-0 small" style="color:var(--dab-muted)">
+                Deliver full lessons plus silent visual cuts for ads, Shorts, LMS modules, and partner channels.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="dab-card">
+              <div class="dab-icon">🏢</div>
+              <h3 class="h6 fw-bold">Brand & Team Controls</h3>
+              <p class="mb-0 small" style="color:var(--dab-muted)">
+                Theme, voice, and output preferences for agencies, academies, and enterprise training units.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="dab-card">
+              <div class="dab-icon">⚡</div>
+              <h3 class="h6 fw-bold">Production-Speed Delivery</h3>
+              <p class="mb-0 small" style="color:var(--dab-muted)">
+                Move from “weeks of studio work” to rapid content turnaround for global launches.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCT MODES -->
+    <section class="dab-section pt-0" id="modes">
+      <div class="container">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-6">
+            <div class="dab-kicker">Delivery Modes</div>
+            <h2 class="h3 fw-bold mb-3">Two commercial output modes</h2>
+            <ul class="dab-list">
+              <li><strong>Classic Dub Mode</strong> — keep original video, replace speech with localized AI voice.</li>
+              <li><strong>Digital Lesson Mode</strong> — generate modern lesson visuals + localized narration as a premium package.</li>
+              <li><strong>Stem Exports</strong> — optional silent visual packages for marketing and platform reuse.</li>
+            </ul>
+          </div>
+          <div class="col-lg-6">
+            <div class="dab-card">
+              <div class="dab-panel">
+                <strong>Mode A · Classic Dubbing</strong>
+                <span>Original course video + localized voice track for fast multilingual release.</span>
+              </div>
+              <div class="dab-panel" style="border-color:rgba(34,197,94,.45);background:rgba(34,197,94,.08)">
+                <strong>Mode B · Digital Lesson Package</strong>
+                <span>Premium reconstructed lesson experience for higher perceived course value and conversion.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVENUE MODEL -->
+    <section class="dab-section" id="pricing">
+      <div class="container">
+        <div class="text-center mb-4">
+          <div class="dab-kicker">Business Model</div>
+          <h2 class="h3 fw-bold">Clear revenue path</h2>
+          <p class="mx-auto" style="max-width:34rem;color:var(--dab-muted)">
+            Built as a high-margin SaaS + usage + enterprise stack.
+          </p>
+        </div>
+
+        <div class="row g-3">
+          <div class="col-md-4">
+            <div class="dab-card">
+              <div class="dab-kicker">Track 1</div>
+              <h3 class="h5 fw-bold">API Usage</h3>
+              <p class="small mb-2" style="color:var(--dab-muted)">EdTech platforms & content ops teams</p>
+              <div class="dab-price">$0.50–$1.20</div>
+              <div class="small mb-3" style="color:var(--dab-muted)">per processed video minute</div>
+              <p class="small mb-0" style="color:var(--dab-muted)">Usage-based scale revenue with predictable unit economics.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="dab-card">
+              <div class="dab-kicker">Track 2</div>
+              <h3 class="h5 fw-bold">SaaS Studio</h3>
+              <p class="small mb-2" style="color:var(--dab-muted)">Creators, academies, agencies</p>
+              <div class="dab-price">$99–$499</div>
+              <div class="small mb-3" style="color:var(--dab-muted)">per workspace / month</div>
+              <p class="small mb-0" style="color:var(--dab-muted)">Recurring subscription with tiered export volume and brand controls.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="dab-card">
+              <div class="dab-kicker">Track 3</div>
+              <h3 class="h5 fw-bold">Enterprise License</h3>
+              <p class="small mb-2" style="color:var(--dab-muted)">Corporate L&D & training groups</p>
+              <div class="dab-price">$25,000+</div>
+              <div class="small mb-3" style="color:var(--dab-muted)">annual contract</div>
+              <p class="small mb-0" style="color:var(--dab-muted)">Private rollout, custom voices/themes, priority processing, SLA support.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INVESTOR USE OF FUNDS -->
+    <section class="dab-section pt-0" id="invest">
+      <div class="container">
+        <div class="text-center mb-4">
+          <div class="dab-kicker">Investment Thesis</div>
+          <h2 class="h3 fw-bold">Where production capital goes</h2>
+        </div>
+        <div class="row g-3">
+          <div class="col-md-4">
+            <div class="dab-card">
+              <div class="fw-bold mb-1">Phase 1 · Capacity</div>
+              <p class="small mb-0" style="color:var(--dab-muted)">Scale secure processing capacity for concurrent enterprise jobs and multi-region delivery.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="dab-card">
+              <div class="fw-bold mb-1">Phase 2 · Distribution</div>
+              <p class="small mb-0" style="color:var(--dab-muted)">Ship LMS/marketplace connectors and self-serve billing for SaaS growth.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="dab-card">
+              <div class="fw-bold mb-1">Phase 3 · Revenue Scale</div>
+              <p class="small mb-0" style="color:var(--dab-muted)">Expand B2B sales motion across EdTech, creator economy, and corporate training buyers.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="dab-section pt-0" id="contact">
+      <div class="container">
+        <div class="dab-card text-center p-4 p-md-5" style="border-color:rgba(34,197,94,.45)">
+          <h2 class="h3 fw-bold mb-2">Launch DubbingAI with BDCrops</h2>
+          <p class="mx-auto mb-4" style="max-width:34rem;color:var(--dab-muted)">
+            For investors, partners, and enterprise buyers evaluating production-ready AI localization infrastructure.
+          </p>
+          <div class="d-flex flex-column flex-sm-row justify-content-center gap-2">
+            <a class="dab-cta" href="mailto:investor@bdcrops.com?subject=DubbingAI%20by%20BDCrops">Book Investor Call</a>
+            <a class="dab-ghost" href="mailto:sales@bdcrops.com?subject=DubbingAI%20Enterprise%20Demo">Request Enterprise Demo</a>
+          </div>
+        </div>
+        <p class="dab-footer-note mb-0">
+          DubbingAI is a BDCrops commercial product. Capabilities are described at business-outcome level only.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
+</body>
+</html>
