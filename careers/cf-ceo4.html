@@ -149,14 +149,6 @@ footer{margin-top:30px;padding:30px 20px 110px;text-align:center;background:#020
 <input type="text" name="linkedin" placeholder="LinkedIn Profile URL">
 </div>
 
-
-<div class="input-group">
-<div class="input-label">CV / Resume Link * (Google Drive / OneDrive / Dropbox)</div>
-<input type="url" name="cvlink" placeholder="https://drive.google.com/... / https://1drv.ms/... / https://dropbox.com/..." required>
-</div>
-<div style="font-size:11px;color:#64748b;margin-top:-6px;margin-bottom:2px;padding-left:4px">📎 Upload CV to Drive/OneDrive/Dropbox and paste sharing link – make sure Anyone with link can view</div>
-
-
 <div class="form-row">
 <input type="email" name="email" placeholder="Email *" autocomplete="email" required>
 <input type="tel" name="whatsapp" placeholder="WhatsApp (+880...) *" autocomplete="tel" required>
@@ -247,7 +239,6 @@ async function submitCofounder(e){
   email:(fd.get("email")||"").trim(),
   whatsapp:(fd.get("whatsapp")||"").trim(),
   linkedin:(fd.get("linkedin")||"").trim(),
-  cvlink:(fd.get("cvlink")||"").trim(),
   location:(fd.get("location")||"").trim(),
   investment:(fd.get("investment")||"").trim(),
   experience:(fd.get("experience")||"").trim(),
@@ -256,7 +247,7 @@ async function submitCofounder(e){
   q3:(fd.get("q3")||"").trim(),
   _honeypot:(fd.get("_honeypot")||"").trim()
  };
- if(!data.name||!data.email||!data.location||!data.cvlink||!data.q1||!data.q2||!data.q3){
+ if(!data.name||!data.email||!data.location||!data.q1||!data.q2||!data.q3){
   status.innerHTML="⚠ Please fill all * fields."; status.className="pilot-status error"; status.style.display="block"; return false;
  }
  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)){
@@ -274,7 +265,7 @@ async function submitCofounder(e){
   }else{ throw new Error(json.error||"Failed"); }
  }catch(err){
   console.error(err);
-  status.innerHTML=`⚠ API not ready – Click to email: <a href="mailto:hr@bdcrops.com?subject=Co-Founder CEO – ${encodeURIComponent(data.name)}&body=${encodeURIComponent("Name: "+data.name+"\nEmail: "+data.email+"\nWhatsApp: "+data.whatsapp+"\nLinkedIn: "+data.linkedin+"\nCV Link: "+data.cvlink+"\nLocation: "+data.location+"\nInvestment: "+data.investment+"\nExp: "+data.experience+"\n\nQ1: "+data.q1+"\n\nQ2: "+data.q2+"\n\nQ3: "+data.q3)}" style="color:inherit;text-decoration:underline;font-weight:700">Email Application Now</a>`;
+  status.innerHTML=`⚠ API not ready – Click to email: <a href="mailto:hr@bdcrops.com?subject=Co-Founder CEO – ${encodeURIComponent(data.name)}&body=${encodeURIComponent("Name: "+data.name+"\nEmail: "+data.email+"\nWhatsApp: "+data.whatsapp+"\nLinkedIn: "+data.linkedin+"\nLocation: "+data.location+"\nInvestment: "+data.investment+"\nExp: "+data.experience+"\n\nQ1: "+data.q1+"\n\nQ2: "+data.q2+"\n\nQ3: "+data.q3)}" style="color:inherit;text-decoration:underline;font-weight:700">Email Application Now</a>`;
   status.className="pilot-status error"; status.style.display="block"; btn.disabled=false; btn.textContent="🚀 Submit Application – Apply on bdcrops.com";
  }
  return false;
