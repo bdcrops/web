@@ -148,49 +148,56 @@ footer{margin-top:30px;padding:30px 20px 110px;text-align:center;background:#020
 <div style="background:linear-gradient(135deg,rgba(251,191,36,.12),rgba(34,197,94,.12));border:1px solid rgba(251,191,36,.25);border-radius:12px;padding:16px;text-align:center"><strong style="color:#fff">We Build Together. We Take the Risk Together. We Share the Success Together.</strong></div>
 </div></div>
 
-<section id="cofounder-apply" class="pilot-section">
-<div class="pilot-header">
-<h2>📝 Apply Now – No LinkedIn Needed</h2>
-<p class="pilot-intro">This is YOUR website form – same logic as your pilot form <code>submitPilot(event)</code> → <code>/api/pilot</code>. Now it posts to <code>/api/cofounder</code>. Same honeypot, same validation, same shadow theme.</p>
+<section id="cofounder-apply" class="pilot-section-light">
+<div class="pilot-header-light">
+<h2>📝 Apply Now <span style="display:inline-block;background:#0f172a;color:#fff;font-size:11px;padding:4px 10px;border-radius:20px;margin-left:8px">Using Existing pilot-form.js</span></h2>
+<p class="pilot-intro-light">
+✅ <strong>Zero JS change</strong> – Uses your existing <code>https://bdcrops.com/js/pilot-form.js</code> and existing <code>/api/pilot</code> endpoint (3rd party).<br>
+Mapping: <code>org</code> = CV Drive link, <code>goal</code> = Q1+Q2+Q3+Investment. So your existing JS works without modification. Only HTML changed – white background.
+</p>
 </div>
 
-<form id="pilot-form" class="pilot-form" onsubmit="return submitCofounder(event)">
+<!-- IMPORTANT: Uses SAME IDs and SAME function as your pilot form -->
+<!-- Existing JS: submitPilot(event) expects: name, email, org, whatsapp, location, goal -->
+<form id="pilot-form" class="pilot-form" onsubmit="return submitPilot(event)">
 <input type="text" name="_honeypot" style="position:absolute;left:-9999px;opacity:0;pointer-events:none;" tabindex="-1" autocomplete="off" aria-hidden="true">
 
 <div class="form-row">
-<input type="text" name="name" placeholder="Your Full Name *" autocomplete="name" required>
-<input type="text" name="linkedin" placeholder="LinkedIn Profile URL">
+<div class="input-group"><div class="input-label">Your Full Name *</div><input type="text" name="name" placeholder="Mohammad Matin" autocomplete="name" required></div>
+<div class="input-group"><div class="input-label">Email *</div><input type="email" name="email" placeholder="you@company.com" autocomplete="email" required></div>
 </div>
 
-
-<div class="input-group">
-<div class="input-label">CV / Resume Link * (Google Drive / OneDrive / Dropbox)</div>
-<input type="url" name="cvlink" placeholder="https://drive.google.com/... / https://1drv.ms/... / https://dropbox.com/..." required>
-</div>
-<div style="font-size:11px;color:#64748b;margin-top:-6px;margin-bottom:2px;padding-left:4px">📎 Upload CV to Drive/OneDrive/Dropbox and paste sharing link – make sure Anyone with link can view</div>
-
+<!-- CV Link mapped to org field – so existing pilot-form.js will send it -->
+<div class="input-group"><div class="input-label">CV / Resume Link * (Google Drive / OneDrive / Dropbox)</div><input type="text" name="org" placeholder="https://drive.google.com/... / https://1drv.ms/... / https://dropbox.com/..." required></div>
+<div style="font-size:11px;color:#64748b;margin-top:-6px;padding-left:4px">📎 Upload CV to Drive/OneDrive/Dropbox and paste link – Anyone with link can view – This uses existing <code>org</code> field from pilot-form.js</div>
 
 <div class="form-row">
-<input type="email" name="email" placeholder="Email *" autocomplete="email" required>
-<input type="tel" name="whatsapp" placeholder="WhatsApp (+880...) *" autocomplete="tel" required>
+<div class="input-group"><div class="input-label">WhatsApp (+880...) *</div><input type="tel" name="whatsapp" placeholder="+880 1XXX XXXXXX" autocomplete="tel" required></div>
+<div class="input-group"><div class="input-label">Location (Dhaka / Remote) *</div><input type="text" name="location" placeholder="Dhaka / Remote / Anywhere World" required></div>
 </div>
 
-<input type="text" name="location" placeholder="Your Location (Dhaka / Remote) *" required>
+<!-- All Q1 Q2 Q3 + Investment mapped to goal field – so existing JS sends it -->
+<div class="input-group"><div class="input-label">Your Application – Q1 Q2 Q3 + $10k Loan *</div><textarea name="goal" rows="9" placeholder="Paste here – Format:
 
-<div class="form-row">
-<input type="text" name="investment" placeholder="Can you invest $10k+ as Company Loan? (Yes/No) *" required>
-<input type="text" name="experience" placeholder="Years in B2B Sales / BD / Growth">
-</div>
+CV: https://drive.google.com/...
+Q1: Why Co-Founder CEO instead of salaried role?
+[Your answer]
 
-<textarea name="q1" rows="3" placeholder="Q1: Why Co-Founder CEO instead of salaried role? *" required></textarea>
-<textarea name="q2" rows="3" placeholder="Q2: Your plan to generate first customers & revenue in 6-12 months? *" required></textarea>
-<textarea name="q3" rows="3" placeholder="Q3: Prepared to invest $10k+ as Company Loan and commit time before revenue? Explain *" required></textarea>
+Q2: Your plan to generate first customers & revenue in 6-12 months?
+[Your answer]
+
+Q3: Prepared to invest $10k+ as Company Loan and commit time before revenue? Explain
+[Your answer]
+
+Investment: Yes – I can invest $10k+ as Company Loan
+Experience: X years in B2B Sales / BD / Growth
+LinkedIn: https://linkedin.com/in/..." required></textarea></div>
 
 <button type="submit" class="btn-primary" id="pilot-submit">🚀 Apply Now</button>
 <div id="pilot-status" class="pilot-status" role="status" aria-live="polite"></div>
 </form>
 
-<p style="margin-top:12px;font-size:12px;color:var(--muted);text-align:center">We respond within 24 hours via email & WhatsApp. Alternative: hr@bdcrops.com</p>
+<p style="margin-top:12px;font-size:12px;color:#64748b;text-align:center">Uses existing /js/pilot-form.js + /api/pilot – No new backend needed – Submissions go to same place as pilot – You can filter by subject<br>Alternative: hr@bdcrops.com</p>
 </section>
 
 </div>
@@ -248,51 +255,8 @@ footer{margin-top:30px;padding:30px 20px 110px;text-align:center;background:#020
 <small style="opacity:.6">Primary application is now on our website at #cofounder-apply – LinkedIn kept only for reference.</small>
 </footer>
 
-<script>
-async function submitCofounder(e){
- e.preventDefault();
- const form=e.target;
- const btn=document.getElementById("pilot-submit");
- const status=document.getElementById("pilot-status");
- const fd=new FormData(form);
- const data={
-  name:(fd.get("name")||"").trim(),
-  email:(fd.get("email")||"").trim(),
-  whatsapp:(fd.get("whatsapp")||"").trim(),
-  linkedin:(fd.get("linkedin")||"").trim(),
-  cvlink:(fd.get("cvlink")||"").trim(),
-  location:(fd.get("location")||"").trim(),
-  investment:(fd.get("investment")||"").trim(),
-  experience:(fd.get("experience")||"").trim(),
-  q1:(fd.get("q1")||"").trim(),
-  q2:(fd.get("q2")||"").trim(),
-  q3:(fd.get("q3")||"").trim(),
-  _honeypot:(fd.get("_honeypot")||"").trim()
- };
- if(!data.name||!data.email||!data.location||!data.cvlink||!data.q1||!data.q2||!data.q3){
-  status.innerHTML="⚠ Please fill all * fields."; status.className="pilot-status error"; status.style.display="block"; return false;
- }
- if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)){
-  status.innerHTML="⚠ Please enter valid email."; status.className="pilot-status error"; status.style.display="block"; return false;
- }
- btn.disabled=true; btn.textContent="Sending..."; status.style.display="none";
- try{
-  const res=await fetch("/api/cofounder",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(data)});
-  const json=await res.json();
-  if(json.ok){
-   status.innerHTML="✅ <strong>Application Received!</strong> You applied directly on bdcrops.com – no LinkedIn needed. We'll respond within 24h via email & WhatsApp.";
-   status.className="pilot-status success"; status.style.display="block"; form.reset(); btn.textContent="Sent ✓";
-   if(typeof gtag==='function'){ gtag('event','generate_lead',{event_category:'cofounder_form',event_label:'website_apply_success'}); }
-   setTimeout(()=>{btn.disabled=false;btn.textContent="🚀 Apply Now";},5000);
-  }else{ throw new Error(json.error||"Failed"); }
- }catch(err){
-  console.error(err);
-  status.innerHTML=`⚠ API not ready – Click to email: <a href="mailto:hr@bdcrops.com?subject=Co-Founder CEO – ${encodeURIComponent(data.name)}&body=${encodeURIComponent("Name: "+data.name+"\nEmail: "+data.email+"\nWhatsApp: "+data.whatsapp+"\nLinkedIn: "+data.linkedin+"\nCV Link: "+data.cvlink+"\nLocation: "+data.location+"\nInvestment: "+data.investment+"\nExp: "+data.experience+"\n\nQ1: "+data.q1+"\n\nQ2: "+data.q2+"\n\nQ3: "+data.q3)}" style="color:inherit;text-decoration:underline;font-weight:700">Email Application Now</a>`;
-  status.className="pilot-status error"; status.style.display="block"; btn.disabled=false; btn.textContent="🚀 Apply Now";
- }
- return false;
-}
-</script>
+<!-- Using existing pilot-form.js – no new JS needed -->
+<script src="/js/pilot-form.js"></script>
 
 </body>
 </html>
