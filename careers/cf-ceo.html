@@ -171,7 +171,8 @@ Job: <code>cf-ceo</code> – Same API works for next circular by just changing <
 </div>
 
 <!-- CV Link mapped to org field – so existing pilot-form.js will send it -->
-<div class="input-group"><div class="input-label">CV / Resume Link * (Google Drive / OneDrive / Dropbox)</div><input type="text" name="org" placeholder="https://drive.google.com/... / https://1drv.ms/... / https://dropbox.com/..." required></div>
+<div class="input-group"><div class="input-label">CV / Resume Link * (Google Drive / OneDrive / Dropbox)</div><input type="text" name="cvLink" id="cvLinkField"  oninput="document.getElementById('orgHidden').value=this.value" placeholder="https://drive.google.com/... / https://1drv.ms/... / https://dropbox.com/..." required>
+<input type="hidden" name="org" id="orgHidden"></div>
 <div style="font-size:11px;color:#64748b;margin-top:-6px;padding-left:4px">📎 Upload CV to Drive/OneDrive/Dropbox and paste link – Anyone with link can view – This uses existing <code>org</code> field from pilot-form.js</div>
 
 <div class="form-row">
