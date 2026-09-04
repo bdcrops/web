@@ -51,30 +51,35 @@ position:relative;overflow:hidden
 .pilot-intro{color:#475569;font-size:14px;margin:0 0 18px;background:#f8fafc;border:1px solid #f1f5f9;border-radius:10px;padding:12px 14px;line-height:1.6}
 .pilot-form{display:flex;flex-direction:column;gap:14px}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.pilot-form input,.pilot-form textarea,.pilot-form select{width:100%;padding:14px 15px;background:#f8fafc;border:1.5px solid #e2e8f0;border-radius:12px;color:#0f172a;font-size:14px;outline:none;transition:.2s;font-family:inherit}
+.pilot-form input,.pilot-form textarea{width:100%;padding:14px 15px;background:#f8fafc;border:1.5px solid #e2e8f0;border-radius:12px;color:#0f172a;font-size:14px;outline:none;transition:.2s;font-family:inherit}
 .pilot-form input::placeholder,.pilot-form textarea::placeholder{color:#94a3b8}
-.pilot-form input:focus,.pilot-form textarea:focus,.pilot-form select:focus{background:#ffffff;border-color:#38bdf8;box-shadow:0 0 0 4px rgba(56,189,248,.12)}
+.pilot-form input:focus,.pilot-form textarea:focus{background:#ffffff;border-color:#38bdf8;box-shadow:0 0 0 4px rgba(56,189,248,.12)}
 .btn-primary{background:linear-gradient(135deg,#0f172a 0%,#1e3a8a 100%);color:#fff;border:0;padding:16px 22px;border-radius:12px;font-weight:800;font-size:15px;cursor:pointer;box-shadow:0 10px 25px rgba(15,23,42,.25)}
 .input-group{position:relative}
 .input-label{position:absolute;top:-8px;left:12px;background:#fff;padding:0 6px;font-size:11px;font-weight:700;color:#475569;letter-spacing:.3px;border-radius:4px}
+
 .btn-primary:disabled{opacity:.6}
-.pilot-status,.careers-status{margin-top:8px;padding:12px;border-radius:8px;font-size:13px;display:none}
-.pilot-status.success,.careers-status.success{display:block;background:#f0fdf4;border:1px solid #bbf7d0;color:#15803d}
-.pilot-status.error,.careers-status.error{display:block;background:#fef2f2;border:1px solid #fecaca;color:#b91c1c}
+.pilot-status{margin-top:8px;padding:12px;border-radius:8px;font-size:13px;display:none}
+.pilot-status.success{display:block;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.3);color:var(--green2)}
+.pilot-status.error{display:block;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);color:#fca5a5}
+.careers-status{margin-top:8px;padding:12px;border-radius:8px;font-size:13px;display:none}
+.careers-status.success{display:block;background:#f0fdf4;border:1px solid #bbf7d0;color:#15803d}
+.careers-status.error{display:block;background:#fef2f2;border:1px solid #fecaca;color:#b91c1c}
 .apply-box{background:linear-gradient(180deg,#0d1d36,#0a1930);border:1px solid var(--border-blue);border-radius:16px;padding:22px;position:sticky;top:80px;box-shadow:var(--shadow)}
 .apply-link{display:flex;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--border);text-decoration:none}
 .apply-icon{width:42px;height:42px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff}
 .apply-icon.apply{background:#fff;color:#08152d} .apply-icon.web{background:#16a34a} .apply-icon.email{background:#2563eb}
 .process-title{color:var(--yellow);font-weight:800;font-size:13px;margin:16px 0 10px}
 .process-steps{display:flex;justify-content:space-between;gap:6px;position:relative}
-.step{display:flex;flex-direction:column;align-items:center;text-align:center;gap:4px;flex:1}
-.step-circle{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:16px}
-.step b{font-size:11px;color:#fff} .step span{font-size:10px;color:var(--muted)}
-.mobile-bar{position:fixed;bottom:0;left:0;right:0;background:rgba(5,13,28,.96);backdrop-filter:blur(12px);border-top:1px solid var(--border);padding:10px 14px;display:none;gap:10px;z-index:200}
-.mobile-bar a{flex:1;text-align:center;padding:14px;border-radius:12px;font-weight:800;text-decoration:none;font-size:14px}
-.mobile-bar a.primary{background:#fff;color:#08152d} .mobile-bar a.secondary{background:rgba(255,255,255,.08);color:#fff;border:1px solid var(--border)}
-footer{max-width:1200px;margin:40px auto 0;padding:20px;text-align:center;color:var(--muted);font-size:13px;border-top:1px solid var(--border)}
-@media(max-width:900px){.hero-inner,.container{grid-template-columns:1fr} .stats-bar{grid-template-columns:1fr} .stat{border-right:0;border-bottom:1px solid var(--border)} .form-row{grid-template-columns:1fr} .mobile-bar{display:flex}}
+.process-steps::before{content:'';position:absolute;top:18px;left:18px;right:18px;height:2px;background:linear-gradient(90deg,var(--yellow),var(--green),var(--blue));opacity:.5}
+.step{text-align:center;flex:1;position:relative;z-index:1} .step-circle{width:40px;height:40px;border-radius:50%;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;font-weight:800}
+.step:nth-child(1) .step-circle{background:var(--yellow);color:#000} .step:nth-child(2) .step-circle{background:var(--green);color:#000} .step:nth-child(3) .step-circle{background:var(--blue);color:#000} .step:nth-child(4) .step-circle{background:var(--green);color:#000} .step:nth-child(5) .step-circle{background:var(--yellow);color:#000}
+.step b{font-size:11px;color:#fff;display:block} .step span{font-size:10px;color:var(--muted)}
+.mobile-bar{position:fixed;bottom:0;left:0;right:0;z-index:999;background:rgba(5,13,28,.96);border-top:1px solid var(--border);padding:12px 14px;display:flex;gap:10px}
+.mobile-bar a{flex:1;padding:14px;text-align:center;border-radius:12px;font-weight:800;text-decoration:none}
+.mobile-bar a.primary{background:#fff;color:#08152d} .mobile-bar a.secondary{background:#2563eb;color:#fff}
+footer{margin-top:30px;padding:30px 20px 110px;text-align:center;background:#020814;border-top:1px solid var(--border);color:var(--muted);font-size:13px}
+@media(max-width:900px){.hero-inner{grid-template-columns:1fr} .ai-visual{display:none} .stats-bar{grid-template-columns:1fr} .container{grid-template-columns:1fr} .form-row{grid-template-columns:1fr} .apply-box{position:relative}}
 </style>
 </head>
 <body>
@@ -84,60 +89,79 @@ footer{max-width:1200px;margin:40px auto 0;padding:20px;text-align:center;color:
 <div class="logo">BDCrops<span>.com</span></div>
 <div class="nav-links">
 <a href="https://bdcrops.com/">Home</a>
-<a href="https://bdcrops.com/careers/cf-ceo.html">Careers</a>
+<a href="#cofounder-apply" style="color:var(--yellow);font-weight:700">Apply Now</a>
 <a href="mailto:hr@bdcrops.com">hr@bdcrops.com</a>
 </div>
 </div>
 </header>
 
-<section class="hero">
+<div class="hero">
 <div class="hero-inner">
 <div>
-<h1>SEEKING <span class="yellow">CO-FOUNDER & CEO</span> <span class="white-small">BUSINESS & GROWTH | 50% OWNER</span></h1>
-<p class="hero-sub">New Independent AI Company — <span>NOT a subsidiary of bdcrops.com</span> — 100% independent. 50/50 ownership.</p>
-<div class="badges">
-<span class="badge">💰 $10k+ Loan Model – Repayable from revenue</span>
-<span class="badge">🌍 Bangladesh + Global Market</span>
-<span class="badge">🤝 Sweat Equity + Capital</span>
+<h1>SEEKING <span class="yellow">CO-FOUNDER & CEO</span> <span class="white-small">BUSINESS & GROWTH</span></h1>
+<div class="hero-sub">Build an AI company from ZERO – <span>Not a salaried job</span></div>
+<div class="badges"><span class="badge">50% Owner – Equal Partnership</span><span class="badge">Remote / Hybrid – Anywhere World</span><span class="badge">$10k+ Loan – Repayable From Revenue</span></div>
+<div style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap">
+<a href="#cofounder-apply" style="display:inline-block;padding:12px 22px;background:#fff;color:#0a66c2;border-radius:30px;font-weight:800;text-decoration:none;box-shadow:0 0 20px rgba(255,255,255,.2)">✅ Apply Now – bdcrops.com</a>
+<a href="#details" style="display:inline-block;padding:12px 20px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:30px;font-weight:700;text-decoration:none">View Details</a>
 </div>
 </div>
-<div class="ai-glow"><div class="ai-text">AI</div></div>
+<div class="ai-visual"><div class="ai-glow"><div class="ai-text">AI</div></div></div>
 </div>
-</section>
+</div>
 
 <div class="stats-bar">
-<div class="stat"><div class="stat-icon" style="background:rgba(251,191,36,.15)">💼</div><div><b class="yellow">50% Owner</b><span>Real equity, not salary</span></div></div>
-<div class="stat"><div class="stat-icon" style="background:rgba(34,197,94,.15)">🚀</div><div><b class="green">Independent Co</b><span>New AI company from scratch</span></div></div>
-<div class="stat"><div class="stat-icon" style="background:rgba(56,189,248,.15)">🌱</div><div><b class="blue">Legacy Build</b><span>Shares pass to successor</span></div></div>
+<div class="stat"><div class="stat-icon" style="background:rgba(251,191,36,.12)">👥</div><div><b class="yellow">50% OWNER</b><span>Equal Partnership – Not Employee</span></div></div>
+<div class="stat"><div class="stat-icon" style="background:rgba(34,197,94,.12)">💰</div><div><b class="green">$10k+ INITIAL</b><span>as Company Loan – Not Equity</span></div></div>
+<div class="stat"><div class="stat-icon" style="background:rgba(56,189,248,.12)">♻️</div><div><b class="blue">REPAYABLE</b><span>From Revenue – Fair & Transparent</span></div></div>
 </div>
 
-<div class="container">
+<div class="container" id="details">
 <div class="main-col">
 
 <div class="card">
 <h2>Company <span class="accent">Independence</span></h2>
-<p><strong>The New AI Company shall be 100% independent and shall NOT be a subsidiary, affiliate, controlled entity, or Business Unit of bdcrops.com.</strong></p>
+<p><strong style="color:#fff">The New AI Company shall be 100% independent and shall NOT be a subsidiary, affiliate, controlled entity, or Business Unit of bdcrops.com.</strong></p>
 <div class="highlight-bd">Confidentiality: Internal codes, architecture, file names NOT disclosed publicly. Details under NDA after shortlist.</div>
 </div>
 
 <div class="card">
 <h2>Ownership – <span class="accent">Fixed 50/50</span></h2>
-<p><strong>50%</strong> Matin – CTO – Product & Tech – Sweat Equity</p>
-<p><strong>50%</strong> You – CEO – Business & Growth – $10k+ Loan</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+<div style="background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:12px;padding:18px;text-align:center"><strong style="font-size:34px;color:var(--yellow)">50%</strong><br><span style="font-size:13px">Matin – CTO – Product & Tech – Sweat Equity</span></div>
+<div style="background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:12px;padding:18px;text-align:center"><strong style="font-size:34px;color:var(--yellow)">50%</strong><br><span style="font-size:13px">You – CEO – Business & Growth – $10k+ Loan</span></div>
+</div>
 <div class="highlight-bd yellow"><strong>$10k+ Loan Method:</strong> Initial $10k+ is LOAN to company, repayable in full from first revenue up to 2 years BEFORE profit split. Ownership stays 50/50 always.</div>
 </div>
 
-<!-- NEW INDEPENDENT FORM - REUSABLE SYSTEM -->
-<section class="pilot-section" id="cofounder-apply">
-<div class="pilot-header">
-<h2>📝 Apply Now <span style="display:inline-block;background:#22c55e;color:#fff;font-size:11px;padding:4px 10px;border-radius:20px;margin-left:8px">NEW – Independent /api/careers</span></h2>
-<p class="pilot-intro">
-✅ <strong>New JS – Reusable for all future jobs</strong> – Uses <code>/js/careers-form.js</code> + <code>/api/careers</code> (Resend).<br>
-Job: <code>cf-ceo</code> – This same API works for next circular by just changing <code>data-job-slug</code>. No new backend needed.
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+<div class="card"><h2><span style="color:var(--green2)">🚀 WE'RE BUILDING</span></h2><p>New independent AI company from scratch. Real-world problems with AI products.</p><ul class="list-check"><li>High growth potential</li><li>Global market opportunity</li><li>Full freedom to innovate</li><li>Long-term wealth creation</li></ul></div>
+<div class="card"><h2><span style="color:var(--blue)">👔 YOU ARE</span></h2><p>Business-minded leader with proven experience in BD, sales, marketing, scaling revenue.</p><ul class="list-check"><li>Think like a founder, act like an owner</li><li>Passionate about AI & innovation</li><li>Ready to build, take risks, win big</li><li>Looking for ownership, not paycheck</li></ul></div>
+</div>
+
+<div class="card" style="background:linear-gradient(135deg,#1a0a00,#3b1f00);border-color:rgba(251,191,36,.2)"><h2>Who Must NOT Apply</h2><ul><li>Looking for monthly salary from day one</li><li>Cannot invest financially</li><li>Only wants title for LinkedIn</li><li>Not ready to take early-stage risk</li></ul><div class="highlight-bd yellow"><strong>For true Co-Founder, not employee.</strong></div></div>
+
+<div class="card"><h2>🔒 Confidentiality & <span class="accent">Next Steps</span></h2><div class="highlight-bd">Shortlisted candidates will first participate in an introductory founder discussion. Detailed product, technology, business, and commercial information will be shared after an NDA is signed.</div></div>
+
+<div class="card" style="background:linear-gradient(135deg,#121a0a,#1a280f 50%,#0f1f0a 100%);border-color:rgba(34,197,94,.25)"><h2>🌱 Our Goal is Simple:</h2><p style="color:var(--text-bright);font-weight:600">Find one honest, committed, capable Business Co-Founder who believes in building something meaningful together—and sharing both risks and success equally.</p>
+<div style="display:grid;gap:12px;margin-top:16px">
+<div style="background:rgba(255,255,255,.04);border-left:3px solid var(--yellow);border-radius:0 12px 12px 0;padding:14px"><strong style="color:var(--yellow)">👑 Be a Real Owner, Not Just an Employee.</strong><br><span style="font-size:14px">Build a company, create real assets, and build something you genuinely own.</span></div>
+<div style="background:rgba(255,255,255,.04);border-left:3px solid var(--green2);border-radius:0 12px 12px 0;padding:14px"><strong style="color:var(--green2)">🏛️ Build a Legacy for Next Generation.</strong><br><span style="font-size:14px">Shares can be passed to children/successors via succession rules. Management roles only to qualified successor—not automatic inheritance.</span></div>
+<div style="background:rgba(255,255,255,.04);border-left:3px solid var(--blue);border-radius:0 12px 12px 0;padding:14px"><strong style="color:var(--blue)">🚀 Think Beyond Today.</strong><br><span style="font-size:14px">Build something that can grow beyond us, create opportunities for future generations.</span></div>
+<div style="background:linear-gradient(135deg,rgba(251,191,36,.12),rgba(34,197,94,.12));border:1px solid rgba(251,191,36,.25);border-radius:12px;padding:16px;text-align:center"><strong style="color:#fff">We Build Together. We Take the Risk Together. We Share the Success Together.</strong></div>
+</div></div>
+
+<section id="cofounder-apply" class="pilot-section-light">
+<div class="pilot-header-light">
+<h2>📝 Apply Now <span style="display:inline-block;background:#0f172a;color:#fff;font-size:11px;padding:4px 10px;border-radius:20px;margin-left:8px">NEW – Independent /api/careers – Reusable</span></h2>
+<p class="pilot-intro-light">
+✅ <strong>NEW JS – Reusable for all future jobs</strong> – Uses <code>/js/careers-form.js</code> + <code>/api/careers</code> (Resend).<br>
+Job: <code>cf-ceo</code> – Same API works for next circular by just changing <code>data-job-slug</code>. Email: BDCrops Careers &lt;careers@bdcrops.com&gt;.
 </p>
 </div>
 
-<!-- REUSABLE CAREERS FORM - INDEPENDENT FROM PILOT -->
+<!-- IMPORTANT: Uses SAME IDs and SAME function as your pilot form -->
+<!-- Existing JS: submitPilot(event) expects: name, email, org, whatsapp, location, goal -->
 <form id="careers-form" class="pilot-form" data-job-slug="cf-ceo" data-job-title="Co-Founder & CEO - 50% Owner" onsubmit="return submitCareers(event)">
 <input type="text" name="_honeypot" style="position:absolute;left:-9999px;opacity:0;pointer-events:none;" tabindex="-1" autocomplete="off" aria-hidden="true">
 
@@ -146,32 +170,37 @@ Job: <code>cf-ceo</code> – This same API works for next circular by just chang
 <div class="input-group"><div class="input-label">Email *</div><input type="email" name="email" placeholder="you@company.com" autocomplete="email" required></div>
 </div>
 
+<!-- CV Link mapped to org field – so existing pilot-form.js will send it -->
+<div class="input-group"><div class="input-label">CV / Resume Link * (Google Drive / OneDrive / Dropbox)</div><input type="text" name="org" placeholder="https://drive.google.com/... / https://1drv.ms/... / https://dropbox.com/..." required></div>
+<div style="font-size:11px;color:#64748b;margin-top:-6px;padding-left:4px">📎 Upload CV to Drive/OneDrive/Dropbox and paste link – Anyone with link can view – This uses existing <code>org</code> field from pilot-form.js</div>
+
 <div class="form-row">
 <div class="input-group"><div class="input-label">WhatsApp (+880...) *</div><input type="tel" name="whatsapp" placeholder="+880 1XXX XXXXXX" autocomplete="tel" required></div>
-<div class="input-group"><div class="input-label">Location *</div><input type="text" name="location" placeholder="Dhaka / Remote" required></div>
+<div class="input-group"><div class="input-label">Location (Dhaka / Remote) *</div><input type="text" name="location" placeholder="Dhaka / Remote / Anywhere World" required></div>
 </div>
 
-<div class="form-row">
-<div class="input-group"><div class="input-label">LinkedIn Profile *</div><input type="url" name="linkedin" placeholder="https://linkedin.com/in/yourprofile" required></div>
-<div class="input-group"><div class="input-label">Current Role / Company</div><input type="text" name="currentRole" placeholder="Business Head at XYZ"></div>
-</div>
+<!-- All Q1 Q2 Q3 + Investment mapped to goal field – so existing JS sends it -->
+<div class="input-group"><div class="input-label">Your Application – Q1 Q2 Q3 + $10k Loan *</div><textarea name="goal" rows="9" placeholder="Paste here – Format:
 
-<div class="input-group"><div class="input-label">CV / Resume Link * (Drive / Dropbox)</div><input type="url" name="cvLink" placeholder="https://drive.google.com/... – Anyone with link can view" required></div>
+CV: https://drive.google.com/...
+Q1: Why Co-Founder CEO instead of salaried role?
+[Your answer]
 
-<div class="form-row">
-<div class="input-group"><div class="input-label">Experience *</div><select name="experience" required><option value="">Select Experience</option><option value="3-5 years">3-5 years BD/Sales</option><option value="5-10 years">5-10 years</option><option value="10+ years">10+ years CEO/Growth</option></select></div>
-<div class="input-group"><div class="input-label">$10k Loan Capability *</div><select name="investment" required><option value="">Can you invest?</option><option value="Yes - Ready">Yes - Ready</option><option value="Yes - Need 1 month">Yes - Need 1 month</option><option value="No">No</option></select></div>
-</div>
+Q2: Your plan to generate first customers & revenue in 6-12 months?
+[Your answer]
 
-<div class="input-group"><div class="input-label">Why You for 50% Owner CEO? *</div><textarea name="why" rows="5" placeholder="Q1: Why Co-Founder CEO instead of salaried?
-Q2: Plan to generate first customers & revenue in 6-12 months?
-Q3: Commitment before revenue?" required></textarea></div>
+Q3: Prepared to invest $10k+ as Company Loan and commit time before revenue? Explain
+[Your answer]
 
-<button type="submit" class="btn-primary" id="careers-submit">🚀 Apply Now – Co-Founder CEO</button>
+Investment: Yes – I can invest $10k+ as Company Loan
+Experience: X years in B2B Sales / BD / Growth
+LinkedIn: https://linkedin.com/in/..." required></textarea></div>
+
+<button type="submit" class="btn-primary" id="careers-submit">🚀 Apply Now</button>
 <div id="careers-status" class="careers-status" role="status" aria-live="polite"></div>
 </form>
 
-<p style="margin-top:12px;font-size:12px;color:#64748b;text-align:center">Independent endpoint /api/careers – Uses Resend – Reusable for any future job circular – Same JS for all careers<br>Alternative: hr@bdcrops.com</p>
+<p style="margin-top:12px;font-size:12px;color:#64748b;text-align:center">NEW independent /api/careers – Uses Resend – Reusable for any future job circular – Email from careers@bdcrops.com<br>Alternative: hr@bdcrops.com</p>
 </section>
 
 </div>
@@ -179,10 +208,27 @@ Q3: Commitment before revenue?" required></textarea></div>
 <div class="side-col">
 <div class="apply-box" id="apply">
 <h3>APPLY NOW</h3>
-<a class="apply-link" href="#cofounder-apply" style="border-bottom:0"><div class="apply-icon apply">✓</div><div class="apply-text"><strong style="color:#fff">Apply Now</strong><br><span style="color:var(--yellow);font-size:13px">bdcrops.com/careers/cf-ceo#cofounder-apply</span></div></a>
-<div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;padding:12px;margin:12px 0;text-align:center"><span style="font-size:12px;color:var(--muted)">Reusable System</span><br><span style="font-size:12px;color:var(--muted)">data-job-slug="cf-ceo" → next job just change slug</span></div>
-<a class="apply-link" href="https://bdcrops.com/careers/" target="_blank"><div class="apply-icon web">🌐</div><div class="apply-text"><strong style="color:var(--green2)">BDCrops Careers</strong><br><span style="color:var(--green2);font-size:12px">/careers – All Jobs</span></div></a>
-<div class="apply-link"><div class="apply-icon email">✉️</div><div class="apply-text"><strong>Direct Email</strong><br><span style="font-size:13px">hr@bdcrops.com</span></div></div>
+
+<a class="apply-link" href="#cofounder-apply" style="border-bottom:0">
+<div class="apply-icon apply">✓</div>
+<div class="apply-text"><strong style="color:#fff">Apply Now</strong><br><span style="color:var(--yellow);font-size:13px">bdcrops.com/careers/cf-ceo.html#cofounder-apply</span></div>
+</a>
+
+<div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;padding:12px;margin:12px 0;text-align:center">
+<span style="font-size:12px;color:var(--muted)">Previously: LinkedIn Jobs</span><br>
+<a href="https://www.linkedin.com/jobs/view/4462780167/" target="_blank" style="font-size:12px;color:var(--muted);text-decoration:underline">View on LinkedIn for reference only</a>
+</div>
+
+<a class="apply-link" href="https://bdcrops.com/careers/cf-ceo.html" target="_blank">
+<div class="apply-icon web">🌐</div>
+<div class="apply-text"><strong style="color:var(--green2)">BDCrops Careers</strong><br><span style="color:var(--green2);font-size:12px">https://bdcrops.com/careers/cf-ceo.html</span></div>
+</a>
+
+<div class="apply-link">
+<div class="apply-icon email">✉️</div>
+<div class="apply-text"><strong>Direct Email</strong><br><span style="font-size:13px">hr@bdcrops.com</span></div>
+</div>
+
 <div class="process-title">NEXT PROCESS</div>
 <div class="process-steps">
 <div class="step"><div class="step-circle">📄</div><b>Application</b><span>On website</span></div>
@@ -191,10 +237,11 @@ Q3: Commitment before revenue?" required></textarea></div>
 <div class="step"><div class="step-circle">📈</div><b>Deep Dive</b><span>Discussion</span></div>
 <div class="step"><div class="step-circle">🤝</div><b>Co-Founding</b><span>Agreement</span></div>
 </div>
+
 <div style="margin-top:20px;padding:16px;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:12px;text-align:center">
 <p style="margin:0 0 10px;color:#fff;font-weight:700">Ready to Build Together?</p>
 <a href="#cofounder-apply" style="display:block;padding:14px;background:#fff;color:#08152d;border-radius:10px;font-weight:800;text-decoration:none">Apply Now</a>
-<a href="mailto:hr@bdcrops.com?subject=Co-Founder CEO – 50% Owner – [Your Name]" style="display:block;margin-top:10px;padding:12px;background:rgba(255,255,255,.06);border:1px solid var(--border);color:#fff;border-radius:10px;font-weight:700;text-decoration:none;font-size:13px">Or Email: hr@bdcrops.com</a>
+<a href="mailto:hr@bdcrops.com?subject=Co-Founder CEO – Business & Growth | 50% Owner | [Your Name]" style="display:block;margin-top:10px;padding:12px;background:rgba(255,255,255,.06);border:1px solid var(--border);color:#fff;border-radius:10px;font-weight:700;text-decoration:none;font-size:13px">Or Email: hr@bdcrops.com</a>
 </div>
 </div>
 </div>
@@ -207,11 +254,11 @@ Q3: Commitment before revenue?" required></textarea></div>
 
 <footer>
 © 2026 BDCrops — Satellite Intelligence for Bangladesh Agriculture<br>
-<a href="https://bdcrops.com/">bdcrops.com</a> | <a href="https://bdcrops.com/careers/">Careers</a> | <a href="mailto:hr@bdcrops.com">hr@bdcrops.com</a><br>
-<small style="opacity:.6">New reusable system: /api/careers – data-job-slug="cf-ceo" – Same backend for all future jobs.</small>
+<a href="https://bdcrops.com/">bdcrops.com</a> | <a href="https://bdcrops.com/careers/cf-ceo.html">Careers – Apply Now</a> | <a href="mailto:hr@bdcrops.com">hr@bdcrops.com</a><br>
+<small style="opacity:.6">Primary application is now on our website at #cofounder-apply – LinkedIn kept only for reference.</small>
 </footer>
 
-<!-- NEW REUSABLE JS - INDEPENDENT FROM PILOT -->
+<!-- NEW REUSABLE JS – Independent from pilot – Uses /api/careers -->
 <script src="/js/careers-form.js"></script>
 
 </body>
