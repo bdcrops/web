@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📰 NewsData — BDCrops Services</title>
+    <meta name="description" content="News scraping & agri news intelligence — BDCrops service: Real-time scraping of agriculture, climate, and tender news from Bangladeshi and global sources with AI summarization.">
+    <link rel="stylesheet" href="../css/style.css?v=20260802">
+    <link rel="stylesheet" href="../css/page.css?v=20260802">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg?v=202608022328">
+</head>
+<body data-page="services">
+<div id="site-header"></div>
+<main>
+<section class="hero" style="padding:4rem 0 2rem;">
+  <div class="hero-container">
+    <div class="hero-content">
+      <div style="font-size:3rem;margin-bottom:1rem;">📰</div>
+      <h1>NewsData</h1>
+      <p style="font-size:1.2rem;max-width:720px;margin:1rem auto;">Real-time scraping of agriculture, climate, and tender news from Bangladeshi and global sources with AI summarization.</p>
+      <div class="hero-cta" style="margin-top:1.5rem;">
+        <a href="../index.html#pilot" class="btn-primary btn-large">Request Pilot for News Data</a>
+        <a href="https://wa.me/8801717676441" class="btn-outline">WhatsApp: +880 1717 676441</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="features">
+  <div class="features-container">
+    <div class="section-header">
+      <h2 class="section-title">What we deliver</h2>
+      <p class="section-subtitle">NewsData — powered by unit_newsdata.py</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card"><div class="feature-icon">⚡</div><h3>Fast API</h3><p>REST API from <code>unit_newsdata.py</code> → JSON, GeoJSON, PDF.</p></div>
+      <div class="feature-card"><div class="feature-icon">🤖</div><h3>AI Native</h3><p>CrewAI flow with LLM + satellite data for Bangladesh context.</p></div>
+      <div class="feature-card"><div class="feature-icon">🇧🇩</div><h3>Bangladesh First</h3><p>Bangla + English, bKash, NID, e-GP, BBS data integration.</p></div>
+      <div class="feature-card"><div class="feature-icon">📊</div><h3>Dashboard</h3><p>Auto PDF, map, and chart exports for field teams.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="how">
+  <div class="features-container">
+    <div class="section-header">
+      <h2 class="section-title">How News Data works</h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card"><div class="step-num">1</div><h4>Input</h4><p>Send location, file, or query to <code>/api/newsdata</code></p></div>
+      <div class="step-card"><div class="step-num">2</div><h4>CrewAI Flow</h4><p><code>unit_newsdata.py</code> runs agents: scraper → analyzer → publisher</p></div>
+      <div class="step-card"><div class="step-num">3</div><h4>AI Processing</h4><p>LLM + satellite + bigdata fusion in under 60 sec</p></div>
+      <div class="step-card"><div class="step-num">4</div><h4>Output</h4><p>JSON, dashboard, or file in <code>serivces/newsdata.html</code></p></div>
+    </div>
+  </div>
+</section>
+
+<section class="audience">
+  <div class="features-container">
+    <div class="section-header"><h2 class="section-title">Use cases</h2></div>
+    <div class="audience-grid">
+      <div class="audience-card">📰<h4>NGOs & Gov</h4><p>For News Data reporting</p></div>
+      <div class="audience-card">🏢<h4>Business</h4><p>Lead gen, compliance, insights</p></div>
+      <div class="audience-card">🎓<h4>Research</h4><p>Dataset + API for universities</p></div>
+      <div class="audience-card">🌾<h4>Field</h4><p>Offline mobile support via Scout</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="pilot-section" id="contact">
+  <div class="container">
+    <div class="pilot-header">
+      <h2>Request News Data Pilot</h2>
+      <p class="pilot-intro">Tell us your need — we deliver a free pilot using unit_newsdata.py in 24-48h.</p>
+    </div>
+    <form class="pilot-form" onsubmit="return false">
+      <div class="form-row">
+        <input type="text" placeholder="Your Name *">
+        <input type="email" placeholder="Email *">
+      </div>
+      <input type="text" value="NewsData - newsdata" readonly style="background:#f1f5f9;">
+      <textarea rows="4" placeholder="What do you need in News Data?"></textarea>
+      <button class="btn-primary btn-lg">Send Request via WhatsApp</button>
+    </form>
+  </div>
+</section>
+
+</main>
+<div id="site-footer"></div>
+<script>
+// Fix root for serivces/ folder (typo folder name you have)
+window.__ROOT__ = "../";
+</script>
+<script src="../js/include.js?v=20260802"></script>
+<script src="../js/main.js?v=20260802"></script>
+</body>
+</html>
