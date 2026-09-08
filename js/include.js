@@ -18,6 +18,7 @@
         path.includes('/pages/') ||
         path.includes('/products/') ||
         path.includes('/serivces/') ||
+        path.includes('/services/') ||
         path.includes('/careers/');
 
     const root = isChildPage ? '../' : './';
