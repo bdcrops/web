@@ -1,9 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Definition — BDCrops</title>
-<link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/page.css">
-<style>.dropdown{display:none;position:absolute;top:100%;left:0;z-index:1000}.has-dropdown.dd-open>.dropdown{display:grid!important}.has-dropdown.dd-open>.dropdown:not(.mega-dropdown){display:block!important} .mega-dropdown{width:760px}</style>
-</head><body data-page="services">
-<header class="header">
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>👑 Co-Founder Platform (CF) — BDCrops Product</title><link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/page.css"><style>.dropdown{display:none}.has-dropdown.dd-open>.dropdown{display:block!important}.has-dropdown.dd-open>.mega-dropdown{display:grid!important}</style></head><body data-page="products"><header class="header">
     <div class="nav-container">
         <a href="../index.html" class="logo-lockup">
             <img src="../images/brand/logo-icon.svg" alt="BDCrops" class="logo-svg">
@@ -80,12 +75,7 @@
         </div>
     </div>
 </header>
-
-<main>
-<section style="padding:7rem 2rem 3rem;background:linear-gradient(135deg,#f0fdf4,#dcfce7);"><div style="max-width:1100px;margin:0 auto;"><h1 style="font-size:2.8rem;">Definition</h1><p style="color:#334155;">BDCrops definition — client-facing service.</p><a href="../index.html#pilot" style="background:#16a34a;color:white;padding:1rem 1.6rem;border-radius:10px;text-decoration:none;font-weight:700;display:inline-block;margin-top:1rem;">Request Pilot</a></div></section>
-<section style="max-width:1100px;margin:0 auto;padding:3rem 2rem;"><h2>What we deliver</h2><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.2rem;margin-top:1.5rem;"><div style="background:white;border:1px solid #e2e8f0;border-radius:12px;padding:1.4rem;"><h4 style="margin:0 0 0.5rem;">✅ Agriculture glossary Bangla/English</h4><p style="margin:0;color:#475569;font-size:0.95rem;line-height:1.55;">Instant definition of agri terms. Problem: Field officers don't know jargon. Solution: Tap → Bangla explanation.</p></div><div style="background:white;border:1px solid #e2e8f0;border-radius:12px;padding:1.4rem;"><h4 style="margin:0 0 0.5rem;">✅ Context-aware definitions</h4><p style="margin:0;color:#475569;font-size:0.95rem;line-height:1.55;">Same word different meaning. Problem: 'Tender' means bid or soft? Solution: Shows correct meaning by sentence.</p></div><div style="background:white;border:1px solid #e2e8f0;border-radius:12px;padding:1.4rem;"><h4 style="margin:0 0 0.5rem;">✅ Entity linking & knowledge graph</h4><p style="margin:0;color:#475569;font-size:0.95rem;line-height:1.55;">Links words to related concepts. Problem: One definition leads to more confusion. Solution: Connected graph.</p></div><div style="background:white;border:1px solid #e2e8f0;border-radius:12px;padding:1.4rem;"><h4 style="margin:0 0 0.5rem;">✅ Legal & fintech term mapping</h4><p style="margin:0;color:#475569;font-size:0.95rem;line-height:1.55;">Explains contract/tender jargon. Problem: Farmers sign without understanding. Solution: Simple Bangla explanation.</p></div><div style="background:white;border:1px solid #e2e8f0;border-radius:12px;padding:1.4rem;"><h4 style="margin:0 0 0.5rem;">✅ Dictionary API</h4><p style="margin:0;color:#475569;font-size:0.95rem;line-height:1.55;">Add definitions to your app. Problem: Building dictionary hard. Solution: One API call → definition.</p></div><div style="background:white;border:1px solid #e2e8f0;border-radius:12px;padding:1.4rem;"><h4 style="margin:0 0 0.5rem;">✅ Auto glossary from documents</h4><p style="margin:0;color:#475569;font-size:0.95rem;line-height:1.55;">Extract hard words from PDF and make glossary. Problem: 50-page report has 100 unknown words. Solution: Auto 2-page glossary.</p></div></div></section>
-</main>
-<footer class="footer">
+<main><section style="padding:7rem 2rem 3rem;background:linear-gradient(135deg,#f0fdf4,#dcfce7);"><div style="max-width:1100px;margin:0 auto;"><div style="font-size:3rem">👑</div><h1 style="font-size:2.8rem;">Co-Founder Platform (CF)</h1><p style="color:#334155;max-width:700px;font-size:1.2rem;">Co-Founder & CEO hiring + equity management. 50% owner model, $2k loan, revenue share.</p><p style="color:#475569;max-width:700px;">Build your founding team.</p><div style="margin-top:1.5rem;"><a href="../index.html#pilot" style="background:#16a34a;color:white;padding:1rem 1.6rem;border-radius:10px;text-decoration:none;font-weight:700;">Request Pilot via Contact Sales</a></div></div></section><section style="max-width:1100px;margin:0 auto;padding:3rem 2rem;"><h2>What we deliver</h2><p style="color:#64748b;">Product details coming from existing serivces pages. Linked to pilot form https://bdcrops.com/#pilot as requested.</p><a href="index.html">← All Products</a></section></main><footer class="footer">
     <div class="footer-container">
 
         <div class="footer-section footer-brand-col">
@@ -147,18 +137,4 @@
         <p>&copy; <span id="year"></span> BDCrops Technologies — Built for Bangladesh 🇧🇩</p>
     </div>
 </footer>
-
-<script>
-let closeTimer=null;
-function closeAll(){document.querySelectorAll('#nav-list .has-dropdown.dd-open').forEach(el=>el.classList.remove('dd-open'));}
-document.querySelectorAll('#nav-list .has-dropdown').forEach(item=>{
-  item.addEventListener('mouseenter',()=>{clearTimeout(closeTimer);document.querySelectorAll('#nav-list .has-dropdown.dd-open').forEach(e=>{if(e!==item)e.classList.remove('dd-open')});item.classList.add('dd-open');});
-  item.addEventListener('mouseleave',()=>{closeTimer=setTimeout(closeAll,200);});
-  const trig=item.querySelector('.dd-trigger');
-  trig&&trig.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();const was=item.classList.contains('dd-open');closeAll();if(!was)item.classList.add('dd-open');});
-});
-document.addEventListener('click',e=>{if(!e.target.closest('#nav-list')&&!e.target.closest('#menu-toggle'))closeAll();});
-document.getElementById('menu-toggle')?.addEventListener('click',function(e){e.stopPropagation();document.getElementById('nav-list').classList.toggle('open');});
-document.getElementById('year')&&(document.getElementById('year').textContent=new Date().getFullYear());
-</script>
-</body></html>
+<script>function closeAll(){document.querySelectorAll('#nav-list .has-dropdown.dd-open').forEach(e=>e.classList.remove('dd-open'));}document.querySelectorAll('#nav-list .has-dropdown').forEach(i=>{i.addEventListener('mouseenter',()=>{closeAll();i.classList.add('dd-open');});i.addEventListener('mouseleave',()=>{setTimeout(closeAll,200);});});document.addEventListener('click',e=>{if(!e.target.closest('#nav-list'))closeAll();});</script></body></html>
