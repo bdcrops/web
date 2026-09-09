@@ -1,336 +1,91 @@
 (async function () {
     'use strict';
-
     const path = window.location.pathname;
-
-    /*
-     * Site root:
-     *
-     * /index.html
-     *      -> ./
-     *
-     * /pages/about.html
-     * /products/index.html
-     * /products/dubbing-ai.html
-     *      -> ../
-     */
-    const isChildPage =
-        path.includes('/pages/') ||
-        path.includes('/products/') ||
-        path.includes('/serivces/') ||
-        path.includes('/services/') ||
-        path.includes('/careers/');
-
+    const isChildPage = path.includes('/pages/') || path.includes('/products/') || path.includes('/serivces/') || path.includes('/services/') || path.includes('/careers/');
     const root = isChildPage ? '../' : './';
-
-
     async function fetchHtml(url) {
-        const response = await fetch(url, {
-            cache: 'no-store'
-        });
-
-        if (!response.ok) {
-            throw new Error(
-                response.status + ' ' + url
-            );
-        }
-
-        const html = await response.text();
-
-        return html.replaceAll(
-            '{{ROOT}}',
-            root
-        );
+        const res = await fetch(url, {cache:'no-store'});
+        if (!res.ok) throw new Error(res.status+' '+url);
+        const html = await res.text();
+        return html.replaceAll('{{ROOT}}', root);
     }
-
-
     async function inject(id, url) {
-        const element =
-            document.getElementById(id);
-
-        if (!element) {
-            return;
-        }
-
-        try {
-            element.innerHTML =
-                await fetchHtml(url);
-        }
-        catch (error) {
-            console.error(
-                'Include failed:',
-                error
-            );
-        }
+        const el = document.getElementById(id);
+        if (!el) return;
+        try { el.innerHTML = await fetchHtml(url); }
+        catch (e) { console.error('Include failed:', e); }
     }
-
-
-    /*
-     * Load header/footer.
-     */
     await Promise.all([
-        inject(
-            'site-header',
-            root + 'partials/header.html'
-        ),
-
-        inject(
-            'site-footer',
-            root + 'partials/footer.html'
-        )
+        inject('site-header', root+'partials/header.html'),
+        inject('site-footer', root+'partials/footer.html')
     ]);
+    await inject('site-menu', root+'partials/menu.html');
 
-
-    /*
-     * Header now exists.
-     * Inject menu into:
-     *
-     * <nav id="site-menu"></nav>
-     */
-    await inject(
-        'site-menu',
-        root + 'partials/menu.html'
-    );
-
-
-    /*
-     * Active menu.
-     *
-     * Example:
-     * <body data-page="products">
-     */
-    const active =
-        document.body.dataset.page || '';
-
-    if (active) {
-        const activeLink =
-            document.querySelector(
-                '#nav-list [data-page="' +
-                active +
-                '"]'
-            );
-
-        if (activeLink) {
-            activeLink.classList.add(
-                'active'
-            );
-
-            const parent =
-                activeLink.closest(
-                    '.has-dropdown'
-                );
-
-            if (parent) {
-                parent.classList.add(
-                    'active-parent'
-                );
-            }
-        }
+    function closeAll() {
+        document.querySelectorAll('#nav-list .has-dropdown.dd-open').forEach(el=>el.classList.remove('dd-open'));
     }
 
-
-    /*
-     * Mobile hamburger.
-     */
-    const button =
-        document.getElementById(
-            'menu-toggle'
-        );
-
-    const menu =
-        document.getElementById(
-            'nav-list'
-        );
-
-    if (button && menu) {
-
-        button.addEventListener(
-            'click',
-            function () {
-
-                const open =
-                    menu.classList.toggle(
-                        'open'
-                    );
-
-                button.classList.toggle(
-                    'is-open',
-                    open
-                );
-
-                button.setAttribute(
-                    'aria-expanded',
-                    open ? 'true' : 'false'
-                );
-            }
-        );
-
-
-        /*
-         * Close hamburger after
-         * clicking normal link.
-         */
-        menu.addEventListener(
-            'click',
-            function (event) {
-
-                const link =
-                    event.target.closest('a');
-
-                if (!link) {
-                    return;
-                }
-
-                /*
-                 * Dropdown trigger gets
-                 * handled separately.
-                 */
-                if (
-                    link.classList.contains(
-                        'dd-trigger'
-                    )
-                ) {
-                    return;
-                }
-
-                menu.classList.remove(
-                    'open'
-                );
-
-                button.classList.remove(
-                    'is-open'
-                );
-
-                button.setAttribute(
-                    'aria-expanded',
-                    'false'
-                );
-            }
-        );
-    }
-
-
-    /*
-     * Dropdown menus.
-     */
-    document
-        .querySelectorAll(
-            '#nav-list .dd-trigger'
-        )
-        .forEach(function (trigger) {
-
-            trigger.addEventListener(
-                'click',
-                function (event) {
-
-                    const mobile =
-                        window.innerWidth <= 900;
-
-                    const href =
-                        trigger.getAttribute(
-                            'href'
-                        );
-
-                    /*
-                     * Mobile:
-                     * open dropdown.
-                     *
-                     * Desktop:
-                     * href="#" opens dropdown.
-                     *
-                     * Products has a real URL,
-                     * so desktop click goes
-                     * directly to Products.
-                     */
-                    if (
-                        mobile ||
-                        href === '#'
-                    ) {
-                        event.preventDefault();
-
-                        const item =
-                            trigger.closest(
-                                '.has-dropdown'
-                            );
-
-                        if (!item) {
-                            return;
-                        }
-
-                        /*
-                         * Close other dropdowns.
-                         */
-                        document
-                            .querySelectorAll(
-                                '#nav-list ' +
-                                '.has-dropdown.dd-open'
-                            )
-                            .forEach(
-                                function (other) {
-
-                                    if (
-                                        other !== item
-                                    ) {
-                                        other
-                                            .classList
-                                            .remove(
-                                                'dd-open'
-                                            );
-                                    }
-                                }
-                            );
-
-                        item.classList.toggle(
-                            'dd-open'
-                        );
-                    }
-                }
-            );
+    // Dropdown triggers - only one open at a time
+    document.querySelectorAll('#nav-list .dd-trigger').forEach(trigger=>{
+        trigger.addEventListener('click', function(e){
+            e.preventDefault();
+            e.stopPropagation();
+            const item = this.closest('.has-dropdown');
+            const wasOpen = item.classList.contains('dd-open');
+            closeAll();
+            if (!wasOpen) item.classList.add('dd-open');
         });
+    });
 
+    // Click on dropdown links closes menu
+    document.querySelectorAll('#nav-list .dropdown a').forEach(a=>{
+        a.addEventListener('click', ()=> closeAll());
+    });
 
-    /*
-     * Click outside closes dropdown.
-     */
-    document.addEventListener(
-        'click',
-        function (event) {
-
-            if (
-                event.target.closest(
-                    '#nav-list'
-                )
-            ) {
-                return;
-            }
-
-            document
-                .querySelectorAll(
-                    '#nav-list ' +
-                    '.has-dropdown.dd-open'
-                )
-                .forEach(
-                    function (item) {
-                        item.classList.remove(
-                            'dd-open'
-                        );
-                    }
-                );
+    // Click outside closes all
+    document.addEventListener('click', function(e){
+        if (!e.target.closest('#nav-list') && !e.target.closest('#menu-toggle')) {
+            closeAll();
         }
-    );
+    });
 
+    // Close on Escape
+    document.addEventListener('keydown', function(e){
+        if (e.key === 'Escape') closeAll();
+    });
 
-    /*
-     * Footer year.
-     */
-    const year =
-        document.getElementById(
-            'year'
-        );
-
-    if (year) {
-        year.textContent =
-            new Date().getFullYear();
+    // Active page
+    const active = document.body.dataset.page || '';
+    if (active) {
+        const activeLink = document.querySelector('#nav-list [data-page="'+active+'"]');
+        if (activeLink) {
+            activeLink.classList.add('active');
+            const parent = activeLink.closest('.has-dropdown');
+            if (parent) parent.classList.add('active-parent');
+        }
     }
 
+    // Mobile hamburger
+    const button = document.getElementById('menu-toggle');
+    const menu = document.getElementById('nav-list');
+    if (button && menu) {
+        button.addEventListener('click', function(e){
+            e.stopPropagation();
+            const open = menu.classList.toggle('open');
+            button.classList.toggle('is-open', open);
+            button.setAttribute('aria-expanded', open ? 'true' : 'false');
+            if (!open) closeAll();
+        });
+        menu.addEventListener('click', function(e){
+            const link = e.target.closest('a');
+            if (!link) return;
+            if (link.classList.contains('dd-trigger')) return;
+            menu.classList.remove('open');
+            button.classList.remove('is-open');
+            button.setAttribute('aria-expanded','false');
+        });
+    }
+
+    const year = document.getElementById('year');
+    if (year) year.textContent = new Date().getFullYear();
 })();

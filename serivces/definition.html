@@ -1,45 +1,23 @@
-<!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>📖 Definition Engine — BDCrops Services</title>
-<meta name="description" content="Definition Engine for Bangladesh">
-<link rel="stylesheet" href="../css/style.css?v=20260802"><link rel="stylesheet" href="../css/page.css?v=20260802">
-<link rel="icon" href="../favicon.svg">
-<style>.mega-dropdown li a{padding:0.6rem 1rem;display:block;white-space:nowrap;font-size:0.9rem}.mega-dropdown li a:hover{background:#f0fdf4}</style>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>📖 Definition Engine — BDCrops</title>
+<link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/page.css">
+<style>.mega-dropdown li a{padding:0.6rem 1rem;display:block;font-size:0.9rem}.mega-dropdown li a:hover{background:#f0fdf4}.has-dropdown.dd-open>.dropdown{display:grid!important} .dropdown{display:none}.has-dropdown.dd-open>.dropdown:not(.mega-dropdown){display:block!important}</style>
 </head><body data-page="services">
 <header class="header">
     <div class="nav-container">
-
         <a href="../index.html" class="logo-lockup">
-            <img
-                src="../images/brand/logo-icon.svg"
-                alt="BDCrops"
-                class="logo-svg"
-            >
-
+            <img src="../images/brand/logo-icon.svg" alt="BDCrops" class="logo-svg">
             <div class="logo-text">
                 <span class="logo-brand">BDCrops<sup>™</sup></span>
                 <span class="logo-tagline">Satellite Intelligence for Agriculture</span>
             </div>
         </a>
-
-        <button
-            class="menu-toggle"
-            id="menu-toggle"
-            type="button"
-            aria-label="Toggle menu"
-            aria-expanded="false"
-            aria-controls="nav-list"
-        >
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-list"><span></span><span></span><span></span></button>
         <nav id="site-menu" aria-label="Main navigation"><ul class="nav-links" id="nav-list">
     <li><a href="../index.html" data-page="home">Home</a></li>
     <li class="has-dropdown">
         <a href="#" data-page="services" class="dd-trigger">Services <span class="caret">▾</span></a>
-        <ul class="dropdown mega-dropdown" style="width:720px; left:-200px; display:grid; grid-template-columns:repeat(3,1fr); gap:0; padding:1rem; max-height:80vh; overflow-y:auto;">
+        <ul class="dropdown mega-dropdown" style="width:780px;left:-180px;display:grid;grid-template-columns:repeat(3,1fr);gap:0;padding:1rem;max-height:80vh;overflow-y:auto;background:white;border:1px solid #e2e8f0;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.1);">
             <li><a href="../pages/8band-report.html">🛰️ 8-Band Satellite Report</a></li>
             <li><a href="../pages/aquacrop.html">🌾 AquaCrop Digital Twin</a></li>
             <li><a href="../pages/billboard-analytics.html">📊 Billboard Analytics</a></li>
@@ -63,99 +41,46 @@
             <li><a href="../serivces/tenderdata.html">📑 TenderData</a></li>
         </ul>
     </li>
-    <li class="has-dropdown"><a href="../products/index.html" data-page="products" class="dd-trigger">Products <span class="caret">▾</span></a>
-        <ul class="dropdown"><li><a href="../products/dubbing-ai.html">🎙️ DubbingAI</a></li><li><a href="../products/index.html">🤖 All Products</a></li></ul>
+    <li class="has-dropdown">
+        <a href="../products/index.html" data-page="products" class="dd-trigger">Products <span class="caret">▾</span></a>
+        <ul class="dropdown" style="background:white;border:1px solid #e2e8f0;border-radius:10px;box-shadow:0 10px 20px rgba(0,0,0,0.08);">
+            <li><a href="../products/dubbing-ai.html">🎙️ DubbingAI</a></li>
+            <li><a href="../products/index.html">🤖 All Products</a></li>
+        </ul>
     </li>
-    <li class="has-dropdown"><a href="#" data-page="use-cases" class="dd-trigger">Use Cases <span class="caret">▾</span></a>
-        <ul class="dropdown"><li><a href="../pages/use-case-rice.html">🌾 Rice Monitoring</a></li><li><a href="../pages/use-case-jute.html">🌿 Jute Crop Health</a></li><li><a href="../pages/use-case-vegetable.html">🥬 Vegetable Yield</a></li><li><a href="../pages/use-case-flood.html">🌊 Flood/Drought Mapping</a></li></ul>
+    <li class="has-dropdown">
+        <a href="#" data-page="use-cases" class="dd-trigger">Use Cases <span class="caret">▾</span></a>
+        <ul class="dropdown" style="background:white;border:1px solid #e2e8f0;border-radius:10px;">
+            <li><a href="../pages/use-case-rice.html">🌾 Rice Monitoring</a></li>
+            <li><a href="../pages/use-case-jute.html">🌿 Jute Crop Health</a></li>
+            <li><a href="../pages/use-case-vegetable.html">🥬 Vegetable Yield</a></li>
+            <li><a href="../pages/use-case-flood.html">🌊 Flood/Drought Mapping</a></li>
+            <li style="border-top:1px solid #f1f5f9;margin-top:0.5rem;padding-top:0.5rem;"><a href="../index.html#demos">🎬 Live Demos</a></li>
+        </ul>
     </li>
-    <li class="has-dropdown"><a href="#" data-page="about" class="dd-trigger">About <span class="caret">▾</span></a>
-        <ul class="dropdown"><li><a href="../pages/about.html#story">Our Story</a></li><li><a href="../pages/about.html#what-we-do">What We Do</a></li><li><a href="../pages/about.html#platform">GeoData Platform</a></li><li><a href="../pages/about.html#team">Leadership</a></li></ul>
+    <li class="has-dropdown">
+        <a href="#" data-page="about" class="dd-trigger">About <span class="caret">▾</span></a>
+        <ul class="dropdown" style="background:white;border:1px solid #e2e8f0;border-radius:10px;">
+            <li><a href="../pages/about.html#story">Our Story</a></li>
+            <li><a href="../pages/about.html#what-we-do">What We Do</a></li>
+            <li><a href="../pages/about.html#platform">GeoData Platform</a></li>
+            <li><a href="../pages/about.html#team">Leadership</a></li>
+            <li><a href="../pages/about.html#partner">Partner With Us</a></li>
+            <li style="border-top:1px solid #f1f5f9;margin-top:0.5rem;padding-top:0.5rem;"><a href="../index.html#demos">🎬 Live Demos</a></li>
+        </ul>
     </li>
-    <li><a href="../index.html#demos" data-page="demos">Live Demos</a></li>
 </ul>
 </nav>
-
         <div class="nav-cta">
-            <a
-                href="https://wa.me/8801717676441"
-                class="btn-outline"
-                target="_blank"
-                rel="noopener"
-            >
-                WhatsApp
-            </a>
-
-            <a
-                href="mailto:matin@bdcrops.com?subject=BDCrops%20Sales%20Inquiry"
-                class="btn-primary"
-            >
-                Contact Sales
-            </a>
+            <a href="https://wa.me/8801717676441" class="btn-outline" target="_blank" rel="noopener">WhatsApp</a>
+            <a href="../index.html#pilot" class="btn-primary">Contact Sales</a>
         </div>
-
     </div>
 </header>
 
 <main>
-<section style="padding:7rem 2rem 3rem;background:linear-gradient(135deg,#f0fdf4,#dcfce7);">
-<div style="max-width:1100px;margin:0 auto;">
-<div style="font-size:3.2rem">📖</div>
-<h1 style="font-size:2.8rem;line-height:1.1;margin:0.8rem 0;">Definition Engine</h1>
-<p style="font-size:1.25rem;color:#334155;max-width:720px;line-height:1.5;">Every technical word in Bangla — instantly explained in context.</p>
-<div style="margin-top:1.8rem;display:flex;gap:1rem;flex-wrap:wrap;">
-<a href="../index.html#pilot" style="background:#16a34a;color:white;padding:1rem 1.8rem;border-radius:10px;text-decoration:none;font-weight:700;">Request Free Pilot</a>
-<a href="https://wa.me/8801717676441" style="border:1px solid #cbd5e1;background:white;padding:1rem 1.4rem;border-radius:10px;text-decoration:none;color:#334155;">WhatsApp</a>
-</div></div></section>
-
-<section style="max-width:1100px;margin:0 auto;padding:3rem 2rem;">
-<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;margin-bottom:1.5rem;">
-<h2 style="font-size:1.9rem;margin:0;">What we deliver</h2>
-<span style="background:#f1f5f9;padding:0.4rem 0.8rem;border-radius:999px;font-size:0.85rem;color:#475569;">Client-facing • No internal code</span>
-</div>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.2rem;">
-
-        <div style="background:white;border:1px solid #e2e8f0;border-radius:12px;padding:1.4rem;">
-            <h4 style="margin:0 0 0.5rem;font-size:1.05rem;">✅ Agriculture glossary Bangla/English</h4>
-            <p style="margin:0;color:#475569;font-size:0.95rem;line-height:1.5;">Instant definition of agri terms like 'Aman' or 'SAVI'. Problem: Field officers don't know jargon. Solution: Tap → Bangla explanation.</p>
-        </div>
-        
-        <div style="background:white;border:1px solid #e2e8f0;border-radius:12px;padding:1.4rem;">
-            <h4 style="margin:0 0 0.5rem;font-size:1.05rem;">✅ Context-aware definitions</h4>
-            <p style="margin:0;color:#475569;font-size:0.95rem;line-height:1.5;">Same word means different in different context. Problem: 'Tender' means bid or soft? Solution: Shows correct meaning based on sentence.</p>
-        </div>
-        
-        <div style="background:white;border:1px solid #e2e8f0;border-radius:12px;padding:1.4rem;">
-            <h4 style="margin:0 0 0.5rem;font-size:1.05rem;">✅ Entity linking & knowledge graph</h4>
-            <p style="margin:0;color:#475569;font-size:0.95rem;line-height:1.5;">Links words to related concepts. Problem: Reading one definition leads to more confusion. Solution: Connected graph of related terms.</p>
-        </div>
-        
-        <div style="background:white;border:1px solid #e2e8f0;border-radius:12px;padding:1.4rem;">
-            <h4 style="margin:0 0 0.5rem;font-size:1.05rem;">✅ Legal & fintech term mapping</h4>
-            <p style="margin:0;color:#475569;font-size:0.95rem;line-height:1.5;">Explains contract/tender jargon. Problem: Farmers sign without understanding. Solution: Simple Bangla explanation of legal terms.</p>
-        </div>
-        
-        <div style="background:white;border:1px solid #e2e8f0;border-radius:12px;padding:1.4rem;">
-            <h4 style="margin:0 0 0.5rem;font-size:1.05rem;">✅ Dictionary API</h4>
-            <p style="margin:0;color:#475569;font-size:0.95rem;line-height:1.5;">Add definitions to your app. Problem: Building dictionary from scratch is hard. Solution: One API call → definition.</p>
-        </div>
-        
-        <div style="background:white;border:1px solid #e2e8f0;border-radius:12px;padding:1.4rem;">
-            <h4 style="margin:0 0 0.5rem;font-size:1.05rem;">✅ Auto glossary from documents</h4>
-            <p style="margin:0;color:#475569;font-size:0.95rem;line-height:1.5;">We extract all hard words from PDF and make glossary. Problem: 50-page report has 100 unknown words. Solution: Auto 2-page glossary.</p>
-        </div>
-        
-</div>
-</section>
-
-<section style="background:#f8fafc;padding:3rem 2rem;">
-<div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;">
-<div style="background:white;padding:1.2rem;border-radius:10px;border:1px solid #e2e8f0;">🇧🇩<h4>Bangladesh-First</h4><p style="color:#64748b;font-size:0.9rem;">Built for local crops, seasons, and realities.</p></div>
-<div style="background:white;padding:1.2rem;border-radius:10px;border:1px solid #e2e8f0;">⚡<h4>24-48h Pilot</h4><p style="color:#64748b;font-size:0.9rem;">Tell us location → we deliver full analysis.</p></div>
-<div style="background:white;padding:1.2rem;border-radius:10px;border:1px solid #e2e8f0;">📊<h4>PDF + API</h4><p style="color:#64748b;font-size:0.9rem;">Professional reports for donors & teams.</p></div>
-<div style="background:white;padding:1.2rem;border-radius:10px;border:1px solid #e2e8f0;">💬<h4>WhatsApp Support</h4><p style="color:#64748b;font-size:0.9rem;">Direct support via WhatsApp.</p></div>
-</div>
-</section>
+<section style="padding:7rem 2rem 3rem;background:linear-gradient(135deg,#f0fdf4,#dcfce7);"><div style="max-width:1100px;margin:0 auto;"><div style="font-size:3.2rem">📖</div><h1 style="font-size:2.8rem;margin:0.8rem 0;">Definition Engine</h1><p style="font-size:1.25rem;color:#334155;max-width:720px;">Every technical word in Bangla — instantly explained in context.</p><div style="margin-top:1.8rem;display:flex;gap:1rem;flex-wrap:wrap;"><a href="../index.html#pilot" style="background:#16a34a;color:white;padding:1rem 1.8rem;border-radius:10px;text-decoration:none;font-weight:700;">Request Free Pilot</a><a href="https://wa.me/8801717676441" style="border:1px solid #cbd5e1;background:white;padding:1rem 1.4rem;border-radius:10px;text-decoration:none;color:#334155;">WhatsApp</a></div></div></section>
+<section style="max-width:1100px;margin:0 auto;padding:3rem 2rem;"><h2 style="font-size:1.9rem;">What we deliver</h2><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.2rem;margin-top:1.5rem;"><div style="background:white;border:1px solid #e2e8f0;border-radius:12px;padding:1.4rem;"><h4 style="margin:0 0 0.5rem;">✅ Agriculture glossary Bangla/English</h4><p style="margin:0;color:#475569;font-size:0.95rem;line-height:1.55;">Instant definition of agri terms. Problem: Field officers don't know jargon. Solution: Tap → Bangla explanation.</p></div><div style="background:white;border:1px solid #e2e8f0;border-radius:12px;padding:1.4rem;"><h4 style="margin:0 0 0.5rem;">✅ Context-aware definitions</h4><p style="margin:0;color:#475569;font-size:0.95rem;line-height:1.55;">Same word different meaning. Problem: 'Tender' means bid or soft? Solution: Shows correct meaning by sentence.</p></div><div style="background:white;border:1px solid #e2e8f0;border-radius:12px;padding:1.4rem;"><h4 style="margin:0 0 0.5rem;">✅ Entity linking & knowledge graph</h4><p style="margin:0;color:#475569;font-size:0.95rem;line-height:1.55;">Links words to related concepts. Problem: One definition leads to more confusion. Solution: Connected graph.</p></div><div style="background:white;border:1px solid #e2e8f0;border-radius:12px;padding:1.4rem;"><h4 style="margin:0 0 0.5rem;">✅ Legal & fintech term mapping</h4><p style="margin:0;color:#475569;font-size:0.95rem;line-height:1.55;">Explains contract/tender jargon. Problem: Farmers sign without understanding. Solution: Simple Bangla explanation.</p></div><div style="background:white;border:1px solid #e2e8f0;border-radius:12px;padding:1.4rem;"><h4 style="margin:0 0 0.5rem;">✅ Dictionary API</h4><p style="margin:0;color:#475569;font-size:0.95rem;line-height:1.55;">Add definitions to your app. Problem: Building dictionary hard. Solution: One API call → definition.</p></div><div style="background:white;border:1px solid #e2e8f0;border-radius:12px;padding:1.4rem;"><h4 style="margin:0 0 0.5rem;">✅ Auto glossary from documents</h4><p style="margin:0;color:#475569;font-size:0.95rem;line-height:1.55;">Extract hard words from PDF and make glossary. Problem: 50-page report has 100 unknown words. Solution: Auto 2-page glossary.</p></div></div></section>
 </main>
 <footer class="footer">
     <div class="footer-container">
@@ -221,7 +146,10 @@
 </footer>
 
 <script>
-document.getElementById('menu-toggle')?.addEventListener('click',function(){const m=document.getElementById('nav-list');m&&m.classList.toggle('open');this.classList.toggle('is-open');});
+function closeAll(){document.querySelectorAll('#nav-list .has-dropdown.dd-open').forEach(el=>el.classList.remove('dd-open'));}
+document.querySelectorAll('#nav-list .dd-trigger').forEach(t=>{t.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();const it=t.closest('.has-dropdown');const was=it.classList.contains('dd-open');closeAll();if(!was)it.classList.add('dd-open');});});
+document.addEventListener('click',e=>{if(!e.target.closest('#nav-list')&&!e.target.closest('#menu-toggle'))closeAll();});
+document.getElementById('menu-toggle')?.addEventListener('click',function(e){e.stopPropagation();const m=document.getElementById('nav-list');const o=m.classList.toggle('open');this.classList.toggle('is-open',o);});
 document.getElementById('year')&&(document.getElementById('year').textContent=new Date().getFullYear());
 </script>
 </body></html>
