@@ -7,10 +7,10 @@
     async function fetchHtml(url) {
         try {
             const res = await fetch(url, {cache:'no-store'});
-            if (!res.ok) throw new Error(res.status+' '+url);
+            if (!res.ok) throw new Error(res.status);
             const html = await res.text();
             return html.replaceAll('{{ROOT}}', root);
-        } catch(e) { console.error('Include failed:', url, e); return ''; }
+        } catch(e) { return ''; }
     }
     async function inject(id, url) {
         const el = document.getElementById(id);
@@ -25,60 +25,48 @@
     ]);
     await inject('site-menu', root+'partials/menu.html');
 
-    // --- MENU FIX: only one dropdown open, hide on leave ---
-    let closeTimer = null;
-    
     function closeAll() {
         document.querySelectorAll('#nav-list .has-dropdown.dd-open').forEach(el=>el.classList.remove('dd-open'));
     }
-    
-    function openOne(item) {
-        closeAll();
-        item.classList.add('dd-open');
-    }
 
+    // FORCE CLOSE ON LOAD - fixes your screenshot bug where Services stays open on #pilot
+    closeAll();
+    setTimeout(closeAll, 100);
+    setTimeout(closeAll, 500);
+
+    let closeTimer = null;
     const dropdowns = document.querySelectorAll('#nav-list .has-dropdown');
     dropdowns.forEach(item => {
         const trigger = item.querySelector('.dd-trigger');
         if (!trigger) return;
         
-        // Desktop hover: open on enter
         item.addEventListener('mouseenter', () => {
             clearTimeout(closeTimer);
-            openOne(item);
+            document.querySelectorAll('#nav-list .has-dropdown.dd-open').forEach(e=>{if(e!==item)e.classList.remove('dd-open')});
+            item.classList.add('dd-open');
         });
-        
-        // Close on leave with small delay
         item.addEventListener('mouseleave', () => {
-            closeTimer = setTimeout(() => closeAll(), 200);
+            closeTimer = setTimeout(closeAll, 150);
         });
-        
-        // Click for mobile: toggle
         trigger.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
-            const isOpen = item.classList.contains('dd-open');
+            const was = item.classList.contains('dd-open');
             closeAll();
-            if (!isOpen) item.classList.add('dd-open');
+            if (!was) item.classList.add('dd-open');
         });
     });
 
-    // Close when clicking outside or on a link inside
+    // Close on ANY scroll, click outside, link click, hash change, Escape
     document.addEventListener('click', (e) => {
-        if (!e.target.closest('#nav-list') && !e.target.closest('#menu-toggle')) {
-            closeAll();
-        }
+        if (!e.target.closest('#nav-list') && !e.target.closest('#menu-toggle')) closeAll();
     });
-    
-    document.querySelectorAll('#nav-list .dropdown a').forEach(a => {
-        a.addEventListener('click', () => closeAll());
-    });
-    
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeAll();
-    });
+    document.addEventListener('scroll', closeAll, {passive:true});
+    window.addEventListener('hashchange', closeAll);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeAll(); });
+    document.querySelectorAll('#nav-list .dropdown a').forEach(a => a.addEventListener('click', closeAll));
 
-    // Mobile hamburger
+    // Mobile
     const button = document.getElementById('menu-toggle');
     const menu = document.getElementById('nav-list');
     if (button && menu) {
@@ -86,11 +74,9 @@
             e.stopPropagation();
             const open = menu.classList.toggle('open');
             button.classList.toggle('is-open', open);
-            button.setAttribute('aria-expanded', open ? 'true' : 'false');
             if (!open) closeAll();
         });
     }
-
     const year = document.getElementById('year');
     if (year) year.textContent = new Date().getFullYear();
 })();
