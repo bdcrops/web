@@ -1,6 +1,4 @@
-cd /var/POAi/CrewAiFlow/cf2/apps/bdcrops
-
-cat > js/main.js << 'JSEOF'
+// Main.js - BDCrops Clean Version
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         const href = this.getAttribute('href');
@@ -31,26 +29,25 @@ const form = document.querySelector('.pilot-form');
 if (form) {
     form.addEventListener('submit', (e) => {
         const action = form.getAttribute('action');
-        if (action.includes('YOUR_FORMSPREE_ID')) {
+        if (action && action.includes('YOUR_FORMSPREE_ID')) {
             e.preventDefault();
             alert('Configure Formspree first.\n\n1. Go to formspree.io\n2. Create form\n3. Replace YOUR_FORMSPREE_ID in index.html');
         }
     });
 }
-JSEOF
 
-echo "✅ main.js created"
-ls -lh js/
-
-// ============ BANNER SLIDER ============
+// Banner Slider - Single implementation
 (function initSlider() {
-    const slides = document.querySelectorAll('.banner-slider .slide');
-    const dots = document.querySelectorAll('.banner-slider .dot');
+    const slider = document.querySelector('.banner-slider');
+    if (!slider) return;
+    
+    const slides = slider.querySelectorAll('.slide');
+    const dots = slider.querySelectorAll('.dot');
     if (!slides.length) return;
 
     let current = 0;
     const total = slides.length;
-    const interval = 4000; // 4 seconds per slide
+    const interval = 4000;
 
     function show(idx) {
         slides.forEach(s => s.classList.remove('active'));
@@ -64,10 +61,8 @@ ls -lh js/
         show((current + 1) % total);
     }
 
-    // Auto-rotate
     let timer = setInterval(next, interval);
 
-    // Dot click → jump to slide + reset timer
     dots.forEach((dot, i) => {
         dot.addEventListener('click', () => {
             clearInterval(timer);
@@ -76,38 +71,8 @@ ls -lh js/
         });
     });
 
-    // Pause on hover
-    const slider = document.querySelector('.banner-slider');
-    if (slider) {
-        slider.addEventListener('mouseenter', () => clearInterval(timer));
-        slider.addEventListener('mouseleave', () => {
-            timer = setInterval(next, interval);
-        });
-    }
-})();
-
-// Banner Slider
-(function() {
-    const slider = document.querySelector('.banner-slider');
-    if (!slider) return;
-    
-    const slides = slider.querySelectorAll('.slide');
-    const dots = slider.querySelectorAll('.dot');
-    let current = 0;
-    
-    function showSlide(index) {
-        slides.forEach((s, i) => s.classList.toggle('active', i === index));
-        dots.forEach((d, i) => d.classList.toggle('active', i === index));
-        current = index;
-    }
-    
-    // Auto-advance
-    setInterval(() => {
-        showSlide((current + 1) % slides.length);
-    }, 5000);
-    
-    // Click dots
-    dots.forEach((dot, i) => {
-        dot.addEventListener('click', () => showSlide(i));
+    slider.addEventListener('mouseenter', () => clearInterval(timer));
+    slider.addEventListener('mouseleave', () => {
+        timer = setInterval(next, interval);
     });
 })();
