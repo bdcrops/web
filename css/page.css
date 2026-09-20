@@ -863,3 +863,61 @@ section[id] { scroll-margin-top: 90px; }
 .partnership-card.pipeline .partnership-status { background: rgba(59,130,246,0.15); color: #1e40af; }
 .partnership-card h3 { margin: 0 0 0.5rem; font-size: 1.1rem; color: #0f172a; }
 .partnership-card p  { margin: 0.25rem 0; }
+
+
+/* === SAFE MENU FIX - Makes Services like Products === */
+#nav-list {
+    position: relative;
+    z-index: 1001;
+}
+
+#nav-list .has-dropdown {
+    position: relative;
+}
+
+#nav-list .has-dropdown .dropdown {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    max-height: 70vh;
+    overflow-y: auto;
+    z-index: 1000 !important;
+    scrollbar-width: thin;
+}
+
+#nav-list .has-dropdown.dd-open .dropdown {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+}
+
+/* Services was mega - now forced to single column like Products */
+#nav-list .has-dropdown .dropdown.mega-dropdown {
+    display: none !important;
+    grid-template-columns: 1fr !important;
+}
+
+#nav-list .has-dropdown.dd-open .dropdown.mega-dropdown {
+    display: block !important;
+}
+
+.header {
+    z-index: 1001 !important;
+    position: relative !important;
+}
+
+main, .hero-investor {
+    position: relative;
+    z-index: 1 !important;
+}
+
+/* Scrollbar styling for long menus */
+#nav-list .has-dropdown .dropdown::-webkit-scrollbar {
+    width: 6px;
+}
+#nav-list .has-dropdown .dropdown::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 3px;
+}
