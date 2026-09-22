@@ -1,9 +1,8 @@
 <ul class="nav-links" id="nav-list">
     <li><a href="{{ROOT}}index.html" data-page="home">Home</a></li>
-    <li class="has-dropdown">
+    <li class="has-dropdown" style="position:relative;">
         <a href="#" data-page="services" class="dd-trigger">Services <span class="caret">▾</span></a>
-        <ul class="dropdown" style="position:absolute;top:100%;left:0;width:360px;background:white;border:1px solid #e2e8f0;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.15);padding:0.5rem 0;max-height:70vh;overflow-y:auto;z-index:1000;">
-            <li style="padding:0.5rem 1rem;font-size:0.7rem;font-weight:800;color:#16a34a;letter-spacing:0.06em;background:#f0fdf4;margin-bottom:0.3rem;">🛰️ CORE SERVICES</li>
+        <ul class="dropdown mega-dropdown" style="display:none;position:absolute;top:100%;left:-160px;width:760px;padding:1rem;background:white;border:1px solid #e2e8f0;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.1);grid-template-columns:repeat(3,1fr);gap:0;max-height:80vh;overflow-y:auto;">
             <li><a href="{{ROOT}}pages/8band-report.html">🛰️ 8-Band Satellite Report</a></li>
             <li><a href="{{ROOT}}pages/aquacrop.html">🌾 AquaCrop Digital Twin</a></li>
             <li><a href="{{ROOT}}pages/billboard-analytics.html">📊 Billboard Analytics</a></li>
@@ -25,36 +24,29 @@
             <li><a href="{{ROOT}}serivces/publisher.html">📚 Publisher Suite</a></li>
             <li><a href="{{ROOT}}serivces/scout.html">🔍 Scout</a></li>
             <li><a href="{{ROOT}}serivces/tenderdata.html">📑 TenderData</a></li>
-            <li style="border-top:2px solid #e2e8f0;margin-top:0.5rem;padding-top:0.5rem;"><a href="{{ROOT}}serivces/index.html" style="font-weight:800;color:#16a34a;background:#f0fdf4;border-radius:8px;margin:0 0.5rem;">📋 All Services → View All 21 Services</a></li>
         </ul>
     </li>
-    <li class="has-dropdown">
+    <li class="has-dropdown" style="position:relative;">
         <a href="{{ROOT}}products/index.html" data-page="products" class="dd-trigger">Products <span class="caret">▾</span></a>
-        <ul class="dropdown" style="position:absolute;top:100%;left:0;width:380px;background:white;border:1px solid #e2e8f0;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.15);padding:0.5rem 0;max-height:70vh;overflow-y:auto;z-index:1000;">
-            <li style="padding:0.5rem 1rem;font-size:0.7rem;font-weight:800;color:#3b82f6;letter-spacing:0.06em;background:#eff6ff;margin-bottom:0.3rem;">🔥 NEW — HOLODUB ADTECH</li>
-            <li><a href="{{ROOT}}products/advertise-intel.html" style="background:linear-gradient(135deg,#eff6ff,#dbeafe);border:1px solid #bfdbfe;border-radius:8px;margin:0 0.5rem 0.5rem 0.5rem;font-weight:700;color:#1e40af;display:block;padding:0.8rem;">📢 Advertise Intelligence — HoloDub <span style="background:#3b82f6;color:white;font-size:0.6rem;padding:0.2rem 0.5rem;border-radius:10px;margin-left:0.5rem;">INVESTOR</span><br><small style="color:#64748b;font-weight:400;font-size:0.75rem;">One-Man Hollywood Studio • 14 Cores</small></a></li>
-            <li style="border-top:1px solid #f1f5f9;margin:0.5rem 0;"></li>
+        <ul class="dropdown" style="display:none;position:absolute;top:100%;left:0;width:320px;background:white;border:1px solid #e2e8f0;border-radius:12px;box-shadow:0 10px 20px rgba(0,0,0,0.08);">
             <li><a href="{{ROOT}}products/dubbing-ai.html">🎙️ DubbingAI — Video Localization</a></li>
-            <li><a href="{{ROOT}}products/Patientdata-Engine-Production-Dashboard.html">🏥 PatientData Engine</a></li>
+            <li><a href="{{ROOT}}products/Patientdata-Engine-Production-Dashboard.html">🏥 PatientData Engine — Production Dashboard</a></li>
             <li><a href="{{ROOT}}serivces/geodata.html">🛰️ GeoData — Satellite API</a></li>
-            <li><a href="{{ROOT}}serivces/advertise.html">📊 Ad Intel — Billboard Analytics</a></li>
-            <li style="border-top:2px solid #e2e8f0;margin-top:0.5rem;padding-top:0.5rem;"><a href="{{ROOT}}products/index.html" style="font-weight:800;color:#3b82f6;background:#eff6ff;border-radius:8px;margin:0 0.5rem;">🤖 All Products → View All Products</a></li>
+            <li><a href="{{ROOT}}serivces/advertise.html">📢 Ad Intel — Billboard Analytics</a></li>
+            <li><a href="{{ROOT}}products/index.html" style="border-top:1px solid #f1f5f9;margin-top:0.5rem;padding-top:0.5rem;font-weight:700;">🤖 All Products →</a></li>
         </ul>
     </li>
-    <li class="has-dropdown">
+    <li class="has-dropdown" style="position:relative;">
         <a href="#" data-page="about" class="dd-trigger">About <span class="caret">▾</span></a>
-        <ul class="dropdown" style="position:absolute;top:100%;left:0;width:280px;background:white;border:1px solid #e2e8f0;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.15);padding:0.5rem 0;z-index:1000;">
-            <li style="padding:0.4rem 1rem;font-size:0.7rem;font-weight:800;color:#94a3b8;">COMPANY</li>
+        <ul class="dropdown" style="display:none;position:absolute;top:100%;left:0;width:280px;background:white;border:1px solid #e2e8f0;border-radius:12px;">
             <li><a href="{{ROOT}}pages/about.html#story">Our Story</a></li>
             <li><a href="{{ROOT}}pages/about.html#what-we-do">What We Do</a></li>
-            <li><a href="{{ROOT}}pages/about.html#platform">GeoData Platform</a></li>
-            <li><a href="{{ROOT}}pages/about.html#team">Leadership</a></li>
             <li style="border-top:1px solid #f1f5f9;margin:0.5rem 0;"></li>
-            <li style="padding:0.4rem 1rem;font-size:0.7rem;font-weight:800;color:#94a3b8;">USE CASES</li>
+            <li style="padding:0.3rem 1rem;font-size:0.7rem;font-weight:700;color:#94a3b8;">USE CASES</li>
             <li><a href="{{ROOT}}pages/use-case-rice.html">🌾 Rice Monitoring</a></li>
-            <li><a href="{{ROOT}}pages/use-case-jute.html">🌿 Jute Crop Health</a></li>
-            <li><a href="{{ROOT}}pages/use-case-vegetable.html">🥬 Vegetable Yield</a></li>
-            <li><a href="{{ROOT}}pages/use-case-flood.html">🌊 Flood/Drought Mapping</a></li>
+            <li><a href="{{ROOT}}pages/use-case-jute.html">🌿 Jute</a></li>
+            <li><a href="{{ROOT}}pages/use-case-vegetable.html">🥬 Vegetable</a></li>
+            <li><a href="{{ROOT}}pages/use-case-flood.html">🌊 Flood/Drought</a></li>
             <li style="border-top:1px solid #f1f5f9;margin:0.5rem 0;"></li>
             <li><a href="{{ROOT}}index.html#demos">🎬 Live Demos</a></li>
         </ul>
