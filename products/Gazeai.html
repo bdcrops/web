@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>GazeAI — DOOH Visual Attention Analytics — BDCrops Vision Intelligence</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--teal:#12a090;--ink:#0e1f1c;--muted:#5e726e;--line:#dde9e6}
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:Inter,sans-serif;background:#fff;color:var(--ink)}
+.container{max-width:1240px;margin:0 auto;padding:0 24px}
+.header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-container{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;gap:10px;align-items:center;text-decoration:none;color:var(--ink)}.logo-icon{width:36px;height:36px;background:var(--teal);border-radius:10px;display:grid;place-items:center;color:#fff;font-weight:900}
+.logo-brand{font-family:Space Grotesk,sans-serif;font-weight:700}.logo-tagline{font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;display:block}
+.nav-links{display:flex;gap:18px;list-style:none}.nav-links a{font-size:13px;font-weight:600}
+.btn{padding:10px 18px;border-radius:999px;font-size:12px;font-weight:800;text-decoration:none;display:inline-flex}.btn-teal{background:var(--teal);color:#fff}.btn-ghost{border:1px solid var(--line);color:var(--teal);background:#fff}
+.hero{padding:48px 0 28px;background:linear-gradient(160deg,#081812 0%,#0e2e28 60%,#0b2420 100%);color:#deecea}
+.hero h1{font-family:Space Grotesk,sans-serif;font-size:clamp(30px,4vw,48px);line-height:.9}.hero h1 span{color:var(--teal)}.hero p{color:#7a9a96;max-width:640px;margin-top:10px}
+.badge{display:inline-flex;padding:6px 12px;border-radius:999px;background:rgba(18,160,144,.14);color:var(--teal);font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
+.grid{display:grid;gap:16px}.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:0 8px 24px rgba(14,31,28,.06)}
+.card-dark{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.08);color:#b8d0cc}
+.eyebrow{font-size:9px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:6px}
+h2{font-family:Space Grotesk,sans-serif;font-size:24px;margin-bottom:8px}
+.img-card{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#0a1a17}.img-card img{width:100%;display:block}.img-cap{padding:8px;background:#fff;font-size:9px;font-weight:700;color:var(--muted);text-align:center}
+ul.clean{list-style:none;display:flex;flex-direction:column;gap:7px;margin-top:8px}ul.clean li{display:flex;gap:8px;font-size:12.5px}.dot{width:6px;height:6px;border-radius:50%;background:var(--teal);margin-top:6px;flex-shrink:0}
+.section{padding:40px 0}.section-dark{background:#0a1a17;color:#b8d0cc}
+.stat{padding:12px;border:1px solid var(--line);border-radius:12px;text-align:center;background:#fff}.stat b{font-family:Space Grotesk,sans-serif;font-size:20px;color:var(--teal);display:block}.stat span{font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700}
+@media(max-width:900px){.g2,.g3{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="header"><div class="container nav-container"><a href="/index.html" class="logo"><div class="logo-icon">BC</div><div><div class="logo-brand">BDCrops™</div><div class="logo-tagline">AI Technology Company — GazeAI Product</div></div></a><nav><ul class="nav-links"><li><a href="/products/index.html">Products</a></li><li><a href="/products/vision-intelligence.html">Vision Platform</a></li><li><a href="/products/gazeai.html" style="color:var(--teal)">GazeAI</a></li></ul></nav><a href="mailto:matin@bdcrops.com" class="btn btn-teal">Contact Sales</a></div></header>
+
+<section class="hero"><div class="container">
+<div class="badge">UNIT-GAZEDATA • BATCH • VERIFIED IMPRESSION PIPELINE</div>
+<h1>GazeAI<br><span>DOOH Visual Attention Analytics</span></h1>
+<p>Video file → YOLO person [x1,y1,x2,y2] → ByteTrack 10FPS best → OSNet Re-ID 512-d anonymous → billboard ROI → dwell → Verified Impression → aggregate analytics + client PDF/CSV. Fixes baseline bbox:null heuristic.</p>
+<div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap"><a class="btn btn-teal" href="/products/vision-intelligence.html">← Vision Platform</a><a class="btn" style="background:rgba(255,255,255,.08);color:#b0ccc8;border:1px solid rgba(255,255,255,.12)" href="/products/surveillance.html">CCTV Surveillance →</a><a class="btn" style="background:rgba(255,255,255,.08);color:#b0ccc8;border:1px solid rgba(255,255,255,.12)" href="/products/drone-tactical.html">Drone Tactical →</a></div>
+</div></section>
+
+<section class="section"><div class="container">
+<div class="grid g2">
+<div class="img-card"><img src="/products/img/YOLO_personDetctecion.jpg" onerror="this.src='https://bdcrops.com/products/img/YOLO_personDetctecion.jpg'"><div class="img-cap">/products/img/YOLO_personDetctecion.jpg — YOLO person detection replacing static 40% attention — real bboxes enable dwell & unique reach</div></div>
+<div>
+<div class="grid g2">
+<div class="stat"><b>2,847</b><span>Unique Reach deduped</span></div><div class="stat"><b>1,921</b><span>Verified Impressions 67.5%</span></div><div class="stat"><b>4.2s</b><span>Avg Dwell P50 3.8s</span></div><div class="stat"><b>30/30</b><span>Billboard Hits 100%</span></div>
+</div>
+<h2 style="margin-top:16px">Live Demo — NakedEye 3D LED Billboard</h2>
+<p style="font-size:13px;color:var(--muted)">Source: NakedEye2dLedDisplayDOOHadvertisingBillboard.mp4 • Duration 33.42s • 30 frames @1FPS • frame_0001 to 0030 • Persons 0.55, Faces 0.50, Billboard 0.45 baseline → YOLO dynamic 0.71-0.93 in production. Origin [0.5,0.45] → target [0.5,0.5] static → dynamic yaw/pitch with MediaPipe.</p>
+<ul class="clean"><li><span class="dot"></span>Pipeline: ingest.file_source + detectors.face/pedestrian registry + tracking + biometrics estimated labeled + behavior dwell + governance low tier + events report only</li><li><span class="dot"></span>Best frame per anonymous_person_id → demographic estimator FairFace/MiVOLO → gender + age bucket + confidence → HITL queue if &lt;0.85</li><li><span class="dot"></span>Verified Impression = dwell >1.0s (2.0s for Verified) + gaze_to_caravan + billboard/viewing-zone membership → per SESSIOnHANDOFF.md final objective</li></ul>
+</div>
+</div>
+
+<h2 style="margin-top:28px">Age & Gender Guessing with Impression — How It Works</h2>
+<div class="grid g3" style="margin-top:12px">
+<div class="card"><h3>1. Best Frame Selector</h3><p style="font-size:12px;color:var(--muted)">Collect qualifying face/person observations per anonymous_person_id → score blur/resolution/occlusion/pose → retain best frame(s) → run expensive downstream once, not every frame. Per SESSIOnHANDOFF.md #11.</p></div>
+<div class="card"><h3>2. Demographics Estimation</h3><p style="font-size:12px;color:var(--muted)">FairFace/MiVOLO: gender Man/Woman → Male/Female 58/42 + confidence, age regression → buckets 18-24/25-34/35-44/45-54/60+ . Confidence/provenance kept, unknown allowed. Replace body-shape heuristics completely per SESSIOnHANDOFF.md #12.</p></div>
+<div class="card"><h3>3. Impression Link</h3><p style="font-size:12px;color:var(--muted)">Dwell accumulation per ID → if > threshold + viewing zone → is_verified_impression=true → attach demographics from best_frame. Aggregate: Reach 2,847 = all IDs, Impressions 1,921 = verified subset. Gender % from impressions, not raw detections.</p></div>
+</div>
+
+<div class="grid g2" style="margin-top:20px">
+<div class="card"><div class="eyebrow">PRICING — B2B SAAS</div><h3>Best Initial Target: Agencies + DOOH + Retail</h3><ul class="clean"><li><span class="dot"></span>Starter: $40-70 per 12hr feed / BDT 5k-8k, campaign bundle 3 cams 1 day $150 — per resposeRply.md</li><li><span class="dot"></span>Growth: $399/mo 20hrs, $499/mo 50hrs, HITL premium, API</li><li><span class="dot"></span>Enterprise: $1500-5000/mo + White-label $10k/yr + 20% rev share — unit economics GPU $0.80/hr → 80% margin</li></ul></div>
+<div class="card" style="background:linear-gradient(135deg,#e8f7f5,rgba(18,160,144,.08));border-color:rgba(18,160,144,.22)"><div class="eyebrow">BASELINE FIX</div><h3>Why Flat 40%/43% in attention_metrics.json</h3><p style="font-size:12px">Lightweight heuristic fallback in video_analysis.py when full DL models not enabled — returns priors: bbox null, text "", brand_hits [], clutter_score 0.0, ocr 0.0. Enable YOLOv8 + MediaPipe Face Mesh + PaddleOCR for dynamic fluctuating curve peaks when creative pops.</p></div>
+</div>
+</div></section>
+
+<section class="section section-dark"><div class="container" style="text-align:center">
+<h2 style="color:#e0edeb">GazeAI — Ready for Pilot</h2>
+<p style="color:#7a9a96;max-width:600px;margin:8px auto">Module-based: src/cf2/units/gazeai/ api/ pipeline/ schemas/ tools/ingest/detection/tracking/reid/gaze/demographics/hitl/analytics/ register.py — Pipeline = orchestration, Tools = capability, Schemas = contracts. GPU abstraction BACKEND local_gpu now → remote_gpu later per PRD 7.3.</p>
+<div style="margin-top:14px;display:flex;gap:8px;justify-content:center"><a class="btn btn-teal" href="mailto:matin@bdcrops.com?subject=GazeAI%20Pilot">Request GazeAI Pilot →</a><a class="btn" style="background:rgba(255,255,255,.07);color:#b0ccc8;border:1px solid rgba(255,255,255,.1)" href="/products/vision-intelligence.html">Vision Platform Landing</a></div>
+</div></section>
+</body>
+</html>

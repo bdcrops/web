@@ -1,141 +1,174 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Products — BDCrops</title><link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/page.css"><style>.dropdown{display:none}.has-dropdown.dd-open>.dropdown{display:block!important}.has-dropdown.dd-open>.mega-dropdown{display:grid!important}</style></head><body data-page="products"><header class="header">
-    <div class="nav-container">
-        <a href="../index.html" class="logo-lockup">
-            <img src="../images/brand/logo-icon.svg" alt="BDCrops" class="logo-svg">
-            <div class="logo-text">
-                <span class="logo-brand">BDCrops<sup>™</sup></span>
-                <span class="logo-tagline">Satellite Intelligence for Agriculture</span>
-            </div>
-        </a>
-        <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-list"><span></span><span></span><span></span></button>
-        <nav id="site-menu" aria-label="Main navigation"><ul class="nav-links" id="nav-list">
-    <li><a href="../index.html" data-page="home">Home</a></li>
-    <li class="has-dropdown">
-        <a href="#" data-page="services" class="dd-trigger">Services <span class="caret">▾</span></a>
-        <ul class="dropdown mega-dropdown" style="width:760px;left:-160px;display:grid;grid-template-columns:repeat(3,1fr);gap:0;padding:1rem;max-height:80vh;overflow-y:auto;background:white;border:1px solid #e2e8f0;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.1);">
-            <li><a href="../pages/8band-report.html">🛰️ 8-Band Satellite Report</a></li>
-            <li><a href="../pages/aquacrop.html">🌾 AquaCrop Digital Twin</a></li>
-            <li><a href="../pages/billboard-analytics.html">📊 Billboard Analytics</a></li>
-            <li><a href="../serivces/advertise.html">📢 Advertise Intelligence</a></li>
-            <li><a href="../serivces/animation.html">🎬 Animation Studio</a></li>
-            <li><a href="../serivces/aquadata.html">🐟 AquaData</a></li>
-            <li><a href="../serivces/bigdata.html">📊 BigData Engine</a></li>
-            <li><a href="../serivces/classroom.html">🏫 Classroom AI</a></li>
-            <li><a href="../serivces/debate.html">🎙️ Debate AI</a></li>
-            <li><a href="../serivces/definition.html">📖 Definition Engine</a></li>
-            <li><a href="../serivces/dubbing.html">🎙️ Dubbing & Voice</a></li>
-            <li><a href="../serivces/fintech.html">💳 FinTech Insights</a></li>
-            <li><a href="../serivces/geodata.html">🛰️ GeoData Platform</a></li>
-            <li><a href="../serivces/leaddata.html">🎯 LeadData</a></li>
-            <li><a href="../serivces/newsdata.html">📰 NewsData</a></li>
-            <li><a href="../serivces/packaging.html">📦 Packaging Design</a></li>
-            <li><a href="../serivces/patientdata.html">🏥 PatientData</a></li>
-            <li><a href="../serivces/podcast.html">🎧 Podcast Studio</a></li>
-            <li><a href="../serivces/publisher.html">📚 Publisher Suite</a></li>
-            <li><a href="../serivces/scout.html">🔍 Scout</a></li>
-            <li><a href="../serivces/tenderdata.html">📑 TenderData</a></li>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>BDCrops Products — AI Technology Company — Vision Intelligence • GeoAI • AquaData • PatientData</title>
+<meta name="description" content="BDCrops Products: Vision Intelligence Platform — GazeAI DOOH Analytics, CCTV Surveillance, Drone Tactical, Highway Billboard Satellite, Traffic Control, YOLO Person Detection, GeoData 8-Band, AquaCrop, PatientData Engine, DubbingAI">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--teal:#12a090;--teal-d:#0c7a6d;--ink:#0e1f1c;--muted:#5e726e;--line:#dde9e6;--paper:#f7faf9;--bg:#ffffff;--gold:#e8a825}
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:Inter,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+.container{max-width:1320px;margin:0 auto;padding:0 24px}
+.header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.nav-container{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:10px}.logo-icon{width:36px;height:36px;background:var(--teal);border-radius:10px;display:grid;place-items:center;color:#fff;font-weight:900}
+.logo-brand{font-family:Space Grotesk,sans-serif;font-weight:700;font-size:16px}.logo-tagline{display:block;font-size:9px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.nav-links{display:flex;gap:20px;list-style:none;align-items:center}.nav-links a{font-size:13px;font-weight:600;color:var(--ink)}
+.has-dropdown{position:relative}.dropdown{display:none;position:absolute;top:100%;left:0;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 16px 40px rgba(0,0,0,.12);padding:10px;z-index:50;min-width:260px}
+.has-dropdown:hover .dropdown{display:grid}
+.mega-dropdown{grid-template-columns:repeat(3,1fr);width:760px;left:-160px}
+.btn{padding:10px 18px;border-radius:999px;font-size:12px;font-weight:800;display:inline-flex}.btn-teal{background:var(--teal);color:#fff}.btn-ghost{border:1px solid var(--line);color:var(--teal);background:#fff}
+.hero{padding:64px 0 36px;background:linear-gradient(160deg,#081812 0%,#0e2e28 60%,#0b2420 100%);color:#deecea}
+.hero h1{font-family:Space Grotesk,sans-serif;font-size:clamp(32px,4.5vw,56px);line-height:.92;letter-spacing:-.04em}.hero h1 span{color:var(--teal)}
+.hero p{color:#7a9a96;max-width:680px;margin-top:12px;font-size:14px}
+.badge{display:inline-flex;padding:6px 12px;border-radius:999px;background:rgba(18,160,144,.14);color:var(--teal);font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px}
+.section{padding:48px 0}.section-dark{background:#0a1a17;color:#b8d0cc}
+.grid{display:grid;gap:16px}.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:0 8px 24px rgba(14,31,28,.06);transition:transform .2s}.card:hover{transform:translateY(-2px)}
+.card-dark{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.08);color:#b8d0cc}
+.eyebrow{font-size:9px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:8px}
+h2{font-family:Space Grotesk,sans-serif;font-size:28px;letter-spacing:-.03em;font-weight:700;margin-bottom:8px}
+h3{font-size:14px;font-weight:800;margin-bottom:6px}
+.img-card{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#0a1a17}.img-card img{width:100%;display:block}.img-cap{padding:8px 10px;background:#fff;font-size:9px;font-weight:700;color:var(--muted);text-align:center}
+ul.clean{list-style:none;display:flex;flex-direction:column;gap:8px;margin-top:8px}ul.clean li{display:flex;gap:8px;font-size:12.5px} .dot{width:6px;height:6px;border-radius:50%;background:var(--teal);margin-top:6px;flex-shrink:0}
+.stat{padding:12px;border:1px solid var(--line);border-radius:12px;text-align:center;background:#fff}.stat b{font-family:Space Grotesk,sans-serif;font-size:20px;color:var(--teal);display:block}.stat span{font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700}
+@media(max-width:960px){.g2,.g3,.g4{grid-template-columns:1fr}.mega-dropdown{width:96vw;left:-20vw}}
+</style>
+</head>
+<body>
+<header class="header">
+  <div class="container nav-container">
+    <a href="/index.html" class="logo"><div class="logo-icon">BC</div><div><div class="logo-brand">BDCrops™</div><div class="logo-tagline">AI Technology Company — AI Software & Data Platforms</div></div></a>
+    <nav><ul class="nav-links" id="nav-list">
+      <li><a href="/index.html">Home</a></li>
+      <li class="has-dropdown"><a href="#">Services ▾</a>
+        <ul class="dropdown mega-dropdown">
+          <li><a href="/pages/8band-report.html">🛰️ 8-Band Satellite Report</a></li>
+          <li><a href="/pages/aquacrop.html">🌾 AquaCrop Digital Twin</a></li>
+          <li><a href="/pages/billboard-analytics.html">📊 Billboard Analytics</a></li>
+          <li><a href="/serivces/advertise.html">📢 Advertise Intelligence</a></li>
+          <li><a href="/serivces/animation.html">🎬 Animation Studio</a></li>
+          <li><a href="/serivces/aquadata.html">🐟 AquaData</a></li>
+          <li><a href="/serivces/bigdata.html">📊 BigData Engine</a></li>
+          <li><a href="/serivces/classroom.html">🏫 Classroom AI</a></li>
+          <li><a href="/serivces/debate.html">🎙️ Debate AI</a></li>
+          <li><a href="/serivces/definition.html">📖 Definition Engine</a></li>
+          <li><a href="/serivces/dubbing.html">🎙️ Dubbing & Voice</a></li>
+          <li><a href="/serivces/fintech.html">💳 FinTech Insights</a></li>
+          <li><a href="/serivces/geodata.html">🛰️ GeoData Platform</a></li>
+          <li><a href="/serivces/leaddata.html">🎯 LeadData</a></li>
+          <li><a href="/serivces/newsdata.html">📰 NewsData</a></li>
+          <li><a href="/serivces/packaging.html">📦 Packaging Design</a></li>
+          <li><a href="/serivces/patientdata.html">🏥 PatientData</a></li>
+          <li><a href="/serivces/publisher.html">📚 Publisher Suite</a></li>
         </ul>
-    </li>
-    <li class="has-dropdown">
-        <a href="../products/index.html" data-page="products" class="dd-trigger">Products <span class="caret">▾</span></a>
-        <ul class="dropdown" style="width:300px;background:white;border:1px solid #e2e8f0;border-radius:12px;box-shadow:0 10px 20px rgba(0,0,0,0.08);">
-            <li><a href="../products/dubbing-ai.html">🎙️ DubbingAI — Video Localization</a></li>
-            <li><a href="../careers/cf-ceo.html">👑 CF — Co-Founder CEO Platform</a></li>
-            <li><a href="../serivces/geodata.html">🛰️ GeoData — Satellite API</a></li>
-            <li><a href="../serivces/advertise.html">📢 Ad Intel — Billboard Analytics</a></li>
-            <li><a href="../serivces/bigdata.html">📊 BigData — Data Platform</a></li>
-            <li><a href="../serivces/aquadata.html">🐟 AquaData — Pond Monitoring</a></li>
-            <li><a href="../serivces/scout.html">🔍 Scout — Field App</a></li>
-            <li><a href="../products/index.html" style="border-top:1px solid #f1f5f9;margin-top:0.5rem;padding-top:0.5rem;font-weight:700;">🤖 All Products →</a></li>
+      </li>
+      <li class="has-dropdown"><a href="/products/index.html">Products ▾</a>
+        <ul class="dropdown" style="width:360px">
+          <li><a href="/products/dubbing-ai.html">🎙️ DubbingAI — Video Localization</a></li>
+          <li><a href="/products/Patientdata-Engine-Production-Dashboard.html">🏥 PatientData Engine — Production Dashboard</a></li>
+          <li><a href="/products/vision-intelligence.html">👁️ Vision Intelligence Platform — NEW</a></li>
+          <li><a href="/products/gazeai.html">📊 GazeAI — DOOH Attention Analytics</a></li>
+          <li><a href="/products/surveillance.html">📹 Surveillance — CCTV Analytics</a></li>
+          <li><a href="/products/drone-tactical.html">🚁 Drone Tactical — Edge-First</a></li>
+          <li><a href="/products/yolo-detection.html">🎯 YOLO Person Detection</a></li>
+          <li><a href="/products/index.html" style="border-top:1px solid #f1f5f9;margin-top:8px;padding-top:8px;font-weight:800">🤖 All Products →</a></li>
         </ul>
-    </li>
-    <li class="has-dropdown">
-        <a href="#" data-page="about" class="dd-trigger">About <span class="caret">▾</span></a>
-        <ul class="dropdown" style="width:280px;background:white;border:1px solid #e2e8f0;border-radius:12px;">
-            <li style="padding:0.4rem 1rem;font-size:0.7rem;font-weight:800;color:#94a3b8;letter-spacing:0.06em;">COMPANY</li>
-            <li><a href="../pages/about.html#story">Our Story</a></li>
-            <li><a href="../pages/about.html#what-we-do">What We Do</a></li>
-            <li><a href="../pages/about.html#platform">GeoData Platform</a></li>
-            <li><a href="../pages/about.html#team">Leadership</a></li>
-            <li style="border-top:1px solid #f1f5f9;margin:0.5rem 0;"></li>
-            <li style="padding:0.4rem 1rem;font-size:0.7rem;font-weight:800;color:#94a3b8;">USE CASES</li>
-            <li><a href="../pages/use-case-rice.html">🌾 Rice Monitoring</a></li>
-            <li><a href="../pages/use-case-jute.html">🌿 Jute Crop Health</a></li>
-            <li><a href="../pages/use-case-vegetable.html">🥬 Vegetable Yield</a></li>
-            <li><a href="../pages/use-case-flood.html">🌊 Flood/Drought Mapping</a></li>
-            <li style="border-top:1px solid #f1f5f9;margin:0.5rem 0;"></li>
-            <li><a href="../index.html#demos">🎬 Live Demos</a></li>
-        </ul>
-    </li>
-    <li><a href="../careers/index.html" data-page="careers" style="font-weight:700;">Careers</a></li>
-</ul>
-</nav>
-        <div class="nav-cta">
-            <a href="../index.html#pilot" class="btn-primary">Contact Sales</a>
-        </div>
-    </div>
+      </li>
+      <li><a href="/careers/index.html" style="font-weight:800">Careers</a></li>
+    </ul></nav>
+    <a href="/index.html#pilot" class="btn btn-teal">Contact Sales</a>
+  </div>
 </header>
-<main><section style="padding:7rem 2rem 3rem;background:linear-gradient(135deg,#ecfdf5,#d1fae5);"><div style="max-width:1100px;margin:0 auto;"><h1 style="font-size:2.8rem;">All Products</h1><p style="color:#334155;max-width:700px;">BDCrops product suite — expanded as you asked: CF, GeoData, Ad Intel, BigData, Aqua, Scout, Tender + DubbingAI.</p></div></section><section style="max-width:1100px;margin:0 auto;padding:3rem 2rem;"><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.2rem;"><div style="background:white;border:1px solid #e2e8f0;border-radius:14px;padding:1.5rem;"><div style="font-size:2rem;">🎙️</div><h3 style="margin:0.6rem 0;">DubbingAI</h3><p style="color:#64748b;font-size:0.9rem;">Autonomous AI video dubbing & digital lesson reconstruction. 30+ languages, voice cloning, lip-sync.</p><p style="color:#475569;font-size:0.85rem;">Video localization that saves 85% cost.</p><a href="dubbing-ai.html" style="color:#16a34a;font-weight:700;text-decoration:none;">View →</a></div><div style="background:white;border:1px solid #e2e8f0;border-radius:14px;padding:1.5rem;"><div style="font-size:2rem;">👑</div><h3 style="margin:0.6rem 0;">Co-Founder Platform (CF)</h3><p style="color:#64748b;font-size:0.9rem;">Co-Founder & CEO hiring + equity management. 50% owner model, $2k loan, revenue share.</p><p style="color:#475569;font-size:0.85rem;">Build your founding team.</p><a href="cf-platform.html" style="color:#16a34a;font-weight:700;text-decoration:none;">View →</a></div><div style="background:white;border:1px solid #e2e8f0;border-radius:14px;padding:1.5rem;"><div style="font-size:2rem;">🛰️</div><h3 style="margin:0.6rem 0;">GeoData Platform</h3><p style="color:#64748b;font-size:0.9rem;">Satellite API: 10m Sentinel-2, NDVI/NDWI/NDBI, GeoTIFF & tiles for Bangladesh.</p><p style="color:#475569;font-size:0.85rem;">The Google Maps for agri with crop health.</p><a href="geodata-platform.html" style="color:#16a34a;font-weight:700;text-decoration:none;">View →</a></div><div style="background:white;border:1px solid #e2e8f0;border-radius:14px;padding:1.5rem;"><div style="font-size:2rem;">📢</div><h3 style="margin:0.6rem 0;">Advertise Intelligence</h3><p style="color:#64748b;font-size:0.9rem;">Billboard impression analytics with satellite + mobile data. Real ROI, not guesswork.</p><p style="color:#475569;font-size:0.85rem;">Turn billboards into measurable ROI.</p><a href="advertise-intel.html" style="color:#16a34a;font-weight:700;text-decoration:none;">View →</a></div><div style="background:white;border:1px solid #e2e8f0;border-radius:14px;padding:1.5rem;"><div style="font-size:2rem;">📊</div><h3 style="margin:0.6rem 0;">BigData Engine</h3><p style="color:#64748b;font-size:0.9rem;">Petabyte-scale satellite ETL on Planetary Computer. PostGIS + BigQuery warehouse.</p><p style="color:#475569;font-size:0.85rem;">Process 10TB in minutes.</p><a href="bigdata-engine.html" style="color:#16a34a;font-weight:700;text-decoration:none;">View →</a></div><div style="background:white;border:1px solid #e2e8f0;border-radius:14px;padding:1.5rem;"><div style="font-size:2rem;">🐟</div><h3 style="margin:0.6rem 0;">AquaData</h3><p style="color:#64748b;font-size:0.9rem;">Pond turbidity, chlorophyll, temp monitoring for shrimp/fish farms.</p><p style="color:#475569;font-size:0.85rem;">Know pond quality without lab tests.</p><a href="aquadata.html" style="color:#16a34a;font-weight:700;text-decoration:none;">View →</a></div><div style="background:white;border:1px solid #e2e8f0;border-radius:14px;padding:1.5rem;"><div style="font-size:2rem;">🔍</div><h3 style="margin:0.6rem 0;">Scout App</h3><p style="color:#64748b;font-size:0.9rem;">Offline ground truth collection with GPS geotag + satellite overlay.</p><p style="color:#475569;font-size:0.85rem;">Ground truth without 10 calls.</p><a href="scout-app.html" style="color:#16a34a;font-weight:700;text-decoration:none;">View →</a></div><div style="background:white;border:1px solid #e2e8f0;border-radius:14px;padding:1.5rem;"><div style="font-size:2rem;">📑</div><h3 style="margin:0.6rem 0;">TenderData</h3><p style="color:#64748b;font-size:0.9rem;">e-GP + NGO tender scraping, BOQ extraction, corrigendum alerts.</p><p style="color:#475569;font-size:0.85rem;">Never miss a tender.</p><a href="tenderdata.html" style="color:#16a34a;font-weight:700;text-decoration:none;">View →</a></div></div></section></main><footer class="footer">
-    <div class="footer-container">
 
-        <div class="footer-section footer-brand-col">
-            <h4>BDCrops Technologies</h4>
-            <p>AI + Satellite intelligence for Bangladesh agriculture, climate resilience, and outdoor media analytics.</p>
-
-            <div class="footer-brands">
-                <div class="footer-brands-title">Operating Brands</div>
-                <div class="footer-brand-item">🌾 <strong>BDCrops</strong> — Satellite &amp; AgriAI</div>
-                <div class="footer-brand-item">🤖 <a href="https://www.youtube.com/@PlayOwnAi" target="_blank" rel="noopener"><strong>PlayOwnAI</strong></a> — AI Innovation Platform</div>
-            </div>
-
-            <div class="footer-contact">
-                <div><strong>Email:</strong> <a href="mailto:matin@bdcrops.com">matin@bdcrops.com</a></div>
-                <div><strong>WhatsApp:</strong> <a href="https://wa.me/8801717676441">+880 1717 676441</a></div>
-            </div>
-        </div>
-
-        <div class="footer-section">
-            <h4>Services</h4>
-            <a href="../pages/8band-report.html">8-Band Report</a>
-            <a href="../pages/aquacrop.html">AquaCrop Digital Twin</a>
-            <a href="../pages/billboard-analytics.html">Billboard Analytics</a>
-            <a href="../index.html#demos">Live Demos</a>
-            <a href="../index.html#pilot">Free Pilot</a>
-        </div>
-
-        <div class="footer-section">
-            <h4>Use Cases</h4>
-            <a href="../pages/use-case-rice.html">Rice Monitoring</a>
-            <a href="../pages/use-case-jute.html">Jute Crop Health</a>
-            <a href="../pages/use-case-vegetable.html">Vegetable Yield</a>
-            <a href="../pages/use-case-flood.html">Flood/Drought Mapping</a>
-        </div>
-
-        <div class="footer-section">
-            <h4>About</h4>
-            <a href="../pages/about.html#story">Our Story</a>
-            <a href="../pages/about.html#platform">GeoData Platform</a>
-            <a href="../pages/about.html#partnerships">Partnerships</a>
-            <a href="../pages/about.html#team">Leadership</a>
-            <a href="../pages/about.html#partner">Partner With Us</a>
-        </div>
-
-        <div class="footer-section">
-            <h4>Connect</h4>
-            <a href="https://www.linkedin.com/company/bdcrops" target="_blank" rel="noopener">💼 LinkedIn</a>
-            <a href="https://www.facebook.com/bdcrops" target="_blank" rel="noopener">📘 Facebook</a>
-            <a href="https://x.com/matinict" target="_blank" rel="noopener">✖ X (Twitter)</a>
-            <a href="https://www.youtube.com/@bdcrops" target="_blank" rel="noopener">▶ YouTube — BDCrops</a>
-            <a href="https://www.youtube.com/@PlayOwnAi" target="_blank" rel="noopener">▶ YouTube — PlayOwnAI</a>
-            <a href="https://github.com/bdcrops" target="_blank" rel="noopener">💻 GitHub</a>
-            <a href="https://wa.me/8801717676441" target="_blank" rel="noopener">💬 WhatsApp</a>
-        </div>
-
+<section class="hero">
+  <div class="container">
+    <div class="badge">PRODUCTS • CF2.CORE.VISION • YOLO • GAZE • CCTV • DRONE • B2B SAAS</div>
+    <h1>BDCrops Products<br><span>Vision Intelligence</span> + GeoAI + AquaData</h1>
+    <p>One reusable, audit-compliant computer-vision platform powering five products: DOOH attention analytics, authorized CCTV surveillance, drone tactical edge intelligence, highway billboard satellite mapping, and traffic control. Core owns generic CV, Units own domain decisions — per cf2.core.vision architecture.</p>
+    <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap">
+      <a class="btn btn-teal" href="#vision">Explore Vision Platform</a>
+      <a class="btn" style="background:rgba(255,255,255,.08);color:#b0ccc8;border:1px solid rgba(255,255,255,.12)" href="https://bdcrops.com/products/img/YOLO_personDetctecion.jpg" target="_blank">YOLO Detection JPG</a>
+      <a class="btn" style="background:rgba(255,255,255,.08);color:#b0ccc8;border:1px solid rgba(255,255,255,.12)" href="https://bdcrops.com/products/img/gazeai_cf2_architecture_blueprint.jpg" target="_blank">Architecture Blueprint JPG</a>
     </div>
-    <div class="footer-bottom">
-        <p>Powered by Sentinel-2 · WorldView-3 · Microsoft Planetary Computer · Open Source</p>
-        <p>&copy; <span id="year"></span> BDCrops Technologies — Built for Bangladesh 🇧🇩</p>
-    </div>
-</footer>
+  </div>
+</section>
 
-<script>let ct=null;function closeAll(){document.querySelectorAll('#nav-list .has-dropdown.dd-open').forEach(e=>e.classList.remove('dd-open'));}document.querySelectorAll('#nav-list .has-dropdown').forEach(i=>{i.addEventListener('mouseenter',()=>{clearTimeout(ct);closeAll();i.classList.add('dd-open');});i.addEventListener('mouseleave',()=>{ct=setTimeout(closeAll,200);});i.querySelector('.dd-trigger')?.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();const w=i.classList.contains('dd-open');closeAll();if(!w)i.classList.add('dd-open');});});document.addEventListener('click',e=>{if(!e.target.closest('#nav-list'))closeAll();});document.getElementById('year')&&(document.getElementById('year').textContent=new Date().getFullYear());</script></body></html>
+<section class="section" id="vision">
+  <div class="container">
+    <div class="eyebrow">NEW • VISION INTELLIGENCE PLATFORM</div>
+    <div class="grid g2">
+      <div class="img-card"><img src="/products/img/YOLO_personDetctecion.jpg" onerror="this.src='https://bdcrops.com/products/img/YOLO_personDetctecion.jpg'"><div class="img-cap">/products/img/YOLO_personDetctecion.jpg — YOLOv8s person detection [x1,y1,x2,y2] 83 detections @10FPS 6s — replaces baseline bbox:null</div></div>
+      <div class="img-card"><img src="/products/img/gazeai_cf2_architecture_blueprint.jpg" onerror="this.src='https://bdcrops.com/products/img/gazeai_cf2_architecture_blueprint.jpg'"><div class="img-cap">/products/img/gazeai_cf2_architecture_blueprint.jpg — cf2.core.vision layered platform: contracts → ingestion → detectors registry → tracking → governance → events</div></div>
+    </div>
+
+    <h2 style="margin-top:24px">One Core, Five Products — Contract-First Design</h2>
+    <div class="grid g3" style="margin-top:12px">
+      <div class="card"><h3>📊 GazeAI — DOOH & Visual Attention Audit</h3><p style="font-size:12px;color:var(--muted)">Video file → YOLO person → ByteTrack 10FPS best → OSNet Re-ID 512-d → anonymous_person_id → billboard ROI → dwell → Verified Impression → aggregate analytics + client report. No cross-unit imports.</p><ul class="clean"><li><span class="dot"></span>Reach 2,847 deduplicated, Impressions 1,921, Dwell 4.2s, Attention Rate 67.5%</li><li><span class="dot"></span>Gender 58% Male / 42% Female, Age buckets 18-24/25-34/35-44/45-54/60+, best_frame per ID, HITL &lt;85%</li><li><span class="dot"></span>Pricing: Starter $50/campaign, Growth $399/mo 20hrs, Enterprise $1500-5000/mo + White-label $10k/yr</li></ul><div style="margin-top:10px"><a class="btn btn-ghost" href="/products/gazeai.html">View GazeAI →</a></div></div>
+      <div class="card"><h3>📹 Surveillance — Authorized CCTV Analytics</h3><p style="font-size:12px;color:var(--muted)">RTSP live → runtime.daemon long-lived loop → tracking + behavior + governance high tier + events. Observational language, never auto-assigning criminal intent per SESSIOnHANDOFF.md.</p><ul class="clean"><li><span class="dot"></span>Zones/perimeters, line crossing, loitering observations, crowd/activity rules, rapid movement, unattended object, camera obstruction, feed loss</li><li><span class="dot"></span>Incident correlation, evidence references, privacy-safe reporting, audit_log chain-of-custody</li><li><span class="dot"></span>B2C Intent: "People Looking for AI CCTV and Video Surveillance Analytics" per topicsLd.md</li></ul><div style="margin-top:10px"><a class="btn btn-ghost" href="/products/surveillance.html">View Surveillance →</a></div></div>
+      <div class="card"><h3>🚁 Drone Tactical — Edge-First CTG Hill Tracts</h3><p style="font-size:12px;color:var(--muted)">Drone RTSP + telemetry + thermal + behavior + geospatial.drone_telemetry + governance highest + terrain_analyzer + decision_engine — unit-owned domain logic.</p><ul class="clean"><li><span class="dot"></span>Offline/edge inference + delayed sync for hill terrain unreliable link — runtime/edge_sync.py</li><li><span class="dot"></span>Thermal hotspot IR detection, canopy/coordinate mapping, GPS/gimbal → geo-referenced detections</li><li><span class="dot"></span>B2C Intent: "People Looking for Drone Image and Video Analytics Services"</li></ul><div style="margin-top:10px"><a class="btn btn-ghost" href="/products/drone-tactical.html">View Drone Tactical →</a></div></div>
+      <div class="card"><h3>🛰️ Highway Billboard — Satellite GeoAI</h3><p style="font-size:12px;color:var(--muted)">Satellite tile ingestion (GeoTIFF) + vehicle detection + GSD/tile → lat-lon mapping via satellite_calibration.py — periodic daily/weekly OOH sales analytics.</p><ul class="clean"><li><span class="dot"></span>Low governance tier, batch executor.run_unit() — kick off → process → artifacts → exit</li><li><span class="dot"></span>Shares geospatial core with Drone Tactical, different calibration source</li></ul></div>
+      <div class="card"><h3>🚦 Traffic Control — Vehicle Intelligence</h3><p style="font-size:12px;color:var(--muted)">Traffic cam RTSP → vehicle detector + tracking speed/counting + events signal-controller API — real-time sub-sec, medium governance tier.</p><ul class="clean"><li><span class="dot"></span>Flow rate, vehicle counting, speed estimation via tracking.py centroid/IOU/Kalman</li><li><span class="dot"></span>Same core motion/behavior as Surveillance, reuses runtime daemon</li></ul></div>
+      <div class="card" style="background:linear-gradient(135deg,#e8f7f5,rgba(18,160,144,.08));border-color:rgba(18,160,144,.22)"><h3>🎯 YOLO Person Detection — Core Primitive</h3><p style="font-size:12px;color:var(--muted)">Pluggable model registry: get_detector("person", version="best") — Haar/HOG demo → YOLOv8/RT-DETR production without touching Units. Confidence calibrated.</p><div class="grid g2" style="margin-top:8px"><div class="stat"><b>83</b><span>Detections 10FPS</span></div><div class="stat"><b>5.90s</b><span>Longest Track</span></div></div><p style="font-size:10px;margin-top:8px;color:var(--muted)">ByteTrack: 5FPS=6 tracklets 1.60s, 10FPS=2 tracklets 5.90s best, 15FPS=3 tracklets 4.40s — per SESSIOnHANDOFF.md footage-calibrated.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark">
+  <div class="container">
+    <div class="eyebrow">CF2.CORE.VISION ARCHITECTURE — FINAL</div>
+    <h2 style="color:#e0edeb">Contracts → Ingestion → Detectors Registry → Tracking → Governance → Events</h2>
+    <pre style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px;font-size:11px;overflow:auto;color:#b8d0cc;margin-top:12px">src/cf2/core/vision/
+├── contracts/ frame.py Detection BoundingBox TrackedObject VisionAlert
+├── ingestion/ file_source.py rtsp_source.py satellite_source.py
+├── detectors/ registry.py face.py pedestrian.py vehicle.py
+├── tracking/ tracker.py dwell loitering unique count speed
+├── biometrics.py silhouette demographics + facial embeddings estimated labeled
+├── behavior.py optical flow aggression crowd density
+├── thermal.py IR hotspot detection
+├── geospatial/ camera_calibration.py drone_telemetry.py satellite_calibration.py
+├── runtime/ daemon.py edge_sync.py health.py — streaming vs batch executor.run_unit()
+├── governance/ privacy_tiers.py PUBLIC/PRIVATE/GOV_RESTRICTED redaction.py audit_log.py
+└── events/ dispatcher.py adapters webhook MQTT dashboard SMS/radio</pre>
+    <div class="grid g2" style="margin-top:16px">
+      <div class="card card-dark"><h3>Two Runtimes — Critical Distinction</h3><p style="font-size:12px">Batch (existing executor.run_unit): GazeData, HighwayBillboard — kick off → artifacts → exit. Streaming (vision/runtime/daemon.py): Surveillance, Drone, TrafficControl — long-lived per-feed loop → reconnect on drop → emits events continuously. edge_sync.py for CTG hill terrain offline queue + sync.</p></div>
+      <div class="card card-dark"><h3>Governance Mandatory</h3><p style="font-size:12px">Same core powers DOOH billboard and defense feeds — privacy tier determines biometrics output, redaction auto-blurs faces unless authorized, audit log chain-of-custody, confidence labeling estimated end-to-end — legally mandatory before live CCTV goes into production per Plan1.md Phase 3.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="eyebrow">ALL PRODUCTS — EXISTING + NEW VISION</div>
+    <h2>BDCrops Product Portfolio</h2>
+    <div class="grid g4" style="margin-top:12px">
+      <div class="card"><h3>🛰️ 8-Band Satellite Report</h3><p style="font-size:11px;color:var(--muted)">GeoSat + AquaCrop Digital Twin + AquaData — 3 live demos DoF dashboard + KH01 114km² printable pro</p></div>
+      <div class="card"><h3>🌾 AquaCrop Digital Twin</h3><p style="font-size:11px;color:var(--muted)">See the field. Simulate the future. Act before the loss. One stack — many markets.</p></div>
+      <div class="card"><h3>📊 Billboard Analytics</h3><p style="font-size:11px;color:var(--muted)">DOOH attention analytics now upgraded to GazeAI CF2 Unit with verified impressions</p></div>
+      <div class="card"><h3>🏥 PatientData Engine</h3><p style="font-size:11px;color:var(--muted)">Production Dashboard — Production grade, same module-based evolution as GazeAI</p></div>
+      <div class="card"><h3>🎙️ DubbingAI</h3><p style="font-size:11px;color:var(--muted)">Video localization — dubbing & voice</p></div>
+      <div class="card"><h3>🛰️ GeoData Platform</h3><p style="font-size:11px;color:var(--muted)">Satellite API — GeoData + AquaData + same architecture</p></div>
+      <div class="card"><h3>🎯 LeadData</h3><p style="font-size:11px;color:var(--muted)">B2C / INTENT: People Looking for Computer Vision Services → intent → social OSINT → outreach per topicsLd.md</p></div>
+      <div class="card"><h3>📦 BigData Engine</h3><p style="font-size:11px;color:var(--muted)">Unified data platform for all units</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:#f7faf9;border-top:1px solid var(--line)">
+  <div class="container" style="text-align:center">
+    <div class="eyebrow">CLIENT PROMOTION MAIL — READY TO SEND</div>
+    <h2>Vision Intelligence Platform — Pilot Ready for Agencies • DOOH • Retail • CCTV • Drone</h2>
+    <p style="max-width:720px;margin:10px auto;color:var(--muted);font-size:13px">Working YOLO person detection (83 detections @10FPS), real OSNet 512-d embeddings verified SHA fb876414..., ByteTrack calibrated 10 FPS best, and audit-compliant Core Vision contracts. GazeData already produces verified impressions + demographics + heatmaps + improved PDF report. Surveillance and Drone Tactical reuse same core with governance hardening — rollout Phase 1 contracts/ingestion/detectors → Phase 2 runtime/tracking/events → Phase 3 governance → Phase 4 geospatial/thermal/edge_sync.</p>
+    <div style="margin-top:18px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+      <a class="btn btn-teal" href="mailto:matin@bdcrops.com?subject=Vision%20Platform%20Pilot%20—%20GazeAI%20CCTV%20Drone&body=Hi%20Abdul%20Matin,%0A%0AInterested%20in%20pilot%20for%3A%0A-%20GazeAI%20DOOH%20Attention%20Analytics%0A-%20CCTV%20Surveillance%20Authorized%20Analytics%0A-%20Drone%20Tactical%20Edge-First%0A%0ABudget%20and%20timeline%20discussion%20please.%0A">📧 Request Pilot — matin@bdcrops.com</a>
+      <a class="btn btn-ghost" href="/products/vision-intelligence.html">👁️ Vision Platform Detail →</a>
+      <a class="btn btn-ghost" href="https://bdcrops.com/nextunicorn/">📄 24-Slide Pitch Deck</a>
+    </div>
+    <p style="margin-top:16px;color:#94a3b8;font-size:11px">Abdul Matin • Founder & CEO • BDCrops Technologies • Dhaka, Bangladesh • +880 1717 676441 • matin@bdcrops.com • bdcrops.com/products/ • bdcrops.com/nextunicorn/ • Images: /products/img/YOLO_personDetctecion.jpg , /products/img/gazeai_cf2_architecture_blueprint.jpg — Clear left/right arrows fixed per nextunicorn UI</p>
+  </div>
+</section>
+
+</body>
+</html>
