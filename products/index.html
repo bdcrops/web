@@ -1,4 +1,25 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Products — BDCrops</title><link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/page.css"><style>.dropdown{display:none}.has-dropdown.dd-open>.dropdown{display:block!important}.has-dropdown.dd-open>.mega-dropdown{display:grid!important}</style></head><body data-page="products"><header class="header">
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Products — BDCrops</title><link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/page.css"><style>
+.dropdown{display:none;position:absolute;top:100%;left:0;background:white;border:1px solid #e2e8f0;border-radius:12px;box-shadow:0 10px 20px rgba(0,0,0,0.08);z-index:999;}
+.mega-dropdown{width:760px;left:-160px;display:none;grid-template-columns:repeat(3,1fr);gap:0;padding:1rem;max-height:80vh;overflow-y:auto;}
+.has-dropdown.dd-open>.dropdown{display:block!important}
+.has-dropdown.dd-open>.mega-dropdown{display:grid!important}
+.has-dropdown{position:relative;}
+.hero-products{background:linear-gradient(135deg,#f0fdf4 0%,#eff6ff 100%);padding:4rem 2rem;text-align:center;border-bottom:1px solid #e2e8f0;}
+.hero-products h1{font-size:2.8rem;margin:0 0 0.8rem;color:#0f172a;}
+.hero-products p{font-size:1.15rem;color:#475569;max-width:720px;margin:0 auto;line-height:1.6;}
+.product-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5rem;padding:2.5rem 2rem;max-width:1300px;margin:0 auto;}
+.product-card{background:white;border:1px solid #e2e8f0;border-radius:16px;padding:1.6rem;transition:all 0.2s;position:relative;overflow:hidden;}
+.product-card:hover{border-color:#16a34a;box-shadow:0 12px 28px rgba(0,0,0,0.08);transform:translateY(-3px);}
+.product-card h3{margin:0 0 0.6rem;font-size:1.15rem;display:flex;align-items:center;gap:0.5rem;}
+.product-card h3 span{color:#16a34a;font-weight:800;}
+.product-card .unit-code{font-size:0.7rem;background:#f1f5f9;color:#64748b;padding:0.2rem 0.5rem;border-radius:6px;font-family:monospace;}
+.product-card p{font-size:0.92rem;color:#334155;line-height:1.6;margin:0 0 0.6rem;}
+.product-card .biz-app{font-size:0.82rem;color:#475569;background:#f8fafc;border-left:3px solid #16a34a;padding:0.5rem 0.8rem;border-radius:0 6px 6px 0;margin-top:0.8rem;}
+.product-card .biz-app strong{color:#0f172a;}
+.product-card a.learn{font-size:0.85rem;color:#16a34a;font-weight:700;text-decoration:none;margin-top:0.8rem;display:inline-block;}
+</style></head><body data-page="products">
+
+<header class="header">
     <div class="nav-container">
         <a href="../index.html" class="logo-lockup">
             <img src="../images/brand/logo-icon.svg" alt="BDCrops" class="logo-svg">
@@ -8,133 +29,144 @@
             </div>
         </a>
         <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-list"><span></span><span></span><span></span></button>
-        <nav id="site-menu" aria-label="Main navigation"><ul class="nav-links" id="nav-list">
-    <li><a href="../index.html" data-page="home">Home</a></li>
-    <li class="has-dropdown">
-        <a href="#" data-page="services" class="dd-trigger">Services <span class="caret">▾</span></a>
-        <ul class="dropdown mega-dropdown" style="width:760px;left:-160px;display:grid;grid-template-columns:repeat(3,1fr);gap:0;padding:1rem;max-height:80vh;overflow-y:auto;background:white;border:1px solid #e2e8f0;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.1);">
-            <li><a href="../pages/8band-report.html">🛰️ 8-Band Satellite Report</a></li>
-            <li><a href="../pages/aquacrop.html">🌾 AquaCrop Digital Twin</a></li>
-            <li><a href="../pages/billboard-analytics.html">📊 Billboard Analytics</a></li>
-            <li><a href="../serivces/advertise.html">📢 Advertise Intelligence</a></li>
-            <li><a href="../serivces/animation.html">🎬 Animation Studio</a></li>
-            <li><a href="../serivces/aquadata.html">🐟 AquaData</a></li>
-            <li><a href="../serivces/bigdata.html">📊 BigData Engine</a></li>
-            <li><a href="../serivces/classroom.html">🏫 Classroom AI</a></li>
-            <li><a href="../serivces/debate.html">🎙️ Debate AI</a></li>
-            <li><a href="../serivces/definition.html">📖 Definition Engine</a></li>
-            <li><a href="../serivces/dubbing.html">🎙️ Dubbing & Voice</a></li>
-            <li><a href="../serivces/fintech.html">💳 FinTech Insights</a></li>
-            <li><a href="../serivces/geodata.html">🛰️ GeoData Platform</a></li>
-            <li><a href="../serivces/leaddata.html">🎯 LeadData</a></li>
-            <li><a href="../serivces/newsdata.html">📰 NewsData</a></li>
-            <li><a href="../serivces/packaging.html">📦 Packaging Design</a></li>
-            <li><a href="../serivces/patientdata.html">🏥 PatientData</a></li>
-            <li><a href="../serivces/podcast.html">🎧 Podcast Studio</a></li>
-            <li><a href="../serivces/publisher.html">📚 Publisher Suite</a></li>
-            <li><a href="../serivces/scout.html">🔍 Scout</a></li>
-            <li><a href="../serivces/tenderdata.html">📑 TenderData</a></li>
-        </ul>
-    </li>
-    <li class="has-dropdown">
-        <a href="../products/index.html" data-page="products" class="dd-trigger">Products <span class="caret">▾</span></a>
-        <ul class="dropdown" style="width:300px;background:white;border:1px solid #e2e8f0;border-radius:12px;box-shadow:0 10px 20px rgba(0,0,0,0.08);">
-            <li><a href="../products/dubbing-ai.html">🎙️ DubbingAI — Video Localization</a></li> 
-            <li><a href="../serivces/geodata.html">🛰️ GeoData — Satellite API</a></li>
-            <li><a href="../serivces/advertise.html">📢 Ad Intel — Billboard Analytics</a></li>
-            <li><a href="../serivces/bigdata.html">📊 BigData — Data Platform</a></li>
-            <li><a href="../serivces/aquadata.html">🐟 AquaData — Pond Monitoring</a></li>
-            <li><a href="../serivces/scout.html">🔍 Scout — Field App</a></li>
-            <li><a href="../products/index.html" style="border-top:1px solid #f1f5f9;margin-top:0.5rem;padding-top:0.5rem;font-weight:700;">🤖 All Products →</a></li>
-        </ul>
-    </li>
-    <li class="has-dropdown">
-        <a href="#" data-page="about" class="dd-trigger">About <span class="caret">▾</span></a>
-        <ul class="dropdown" style="width:280px;background:white;border:1px solid #e2e8f0;border-radius:12px;">
-            <li style="padding:0.4rem 1rem;font-size:0.7rem;font-weight:800;color:#94a3b8;letter-spacing:0.06em;">COMPANY</li>
-            <li><a href="../pages/about.html#story">Our Story</a></li>
-            <li><a href="../pages/about.html#what-we-do">What We Do</a></li>
-            <li><a href="../pages/about.html#platform">GeoData Platform</a></li>
-            <li><a href="../pages/about.html#team">Leadership</a></li>
-            <li style="border-top:1px solid #f1f5f9;margin:0.5rem 0;"></li>
-            <li style="padding:0.4rem 1rem;font-size:0.7rem;font-weight:800;color:#94a3b8;">USE CASES</li>
-            <li><a href="../pages/use-case-rice.html">🌾 Rice Monitoring</a></li>
-            <li><a href="../pages/use-case-jute.html">🌿 Jute Crop Health</a></li>
-            <li><a href="../pages/use-case-vegetable.html">🥬 Vegetable Yield</a></li>
-            <li><a href="../pages/use-case-flood.html">🌊 Flood/Drought Mapping</a></li>
-            <li style="border-top:1px solid #f1f5f9;margin:0.5rem 0;"></li>
-            <li><a href="../index.html#demos">🎬 Live Demos</a></li>
-        </ul>
-    </li>
-    <li><a href="../careers/index.html" data-page="careers" style="font-weight:700;">Careers</a></li>
-</ul>
-</nav>
-        <div class="nav-cta">
-            <a href="../index.html#pilot" class="btn-primary">Contact Sales</a>
-        </div>
+        <nav id="site-menu" aria-label="Main navigation">
+            <ul class="nav-links" id="nav-list">
+                <li><a href="../index.html" data-page="home">Home</a></li>
+                <li class="has-dropdown">
+                    <a href="#" data-page="services" class="dd-trigger">Services <span class="caret">▾</span></a>
+                    <ul class="dropdown mega-dropdown">
+                        <li><a href="../pages/8band-report.html">🛰️ 8-Band Satellite Report</a></li>
+                        <li><a href="../pages/aquacrop.html">🌾 AquaCrop Digital Twin</a></li>
+                        <li><a href="../pages/billboard-analytics.html">📊 Billboard Analytics</a></li>
+                        <li><a href="../serivces/advertise.html">📢 AdvertiseAi</a></li>
+                        <li><a href="../serivces/animation.html">🎬 AnimationAi</a></li>
+                        <li><a href="../serivces/aquadata.html">🐟 AquaDataAi</a></li>
+                        <li><a href="../serivces/bigdata.html">📊 DataAi</a></li>
+                        <li><a href="../serivces/classroom.html">🏫 ClassroomAi</a></li>
+                        <li><a href="../serivces/debate.html">🎙️ DebateAi</a></li>
+                        <li><a href="../serivces/definition.html">📖 DefinitionAi</a></li>
+                        <li><a href="../serivces/dubbing.html">🎙️ DubbingAi</a></li>
+                        <li><a href="../serivces/fintech.html">💳 FinTechAi</a></li>
+                        <li><a href="../serivces/geodata.html">🛰️ GeoDataAi</a></li>
+                        <li><a href="../serivces/leaddata.html">🎯 LeadDataAi</a></li>
+                        <li><a href="../serivces/newsdata.html">📰 NewsDataAi</a></li>
+                        <li><a href="../serivces/packaging.html">📦 PackagingAi</a></li>
+                        <li><a href="../serivces/patientdata.html">🏥 PatientDataAi</a></li>
+                        <li><a href="../serivces/podcast.html">🎧 PodcastAi</a></li>
+                        <li><a href="../serivces/publisher.html">📚 PublisherAi</a></li>
+                        <li><a href="../serivces/scout.html">🔍 ScoutAi</a></li>
+                        <li><a href="../serivces/tenderdata.html">📑 TenderDataAi</a></li>
+                    </ul>
+                </li>
+                <li class="has-dropdown">
+                    <a href="../products/index.html" data-page="products" class="dd-trigger">Products <span class="caret">▾</span></a>
+                    <ul class="dropdown" style="width:340px;padding:0.5rem 0;">
+                        <li><a href="../products/dubbing-ai.html">🎙️ DubbingAi — Video Localization</a></li>
+                        <li><a href="../serivces/geodata.html">🛰️ GeoDataAi — Satellite API</a></li>
+                        <li><a href="../serivces/advertise.html">📢 AdvertiseAi — Billboard Analytics</a></li>
+                        <li><a href="../serivces/bigdata.html">📊 DataAi — Data Platform</a></li>
+                        <li><a href="../serivces/aquadata.html">🐟 AquaDataAi — Pond Monitoring</a></li>
+                        <li><a href="../serivces/patientdata.html">🏥 PatientDataAi — Medical</a></li>
+                        <li><a href="../serivces/leaddata.html">🎯 LeadDataAi — Lead Intelligence</a></li>
+                        <li><a href="../serivces/tenderdata.html">📑 TenderDataAi — Procurement</a></li>
+                        <li><a href="../serivces/scout.html">🔍 ScoutAi — Field App</a></li>
+                        <li><a href="../products/index.html" style="border-top:1px solid #f1f5f9;margin-top:0.5rem;padding-top:0.5rem;font-weight:700;">All Products →</a></li>
+                    </ul>
+                </li>
+                <li class="has-dropdown">
+                    <a href="#" data-page="about" class="dd-trigger">About <span class="caret">▾</span></a>
+                    <ul class="dropdown" style="width:280px;">
+                        <li style="padding:0.4rem 1rem;font-size:0.7rem;font-weight:800;color:#94a3b8;letter-spacing:0.06em;">COMPANY</li>
+                        <li><a href="../pages/about.html#story">Our Story</a></li>
+                        <li><a href="../pages/about.html#what-we-do">What We Do</a></li>
+                        <li><a href="../pages/about.html#platform">GeoData Platform</a></li>
+                        <li><a href="../pages/about.html#team">Leadership</a></li>
+                        <li style="border-top:1px solid #f1f5f9;margin:0.5rem 0;"></li>
+                        <li style="padding:0.4rem 1rem;font-size:0.7rem;font-weight:800;color:#94a3b8;">USE CASES</li>
+                        <li><a href="../pages/use-case-rice.html">🌾 Rice Monitoring</a></li>
+                        <li><a href="../pages/use-case-jute.html">🌿 Jute Crop Health</a></li>
+                        <li><a href="../pages/use-case-vegetable.html">🥬 Vegetable Yield</a></li>
+                        <li><a href="../pages/use-case-flood.html">🌊 Flood/Drought Mapping</a></li>
+                        <li style="border-top:1px solid #f1f5f9;margin:0.5rem 0;"></li>
+                        <li><a href="../index.html#demos">🎬 Live Demos</a></li>
+                    </ul>
+                </li>
+                <li><a href="../careers/index.html" data-page="careers" style="font-weight:700;">Careers</a></li>
+            </ul>
+        </nav>
+        <div class="nav-cta"><a href="../index.html#pilot" class="btn-primary">Contact Sales</a></div>
     </div>
 </header>
-<main><section style="padding:7rem 2rem 3rem;background:linear-gradient(135deg,#ecfdf5,#d1fae5);"><div style="max-width:1100px;margin:0 auto;"><h1 style="font-size:2.8rem;">All Products</h1><p style="color:#334155;max-width:700px;">BDCrops product suite — expanded as you asked: CF, GeoData, Ad Intel, BigData, Aqua, Scout, Tender + DubbingAI.</p></div></section><section style="max-width:1100px;margin:0 auto;padding:3rem 2rem;"><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.2rem;"><div style="background:white;border:1px solid #e2e8f0;border-radius:14px;padding:1.5rem;"><div style="font-size:2rem;">🎙️</div><h3 style="margin:0.6rem 0;">DubbingAI</h3><p style="color:#64748b;font-size:0.9rem;">Autonomous AI video dubbing & digital lesson reconstruction. 30+ languages, voice cloning, lip-sync.</p><p style="color:#475569;font-size:0.85rem;">Video localization that saves 85% cost.</p><a href="dubbing-ai.html" style="color:#16a34a;font-weight:700;text-decoration:none;">View →</a></div><div style="background:white;border:1px solid #e2e8f0;border-radius:14px;padding:1.5rem;"><div style="font-size:2rem;">👑</div><h3 style="margin:0.6rem 0;">Co-Founder Platform (CF)</h3><p style="color:#64748b;font-size:0.9rem;">Co-Founder & CEO hiring + equity management. 50% owner model, $2k loan, revenue share.</p><p style="color:#475569;font-size:0.85rem;">Build your founding team.</p><a href="cf-platform.html" style="color:#16a34a;font-weight:700;text-decoration:none;">View →</a></div><div style="background:white;border:1px solid #e2e8f0;border-radius:14px;padding:1.5rem;"><div style="font-size:2rem;">🛰️</div><h3 style="margin:0.6rem 0;">GeoData Platform</h3><p style="color:#64748b;font-size:0.9rem;">Satellite API: 10m Sentinel-2, NDVI/NDWI/NDBI, GeoTIFF & tiles for Bangladesh.</p><p style="color:#475569;font-size:0.85rem;">The Google Maps for agri with crop health.</p><a href="geodata-platform.html" style="color:#16a34a;font-weight:700;text-decoration:none;">View →</a></div><div style="background:white;border:1px solid #e2e8f0;border-radius:14px;padding:1.5rem;"><div style="font-size:2rem;">📢</div><h3 style="margin:0.6rem 0;">Advertise Intelligence</h3><p style="color:#64748b;font-size:0.9rem;">Billboard impression analytics with satellite + mobile data. Real ROI, not guesswork.</p><p style="color:#475569;font-size:0.85rem;">Turn billboards into measurable ROI.</p><a href="advertise-intel.html" style="color:#16a34a;font-weight:700;text-decoration:none;">View →</a></div><div style="background:white;border:1px solid #e2e8f0;border-radius:14px;padding:1.5rem;"><div style="font-size:2rem;">📊</div><h3 style="margin:0.6rem 0;">BigData Engine</h3><p style="color:#64748b;font-size:0.9rem;">Petabyte-scale satellite ETL on Planetary Computer. PostGIS + BigQuery warehouse.</p><p style="color:#475569;font-size:0.85rem;">Process 10TB in minutes.</p><a href="bigdata-engine.html" style="color:#16a34a;font-weight:700;text-decoration:none;">View →</a></div><div style="background:white;border:1px solid #e2e8f0;border-radius:14px;padding:1.5rem;"><div style="font-size:2rem;">🐟</div><h3 style="margin:0.6rem 0;">AquaData</h3><p style="color:#64748b;font-size:0.9rem;">Pond turbidity, chlorophyll, temp monitoring for shrimp/fish farms.</p><p style="color:#475569;font-size:0.85rem;">Know pond quality without lab tests.</p><a href="aquadata.html" style="color:#16a34a;font-weight:700;text-decoration:none;">View →</a></div><div style="background:white;border:1px solid #e2e8f0;border-radius:14px;padding:1.5rem;"><div style="font-size:2rem;">🔍</div><h3 style="margin:0.6rem 0;">Scout App</h3><p style="color:#64748b;font-size:0.9rem;">Offline ground truth collection with GPS geotag + satellite overlay.</p><p style="color:#475569;font-size:0.85rem;">Ground truth without 10 calls.</p><a href="scout-app.html" style="color:#16a34a;font-weight:700;text-decoration:none;">View →</a></div><div style="background:white;border:1px solid #e2e8f0;border-radius:14px;padding:1.5rem;"><div style="font-size:2rem;">📑</div><h3 style="margin:0.6rem 0;">TenderData</h3><p style="color:#64748b;font-size:0.9rem;">e-GP + NGO tender scraping, BOQ extraction, corrigendum alerts.</p><p style="color:#475569;font-size:0.85rem;">Never miss a tender.</p><a href="tenderdata.html" style="color:#16a34a;font-weight:700;text-decoration:none;">View →</a></div></div></section></main><footer class="footer">
-    <div class="footer-container">
 
+<main>
+    <section class="hero-products">
+        <h1>Products</h1>
+        <p>AI-powered platforms for agriculture, data intelligence, and media production. 24 units from CF2 CrewAI Flow Factory — all named like <strong>DubbingAi</strong> — Satellite, Agriculture, FinTech, Medical, Sales Intelligence, and Media AI.</p>
+        <div style="margin-top:1.5rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+            <span style="background:white;border:1px solid #e2e8f0;padding:0.4rem 0.9rem;border-radius:999px;font-size:0.82rem;font-weight:700;">🛰️ GeoDataAi • Flagship</span>
+            <span style="background:white;border:1px solid #e2e8f0;padding:0.4rem 0.9rem;border-radius:999px;font-size:0.82rem;font-weight:700;">🎙️ DubbingAi • Media AI</span>
+            <span style="background:white;border:1px solid #e2e8f0;padding:0.4rem 0.9rem;border-radius:999px;font-size:0.82rem;font-weight:700;">🏥 PatientDataAi • Medical</span>
+        </div>
+    </section>
+
+    <div class="product-grid">
+        <div class="product-card"><h3><span>AdvertiseAi</span> <span class="unit-code">advertise</span></h3><p>Marketing and campaign automation. Campaign planning, advertising assets, audience-oriented workflows, and performance-related content.</p><div class="biz-app"><strong>Business:</strong> Help agencies manage repeatable campaign production and reporting, automated ad creatives, performance dashboards.</div><a href="../serivces/advertise.html" class="learn">Explore AdvertiseAi →</a></div>
+        <div class="product-card"><h3><span>AgroDataAi</span> <span class="unit-code">agrodata</span></h3><p>Agriculture data intelligence. Agricultural datasets, crop-related analytics, and decision-support workflows. Natural place for agricultural domain logic.</p><div class="biz-app"><strong>Business:</strong> Crop monitoring, yield estimation, agronomy advisory SaaS for agribusiness and government.</div><a href="../serivces/aquadata.html" class="learn">Explore AgroDataAi →</a></div>
+        <div class="product-card"><h3><span>AnimationAi</span> <span class="unit-code">animation</span></h3><p>Automated visual production. Generating or assembling animation assets and scenes for educational videos, explainers, and reusable media pipelines.</p><div class="biz-app"><strong>Business:</strong> Automated explainer videos, training content, educational animation at scale.</div><a href="../serivces/animation.html" class="learn">Explore AnimationAi →</a></div>
+        <div class="product-card"><h3><span>AquaDataAi</span> <span class="unit-code">aquadata</span></h3><p>Aquaculture and aquatic data. Aquaculture datasets, water-quality information, fish-farming analytics, and associated reports. With dedicated config, profile, and schema.</p><div class="biz-app"><strong>Business:</strong> Pond monitoring, water-quality alerts, aquaculture analytics SaaS.</div><a href="../serivces/aquadata.html" class="learn">Explore AquaDataAi →</a></div>
+        <div class="product-card"><h3><span>CattleDataAi</span> <span class="unit-code">cattledata</span></h3><p>Livestock and cattle data management. Herd records, farm operations, livestock data, and potential production analytics. Integration via declared interfaces.</p><div class="biz-app"><strong>Business:</strong> Herd management, livestock production tracking, dairy farm analytics.</div><a href="../serivces/aquadata.html" class="learn">Explore CattleDataAi →</a></div>
+        <div class="product-card"><h3><span>ClassroomAi</span> <span class="unit-code">classroom</span></h3><p>Digital learning and classroom content. Digital lessons, classroom materials, and learning workflows. Shared audio and reporting services avoid duplicate media code.</p><div class="biz-app"><strong>Business:</strong> EdTech platform, automated lesson generation, digital classroom SaaS.</div><a href="../serivces/classroom.html" class="learn">Explore ClassroomAi →</a></div>
+        <div class="product-card"><h3><span>DataAi</span> <span class="unit-code">data</span></h3><p>General-purpose data workflows. Common data preparation and processing tasks. Remains distinct from domain-specific units like PatientDataAi, GeoDataAi, LeadDataAi.</p><div class="biz-app"><strong>Business:</strong> ETL, data cleaning, general data processing engine for all units.</div><a href="../serivces/bigdata.html" class="learn">Explore DataAi →</a></div>
+        <div class="product-card"><h3><span>DebateAi</span> <span class="unit-code">debate</span></h3><p>Argumentation and structured discussion. Organizing debate topics, arguments, counterarguments, and structured discussion material for education or content creation.</p><div class="biz-app"><strong>Business:</strong> Debate platforms, structured discussion tools, educational argument training.</div><a href="../serivces/debate.html" class="learn">Explore DebateAi →</a></div>
+        <div class="product-card"><h3><span>DefinitionAi</span> <span class="unit-code">definition</span></h3><p>Concepts and terminology. Producing or organizing definitions and explanatory material. Supports inputs, outputs, pipeline stages for terminology workflows.</p><div class="biz-app"><strong>Business:</strong> Glossary generation, terminology management, knowledge-base creation.</div><a href="../serivces/definition.html" class="learn">Explore DefinitionAi →</a></div>
+        <div class="product-card"><h3><span>DroneTacticalAi</span> <span class="unit-code">dronetactical</span></h3><p>Drone-related operations. Drone-oriented operational workflows, mission types, integrations, permissions, and supported hardware.</p><div class="biz-app"><strong>Business:</strong> Drone mission planning, aerial survey, tactical operations platform.</div><a href="../serivces/scout.html" class="learn">Explore DroneTacticalAi →</a></div>
+        <div class="product-card" style="border:2px solid #16a34a;"><h3><span>DubbingAi</span> <span class="unit-code">dubbing</span></h3><p>Multilingual audio and video production. Speech generation integration, audio-segment assembly, synchronization, and final video output. Shared Audio Core separates TTS generation from FFmpeg-based processing.</p><div class="biz-app"><strong>Business:</strong> Video localization, multilingual dubbing, training video translation. <strong>Reference naming style.</strong></div><a href="../products/dubbing-ai.html" class="learn" style="color:#16a34a;">Explore DubbingAi →</a></div>
+        <div class="product-card"><h3><span>FinTechAi</span> <span class="unit-code">fintech</span></h3><p>Financial technology workflows. Financial-data processing and financial-service automation. Payment, lending, compliance, transaction capabilities.</p><div class="biz-app"><strong>Business:</strong> Financial analytics, lending automation, compliance monitoring, payment insights.</div><a href="../serivces/fintech.html" class="learn">Explore FinTechAi →</a></div>
+        <div class="product-card"><h3><span>GazeDataAi</span> <span class="unit-code">gazedata</span></h3><p>Gaze and attention analysis. Workflows involving gaze, visual attention, or eye-tracking data. For GazeAI-style product, video ingestion, calibration, supported models, metrics, and validation.</p><div class="biz-app"><strong>Business:</strong> Attention analytics, eye-tracking heatmaps, user experience research.</div><a href="../serivces/scout.html" class="learn">Explore GazeDataAi →</a></div>
+        <div class="product-card"><h3><span>GeoDataAi</span> <span class="unit-code">geodata</span></h3><p>GIS and Earth-observation intelligence. Geospatial analysis, satellite imagery, spatial datasets, map products, and geographic reporting. Agriculture, land-use, environmental monitoring, site suitability.</p><div class="biz-app"><strong>Business:</strong> Satellite-data services, agricultural monitoring, environmental assessment, recurring GIS reports. <strong>Flagship.</strong></div><a href="../serivces/geodata.html" class="learn">Explore GeoDataAi →</a></div>
+        <div class="product-card"><h3><span>LeadDataAi</span> <span class="unit-code">leaddata</span></h3><p>Lead generation and sales intelligence. Lead discovery, geographic context, enrichment, and B2B/B2C workflows. Shared SerpAPI credential rotation through Core Providers.</p><div class="biz-app"><strong>Business:</strong> B2B prospect research, company intelligence, lead enrichment, sales-research subscriptions.</div><a href="../serivces/leaddata.html" class="learn">Explore LeadDataAi →</a></div>
+        <div class="product-card"><h3><span>NewsDataAi</span> <span class="unit-code">newsdata</span></h3><p>News discovery and news-data processing. News-data workflows for monitoring, filtering, and processing news sources.</p><div class="biz-app"><strong>Business:</strong> News monitoring, media intelligence, news-data API.</div><a href="../serivces/newsdata.html" class="learn">Explore NewsDataAi →</a></div>
+        <div class="product-card"><h3><span>PackagingAi</span> <span class="unit-code">packaging</span></h3><p>Packaging-related workflows. Packaging information or production workflows, physical-product or software packaging.</p><div class="biz-app"><strong>Business:</strong> Packaging design automation, packaging data management.</div><a href="../serivces/packaging.html" class="learn">Explore PackagingAi →</a></div>
+        <div class="product-card"><h3><span>PatientDataAi</span> <span class="unit-code">patientdata</span></h3><p>Patient-document and medical-information intelligence. Medical-document ingestion, QA, extraction, comparison, consistency checking, knowledge, findings, recommendations, patient education, prescription intelligence. Medical imaging support including DICOM.</p><div class="biz-app"><strong>Business:</strong> Medical-document organization, prescription extraction, report comparison, healthcare workflow support. Requires privacy and clinical validation.</div><a href="../serivces/patientdata.html" class="learn">Explore PatientDataAi →</a></div>
+        <div class="product-card"><h3><span>PodcastAi</span> <span class="unit-code">podcast</span></h3><p>Podcast production and audio-content workflows. Episode preparation, narration, and production artifacts, generation and publishing stages.</p><div class="biz-app"><strong>Business:</strong> Automated podcast production, audio-content SaaS.</div><a href="../serivces/podcast.html" class="learn">Explore PodcastAi →</a></div>
+        <div class="product-card"><h3><span>ProfileDataAi</span> <span class="unit-code">profiledata</span></h3><p>Profile discovery and enrichment. Profile-oriented data workflows, consumer of centralized SerpAPI credential rotation.</p><div class="biz-app"><strong>Business:</strong> Profile enrichment, people intelligence, contact discovery.</div><a href="../serivces/scout.html" class="learn">Explore ProfileDataAi →</a></div>
+        <div class="product-card"><h3><span>PublisherAi</span> <span class="unit-code">publisher</span></h3><p>Content publishing and distribution. Preparing and publishing content to configured destinations, channel integrations, scheduling, authentication.</p><div class="biz-app"><strong>Business:</strong> Multi-channel publishing automation, content distribution platform.</div><a href="../serivces/publisher.html" class="learn">Explore PublisherAi →</a></div>
+        <div class="product-card"><h3><span>ScoutAi</span> <span class="unit-code">scout</span></h3><p>Discovery and scouting workflows. Identifying, collecting, and evaluating information relevant to a configured mission. Distinct from LeadDataAi, NewsDataAi, TenderDataAi via unit contracts.</p><div class="biz-app"><strong>Business:</strong> Field scouting, discovery missions, monitoring workflows.</div><a href="../serivces/scout.html" class="learn">Explore ScoutAi →</a></div>
+        <div class="product-card"><h3><span>SurveillanceAi</span> <span class="unit-code">surveillance</span></h3><p>Authorized video monitoring and incident analytics. Convert camera or recorded-video observations into events, incidents, evidence references, alerts, and operational reports. Core Vision detection, tracking, streaming, privacy.</p><div class="biz-app"><strong>Business:</strong> Authorized surveillance, incident detection, video analytics — authorized and auditable.</div><a href="../serivces/scout.html" class="learn">Explore SurveillanceAi →</a></div>
+        <div class="product-card"><h3><span>TenderDataAi</span> <span class="unit-code">tenderdata</span></h3><p>Procurement intelligence. Tender discovery, filtering, scoring, and routing opportunities to appropriate business units. Sources e-GP and BPPA, Bdjobs.</p><div class="biz-app"><strong>Business:</strong> Tender alerts, eligibility screening, bid-document checklists, procurement intelligence subscriptions.</div><a href="../serivces/tenderdata.html" class="learn">Explore TenderDataAi →</a></div>
+    </div>
+
+   
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="footer-container">
         <div class="footer-section footer-brand-col">
             <h4>BDCrops Technologies</h4>
             <p>AI + Satellite intelligence for Bangladesh agriculture, climate resilience, and outdoor media analytics.</p>
-
-            <div class="footer-brands">
-                <div class="footer-brands-title">Operating Brands</div>
-                <div class="footer-brand-item">🌾 <strong>BDCrops</strong> — Satellite &amp; AgriAI</div>
-                <div class="footer-brand-item">🤖 <a href="https://www.youtube.com/@PlayOwnAi" target="_blank" rel="noopener"><strong>PlayOwnAI</strong></a> — AI Innovation Platform</div>
-            </div>
-
-            <div class="footer-contact">
-                <div><strong>Email:</strong> <a href="mailto:matin@bdcrops.com">matin@bdcrops.com</a></div>
-                <div><strong>WhatsApp:</strong> <a href="https://wa.me/8801717676441">+880 1717 676441</a></div>
-            </div>
+            <div class="footer-contact"><div><strong>Email:</strong> <a href="mailto:matin@bdcrops.com">matin@bdcrops.com</a></div><div><strong>WhatsApp:</strong> <a href="https://wa.me/8801717676441">+880 1717 676441</a></div></div>
         </div>
-
-        <div class="footer-section">
-            <h4>Services</h4>
-            <a href="../pages/8band-report.html">8-Band Report</a>
-            <a href="../pages/aquacrop.html">AquaCrop Digital Twin</a>
-            <a href="../pages/billboard-analytics.html">Billboard Analytics</a>
-            <a href="../index.html#demos">Live Demos</a>
-            <a href="../index.html#pilot">Free Pilot</a>
-        </div>
-
-        <div class="footer-section">
-            <h4>Use Cases</h4>
-            <a href="../pages/use-case-rice.html">Rice Monitoring</a>
-            <a href="../pages/use-case-jute.html">Jute Crop Health</a>
-            <a href="../pages/use-case-vegetable.html">Vegetable Yield</a>
-            <a href="../pages/use-case-flood.html">Flood/Drought Mapping</a>
-        </div>
-
-        <div class="footer-section">
-            <h4>About</h4>
-            <a href="../pages/about.html#story">Our Story</a>
-            <a href="../pages/about.html#platform">GeoData Platform</a>
-            <a href="../pages/about.html#partnerships">Partnerships</a>
-            <a href="../pages/about.html#team">Leadership</a>
-            <a href="../pages/about.html#partner">Partner With Us</a>
-        </div>
-
-        <div class="footer-section">
-            <h4>Connect</h4>
-            <a href="https://www.linkedin.com/company/bdcrops" target="_blank" rel="noopener">💼 LinkedIn</a>
-            <a href="https://www.facebook.com/bdcrops" target="_blank" rel="noopener">📘 Facebook</a>
-            <a href="https://x.com/matinict" target="_blank" rel="noopener">✖ X (Twitter)</a>
-            <a href="https://www.youtube.com/@bdcrops" target="_blank" rel="noopener">▶ YouTube — BDCrops</a>
-            <a href="https://www.youtube.com/@PlayOwnAi" target="_blank" rel="noopener">▶ YouTube — PlayOwnAI</a>
-            <a href="https://github.com/bdcrops" target="_blank" rel="noopener">💻 GitHub</a>
-            <a href="https://wa.me/8801717676441" target="_blank" rel="noopener">💬 WhatsApp</a>
-        </div>
-
+        <div class="footer-section"><h4>Services</h4><a href="../pages/8band-report.html">8-Band Report</a><a href="../pages/aquacrop.html">AquaCrop Digital Twin</a><a href="../pages/billboard-analytics.html">Billboard Analytics</a><a href="../serivces/advertise.html">AdvertiseAi</a><a href="../serivces/geodata.html">GeoDataAi</a><a href="../index.html#demos">Live Demos</a></div>
+        <div class="footer-section"><h4>Use Cases</h4><a href="../pages/use-case-rice.html">Rice Monitoring</a><a href="../pages/use-case-jute.html">Jute Crop Health</a><a href="../pages/use-case-vegetable.html">Vegetable Yield</a><a href="../pages/use-case-flood.html">Flood/Drought Mapping</a></div>
+        <div class="footer-section"><h4>About</h4><a href="../pages/about.html#story">Our Story</a><a href="../pages/about.html#platform">GeoData Platform</a><a href="../pages/about.html#team">Leadership</a></div>
+        <div class="footer-section"><h4>Connect</h4><a href="https://www.linkedin.com/company/bdcrops" target="_blank" rel="noopener">💼 LinkedIn</a><a href="https://www.facebook.com/bdcrops" target="_blank" rel="noopener">📘 Facebook</a><a href="https://www.youtube.com/@bdcrops" target="_blank" rel="noopener">▶ YouTube — BDCrops</a><a href="https://github.com/bdcrops" target="_blank" rel="noopener">💻 GitHub</a><a href="https://wa.me/8801717676441" target="_blank" rel="noopener">💬 WhatsApp</a></div>
     </div>
-    <div class="footer-bottom">
-        <p>Powered by Sentinel-2 · WorldView-3 · Microsoft Planetary Computer · Open Source</p>
-        <p>&copy; <span id="year"></span> BDCrops Technologies — Built for Bangladesh 🇧🇩</p>
+    <div class="footer-bottom"><p>Powered by Sentinel-2 · WorldView-3 · Microsoft Planetary Computer · Open Source</p><p>&copy; <span id="year"></span> BDCrops Technologies — Built for Bangladesh 🇧🇩</p></div>
+    <div style="font-size:0; line-height:0; height:0; width:0; overflow:hidden; opacity:0; color:transparent; position:absolute; left:-9999px; top:-9999px; pointer-events:none; user-select:none;" aria-hidden="true">
+        <a href="https://bdcrops.com/" style="font-size:0;">BDCrops</a><a href="https://www.linkedin.com/company/bdcrops/" style="font-size:0;">LinkedIn</a><a href="https://api.whatsapp.com/send?phone=8801717676441" style="font-size:0;">WhatsApp 8801717676441</a><a href="https://scale360ai.com/" style="font-size:0;">Scale360Ai</a><a href="https://enhance.com.bd" style="font-size:0;">Enhance</a><a href="https://api.whatsapp.com/send?phone=8801713246204" style="font-size:0;">Enhance WhatsApp</a>
     </div>
 </footer>
 
-<script>let ct=null;function closeAll(){document.querySelectorAll('#nav-list .has-dropdown.dd-open').forEach(e=>e.classList.remove('dd-open'));}document.querySelectorAll('#nav-list .has-dropdown').forEach(i=>{i.addEventListener('mouseenter',()=>{clearTimeout(ct);closeAll();i.classList.add('dd-open');});i.addEventListener('mouseleave',()=>{ct=setTimeout(closeAll,200);});i.querySelector('.dd-trigger')?.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();const w=i.classList.contains('dd-open');closeAll();if(!w)i.classList.add('dd-open');});});document.addEventListener('click',e=>{if(!e.target.closest('#nav-list'))closeAll();});document.getElementById('year')&&(document.getElementById('year').textContent=new Date().getFullYear());</script></body></html>
+<script>
+let ct=null;function closeAll(){document.querySelectorAll('#nav-list .has-dropdown.dd-open').forEach(e=>e.classList.remove('dd-open'));}
+document.querySelectorAll('#nav-list .has-dropdown').forEach(i=>{
+  i.addEventListener('mouseenter',()=>{clearTimeout(ct);closeAll();i.classList.add('dd-open');});
+  i.addEventListener('mouseleave',()=>{ct=setTimeout(closeAll,200);});
+  const trig=i.querySelector('.dd-trigger');
+  if(trig) trig.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();const w=i.classList.contains('dd-open');closeAll();if(!w)i.classList.add('dd-open');});
+});
+document.addEventListener('click',e=>{if(!e.target.closest('#nav-list'))closeAll();});
+document.getElementById('year')&&(document.getElementById('year').textContent=new Date().getFullYear());
+</script>
+</body></html>
