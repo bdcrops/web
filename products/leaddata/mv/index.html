@@ -1,0 +1,1969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LeadData Intent Intelligence</title>
+  <style>
+
+    :root {
+      --accent: #0f766e;
+      --accent-dark: #0d5f57;
+      --accent-light: #f0fdfa;
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --bg: #f8fafc;
+      --border: #e2e8f0;
+      --card-bg: #ffffff;
+      --sidebar-width: 260px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      display: flex;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ─── SIDEBAR ─── */
+    aside {
+      width: var(--sidebar-width);
+      background: var(--accent-dark);
+      color: #ecfeff;
+      padding: 1.25rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      flex-shrink: 0;
+      transition: margin-left 0.25s ease, opacity 0.2s ease;
+      z-index: 900;
+    }
+
+    /* Collapsed state for Desktop */
+    body.sidebar-collapsed aside {
+      margin-left: calc(-1 * var(--sidebar-width));
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    aside .brand-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    aside .brand-mark {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--accent-light);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .toggle-btn {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #fff;
+      padding: 0.35rem 0.6rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .toggle-btn:hover, .toggle-btn:active {
+      background: rgba(255,255,255,0.3);
+      border-color: rgba(255,255,255,0.45);
+    }
+
+    aside .side-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+    aside .side-nav a {
+      color: #cbd5e1;
+      text-decoration: none;
+      padding: 0.5rem 0.75rem;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      transition: background 0.15s;
+    }
+    aside .side-nav a:hover {
+      background: rgba(255,255,255,0.05);
+      color: #fff;
+    }
+    aside .side-nav a.active {
+      background: rgba(255,255,255,0.10);
+      color: #fff;
+    }
+    aside .aoi-card {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 1rem;
+    }
+    aside .aoi-card .aoi-id {
+      font-size: 0.75rem;
+      color: #94a3b8;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    aside .aoi-card .aoi-name {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #fff;
+      margin: 0.25rem 0 0.5rem 0;
+      line-height: 1.25;
+    }
+    aside .aoi-card .aoi-meta {
+      font-size: 0.85rem;
+      color: #cbd5e1;
+    }
+    aside .timeline-block {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    aside .timeline-block .tl-label {
+      font-size: 0.7rem;
+      color: #94a3b8;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    aside .timeline-block button {
+      background: rgba(0,0,0,0.25);
+      color: #e0f2fe;
+      border: none;
+      padding: 0.55rem 0.75rem;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      text-align: left;
+      transition: background 0.15s;
+    }
+    aside .timeline-block button.active {
+      background: var(--accent);
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* Mobile Backdrop */
+    .sidebar-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(2px);
+      z-index: 998;
+    }
+
+    /* ─── MAIN CONTENT ─── */
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      transition: width 0.25s ease;
+    }
+
+    .govt-strip {
+      background: var(--accent-light);
+      color: var(--accent-dark);
+      font-size: 0.82rem;
+      text-align: center;
+      padding: 0.4rem 0.85rem;
+      border-bottom: 1px solid var(--border);
+      line-height: 1.35;
+    }
+
+    header {
+      background: var(--accent-dark);
+      color: #fff;
+      padding: 1.25rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    header .brand-block {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      min-width: 0;
+      flex: 1;
+    }
+    header .brand-mark {
+      width: 40px; height: 40px;
+      background: var(--accent);
+      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 8px;
+      font-size: 1.25rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    header .title-block {
+      min-width: 0;
+      flex: 1;
+    }
+    header .title-block h1 {
+      font-size: 1.35rem;
+      font-weight: 600;
+      line-height: 1.2;
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
+    header .title-block .subtitle {
+      font-size: 0.85rem;
+      opacity: 0.85;
+      margin-top: 0.2rem;
+    }
+    header .right-block {
+      text-align: right;
+      font-size: 0.88rem;
+      opacity: 0.9;
+      line-height: 1.5;
+      flex-shrink: 0;
+    }
+    header .right-block .report-title { font-weight: 500; }
+    header .right-block .year { color: var(--accent-light); font-weight: 700; }
+
+    .badge-row {
+      background: var(--accent-dark);
+      padding: 0 2rem 1rem 2rem;
+    }
+    .badge-row .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.10);
+      color: #ecfeff;
+      padding: 0.35rem 0.75rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      font-weight: 600;
+    }
+
+    /* Top tabs */
+    nav.top-tabs {
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    nav.top-tabs a {
+      padding: 1rem 1.25rem;
+      text-decoration: none;
+      color: var(--text-muted);
+      font-weight: 500;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+      transition: color 0.15s, border-color 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    nav.top-tabs a:hover { color: var(--accent); }
+    nav.top-tabs a.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* Section content */
+    section.tab-section {
+      padding: 2rem;
+      display: none;
+    }
+    section.tab-section.active { display: block; }
+    section.tab-section h2 {
+      font-size: 1.5rem;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.35rem;
+    }
+    section.tab-section .subtitle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* KPI cards */
+    .kpi-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .kpi-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1rem;
+    }
+    .kpi-card .label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5rem;
+    }
+    .kpi-card .value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .kpi-card .value .unit {
+      font-size: 1rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-left: 0.2rem;
+    }
+    .kpi-card .delta {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+    }
+    .kpi-card .delta.pos { color: #16a34a; }
+    .kpi-card .delta.neg { color: #dc2626; }
+
+    /* Cards */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+    .card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.35rem;
+    }
+    .card .subtitle {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Map grid */
+    .map-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+    .map-tile {
+      cursor: pointer;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+      transition: transform 0.15s, box-shadow 0.15s;
+      background: #fff;
+    }
+    .map-tile img { width: 100%; height: auto; display: block; }
+    .map-tile .caption {
+      padding: 0.6rem 0.85rem;
+      background: #f1f5f9;
+      font-size: 0.88rem;
+      font-weight: 500;
+    }
+
+    /* Reports list */
+    .reports-list, .videos-list { list-style: none; }
+    .reports-list li, .videos-list li {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .reports-list a, .videos-list a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.25rem;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      border-top: 1px solid var(--border);
+      background: #fff;
+      margin-top: auto;
+    }
+
+    .empty {
+      color: var(--text-muted);
+      font-style: italic;
+      padding: 1rem 0;
+    }
+
+    /* ─── RESPONSIVE BREAKPOINTS (Mobile & Tablet) ─── */
+    @media (max-width: 768px) {
+      aside {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        height: 100vh;
+        width: 280px;
+        margin-left: -280px; /* Hide offscreen by default on mobile */
+        opacity: 1 !important;
+        box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+      }
+      body.mobile-sidebar-open aside {
+        margin-left: 0 !important;
+      }
+      body.mobile-sidebar-open .sidebar-backdrop {
+        display: block;
+      }
+
+      .govt-strip {
+        font-size: 0.75rem;
+        padding: 0.35rem 0.65rem;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0.85rem 1rem;
+        gap: 0.6rem;
+      }
+      header .brand-block {
+        gap: 0.5rem;
+      }
+      header .brand-mark {
+        width: 34px;
+        height: 34px;
+        font-size: 1.1rem;
+        border-radius: 6px;
+      }
+      header .title-block h1 {
+        font-size: 1.1rem;
+        line-height: 1.2;
+      }
+      header .title-block .subtitle {
+        font-size: 0.78rem;
+      }
+      header .right-block {
+        text-align: left;
+        font-size: 0.8rem;
+        border-top: 1px solid rgba(255,255,255,0.12);
+        padding-top: 0.4rem;
+        margin-top: 0.15rem;
+      }
+
+      .badge-row {
+        padding: 0 1rem 0.6rem 1rem;
+      }
+      .badge-row .badge {
+        font-size: 0.7rem;
+        padding: 0.25rem 0.5rem;
+      }
+
+      nav.top-tabs {
+        padding: 0 0.5rem;
+      }
+      nav.top-tabs a {
+        padding: 0.65rem 0.85rem;
+        font-size: 0.85rem;
+      }
+
+      section.tab-section {
+        padding: 1rem;
+      }
+      section.tab-section h2 {
+        font-size: 1.25rem;
+      }
+
+      .kpi-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+      }
+      .kpi-card {
+        padding: 1rem 0.75rem;
+      }
+      .kpi-card .value {
+        font-size: 1.5rem;
+      }
+      .map-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .kpi-row {
+        grid-template-columns: 1fr;
+      }
+      header .title-block h1 {
+        font-size: 1.05rem;
+      }
+    }
+
+
+    /* CF2 CORE THEME V2
+       Shared professional dashboard enhancements.
+       Keep domain-specific styling inside individual Units.
+    */
+
+    :root {
+      --surface: #ffffff;
+      --surface-soft: #f8fafc;
+      --surface-raised: #ffffff;
+      --text-strong: #0f172a;
+      --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.08);
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+      --focus-ring: 0 0 0 3px color-mix(in srgb, var(--accent) 20%, transparent);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 100% 0,
+          color-mix(in srgb, var(--accent-light) 34%, transparent) 0,
+          transparent 28rem),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    a, button {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button:focus-visible,
+    a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+      box-shadow: var(--focus-ring);
+    }
+
+    aside {
+      box-shadow: 4px 0 22px rgba(15, 23, 42, 0.10);
+    }
+
+    aside .brand-header {
+      min-height: 54px;
+    }
+
+    aside .side-nav a {
+      border-radius: var(--radius-sm);
+      transition:
+        background-color .16s ease,
+        color .16s ease,
+        transform .16s ease;
+    }
+
+    aside .side-nav a:hover {
+      transform: translateX(2px);
+    }
+
+    aside .side-nav a.active {
+      box-shadow: inset 3px 0 0
+        color-mix(in srgb, var(--accent-light) 80%, white);
+    }
+
+    aside .aoi-card {
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.055);
+    }
+
+    .analyst-toggle {
+      appearance: none;
+      width: 100%;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: var(--radius-sm);
+      background: rgba(255,255,255,.06);
+      color: inherit;
+      padding: .6rem .7rem;
+      text-align: left;
+      font: inherit;
+      cursor: pointer;
+      transition: background-color .16s ease, border-color .16s ease;
+    }
+
+    .analyst-toggle:hover {
+      background: rgba(255,255,255,.12);
+      border-color: rgba(255,255,255,.24);
+    }
+
+    main {
+      min-width: 0;
+    }
+
+    .govt-strip {
+      letter-spacing: .035em;
+    }
+
+    header {
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    header .brand-mark {
+      box-shadow: var(--shadow-sm);
+    }
+
+    .badge-row .badge {
+      border-radius: 999px;
+      font-weight: 700;
+      letter-spacing: .035em;
+    }
+
+    nav.top-tabs {
+      scrollbar-width: thin;
+      overscroll-behavior-x: contain;
+    }
+
+    nav.top-tabs a {
+      position: relative;
+      transition: color .16s ease, background-color .16s ease;
+    }
+
+    nav.top-tabs a.active::after {
+      content: "";
+      position: absolute;
+      left: .65rem;
+      right: .65rem;
+      bottom: 0;
+      height: 3px;
+      border-radius: 3px 3px 0 0;
+      background: var(--accent);
+    }
+
+    section.tab-section.active {
+      animation: cf2-tab-in .16s ease-out;
+    }
+
+    @keyframes cf2-tab-in {
+      from { opacity: .35; transform: translateY(3px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .kpi-card,
+    .card,
+    .map-tile {
+      background: var(--surface-raised);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      transition:
+        transform .16s ease,
+        box-shadow .16s ease,
+        border-color .16s ease;
+    }
+
+    .kpi-card:hover,
+    .card:hover {
+      border-color: color-mix(in srgb, var(--accent) 28%, var(--border));
+      box-shadow: var(--shadow-md);
+    }
+
+    .kpi-card .value {
+      color: var(--text-strong);
+      letter-spacing: -.025em;
+    }
+
+    .empty {
+      border-radius: var(--radius-md);
+    }
+
+    footer {
+      color: var(--text-muted);
+    }
+
+    /* Analyst / dark theme */
+    body.analyst-view {
+      --text: #dbe7f3;
+      --text-strong: #f8fafc;
+      --text-muted: #94a3b8;
+      --bg: #07111f;
+      --border: #233044;
+      --card-bg: #0f1b2d;
+      --surface: #0b1727;
+      --surface-soft: #0d1929;
+      --surface-raised: #0f1d30;
+    }
+
+    body.analyst-view {
+      background:
+        radial-gradient(circle at 100% 0,
+          color-mix(in srgb, var(--accent) 15%, transparent) 0,
+          transparent 30rem),
+        var(--bg);
+    }
+
+    body.analyst-view header,
+    body.analyst-view nav.top-tabs,
+    body.analyst-view section.tab-section,
+    body.analyst-view .kpi-card,
+    body.analyst-view .card,
+    body.analyst-view .map-tile {
+      background-color: var(--surface-raised);
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    body.analyst-view .analyst-toggle {
+      background: color-mix(in srgb, var(--accent) 25%, transparent);
+      border-color: color-mix(in srgb, var(--accent) 55%, transparent);
+    }
+
+    body.analyst-view input,
+    body.analyst-view select,
+    body.analyst-view textarea,
+    body.analyst-view pre {
+      color: var(--text);
+      background: #081423;
+      border-color: var(--border);
+    }
+
+    @media (max-width: 768px) {
+      header {
+        gap: .75rem;
+      }
+
+      header .right-block {
+        max-width: 100%;
+      }
+
+      nav.top-tabs {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+      }
+
+      section.tab-section {
+        overflow-x: hidden;
+      }
+
+      .kpi-row {
+        gap: .65rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header .title-block h1 {
+        line-height: 1.2;
+      }
+
+      .badge-row {
+        overflow-x: auto;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+    }
+
+
+  </style>
+</head>
+<body>
+
+  <!-- Backdrop for Mobile Sidebar Drawer -->
+  <div class="sidebar-backdrop" onclick="toggleSidebar()"></div>
+
+  <!-- ─── SIDEBAR ─── -->
+  <aside id="main-sidebar">
+    <div class="brand-header">
+      <div class="brand-mark">LEADDATA</div>
+      <button class="toggle-btn" onclick="toggleSidebar()" title="Hide left menu">◂ Hide</button>
+    </div>
+
+    <nav class="side-nav" id="side-nav">
+      <a href="#" data-tab="executive" class="active">📊 Executive</a><a href="#" data-tab="suppliers">👥 Prospects</a><a href="#" data-tab="outreach">✉️ Outreach</a><a href="#" data-tab="reports">📄 Reports</a>
+    </nav>
+
+    <div class="aoi-card">
+      <div class="aoi-id">AOI · LEADDATA_B2C</div>
+      <div class="aoi-name">People Planning Vacation to the Maldives from Bangladesh</div>
+      <div class="aoi-meta">Region: Not specified · Target: individual prospect</div>
+    </div>
+
+    <div class="timeline-block">
+      <div class="tl-label">Timeline</div>
+      <button class="active" data-year="2026">2026</button>
+    </div>
+
+    <div style="margin-top:auto; display:flex; flex-direction:column; gap:0.65rem;">
+      <button class="analyst-toggle" id="analyst-toggle" type="button" onclick="toggleAnalystView()" aria-pressed="false" title="Toggle analyst dark theme">🌙 <span>Analyst View</span></button>
+      <div class="status"><span style="display:inline-block;width:0.6rem;height:0.6rem;border-radius:50%;background:#22c55e;"></span> Ready</div>
+    </div>
+  </aside>
+
+  <!-- ─── MAIN ─── -->
+  <main>
+    <div class="govt-strip">CF2 Lead Intelligence · Individual Intent Discovery Platform</div>
+
+    <header>
+      <div class="brand-block">
+        <button class="toggle-btn" onclick="toggleSidebar()" title="Toggle left menu" style="padding:0.4rem 0.65rem; font-size:1.1rem;">
+          ☰
+        </button>
+        <div class="brand-mark">L</div>
+        <div class="title-block">
+          <h1>People Planning Vacation to the Maldives from Bangladesh</h1>
+          <div class="subtitle">Intent Discovery · OSINT Enrichment · Personalized Outreach</div>
+        </div>
+      </div>
+      <div class="right-block">
+        <div class="report-title">People Planning Vacation to the Maldives from Bangladesh — Intent Intelligence</div>
+        <div>Year: <span class="year">2026</span> · Not specified</div>
+      </div>
+    </header>
+
+    <div class="badge-row">
+      <span class="badge">B2C INTENT 2026</span>
+    </div>
+
+    <nav class="top-tabs" id="top-tabs">
+      <a href="#" data-tab="executive" class="active">📊 Executive</a><a href="#" data-tab="suppliers">Prospects</a><a href="#" data-tab="outreach">Outreach</a><a href="#" data-tab="reports">Reports</a>
+    </nav>
+
+    
+      <section class="tab-section active" data-tab="executive">
+        <h2>📊 Executive Summary</h2>
+        <div class="subtitle">Intent Discovery & Reachability Snapshot</div>
+        <style>
+    /* CF2 standard stat-panel and kpi-cards */
+    .rich-grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:20px; }
+    .rich-grid-3 { display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:16px; margin-bottom:20px; }
+    .stat-panel { background:#fff; border:1px solid #e2e8f0; border-radius:8px; padding:18px; box-shadow:0 1px 3px rgba(0,0,0,.04); margin-bottom:20px; }
+    .stat-panel h3 { margin:0 0 12px 0; font-size:15px; color:#0f172a; text-transform:uppercase; letter-spacing:.5px; border-bottom:2px solid #f0fdfa; padding-bottom:6px; }
+
+    .kpi-card { background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:16px; display:flex; flex-direction:column; justify-content:center; }
+    .kpi-label { font-size:11px; font-weight:700; color:#64748b; text-transform:uppercase; letter-spacing:.5px; margin-bottom:4px; }
+    .kpi-value { font-size:24px; font-weight:800; color:#0f766e; line-height:1.1; }
+    .kpi-sub { font-size:11px; color:#64748b; margin-top:4px; }
+
+    /* Badges */
+    .badge-tag { display:inline-block; padding:3px 8px; border-radius:4px; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing: 0.5px;}
+    .badge-info { background:#e0f2fe; color:#0369a1; }
+    .badge-hot { background:#fee2e2; color:#991b1b; }
+    .badge-warm { background:#fef3c7; color:#92400e; }
+    .badge-cold { background:#f1f5f9; color:#475569; }
+    .badge-score { background:#f8fafc; color:#0f172a; border: 1px solid #cbd5e1; }
+
+    /* Filter Bar */
+    .filter-bar { background: #fff; padding: 14px; border-radius: 8px; border: 1px solid #e2e8f0; display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; align-items: center; box-shadow:0 1px 3px rgba(0,0,0,.02); }
+    .filter-bar input { padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 6px; min-width: 250px; flex: 1; font-family:inherit; }
+    .filter-btn { padding: 6px 12px; border: 1px solid #cbd5e1; background: #f8fafc; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: 500; color: #334155; transition:all 0.2s;}
+    .filter-btn:hover { background: #e2e8f0; }
+    .filter-btn.active { background: #0f766e; color: #fff; border-color: #0f766e; }
+
+    /* Supplier Cards */
+    .supplier-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,.04); transition: transform 0.2s, box-shadow 0.2s; }
+    .supplier-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(15,118,110,.08); border-color:#99f6e4;}
+    .contact-strip { display: flex; gap: 16px; margin: 12px 0; color: #475569; font-size: 13px; font-weight: 500; background:#f8fafc; padding:8px 12px; border-radius:6px; border:1px solid #f1f5f9;}
+    .action-btn { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: 600; cursor: pointer; border: 1px solid transparent; transition: opacity 0.2s;}
+    .action-btn:hover { opacity: 0.9; }
+    .btn-email { background: #2563eb; color: #fff; }
+    .btn-copy, .btn-secondary { background: #f8fafc; border-color: #cbd5e1; color: #0f172a; }
+    .btn-free { background: #dcfce7; color: #166534; border-color: #bbf7d0; }
+    .btn-voip { background: #e0f2fe; color: #0369a1; border-color: #bae6fd; }
+    .btn-paid { background: #ffedd5; color: #c2410c; border-color: #fed7aa; }
+
+    /* Accordions */
+    .accordion { border: 1px solid #e2e8f0; border-radius: 6px; margin-top: 12px; overflow:hidden;}
+    .accordion-header { background: #f8fafc; padding: 12px 14px; font-size: 13px; font-weight: 600; cursor: pointer; color: #0f172a; }
+    .accordion-body { padding: 16px; border-top: 1px solid #e2e8f0; font-size: 13px; background:#fff;}
+    .pitch-box { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 14px; margin-bottom: 12px; }
+    .pitch-text { white-space: pre-wrap; background: #fff; border: 1px solid #e2e8f0; padding: 14px; border-radius: 6px; font-family: "Courier New", Courier, monospace; font-size: 13px; margin: 8px 0; color:#1e293b;}
+
+    .tier-block { margin-bottom: 16px; }
+    .tier-label { font-size: 11px; font-weight: 800; text-transform: uppercase; padding: 4px 8px; border-radius: 4px; display: inline-block; margin-bottom: 8px; letter-spacing:0.5px;}
+    .tier-free { background: #dcfce7; color: #166534; }
+    .tier-voip { background: #e0f2fe; color: #0369a1; }
+    .tier-paid { background: #ffedd5; color: #c2410c; }
+    .actions-row { display: flex; gap: 8px; flex-wrap: wrap; align-items:center; }
+    </style>
+    <div class="stat-panel">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
+        <h3 style="margin:0;border:none;padding:0;color:#0f172a;font-size:16px;font-weight:700;">
+          🎯 Commercial Sourcing Intent Definition
+        </h3>
+        <span class="badge-tag badge-info">AI INTERPRETATION</span>
+      </div>
+      <div style="font-size:12.5px;color:#64748b;margin-bottom:14px;">
+        Source Query: "People Planning Vacation to the Maldives from Bangladesh"
+      </div>
+      
+      <div class="rich-grid-3">
+        <div class="kpi-card">
+          <div class="kpi-label">Target Product</div>
+          <div class="kpi-value" style="font-size:18px;">People Planning Vacation to the Maldives from Bangladesh</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Target Market / Region</div>
+          <div class="kpi-value" style="font-size:18px;">Not specified</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Commercial Intent</div>
+          <div class="kpi-value" style="font-size:18px;">buying_intent</div>
+          <div class="kpi-sub">Looking for: Individual prospect</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stat-panel">
+      <h3>📈 Prospect Discovery & Reachability Snapshot</h3>
+      <div class="rich-grid-3">
+        <div class="kpi-card">
+          <div class="kpi-label">Total Discovered</div>
+          <div class="kpi-value">10</div>
+          <div class="kpi-sub">Verified corporate records</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Average Quality</div>
+          <div class="kpi-value">84.5</div>
+          <div class="kpi-sub">Data completeness score</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Direct Reachability</div>
+          <div class="kpi-value">0%</div>
+          <div class="kpi-sub">0 valid phone records</div>
+        </div>
+      </div>
+      
+      <div class="rich-grid-3">
+        <div class="kpi-card" style="border-left: 4px solid #ef4444;">
+          <div class="kpi-label">Hot Prospects</div>
+          <div class="kpi-value" style="color:#ef4444;">9</div>
+          <div class="kpi-sub">90% of total pipeline</div>
+        </div>
+        <div class="kpi-card" style="border-left: 4px solid #f59e0b;">
+          <div class="kpi-label">Warm Prospects</div>
+          <div class="kpi-value" style="color:#f59e0b;">1</div>
+          <div class="kpi-sub">10% of total pipeline</div>
+        </div>
+        <div class="kpi-card" style="border-left: 4px solid #94a3b8;">
+          <div class="kpi-label">Cold Leads</div>
+          <div class="kpi-value" style="color:#64748b;">0</div>
+          <div class="kpi-sub">0% of total pipeline</div>
+        </div>
+      </div>
+    </div>
+    
+      </section>
+    
+      <section class="tab-section" data-tab="suppliers">
+        <h2>👥 Discovered Prospects (10)</h2>
+        <div class="subtitle">Individual Profiles · Intent Signals · Contact Routing</div>
+        
+    <div class="filter-bar">
+      <input id="cf2SearchInput" type="text" placeholder="Search prospects..." onkeyup="cf2FilterSuppliers()">
+      <button class="filter-btn active" onclick="cf2SetSegment('all', this)">All</button>
+      <button class="filter-btn" onclick="cf2SetSegment('hot', this)">🔥 Hot</button>
+      <button class="filter-btn" onclick="cf2SetSegment('warm', this)">🔶 Warm</button>
+      <button class="filter-btn" onclick="cf2SetSegment('cold', this)">❄️ Cold</button>
+      <button class="filter-btn" onclick="cf2ToggleChannel('phone', this)">📞 Has Phone</button>
+      <button class="filter-btn" onclick="cf2ToggleChannel('email', this)">✉️ Has Email</button>
+    </div>
+    
+    <div id="cf2SuppliersList">
+      
+    <article class="supplier-card" data-name="mohammad azim" data-segment="hot" data-has-email="0" data-has-phone="0">
+      <div class="card-header">
+        <div>
+          <h3 style="margin:0; font-size:18px; color:#0f172a;">1. Mohammad Azim</h3>
+          <div style="font-size:13px; color:#64748b; margin-top:4px;">📍 Location not specified</div>
+        </div>
+        <div style="display:flex; gap:8px;">
+          <span class="badge-tag badge-score">Score: 95</span>
+          <span class="badge-tag badge-hot">HOT</span>
+        </div>
+      </div>
+
+      <div class="contact-strip">
+        <span class="muted">📞 No phone</span>
+        <span class="muted">✉️ No email</span>
+      </div>
+
+      <div class="primary-actions">
+        
+        <button class="action-btn btn-copy" onclick="cf2CopyText(&quot;Hi Mohammad, I noticed your interest in People Planning Vacation to the Maldives from Bangladesh. I am building CF2 (CrewAI Flow Factory)\u2014enterprise AI pipeline automation platform. Would you be open to a quick chat?&quot;)">📋 Copy Short Pitch</button>
+        
+      </div>
+
+      
+      <details class="accordion">
+        <summary class="accordion-header">📞 Contact Routing (3-Tier Call / Message)</summary>
+        <div class="accordion-body">
+          <div class="tier-block">
+            <span class="tier-label tier-free">Tier 1 · Internet / Free Data</span>
+            <div class="actions-row"><a class="action-btn btn-free" href="https://www.facebook.com/public/Muhammad-Azim/" target="_blank" rel="noopener noreferrer">Facebook</a><a class="action-btn btn-free" href="https://bd.linkedin.com/in/mohammad-azim-aa91a570" target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
+          </div>
+          <div class="tier-block">
+            <span class="tier-label tier-voip">Tier 2 · Low-Cost VoIP</span>
+            <div style="font-size:12px; color:#64748b; margin-bottom:8px;">SIP opens an installed VoIP client. For Alap/Dial, copy the destination number into the app.</div>
+            <div class="actions-row"><span class="muted" style="font-size:12px;">No destination phone available</span></div>
+          </div>
+          <div class="tier-block">
+            <span class="tier-label tier-paid">Tier 3 · Phone Network / Carrier</span>
+            <div class="actions-row"><span class="muted" style="font-size:12px;">No cellular number</span></div>
+          </div>
+        </div>
+      </details>
+    
+      
+      <details class="accordion">
+        <summary class="accordion-header">📝 Outreach Pitch Details</summary>
+        <div class="accordion-body">
+          <div class="pitch-box">
+            <strong style="color:#0f172a;">Short Message (WhatsApp / SMS / LinkedIn)</strong>
+            <p style="margin:6px 0;">Hi Mohammad, I noticed your interest in People Planning Vacation to the Maldives from Bangladesh. I am building CF2 (CrewAI Flow Factory)—enterprise AI pipeline automation platform. Would you be open to a quick chat?</p>
+          </div>
+          <div class="pitch-box">
+            <strong style="color:#0f172a;">Subject:</strong> Regarding your interest in People Planning Vacation to the Maldives from Bangladesh
+            <pre class="pitch-text">Hi Mohammad,
+
+I noticed your recent interest in People Planning Vacation to the Maldives from Bangladesh.
+
+I am building CF2 (CrewAI Flow Factory), which focuses on enterprise AI pipeline automation platform.
+
+Would you be open to a brief conversation about how this might be relevant to you?
+
+Best regards,</pre>
+            <button class="action-btn btn-copy" onclick="cf2CopyText(&quot;Subject: Regarding your interest in People Planning Vacation to the Maldives from Bangladesh\n\nHi Mohammad,\n\nI noticed your recent interest in People Planning Vacation to the Maldives from Bangladesh.\n\nI am building CF2 (CrewAI Flow Factory), which focuses on enterprise AI pipeline automation platform.\n\nWould you be open to a brief conversation about how this might be relevant to you?\n\nBest regards,&quot;)">📋 Copy Email Package</button>
+          </div>
+        </div>
+      </details>
+    
+    </article>
+    
+
+    <article class="supplier-card" data-name="thivanka ranasinghe" data-segment="warm" data-has-email="0" data-has-phone="0">
+      <div class="card-header">
+        <div>
+          <h3 style="margin:0; font-size:18px; color:#0f172a;">2. thivanka ranasinghe</h3>
+          <div style="font-size:13px; color:#64748b; margin-top:4px;">📍 Location not specified</div>
+        </div>
+        <div style="display:flex; gap:8px;">
+          <span class="badge-tag badge-score">Score: 70</span>
+          <span class="badge-tag badge-warm">WARM</span>
+        </div>
+      </div>
+
+      <div class="contact-strip">
+        <span class="muted">📞 No phone</span>
+        <span class="muted">✉️ No email</span>
+      </div>
+
+      <div class="primary-actions">
+        
+        <button class="action-btn btn-copy" onclick="cf2CopyText(&quot;Hi thivanka, I noticed your interest in People Planning Vacation to the Maldives from Bangladesh. I am building CF2 (CrewAI Flow Factory)\u2014enterprise AI pipeline automation platform. Would you be open to a quick chat?&quot;)">📋 Copy Short Pitch</button>
+        
+      </div>
+
+      
+      <details class="accordion">
+        <summary class="accordion-header">📞 Contact Routing (3-Tier Call / Message)</summary>
+        <div class="accordion-body">
+          <div class="tier-block">
+            <span class="tier-label tier-free">Tier 1 · Internet / Free Data</span>
+            <div class="actions-row"><a class="action-btn btn-free" href="https://lk.linkedin.com/in/thivanka-ranasinghe-aa30b0b2" target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
+          </div>
+          <div class="tier-block">
+            <span class="tier-label tier-voip">Tier 2 · Low-Cost VoIP</span>
+            <div style="font-size:12px; color:#64748b; margin-bottom:8px;">SIP opens an installed VoIP client. For Alap/Dial, copy the destination number into the app.</div>
+            <div class="actions-row"><span class="muted" style="font-size:12px;">No destination phone available</span></div>
+          </div>
+          <div class="tier-block">
+            <span class="tier-label tier-paid">Tier 3 · Phone Network / Carrier</span>
+            <div class="actions-row"><span class="muted" style="font-size:12px;">No cellular number</span></div>
+          </div>
+        </div>
+      </details>
+    
+      
+      <details class="accordion">
+        <summary class="accordion-header">📝 Outreach Pitch Details</summary>
+        <div class="accordion-body">
+          <div class="pitch-box">
+            <strong style="color:#0f172a;">Short Message (WhatsApp / SMS / LinkedIn)</strong>
+            <p style="margin:6px 0;">Hi thivanka, I noticed your interest in People Planning Vacation to the Maldives from Bangladesh. I am building CF2 (CrewAI Flow Factory)—enterprise AI pipeline automation platform. Would you be open to a quick chat?</p>
+          </div>
+          <div class="pitch-box">
+            <strong style="color:#0f172a;">Subject:</strong> Regarding your interest in People Planning Vacation to the Maldives from Bangladesh
+            <pre class="pitch-text">Hi thivanka,
+
+I noticed your recent interest in People Planning Vacation to the Maldives from Bangladesh.
+
+I am building CF2 (CrewAI Flow Factory), which focuses on enterprise AI pipeline automation platform.
+
+Would you be open to a brief conversation about how this might be relevant to you?
+
+Best regards,</pre>
+            <button class="action-btn btn-copy" onclick="cf2CopyText(&quot;Subject: Regarding your interest in People Planning Vacation to the Maldives from Bangladesh\n\nHi thivanka,\n\nI noticed your recent interest in People Planning Vacation to the Maldives from Bangladesh.\n\nI am building CF2 (CrewAI Flow Factory), which focuses on enterprise AI pipeline automation platform.\n\nWould you be open to a brief conversation about how this might be relevant to you?\n\nBest regards,&quot;)">📋 Copy Email Package</button>
+          </div>
+        </div>
+      </details>
+    
+    </article>
+    
+
+    <article class="supplier-card" data-name="md. nazmul islam" data-segment="hot" data-has-email="0" data-has-phone="0">
+      <div class="card-header">
+        <div>
+          <h3 style="margin:0; font-size:18px; color:#0f172a;">3. Md. Nazmul Islam</h3>
+          <div style="font-size:13px; color:#64748b; margin-top:4px;">📍 Location not specified</div>
+        </div>
+        <div style="display:flex; gap:8px;">
+          <span class="badge-tag badge-score">Score: 85</span>
+          <span class="badge-tag badge-hot">HOT</span>
+        </div>
+      </div>
+
+      <div class="contact-strip">
+        <span class="muted">📞 No phone</span>
+        <span class="muted">✉️ No email</span>
+      </div>
+
+      <div class="primary-actions">
+        
+        <button class="action-btn btn-copy" onclick="cf2CopyText(&quot;Hi Md., I noticed your interest in People Planning Vacation to the Maldives from Bangladesh. I am building CF2 (CrewAI Flow Factory)\u2014enterprise AI pipeline automation platform. Would you be open to a quick chat?&quot;)">📋 Copy Short Pitch</button>
+        
+      </div>
+
+      
+      <details class="accordion">
+        <summary class="accordion-header">📞 Contact Routing (3-Tier Call / Message)</summary>
+        <div class="accordion-body">
+          <div class="tier-block">
+            <span class="tier-label tier-free">Tier 1 · Internet / Free Data</span>
+            <div class="actions-row"><a class="action-btn btn-free" href="https://www.facebook.com/media/set/?vanity=nazmulislamanu77&amp;set=a.2724908280995002" target="_blank" rel="noopener noreferrer">Facebook</a><a class="action-btn btn-free" href="https://mv.linkedin.com/in/nazmulislambd" target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
+          </div>
+          <div class="tier-block">
+            <span class="tier-label tier-voip">Tier 2 · Low-Cost VoIP</span>
+            <div style="font-size:12px; color:#64748b; margin-bottom:8px;">SIP opens an installed VoIP client. For Alap/Dial, copy the destination number into the app.</div>
+            <div class="actions-row"><span class="muted" style="font-size:12px;">No destination phone available</span></div>
+          </div>
+          <div class="tier-block">
+            <span class="tier-label tier-paid">Tier 3 · Phone Network / Carrier</span>
+            <div class="actions-row"><span class="muted" style="font-size:12px;">No cellular number</span></div>
+          </div>
+        </div>
+      </details>
+    
+      
+      <details class="accordion">
+        <summary class="accordion-header">📝 Outreach Pitch Details</summary>
+        <div class="accordion-body">
+          <div class="pitch-box">
+            <strong style="color:#0f172a;">Short Message (WhatsApp / SMS / LinkedIn)</strong>
+            <p style="margin:6px 0;">Hi Md., I noticed your interest in People Planning Vacation to the Maldives from Bangladesh. I am building CF2 (CrewAI Flow Factory)—enterprise AI pipeline automation platform. Would you be open to a quick chat?</p>
+          </div>
+          <div class="pitch-box">
+            <strong style="color:#0f172a;">Subject:</strong> Regarding your interest in People Planning Vacation to the Maldives from Bangladesh
+            <pre class="pitch-text">Hi Md.,
+
+I noticed your recent interest in People Planning Vacation to the Maldives from Bangladesh.
+
+I am building CF2 (CrewAI Flow Factory), which focuses on enterprise AI pipeline automation platform.
+
+Would you be open to a brief conversation about how this might be relevant to you?
+
+Best regards,</pre>
+            <button class="action-btn btn-copy" onclick="cf2CopyText(&quot;Subject: Regarding your interest in People Planning Vacation to the Maldives from Bangladesh\n\nHi Md.,\n\nI noticed your recent interest in People Planning Vacation to the Maldives from Bangladesh.\n\nI am building CF2 (CrewAI Flow Factory), which focuses on enterprise AI pipeline automation platform.\n\nWould you be open to a brief conversation about how this might be relevant to you?\n\nBest regards,&quot;)">📋 Copy Email Package</button>
+          </div>
+        </div>
+      </details>
+    
+    </article>
+    
+
+    <article class="supplier-card" data-name="m. rafi" data-segment="hot" data-has-email="0" data-has-phone="0">
+      <div class="card-header">
+        <div>
+          <h3 style="margin:0; font-size:18px; color:#0f172a;">4. M. Rafi</h3>
+          <div style="font-size:13px; color:#64748b; margin-top:4px;">📍 Location not specified</div>
+        </div>
+        <div style="display:flex; gap:8px;">
+          <span class="badge-tag badge-score">Score: 85</span>
+          <span class="badge-tag badge-hot">HOT</span>
+        </div>
+      </div>
+
+      <div class="contact-strip">
+        <span class="muted">📞 No phone</span>
+        <span class="muted">✉️ No email</span>
+      </div>
+
+      <div class="primary-actions">
+        
+        <button class="action-btn btn-copy" onclick="cf2CopyText(&quot;Hi M., I noticed your interest in People Planning Vacation to the Maldives from Bangladesh. I am building CF2 (CrewAI Flow Factory)\u2014enterprise AI pipeline automation platform. Would you be open to a quick chat?&quot;)">📋 Copy Short Pitch</button>
+        
+      </div>
+
+      
+      <details class="accordion">
+        <summary class="accordion-header">📞 Contact Routing (3-Tier Call / Message)</summary>
+        <div class="accordion-body">
+          <div class="tier-block">
+            <span class="tier-label tier-free">Tier 1 · Internet / Free Data</span>
+            <div class="actions-row"><a class="action-btn btn-free" href="https://mv.linkedin.com/in/m-rafi-9047a433" target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
+          </div>
+          <div class="tier-block">
+            <span class="tier-label tier-voip">Tier 2 · Low-Cost VoIP</span>
+            <div style="font-size:12px; color:#64748b; margin-bottom:8px;">SIP opens an installed VoIP client. For Alap/Dial, copy the destination number into the app.</div>
+            <div class="actions-row"><span class="muted" style="font-size:12px;">No destination phone available</span></div>
+          </div>
+          <div class="tier-block">
+            <span class="tier-label tier-paid">Tier 3 · Phone Network / Carrier</span>
+            <div class="actions-row"><span class="muted" style="font-size:12px;">No cellular number</span></div>
+          </div>
+        </div>
+      </details>
+    
+      
+      <details class="accordion">
+        <summary class="accordion-header">📝 Outreach Pitch Details</summary>
+        <div class="accordion-body">
+          <div class="pitch-box">
+            <strong style="color:#0f172a;">Short Message (WhatsApp / SMS / LinkedIn)</strong>
+            <p style="margin:6px 0;">Hi M., I noticed your interest in People Planning Vacation to the Maldives from Bangladesh. I am building CF2 (CrewAI Flow Factory)—enterprise AI pipeline automation platform. Would you be open to a quick chat?</p>
+          </div>
+          <div class="pitch-box">
+            <strong style="color:#0f172a;">Subject:</strong> Regarding your interest in People Planning Vacation to the Maldives from Bangladesh
+            <pre class="pitch-text">Hi M.,
+
+I noticed your recent interest in People Planning Vacation to the Maldives from Bangladesh.
+
+I am building CF2 (CrewAI Flow Factory), which focuses on enterprise AI pipeline automation platform.
+
+Would you be open to a brief conversation about how this might be relevant to you?
+
+Best regards,</pre>
+            <button class="action-btn btn-copy" onclick="cf2CopyText(&quot;Subject: Regarding your interest in People Planning Vacation to the Maldives from Bangladesh\n\nHi M.,\n\nI noticed your recent interest in People Planning Vacation to the Maldives from Bangladesh.\n\nI am building CF2 (CrewAI Flow Factory), which focuses on enterprise AI pipeline automation platform.\n\nWould you be open to a brief conversation about how this might be relevant to you?\n\nBest regards,&quot;)">📋 Copy Email Package</button>
+          </div>
+        </div>
+      </details>
+    
+    </article>
+    
+
+    <article class="supplier-card" data-name="sapna dabas" data-segment="hot" data-has-email="0" data-has-phone="0">
+      <div class="card-header">
+        <div>
+          <h3 style="margin:0; font-size:18px; color:#0f172a;">5. Sapna Dabas</h3>
+          <div style="font-size:13px; color:#64748b; margin-top:4px;">📍 Location not specified</div>
+        </div>
+        <div style="display:flex; gap:8px;">
+          <span class="badge-tag badge-score">Score: 85</span>
+          <span class="badge-tag badge-hot">HOT</span>
+        </div>
+      </div>
+
+      <div class="contact-strip">
+        <span class="muted">📞 No phone</span>
+        <span class="muted">✉️ No email</span>
+      </div>
+
+      <div class="primary-actions">
+        
+        <button class="action-btn btn-copy" onclick="cf2CopyText(&quot;Hi Sapna, I noticed your interest in People Planning Vacation to the Maldives from Bangladesh. I am building CF2 (CrewAI Flow Factory)\u2014enterprise AI pipeline automation platform. Would you be open to a quick chat?&quot;)">📋 Copy Short Pitch</button>
+        
+      </div>
+
+      
+      <details class="accordion">
+        <summary class="accordion-header">📞 Contact Routing (3-Tier Call / Message)</summary>
+        <div class="accordion-body">
+          <div class="tier-block">
+            <span class="tier-label tier-free">Tier 1 · Internet / Free Data</span>
+            <div class="actions-row"><a class="action-btn btn-free" href="https://www.facebook.com/public/Swati-Dabas" target="_blank" rel="noopener noreferrer">Facebook</a><a class="action-btn btn-free" href="https://nz.linkedin.com/in/sapna-dabas-18019b26b" target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
+          </div>
+          <div class="tier-block">
+            <span class="tier-label tier-voip">Tier 2 · Low-Cost VoIP</span>
+            <div style="font-size:12px; color:#64748b; margin-bottom:8px;">SIP opens an installed VoIP client. For Alap/Dial, copy the destination number into the app.</div>
+            <div class="actions-row"><span class="muted" style="font-size:12px;">No destination phone available</span></div>
+          </div>
+          <div class="tier-block">
+            <span class="tier-label tier-paid">Tier 3 · Phone Network / Carrier</span>
+            <div class="actions-row"><span class="muted" style="font-size:12px;">No cellular number</span></div>
+          </div>
+        </div>
+      </details>
+    
+      
+      <details class="accordion">
+        <summary class="accordion-header">📝 Outreach Pitch Details</summary>
+        <div class="accordion-body">
+          <div class="pitch-box">
+            <strong style="color:#0f172a;">Short Message (WhatsApp / SMS / LinkedIn)</strong>
+            <p style="margin:6px 0;">Hi Sapna, I noticed your interest in People Planning Vacation to the Maldives from Bangladesh. I am building CF2 (CrewAI Flow Factory)—enterprise AI pipeline automation platform. Would you be open to a quick chat?</p>
+          </div>
+          <div class="pitch-box">
+            <strong style="color:#0f172a;">Subject:</strong> Regarding your interest in People Planning Vacation to the Maldives from Bangladesh
+            <pre class="pitch-text">Hi Sapna,
+
+I noticed your recent interest in People Planning Vacation to the Maldives from Bangladesh.
+
+I am building CF2 (CrewAI Flow Factory), which focuses on enterprise AI pipeline automation platform.
+
+Would you be open to a brief conversation about how this might be relevant to you?
+
+Best regards,</pre>
+            <button class="action-btn btn-copy" onclick="cf2CopyText(&quot;Subject: Regarding your interest in People Planning Vacation to the Maldives from Bangladesh\n\nHi Sapna,\n\nI noticed your recent interest in People Planning Vacation to the Maldives from Bangladesh.\n\nI am building CF2 (CrewAI Flow Factory), which focuses on enterprise AI pipeline automation platform.\n\nWould you be open to a brief conversation about how this might be relevant to you?\n\nBest regards,&quot;)">📋 Copy Email Package</button>
+          </div>
+        </div>
+      </details>
+    
+    </article>
+    
+
+    <article class="supplier-card" data-name="nishard mohamed" data-segment="hot" data-has-email="0" data-has-phone="0">
+      <div class="card-header">
+        <div>
+          <h3 style="margin:0; font-size:18px; color:#0f172a;">6. Nishard Mohamed</h3>
+          <div style="font-size:13px; color:#64748b; margin-top:4px;">📍 Location not specified</div>
+        </div>
+        <div style="display:flex; gap:8px;">
+          <span class="badge-tag badge-score">Score: 85</span>
+          <span class="badge-tag badge-hot">HOT</span>
+        </div>
+      </div>
+
+      <div class="contact-strip">
+        <span class="muted">📞 No phone</span>
+        <span class="muted">✉️ No email</span>
+      </div>
+
+      <div class="primary-actions">
+        
+        <button class="action-btn btn-copy" onclick="cf2CopyText(&quot;Hi Nishard, I noticed your interest in People Planning Vacation to the Maldives from Bangladesh. I am building CF2 (CrewAI Flow Factory)\u2014enterprise AI pipeline automation platform. Would you be open to a quick chat?&quot;)">📋 Copy Short Pitch</button>
+        
+      </div>
+
+      
+      <details class="accordion">
+        <summary class="accordion-header">📞 Contact Routing (3-Tier Call / Message)</summary>
+        <div class="accordion-body">
+          <div class="tier-block">
+            <span class="tier-label tier-free">Tier 1 · Internet / Free Data</span>
+            <div class="actions-row"><a class="action-btn btn-free" href="https://www.facebook.com/nishadnmn/?locale=ru_RU" target="_blank" rel="noopener noreferrer">Facebook</a><a class="action-btn btn-free" href="https://mv.linkedin.com/in/nishard-mohamed-9a524589" target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
+          </div>
+          <div class="tier-block">
+            <span class="tier-label tier-voip">Tier 2 · Low-Cost VoIP</span>
+            <div style="font-size:12px; color:#64748b; margin-bottom:8px;">SIP opens an installed VoIP client. For Alap/Dial, copy the destination number into the app.</div>
+            <div class="actions-row"><span class="muted" style="font-size:12px;">No destination phone available</span></div>
+          </div>
+          <div class="tier-block">
+            <span class="tier-label tier-paid">Tier 3 · Phone Network / Carrier</span>
+            <div class="actions-row"><span class="muted" style="font-size:12px;">No cellular number</span></div>
+          </div>
+        </div>
+      </details>
+    
+      
+      <details class="accordion">
+        <summary class="accordion-header">📝 Outreach Pitch Details</summary>
+        <div class="accordion-body">
+          <div class="pitch-box">
+            <strong style="color:#0f172a;">Short Message (WhatsApp / SMS / LinkedIn)</strong>
+            <p style="margin:6px 0;">Hi Nishard, I noticed your interest in People Planning Vacation to the Maldives from Bangladesh. I am building CF2 (CrewAI Flow Factory)—enterprise AI pipeline automation platform. Would you be open to a quick chat?</p>
+          </div>
+          <div class="pitch-box">
+            <strong style="color:#0f172a;">Subject:</strong> Regarding your interest in People Planning Vacation to the Maldives from Bangladesh
+            <pre class="pitch-text">Hi Nishard,
+
+I noticed your recent interest in People Planning Vacation to the Maldives from Bangladesh.
+
+I am building CF2 (CrewAI Flow Factory), which focuses on enterprise AI pipeline automation platform.
+
+Would you be open to a brief conversation about how this might be relevant to you?
+
+Best regards,</pre>
+            <button class="action-btn btn-copy" onclick="cf2CopyText(&quot;Subject: Regarding your interest in People Planning Vacation to the Maldives from Bangladesh\n\nHi Nishard,\n\nI noticed your recent interest in People Planning Vacation to the Maldives from Bangladesh.\n\nI am building CF2 (CrewAI Flow Factory), which focuses on enterprise AI pipeline automation platform.\n\nWould you be open to a brief conversation about how this might be relevant to you?\n\nBest regards,&quot;)">📋 Copy Email Package</button>
+          </div>
+        </div>
+      </details>
+    
+    </article>
+    
+
+    <article class="supplier-card" data-name="ahmed shafee" data-segment="hot" data-has-email="0" data-has-phone="0">
+      <div class="card-header">
+        <div>
+          <h3 style="margin:0; font-size:18px; color:#0f172a;">7. Ahmed Shafee</h3>
+          <div style="font-size:13px; color:#64748b; margin-top:4px;">📍 Location not specified</div>
+        </div>
+        <div style="display:flex; gap:8px;">
+          <span class="badge-tag badge-score">Score: 85</span>
+          <span class="badge-tag badge-hot">HOT</span>
+        </div>
+      </div>
+
+      <div class="contact-strip">
+        <span class="muted">📞 No phone</span>
+        <span class="muted">✉️ No email</span>
+      </div>
+
+      <div class="primary-actions">
+        
+        <button class="action-btn btn-copy" onclick="cf2CopyText(&quot;Hi Ahmed, I noticed your interest in People Planning Vacation to the Maldives from Bangladesh. I am building CF2 (CrewAI Flow Factory)\u2014enterprise AI pipeline automation platform. Would you be open to a quick chat?&quot;)">📋 Copy Short Pitch</button>
+        
+      </div>
+
+      
+      <details class="accordion">
+        <summary class="accordion-header">📞 Contact Routing (3-Tier Call / Message)</summary>
+        <div class="accordion-body">
+          <div class="tier-block">
+            <span class="tier-label tier-free">Tier 1 · Internet / Free Data</span>
+            <div class="actions-row"><a class="action-btn btn-free" href="https://www.facebook.com/public/Ahmed-Shafee" target="_blank" rel="noopener noreferrer">Facebook</a><a class="action-btn btn-free" href="https://mv.linkedin.com/in/ahmed-shafee-a670b387" target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
+          </div>
+          <div class="tier-block">
+            <span class="tier-label tier-voip">Tier 2 · Low-Cost VoIP</span>
+            <div style="font-size:12px; color:#64748b; margin-bottom:8px;">SIP opens an installed VoIP client. For Alap/Dial, copy the destination number into the app.</div>
+            <div class="actions-row"><span class="muted" style="font-size:12px;">No destination phone available</span></div>
+          </div>
+          <div class="tier-block">
+            <span class="tier-label tier-paid">Tier 3 · Phone Network / Carrier</span>
+            <div class="actions-row"><span class="muted" style="font-size:12px;">No cellular number</span></div>
+          </div>
+        </div>
+      </details>
+    
+      
+      <details class="accordion">
+        <summary class="accordion-header">📝 Outreach Pitch Details</summary>
+        <div class="accordion-body">
+          <div class="pitch-box">
+            <strong style="color:#0f172a;">Short Message (WhatsApp / SMS / LinkedIn)</strong>
+            <p style="margin:6px 0;">Hi Ahmed, I noticed your interest in People Planning Vacation to the Maldives from Bangladesh. I am building CF2 (CrewAI Flow Factory)—enterprise AI pipeline automation platform. Would you be open to a quick chat?</p>
+          </div>
+          <div class="pitch-box">
+            <strong style="color:#0f172a;">Subject:</strong> Regarding your interest in People Planning Vacation to the Maldives from Bangladesh
+            <pre class="pitch-text">Hi Ahmed,
+
+I noticed your recent interest in People Planning Vacation to the Maldives from Bangladesh.
+
+I am building CF2 (CrewAI Flow Factory), which focuses on enterprise AI pipeline automation platform.
+
+Would you be open to a brief conversation about how this might be relevant to you?
+
+Best regards,</pre>
+            <button class="action-btn btn-copy" onclick="cf2CopyText(&quot;Subject: Regarding your interest in People Planning Vacation to the Maldives from Bangladesh\n\nHi Ahmed,\n\nI noticed your recent interest in People Planning Vacation to the Maldives from Bangladesh.\n\nI am building CF2 (CrewAI Flow Factory), which focuses on enterprise AI pipeline automation platform.\n\nWould you be open to a brief conversation about how this might be relevant to you?\n\nBest regards,&quot;)">📋 Copy Email Package</button>
+          </div>
+        </div>
+      </details>
+    
+    </article>
+    
+
+    <article class="supplier-card" data-name="akanksha sood" data-segment="hot" data-has-email="0" data-has-phone="0">
+      <div class="card-header">
+        <div>
+          <h3 style="margin:0; font-size:18px; color:#0f172a;">8. Akanksha Sood</h3>
+          <div style="font-size:13px; color:#64748b; margin-top:4px;">📍 Location not specified</div>
+        </div>
+        <div style="display:flex; gap:8px;">
+          <span class="badge-tag badge-score">Score: 85</span>
+          <span class="badge-tag badge-hot">HOT</span>
+        </div>
+      </div>
+
+      <div class="contact-strip">
+        <span class="muted">📞 No phone</span>
+        <span class="muted">✉️ No email</span>
+      </div>
+
+      <div class="primary-actions">
+        
+        <button class="action-btn btn-copy" onclick="cf2CopyText(&quot;Hi Akanksha, I noticed your interest in People Planning Vacation to the Maldives from Bangladesh. I am building CF2 (CrewAI Flow Factory)\u2014enterprise AI pipeline automation platform. Would you be open to a quick chat?&quot;)">📋 Copy Short Pitch</button>
+        
+      </div>
+
+      
+      <details class="accordion">
+        <summary class="accordion-header">📞 Contact Routing (3-Tier Call / Message)</summary>
+        <div class="accordion-body">
+          <div class="tier-block">
+            <span class="tier-label tier-free">Tier 1 · Internet / Free Data</span>
+            <div class="actions-row"><a class="action-btn btn-free" href="https://www.linkedin.com/in/akanksha-sood-30321348" target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
+          </div>
+          <div class="tier-block">
+            <span class="tier-label tier-voip">Tier 2 · Low-Cost VoIP</span>
+            <div style="font-size:12px; color:#64748b; margin-bottom:8px;">SIP opens an installed VoIP client. For Alap/Dial, copy the destination number into the app.</div>
+            <div class="actions-row"><span class="muted" style="font-size:12px;">No destination phone available</span></div>
+          </div>
+          <div class="tier-block">
+            <span class="tier-label tier-paid">Tier 3 · Phone Network / Carrier</span>
+            <div class="actions-row"><span class="muted" style="font-size:12px;">No cellular number</span></div>
+          </div>
+        </div>
+      </details>
+    
+      
+      <details class="accordion">
+        <summary class="accordion-header">📝 Outreach Pitch Details</summary>
+        <div class="accordion-body">
+          <div class="pitch-box">
+            <strong style="color:#0f172a;">Short Message (WhatsApp / SMS / LinkedIn)</strong>
+            <p style="margin:6px 0;">Hi Akanksha, I noticed your interest in People Planning Vacation to the Maldives from Bangladesh. I am building CF2 (CrewAI Flow Factory)—enterprise AI pipeline automation platform. Would you be open to a quick chat?</p>
+          </div>
+          <div class="pitch-box">
+            <strong style="color:#0f172a;">Subject:</strong> Regarding your interest in People Planning Vacation to the Maldives from Bangladesh
+            <pre class="pitch-text">Hi Akanksha,
+
+I noticed your recent interest in People Planning Vacation to the Maldives from Bangladesh.
+
+I am building CF2 (CrewAI Flow Factory), which focuses on enterprise AI pipeline automation platform.
+
+Would you be open to a brief conversation about how this might be relevant to you?
+
+Best regards,</pre>
+            <button class="action-btn btn-copy" onclick="cf2CopyText(&quot;Subject: Regarding your interest in People Planning Vacation to the Maldives from Bangladesh\n\nHi Akanksha,\n\nI noticed your recent interest in People Planning Vacation to the Maldives from Bangladesh.\n\nI am building CF2 (CrewAI Flow Factory), which focuses on enterprise AI pipeline automation platform.\n\nWould you be open to a brief conversation about how this might be relevant to you?\n\nBest regards,&quot;)">📋 Copy Email Package</button>
+          </div>
+        </div>
+      </details>
+    
+    </article>
+    
+
+    <article class="supplier-card" data-name="amazing tours bangladesh" data-segment="hot" data-has-email="0" data-has-phone="0">
+      <div class="card-header">
+        <div>
+          <h3 style="margin:0; font-size:18px; color:#0f172a;">9. Amazing Tours Bangladesh</h3>
+          <div style="font-size:13px; color:#64748b; margin-top:4px;">📍 Location not specified</div>
+        </div>
+        <div style="display:flex; gap:8px;">
+          <span class="badge-tag badge-score">Score: 85</span>
+          <span class="badge-tag badge-hot">HOT</span>
+        </div>
+      </div>
+
+      <div class="contact-strip">
+        <span class="muted">📞 No phone</span>
+        <span class="muted">✉️ No email</span>
+      </div>
+
+      <div class="primary-actions">
+        
+        <button class="action-btn btn-copy" onclick="cf2CopyText(&quot;Hi Amazing, I noticed your interest in People Planning Vacation to the Maldives from Bangladesh. I am building CF2 (CrewAI Flow Factory)\u2014enterprise AI pipeline automation platform. Would you be open to a quick chat?&quot;)">📋 Copy Short Pitch</button>
+        
+      </div>
+
+      
+      <details class="accordion">
+        <summary class="accordion-header">📞 Contact Routing (3-Tier Call / Message)</summary>
+        <div class="accordion-body">
+          <div class="tier-block">
+            <span class="tier-label tier-free">Tier 1 · Internet / Free Data</span>
+            <div class="actions-row"><a class="action-btn btn-free" href="https://www.facebook.com/amazingtoursbangladesh/about/" target="_blank" rel="noopener noreferrer">Facebook</a><a class="action-btn btn-free" href="https://bd.linkedin.com/in/amazingtours" target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
+          </div>
+          <div class="tier-block">
+            <span class="tier-label tier-voip">Tier 2 · Low-Cost VoIP</span>
+            <div style="font-size:12px; color:#64748b; margin-bottom:8px;">SIP opens an installed VoIP client. For Alap/Dial, copy the destination number into the app.</div>
+            <div class="actions-row"><span class="muted" style="font-size:12px;">No destination phone available</span></div>
+          </div>
+          <div class="tier-block">
+            <span class="tier-label tier-paid">Tier 3 · Phone Network / Carrier</span>
+            <div class="actions-row"><span class="muted" style="font-size:12px;">No cellular number</span></div>
+          </div>
+        </div>
+      </details>
+    
+      
+      <details class="accordion">
+        <summary class="accordion-header">📝 Outreach Pitch Details</summary>
+        <div class="accordion-body">
+          <div class="pitch-box">
+            <strong style="color:#0f172a;">Short Message (WhatsApp / SMS / LinkedIn)</strong>
+            <p style="margin:6px 0;">Hi Amazing, I noticed your interest in People Planning Vacation to the Maldives from Bangladesh. I am building CF2 (CrewAI Flow Factory)—enterprise AI pipeline automation platform. Would you be open to a quick chat?</p>
+          </div>
+          <div class="pitch-box">
+            <strong style="color:#0f172a;">Subject:</strong> Regarding your interest in People Planning Vacation to the Maldives from Bangladesh
+            <pre class="pitch-text">Hi Amazing,
+
+I noticed your recent interest in People Planning Vacation to the Maldives from Bangladesh.
+
+I am building CF2 (CrewAI Flow Factory), which focuses on enterprise AI pipeline automation platform.
+
+Would you be open to a brief conversation about how this might be relevant to you?
+
+Best regards,</pre>
+            <button class="action-btn btn-copy" onclick="cf2CopyText(&quot;Subject: Regarding your interest in People Planning Vacation to the Maldives from Bangladesh\n\nHi Amazing,\n\nI noticed your recent interest in People Planning Vacation to the Maldives from Bangladesh.\n\nI am building CF2 (CrewAI Flow Factory), which focuses on enterprise AI pipeline automation platform.\n\nWould you be open to a brief conversation about how this might be relevant to you?\n\nBest regards,&quot;)">📋 Copy Email Package</button>
+          </div>
+        </div>
+      </details>
+    
+    </article>
+    
+
+    <article class="supplier-card" data-name="syed rashedur rahman" data-segment="hot" data-has-email="0" data-has-phone="0">
+      <div class="card-header">
+        <div>
+          <h3 style="margin:0; font-size:18px; color:#0f172a;">10. Syed Rashedur Rahman</h3>
+          <div style="font-size:13px; color:#64748b; margin-top:4px;">📍 Location not specified</div>
+        </div>
+        <div style="display:flex; gap:8px;">
+          <span class="badge-tag badge-score">Score: 85</span>
+          <span class="badge-tag badge-hot">HOT</span>
+        </div>
+      </div>
+
+      <div class="contact-strip">
+        <span class="muted">📞 No phone</span>
+        <span class="muted">✉️ No email</span>
+      </div>
+
+      <div class="primary-actions">
+        
+        <button class="action-btn btn-copy" onclick="cf2CopyText(&quot;Hi Syed, I noticed your interest in People Planning Vacation to the Maldives from Bangladesh. I am building CF2 (CrewAI Flow Factory)\u2014enterprise AI pipeline automation platform. Would you be open to a quick chat?&quot;)">📋 Copy Short Pitch</button>
+        
+      </div>
+
+      
+      <details class="accordion">
+        <summary class="accordion-header">📞 Contact Routing (3-Tier Call / Message)</summary>
+        <div class="accordion-body">
+          <div class="tier-block">
+            <span class="tier-label tier-free">Tier 1 · Internet / Free Data</span>
+            <div class="actions-row"><a class="action-btn btn-free" href="https://mv.linkedin.com/in/syed-rashedur-rahman-119b7592" target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
+          </div>
+          <div class="tier-block">
+            <span class="tier-label tier-voip">Tier 2 · Low-Cost VoIP</span>
+            <div style="font-size:12px; color:#64748b; margin-bottom:8px;">SIP opens an installed VoIP client. For Alap/Dial, copy the destination number into the app.</div>
+            <div class="actions-row"><span class="muted" style="font-size:12px;">No destination phone available</span></div>
+          </div>
+          <div class="tier-block">
+            <span class="tier-label tier-paid">Tier 3 · Phone Network / Carrier</span>
+            <div class="actions-row"><span class="muted" style="font-size:12px;">No cellular number</span></div>
+          </div>
+        </div>
+      </details>
+    
+      
+      <details class="accordion">
+        <summary class="accordion-header">📝 Outreach Pitch Details</summary>
+        <div class="accordion-body">
+          <div class="pitch-box">
+            <strong style="color:#0f172a;">Short Message (WhatsApp / SMS / LinkedIn)</strong>
+            <p style="margin:6px 0;">Hi Syed, I noticed your interest in People Planning Vacation to the Maldives from Bangladesh. I am building CF2 (CrewAI Flow Factory)—enterprise AI pipeline automation platform. Would you be open to a quick chat?</p>
+          </div>
+          <div class="pitch-box">
+            <strong style="color:#0f172a;">Subject:</strong> Regarding your interest in People Planning Vacation to the Maldives from Bangladesh
+            <pre class="pitch-text">Hi Syed,
+
+I noticed your recent interest in People Planning Vacation to the Maldives from Bangladesh.
+
+I am building CF2 (CrewAI Flow Factory), which focuses on enterprise AI pipeline automation platform.
+
+Would you be open to a brief conversation about how this might be relevant to you?
+
+Best regards,</pre>
+            <button class="action-btn btn-copy" onclick="cf2CopyText(&quot;Subject: Regarding your interest in People Planning Vacation to the Maldives from Bangladesh\n\nHi Syed,\n\nI noticed your recent interest in People Planning Vacation to the Maldives from Bangladesh.\n\nI am building CF2 (CrewAI Flow Factory), which focuses on enterprise AI pipeline automation platform.\n\nWould you be open to a brief conversation about how this might be relevant to you?\n\nBest regards,&quot;)">📋 Copy Email Package</button>
+          </div>
+        </div>
+      </details>
+    
+    </article>
+    
+    </div>
+    
+    <script>
+    let cf2Seg = 'all';
+    let cf2ReqPhone = false;
+    let cf2ReqEmail = false;
+
+    function cf2SetSegment(segment, btn) {
+      cf2Seg = segment;
+      document.querySelectorAll('.filter-bar .filter-btn').forEach(b => {
+        if (b.innerText.includes('All') || b.innerText.includes('Hot') || b.innerText.includes('Warm') || b.innerText.includes('Cold')) {
+          b.classList.remove('active');
+        }
+      });
+      btn.classList.add('active');
+      cf2FilterSuppliers();
+    }
+
+    function cf2ToggleChannel(channel, btn) {
+      if (channel === 'phone') cf2ReqPhone = !cf2ReqPhone;
+      if (channel === 'email') cf2ReqEmail = !cf2ReqEmail;
+      btn.classList.toggle('active');
+      cf2FilterSuppliers();
+    }
+
+    function cf2FilterSuppliers() {
+      const q = (document.getElementById('cf2SearchInput').value || '').toLowerCase();
+      document.querySelectorAll('.supplier-card').forEach(card => {
+        const name = card.dataset.name || '';
+        const seg = card.dataset.segment || '';
+        const hasEmail = card.dataset.hasEmail === '1';
+        const hasPhone = card.dataset.hasPhone === '1';
+        
+        const matchQ = name.includes(q);
+        const matchSeg = (cf2Seg === 'all' || seg === cf2Seg);
+        const matchPhone = (!cf2ReqPhone || hasPhone);
+        const matchEmail = (!cf2ReqEmail || hasEmail);
+        
+        card.style.display = (matchQ && matchSeg && matchPhone && matchEmail) ? 'block' : 'none';
+      });
+    }
+
+    async function cf2CopyText(text) {
+      try {
+        await navigator.clipboard.writeText(text);
+        alert('Copied to clipboard!');
+      } catch (err) {
+        window.prompt('Copy to clipboard:', text);
+      }
+    }
+    </script>
+    
+      </section>
+    
+      <section class="tab-section" data-tab="outreach">
+        <h2>✉️ Outreach Packages</h2>
+        <div class="subtitle">Personalized Outreach Message Templates</div>
+        
+    <div class="stat-panel">
+      <h3>Baseline Outreach Package (Sample Template)</h3>
+      <p style="font-size:13px; color:#64748b;">Generated from Interpreted Intent: <strong>buying_intent</strong> for <strong>People Planning Vacation to the Maldives from Bangladesh</strong> (Not specified)</p>
+      
+      <div class="pitch-box">
+        <strong style="color:#0f172a;">Short Outreach (WhatsApp / SMS / LinkedIn):</strong>
+        <p style="margin:6px 0;">Hi Mohammad, I noticed your interest in People Planning Vacation to the Maldives from Bangladesh. I am building CF2 (CrewAI Flow Factory)—enterprise AI pipeline automation platform. Would you be open to a quick chat?</p>
+      </div>
+      
+      <div class="pitch-box">
+        <strong style="color:#0f172a;">Email Subject:</strong> Regarding your interest in People Planning Vacation to the Maldives from Bangladesh<br/><br/>
+        <strong style="color:#0f172a;">Detailed RFQ / Inquiry Email:</strong>
+        <pre class="pitch-text">Hi Mohammad,
+
+I noticed your recent interest in People Planning Vacation to the Maldives from Bangladesh.
+
+I am building CF2 (CrewAI Flow Factory), which focuses on enterprise AI pipeline automation platform.
+
+Would you be open to a brief conversation about how this might be relevant to you?
+
+Best regards,</pre>
+      </div>
+    </div>
+    
+      </section>
+    
+      <section class="tab-section" data-tab="reports">
+        <h2>📄 Generated Reports</h2>
+        <div class="subtitle">Generated Dossiers & Executive Briefs</div>
+        
+        <div class="stat-panel">
+          <h3>Downloadable Intelligence Dossiers</h3>
+          <ul style="list-style:none; padding:0; margin:0;"><li style="padding:10px 0; border-bottom:1px solid #e2e8f0;"><a style="color:#0f766e; text-decoration:none; font-weight:600;" href="../../reports/LD_People_Planning_Vacation_to_the_Maldives_from_Bangladesh_2026-10-13.csv" target="_blank">LD_People_Planning_Vacation_to_the_Maldives_from_Bangladesh_2026-10-13.csv</a></li><li style="padding:10px 0; border-bottom:1px solid #e2e8f0;"><a style="color:#0f766e; text-decoration:none; font-weight:600;" href="../../reports/LD_People_Planning_Vacation_to_the_Maldives_from_Bangladesh_2026-10-13.docx" target="_blank">LD_People_Planning_Vacation_to_the_Maldives_from_Bangladesh_2026-10-13.docx</a></li><li style="padding:10px 0; border-bottom:1px solid #e2e8f0;"><a style="color:#0f766e; text-decoration:none; font-weight:600;" href="../../reports/LD_People_Planning_Vacation_to_the_Maldives_from_Bangladesh_2026-10-13.json" target="_blank">LD_People_Planning_Vacation_to_the_Maldives_from_Bangladesh_2026-10-13.json</a></li><li style="padding:10px 0; border-bottom:1px solid #e2e8f0;"><a style="color:#0f766e; text-decoration:none; font-weight:600;" href="../../reports/LD_People_Planning_Vacation_to_the_Maldives_from_Bangladesh_2026-10-13.md" target="_blank">LD_People_Planning_Vacation_to_the_Maldives_from_Bangladesh_2026-10-13.md</a></li><li style="padding:10px 0; border-bottom:1px solid #e2e8f0;"><a style="color:#0f766e; text-decoration:none; font-weight:600;" href="../../reports/LD_People_Planning_Vacation_to_the_Maldives_from_Bangladesh_2026-10-13.pdf" target="_blank">LD_People_Planning_Vacation_to_the_Maldives_from_Bangladesh_2026-10-13.pdf</a></li></ul>
+        </div>
+        
+      </section>
+    
+
+    <footer>
+      Generated by CF2 · LeadData Intent Intelligence · <span id="build-time"></span>
+    </footer>
+  </main>
+
+  <script>
+
+    // ─── Left Sidebar Show / Hide Toggle ───
+    function toggleSidebar() {
+      const isMobile = window.innerWidth <= 768;
+      if (isMobile) {
+        document.body.classList.toggle('mobile-sidebar-open');
+      } else {
+        document.body.classList.toggle('sidebar-collapsed');
+      }
+    }
+
+    // ─── Tab routing ───
+    function activateTab(tabId) {
+      document.querySelectorAll('nav.top-tabs a').forEach(a => {
+        a.classList.toggle('active', a.dataset.tab === tabId);
+      });
+      document.querySelectorAll('section.tab-section').forEach(s => {
+        s.classList.toggle('active', s.dataset.tab === tabId);
+      });
+      document.querySelectorAll('aside .side-nav a').forEach(a => {
+        a.classList.toggle('active', a.dataset.tab === tabId);
+      });
+      
+      // Auto close sidebar on mobile when selecting a tab
+      if (window.innerWidth <= 768) {
+        document.body.classList.remove('mobile-sidebar-open');
+      }
+    }
+
+    function parseHash() {
+      const h = location.hash.slice(1);
+      const params = {};
+      h.split('&').forEach(p => {
+        const [k, v] = p.split('=');
+        if (k) params[k] = decodeURIComponent(v || '');
+      });
+      return params;
+    }
+
+    function updateHash(patch) {
+      const cur = parseHash();
+      const merged = { ...cur, ...patch };
+      const parts = Object.entries(merged)
+        .filter(([_, v]) => v !== '' && v != null)
+        .map(([k, v]) => `${k}=${encodeURIComponent(v)}`);
+      location.hash = parts.join('&');
+    }
+
+    document.querySelectorAll('nav.top-tabs a, aside .side-nav a').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const tab = a.dataset.tab;
+        if (tab) {
+          activateTab(tab);
+          updateHash({ tab });
+        }
+      });
+    });
+
+    // ─── Load project.json ───
+    fetch('data/project.json')
+      .then(r => r.json())
+      .then(data => {
+        renderMaps(data.maps || []);
+        renderReports(data.reports || []);
+        renderVideos(data.videos || {intro:[], pitch:[]});
+        document.getElementById('build-time').textContent =
+          data.generated_at || new Date().toISOString();
+
+        const params = parseHash();
+        activateTab(params.tab || 'executive');
+      })
+      .catch(err => {
+        console.error('Failed to load project.json:', err);
+        activateTab('executive');
+      });
+
+    function prettyName(name) {
+      return name.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+    }
+
+    function renderMaps(maps) {
+      const container = document.getElementById('map-grid-container');
+      if (!container) return;
+      if (!maps.length) {
+        container.innerHTML = '<div class="empty">No maps available.</div>';
+        return;
+      }
+      container.innerHTML = maps.map(m => `
+        <div class="map-tile" onclick="window.open('maps/${m.aoi}/${m.file}', '_blank')">
+          <img src="maps/${m.aoi}/${m.file}" alt="${m.name}" loading="lazy">
+          <div class="caption">${prettyName(m.name)}</div>
+        </div>
+      `).join('');
+    }
+
+    function renderReports(reports) {
+      const container = document.getElementById('reports-list-container');
+      if (!container) return;
+      if (!reports.length) {
+        container.innerHTML = '<div class="empty">No reports available.</div>';
+        return;
+      }
+      container.innerHTML = reports.map(r => `
+        <li>
+          <a href="reports/${r.aoi}/${r.file}" target="_blank">
+            📄 ${prettyName(r.name)} <small>(${r.type.toUpperCase()})</small>
+          </a>
+        </li>
+      `).join('');
+    }
+
+    function renderVideos(videos) {
+      const container = document.getElementById('videos-list-container');
+      if (!container) return;
+      const all = [...(videos.intro || []), ...(videos.pitch || [])];
+      if (!all.length) {
+        container.innerHTML = '<div class="empty">No videos available.</div>';
+        return;
+      }
+      container.innerHTML = all.map(v => `
+        <li>
+          <a href="videos/${v.aoi}/${v.file}" target="_blank">
+            🎬 ${prettyName(v.name)}
+          </a>
+        </li>
+      `).join('');
+    }
+
+
+    // CF2 CORE THEME V2
+    function setAnalystView(enabled) {
+      document.body.classList.toggle('analyst-view', enabled);
+      const button = document.getElementById('analyst-toggle');
+      if (button) {
+        button.setAttribute('aria-pressed', enabled ? 'true' : 'false');
+        const label = button.querySelector('span');
+        if (label) label.textContent = enabled ? 'Standard View' : 'Analyst View';
+      }
+      try {
+        localStorage.setItem('cf2-analyst-view', enabled ? '1' : '0');
+      } catch (_) {}
+    }
+
+    function toggleAnalystView() {
+      setAnalystView(!document.body.classList.contains('analyst-view'));
+    }
+
+    function restoreAnalystView() {
+      let enabled = false;
+      try {
+        enabled = localStorage.getItem('cf2-analyst-view') === '1';
+      } catch (_) {}
+      setAnalystView(enabled);
+    }
+
+    restoreAnalystView();
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+        document.body.classList.remove('mobile-sidebar-open');
+      }
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') {
+        document.body.classList.remove('mobile-sidebar-open');
+      }
+    });
+
+
+  </script>
+</body>
+</html>
